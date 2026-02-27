@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+    
+            :root { 
+--buttonColor0: rgba(255, 201.99999999999994, 40, 1); 
+--buttonColor1: rgba(0, 0, 0, 0); 
+--buttonColor2: rgba(0, 0, 0, 0); 
+--buttonFontColor: rgba(47, 47, 47, 1); 
+--buttonFontSize: 16px; 
+}
+
+
+            
+          html,body {
+    overflow:hidden;
+    width: 100%;
+    height: 100%;
+}
+body  {
+	display: flex;
+    align-content: space-around;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+}
+
+.buttonWrap {
+	z-index: 1;
+	position: relative;
+	width: 400px;
+	height: 400px;
+	max-width: 50%;
+}
+            
+.particleButton {
+	z-index: 1;
+	color: var(--buttonFontColor);
+	padding: 0em;
+	font-size: var(--buttonFontSize);
+	position: absolute;
+	width: 90px;
+	height: 90px;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%) scale(1, 1);
+
+	background-color: unset;
+	background: var(--buttonColor0);
+	pointer-events: all;
+	cursor: pointer;
+	border-radius: 50%;
+	border-width: 0px;
+	box-sizing: border-box;
+	transition: box-shadow ease-out 0.3s, transform 0.1s ease-in;
+	box-shadow: 0px 0px 0px 5px var(--buttonColor2),
+		0px 0px 0px 9px var(--buttonColor1),
+		inset 0px 0px 0px 0px var(--buttonColor2);
+}
+.particleButton:hover:not(:active) {
+	transition: 0.1s ease-in-out all;
+	box-shadow: 0px 0px 0px 8px var(--buttonColor2),
+		0px 0px 0px 14px var(--buttonColor1),
+		inset 0px 0px 0px 0px var(--buttonColor2);
+
+	transform: translate(-50%, -50%) scale(0.95, 0.95);
+}
+.particles {
+	z-index: -1;
+	background: none !important;
+	pointer-events: none;
+	cursor: pointer;
+	box-shadow: none;
+}
+.particles::after {
+	position: absolute;
+	content: "";
+	left: -105px;
+	top: -105px;
+	min-width: 300px;
+	min-height: 300px;
+	pointer-events: none;
+	transition: background-size ease-in-out 0.5s,
+		background-position ease-in-out 0.5s;
+	background-repeat: no-repeat;
+	overflow: hidden;
+}
+
+.particleButton:active {
+	transition: box-shadow ease-out 0.1s, background-size ease-in-out 0.1s,
+		background-position ease-in-out 0.1s;
+	box-shadow: 0px 0px 0px 0px var(--buttonColor2),
+		0px 0px 0px 5px var(--buttonColor1),
+		inset 0px 0px 0px 5px var(--buttonColor2);
+
+	transform: translate(-50%, -50%) scale(0.9, 0.9);
+}
+.particleButton:active ~ .particles::after {
+	animation: none;
+	background-size: 0;
+}
+
+
+
+        </style>
+        <style>
+            .theButton.animated::after { 
+    animation: theButtonAnimation linear 1.65s forwards;
+    background-image: 
+        radial-gradient(circle, rgba(46.00000000000001, 94.99999999999999, 145, 1) 45%, transparent 45%),
+        radial-gradient(circle, rgba(46.00000000000001, 94.99999999999999, 145, 1) 45%, transparent 45%),
+        radial-gradient(circle, rgba(46.00000000000001, 94.99999999999999, 145, 1) 45%, transparent 45%),
+        radial-gradient(circle, rgba(46.00000000000001, 94.99999999999999, 145, 1) 45%, transparent 45%),
+        radial-gradient(circle, rgba(46.00000000000001, 94.99999999999999, 145, 1) 45%, transparent 45%),
+        radial-gradient(circle, rgba(46.00000000000001, 94.99999999999999, 145, 1) 45%, transparent 45%),
+        radial-gradient(circle, rgba(46.00000000000001, 94.99999999999999, 145, 1) 45%, transparent 45%),
+        radial-gradient(circle, rgba(46.00000000000001, 94.99999999999999, 145, 1) 45%, transparent 45%),
+        radial-gradient(circle, rgba(46.00000000000001, 94.99999999999999, 145, 1) 45%, transparent 45%),
+        radial-gradient(circle, rgba(46.00000000000001, 94.99999999999999, 145, 1) 45%, transparent 45%),
+        radial-gradient(circle, rgba(46.00000000000001, 94.99999999999999, 145, 1) 45%, transparent 45%),
+        radial-gradient(circle, rgba(46.00000000000001, 94.99999999999999, 145, 1) 45%, transparent 45%),
+        radial-gradient(circle, rgba(46.00000000000001, 94.99999999999999, 145, 1) 45%, transparent 45%),
+        radial-gradient(circle, rgba(46.00000000000001, 94.99999999999999, 145, 1) 45%, transparent 45%),
+        radial-gradient(circle, rgba(46.00000000000001, 94.99999999999999, 145, 1) 45%, transparent 45%);
+} 
+@keyframes theButtonAnimation {
+    0% {
+        transform:    scale(1,1);
+        background-size: 30px 30px,14px 14px,32px 32px,17px 17px,29px 29px,29px 29px,28px 28px,19px 19px,34px 34px,29px 29px,32px 32px,13px 13px,24px 24px,13px 13px,14px 14px;
+        background-position: 531px 505px,526px 530px,499px 532px,485px 541px,459px 529px,443px 515px,435px 496px,440px 479px,441px 452px,459px 441px,478px 432px,508px 444px,522px 449px,539px 472px,543px 492px;
+    }
+    2% {
+        transform:    scale(0.98,0.98);
+        background-size: 31px 31px,14px 14px,32px 32px,17px 17px,29px 29px,31px 31px,29px 29px,19px 19px,34px 34px,30px 30px,32px 32px,14px 14px,24px 24px,14px 14px,14px 14px;
+        background-position: 542px 493px,546px 523px,518px 533px,501px 550px,471px 544px,447px 532px,431px 515px,430px 493px,425px 462px,440px 443px,462px 428px,493px 430px,513px 431px,539px 451px,550px 476px;
+    }
+    4% {
+        transform:    scale(0.96,0.96);
+        background-size: 31px 31px,15px 15px,32px 32px,18px 18px,29px 29px,32px 32px,31px 31px,19px 19px,34px 34px,31px 31px,32px 32px,14px 14px,24px 24px,14px 14px,13px 13px;
+        background-position: 549px 480px,562px 514px,535px 531px,516px 554px,483px 554px,454px 546px,430px 533px,426px 507px,413px 474px,423px 448px,447px 428px,477px 421px,502px 417px,535px 433px,552px 461px;
+    }
+    6% {
+        transform:    scale(0.94,0.94);
+        background-size: 32px 32px,15px 15px,31px 31px,18px 18px,29px 29px,33px 33px,32px 32px,19px 19px,34px 34px,32px 32px,32px 32px,14px 14px,24px 24px,15px 15px,13px 13px;
+        background-position: 552px 468px,575px 504px,550px 527px,530px 554px,496px 561px,462px 557px,432px 548px,425px 520px,404px 486px,409px 454px,434px 431px,461px 414px,491px 406px,529px 417px,551px 447px;
+    }
+    8% {
+        transform:    scale(0.92,0.92);
+        background-size: 32px 32px,16px 16px,31px 31px,19px 19px,30px 30px,35px 35px,33px 33px,19px 19px,34px 34px,34px 34px,32px 32px,14px 14px,24px 24px,15px 15px,13px 13px;
+        background-position: 552px 456px,586px 493px,563px 522px,542px 552px,508px 565px,470px 565px,435px 561px,427px 532px,398px 498px,398px 462px,424px 437px,447px 410px,480px 397px,523px 403px,548px 436px;
+    }
+    10% {
+        transform:    scale(0.9,0.9);
+        background-size: 33px 33px,16px 16px,31px 31px,20px 20px,30px 30px,37px 37px,35px 35px,19px 19px,34px 34px,35px 35px,31px 31px,14px 14px,24px 24px,16px 16px,13px 13px;
+        background-position: 549px 445px,595px 483px,574px 515px,553px 548px,519px 566px,479px 571px,439px 573px,431px 542px,394px 509px,388px 470px,416px 444px,433px 407px,469px 390px,515px 392px,543px 426px;
+    }
+    12% {
+        transform:    scale(0.88,0.88);
+        background-size: 34px 34px,17px 17px,30px 30px,20px 20px,30px 30px,38px 38px,36px 36px,19px 19px,34px 34px,36px 36px,31px 31px,14px 14px,24px 24px,16px 16px,13px 13px;
+        background-position: 544px 435px,603px 472px,582px 508px,562px 543px,530px 566px,488px 575px,443px 583px,437px 550px,391px 520px,380px 478px,410px 452px,420px 405px,458px 385px,508px 381px,536px 418px;
+    }
+    14% {
+        transform:    scale(0.86,0.86);
+        background-size: 34px 34px,18px 18px,30px 30px,21px 21px,31px 31px,40px 40px,38px 38px,19px 19px,34px 34px,38px 38px,31px 31px,15px 15px,24px 24px,17px 17px,12px 12px;
+        background-position: 536px 428px,609px 462px,590px 500px,570px 537px,540px 564px,497px 577px,449px 592px,445px 557px,391px 530px,374px 486px,406px 462px,408px 404px,448px 381px,500px 372px,529px 412px;
+    }
+    16% {
+        transform:    scale(0.84,0.84);
+        background-size: 35px 35px,18px 18px,30px 30px,21px 21px,31px 31px,42px 42px,40px 40px,19px 19px,34px 34px,40px 40px,31px 31px,15px 15px,24px 24px,17px 17px,12px 12px;
+        background-position: 527px 422px,615px 452px,596px 493px,576px 529px,548px 561px,506px 578px,454px 600px,454px 561px,391px 540px,369px 495px,405px 472px,397px 404px,438px 379px,492px 364px,520px 407px;
+    }
+    18% {
+        transform:    scale(0.8200000000000001,0.8200000000000001);
+        background-size: 36px 36px,19px 19px,29px 29px,22px 22px,31px 31px,44px 44px,41px 41px,19px 19px,34px 34px,41px 41px,31px 31px,15px 15px,24px 24px,18px 18px,12px 12px;
+        background-position: 515px 418px,619px 442px,601px 485px,580px 521px,556px 557px,514px 577px,460px 606px,464px 563px,393px 549px,366px 503px,406px 483px,387px 405px,428px 377px,484px 357px,512px 405px;
+    }
+    20% {
+        transform:    scale(0.8,0.8);
+        background-size: 36px 36px,19px 19px,29px 29px,22px 22px,31px 31px,46px 46px,43px 43px,19px 19px,34px 34px,43px 43px,30px 30px,15px 15px,25px 25px,18px 18px,12px 12px;
+        background-position: 503px 417px,622px 433px,604px 477px,583px 513px,563px 551px,521px 574px,465px 612px,475px 563px,396px 557px,364px 510px,410px 493px,377px 407px,419px 376px,476px 351px,502px 404px;
+    }
+    22% {
+        transform:    scale(0.78,0.78);
+        background-size: 37px 37px,20px 20px,29px 29px,23px 23px,32px 32px,48px 48px,45px 45px,19px 19px,34px 34px,45px 45px,30px 30px,15px 15px,25px 25px,19px 19px,11px 11px;
+        background-position: 489px 420px,625px 423px,607px 469px,584px 504px,569px 545px,528px 570px,471px 616px,487px 560px,400px 564px,362px 518px,417px 504px,368px 408px,410px 377px,468px 346px,493px 406px;
+    }
+    24% {
+        transform:    scale(0.76,0.76);
+        background-size: 38px 38px,21px 21px,29px 29px,24px 24px,32px 32px,50px 50px,47px 47px,19px 19px,35px 35px,47px 47px,30px 30px,15px 15px,25px 25px,19px 19px,11px 11px;
+        background-position: 474px 427px,627px 415px,608px 462px,583px 494px,573px 538px,534px 565px,477px 620px,499px 553px,404px 570px,362px 524px,428px 513px,359px 411px,402px 377px,460px 341px,483px 410px;
+    }
+    26% {
+        transform:    scale(0.74,0.74);
+        background-size: 38px 38px,21px 21px,28px 28px,24px 24px,32px 32px,52px 52px,49px 49px,19px 19px,35px 35px,49px 49px,30px 30px,16px 16px,25px 25px,20px 20px,11px 11px;
+        background-position: 461px 440px,629px 406px,608px 454px,581px 485px,576px 530px,540px 559px,483px 623px,510px 542px,410px 576px,363px 531px,441px 520px,351px 413px,395px 379px,452px 337px,474px 416px;
+    }
+    28% {
+        transform:    scale(0.72,0.72);
+        background-size: 39px 39px,22px 22px,28px 28px,25px 25px,33px 33px,54px 54px,51px 51px,19px 19px,35px 35px,51px 51px,30px 30px,16px 16px,25px 25px,21px 21px,11px 11px;
+        background-position: 451px 459px,630px 398px,608px 447px,577px 475px,578px 521px,544px 552px,488px 625px,520px 527px,416px 581px,365px 537px,459px 524px,344px 416px,388px 381px,445px 334px,465px 424px;
+    }
+    30% {
+        transform:    scale(0.7,0.7);
+        background-size: 40px 40px,23px 23px,28px 28px,26px 26px,33px 33px,57px 57px,54px 54px,19px 19px,35px 35px,53px 53px,29px 29px,16px 16px,25px 25px,21px 21px,11px 11px;
+        background-position: 447px 482px,631px 390px,606px 440px,571px 466px,578px 512px,548px 543px,494px 627px,524px 507px,423px 584px,367px 542px,480px 522px,337px 419px,381px 384px,438px 332px,458px 435px;
+    }
+    32% {
+        transform:    scale(0.6799999999999999,0.6799999999999999);
+        background-size: 41px 41px,24px 24px,27px 27px,26px 26px,33px 33px,59px 59px,56px 56px,19px 19px,35px 35px,55px 55px,29px 29px,16px 16px,25px 25px,22px 22px,10px 10px;
+        background-position: 450px 505px,631px 382px,604px 434px,562px 457px,577px 502px,550px 534px,499px 628px,522px 483px,430px 587px,370px 547px,502px 513px,330px 423px,375px 387px,430px 330px,452px 449px;
+    }
+    34% {
+        transform:    scale(0.6599999999999999,0.6599999999999999);
+        background-size: 41px 41px,24px 24px,27px 27px,27px 27px,34px 34px,62px 62px,59px 59px,19px 19px,35px 35px,57px 57px,29px 29px,16px 16px,25px 25px,23px 23px,10px 10px;
+        background-position: 460px 523px,630px 375px,600px 427px,552px 449px,574px 492px,551px 523px,504px 628px,512px 461px,438px 588px,374px 551px,520px 496px,325px 426px,370px 391px,423px 328px,449px 466px;
+    }
+    36% {
+        transform:    scale(0.64,0.64);
+        background-size: 42px 42px,25px 25px,27px 27px,28px 28px,34px 34px,65px 65px,61px 61px,19px 19px,35px 35px,60px 60px,29px 29px,17px 17px,25px 25px,23px 23px,10px 10px;
+        background-position: 472px 535px,630px 367px,596px 422px,539px 443px,569px 482px,551px 512px,509px 627px,498px 445px,446px 589px,379px 555px,531px 478px,319px 430px,365px 395px,417px 327px,451px 486px;
+    }
+    38% {
+        transform:    scale(0.62,0.62);
+        background-size: 43px 43px,26px 26px,27px 27px,29px 29px,34px 34px,68px 68px,64px 64px,19px 19px,35px 35px,62px 62px,29px 29px,17px 17px,25px 25px,24px 24px,10px 10px;
+        background-position: 485px 541px,629px 361px,591px 417px,523px 438px,562px 471px,549px 499px,514px 626px,482px 435px,455px 588px,384px 557px,534px 460px,314px 434px,361px 400px,410px 327px,461px 507px;
+    }
+    40% {
+        transform:    scale(0.6,0.6);
+        background-size: 44px 44px,27px 27px,26px 26px,29px 29px,35px 35px,71px 71px,67px 67px,19px 19px,35px 35px,65px 65px,29px 29px,17px 17px,25px 25px,25px 25px,10px 10px;
+        background-position: 498px 543px,627px 354px,585px 412px,504px 438px,553px 461px,545px 486px,519px 624px,466px 432px,464px 586px,391px 559px,533px 444px,310px 438px,357px 405px,404px 327px,478px 525px;
+    }
+    42% {
+        transform:    scale(0.5800000000000001,0.5800000000000001);
+        background-size: 45px 45px,28px 28px,26px 26px,30px 30px,35px 35px,74px 74px,70px 70px,19px 19px,35px 35px,67px 67px,28px 28px,17px 17px,25px 25px,26px 26px,9px 9px;
+        background-position: 509px 542px,625px 348px,578px 408px,484px 443px,541px 452px,539px 472px,523px 622px,452px 432px,473px 583px,397px 560px,528px 431px,305px 442px,354px 410px,398px 327px,498px 537px;
+    }
+    44% {
+        transform:    scale(0.56,0.56);
+        background-size: 46px 46px,29px 29px,26px 26px,31px 31px,35px 35px,77px 77px,73px 73px,19px 19px,35px 35px,70px 70px,28px 28px,18px 18px,26px 26px,26px 26px,9px 9px;
+        background-position: 519px 539px,623px 342px,571px 405px,463px 456px,525px 445px,530px 458px,527px 618px,440px 435px,483px 578px,405px 560px,522px 421px,302px 447px,351px 416px,392px 328px,519px 541px;
+    }
+    46% {
+        transform:    scale(0.54,0.54);
+        background-size: 47px 47px,30px 30px,25px 25px,32px 32px,36px 36px,81px 81px,76px 76px,19px 19px,35px 35px,73px 73px,28px 28px,18px 18px,26px 26px,27px 27px,9px 9px;
+        background-position: 528px 533px,621px 336px,562px 402px,447px 474px,506px 441px,517px 444px,531px 615px,430px 440px,492px 571px,413px 559px,513px 413px,298px 451px,350px 422px,386px 329px,536px 539px;
+    }
+    48% {
+        transform:    scale(0.52,0.52);
+        background-size: 47px 47px,31px 31px,25px 25px,33px 33px,36px 36px,85px 85px,79px 79px,19px 19px,35px 35px,76px 76px,28px 28px,18px 18px,26px 26px,28px 28px,9px 9px;
+        background-position: 535px 525px,618px 331px,553px 400px,438px 495px,483px 443px,501px 431px,534px 610px,422px 448px,501px 562px,422px 556px,504px 408px,296px 456px,348px 429px,380px 330px,550px 534px;
+    }
+    50% {
+        transform:    scale(0.5,0.5);
+        background-size: 48px 48px,32px 32px,25px 25px,34px 34px,36px 36px,88px 88px,83px 83px,19px 19px,35px 35px,79px 79px,28px 28px,18px 18px,26px 26px,29px 29px,9px 9px;
+        background-position: 539px 515px,615px 325px,542px 400px,437px 514px,460px 453px,478px 421px,537px 606px,417px 456px,510px 551px,431px 552px,495px 405px,293px 460px,348px 435px,375px 332px,562px 528px;
+    }
+    52% {
+        transform:    scale(0.48,0.48);
+        background-size: 49px 49px,33px 33px,25px 25px,35px 35px,37px 37px,92px 92px,86px 86px,19px 19px,36px 36px,82px 82px,28px 28px,18px 18px,26px 26px,30px 30px,9px 9px;
+        background-position: 541px 504px,612px 320px,531px 401px,440px 531px,441px 469px,452px 418px,540px 600px,413px 466px,517px 537px,440px 547px,484px 405px,291px 465px,348px 442px,370px 335px,571px 519px;
+    }
+    54% {
+        transform:    scale(0.45999999999999996,0.45999999999999996);
+        background-size: 50px 50px,34px 34px,24px 24px,36px 36px,37px 37px,97px 97px,90px 90px,19px 19px,36px 36px,86px 86px,27px 27px,19px 19px,26px 26px,31px 31px,8px 8px;
+        background-position: 541px 491px,608px 316px,520px 403px,445px 544px,430px 487px,426px 422px,543px 594px,412px 476px,523px 520px,450px 539px,474px 408px,289px 470px,349px 449px,366px 337px,578px 511px;
+    }
+    56% {
+        transform:    scale(0.43999999999999995,0.43999999999999995);
+        background-size: 51px 51px,35px 35px,24px 24px,37px 37px,37px 37px,101px 101px,94px 94px,19px 19px,36px 36px,89px 89px,27px 27px,19px 19px,26px 26px,32px 32px,8px 8px;
+        background-position: 537px 478px,605px 312px,507px 407px,452px 554px,426px 505px,404px 432px,545px 588px,413px 486px,524px 500px,460px 529px,465px 412px,288px 474px,350px 457px,361px 340px,582px 501px;
+    }
+    58% {
+        transform:    scale(0.42000000000000004,0.42000000000000004);
+        background-size: 52px 52px,36px 36px,24px 24px,38px 38px,38px 38px,105px 105px,98px 98px,19px 19px,36px 36px,93px 93px,27px 27px,19px 19px,26px 26px,33px 33px,8px 8px;
+        background-position: 529px 464px,601px 307px,494px 414px,460px 562px,425px 521px,389px 444px,546px 580px,418px 497px,519px 477px,470px 515px,456px 420px,287px 479px,353px 464px,357px 343px,584px 492px;
+    }
+    60% {
+        transform:    scale(0.4,0.4);
+        background-size: 53px 53px,38px 38px,24px 24px,39px 39px,38px 38px,110px 110px,102px 102px,19px 19px,36px 36px,97px 97px,27px 27px,19px 19px,26px 26px,34px 34px,8px 8px;
+        background-position: 515px 452px,596px 304px,481px 424px,469px 568px,427px 535px,379px 457px,547px 573px,425px 508px,506px 455px,479px 498px,448px 431px,287px 484px,356px 472px,353px 347px,585px 482px;
+    }
+    62% {
+        transform:    scale(0.38,0.38);
+        background-size: 54px 54px,39px 39px,23px 23px,40px 40px,38px 38px,115px 115px,107px 107px,19px 19px,36px 36px,101px 101px,27px 27px,20px 20px,26px 26px,35px 35px,8px 8px;
+        background-position: 496px 442px,592px 300px,468px 437px,478px 572px,431px 547px,372px 469px,548px 564px,435px 517px,488px 439px,484px 477px,443px 444px,287px 489px,360px 480px,350px 351px,583px 473px;
+    }
+    64% {
+        transform:    scale(0.36,0.36);
+        background-size: 55px 55px,40px 40px,23px 23px,41px 41px,39px 39px,120px 120px,112px 112px,19px 19px,36px 36px,105px 105px,27px 27px,20px 20px,26px 26px,36px 36px,8px 8px;
+        background-position: 472px 439px,587px 297px,457px 456px,487px 574px,436px 558px,368px 480px,548px 555px,450px 525px,469px 430px,484px 450px,441px 461px,287px 493px,365px 487px,346px 355px,579px 464px;
+    }
+    66% {
+        transform:    scale(0.33999999999999997,0.33999999999999997);
+        background-size: 56px 56px,42px 42px,23px 23px,42px 42px,39px 39px,126px 126px,117px 117px,19px 19px,36px 36px,110px 110px,26px 26px,20px 20px,27px 27px,37px 37px,8px 8px;
+        background-position: 448px 443px,583px 294px,452px 480px,495px 574px,443px 566px,366px 490px,548px 546px,469px 528px,450px 426px,475px 424px,444px 480px,288px 498px,372px 495px,344px 360px,573px 456px;
+    }
+    68% {
+        transform:    scale(0.31999999999999995,0.31999999999999995);
+        background-size: 57px 57px,43px 43px,23px 23px,43px 43px,39px 39px,131px 131px,122px 122px,19px 19px,36px 36px,114px 114px,26px 26px,20px 20px,27px 27px,38px 38px,7px 7px;
+        background-position: 428px 454px,578px 291px,454px 505px,504px 572px,450px 573px,365px 498px,547px 535px,491px 525px,434px 427px,461px 401px,455px 500px,289px 503px,379px 503px,341px 365px,566px 449px;
+    }
+    70% {
+        transform:    scale(0.30000000000000004,0.30000000000000004);
+        background-size: 58px 58px,44px 44px,22px 22px,44px 44px,40px 40px,137px 137px,127px 127px,19px 19px,36px 36px,119px 119px,26px 26px,21px 21px,27px 27px,39px 39px,7px 7px;
+        background-position: 416px 467px,572px 289px,463px 527px,511px 569px,458px 578px,366px 505px,545px 525px,513px 514px,420px 429px,443px 384px,472px 517px,290px 508px,388px 510px,339px 370px,556px 444px;
+    }
+    72% {
+        transform:    scale(0.28,0.28);
+        background-size: 60px 60px,46px 46px,22px 22px,45px 45px,40px 40px,143px 143px,133px 133px,19px 19px,36px 36px,124px 124px,26px 26px,21px 21px,27px 27px,40px 40px,7px 7px;
+        background-position: 409px 481px,567px 287px,476px 544px,519px 564px,466px 581px,368px 510px,542px 513px,530px 498px,407px 434px,424px 373px,493px 527px,292px 512px,399px 517px,337px 375px,545px 440px;
+    }
+    74% {
+        transform:    scale(0.26,0.26);
+        background-size: 61px 61px,47px 47px,22px 22px,47px 47px,41px 41px,150px 150px,138px 138px,19px 19px,36px 36px,129px 129px,26px 26px,21px 21px,27px 27px,42px 42px,7px 7px;
+        background-position: 406px 494px,561px 285px,491px 555px,525px 557px,474px 583px,370px 514px,539px 501px,539px 479px,397px 439px,406px 366px,513px 530px,295px 517px,411px 524px,336px 381px,532px 438px;
+    }
+    76% {
+        transform:    scale(0.24,0.24);
+        background-size: 62px 62px,49px 49px,22px 22px,48px 48px,41px 41px,157px 157px,144px 144px,19px 19px,36px 36px,134px 134px,26px 26px,21px 21px,27px 27px,43px 43px,7px 7px;
+        background-position: 406px 505px,556px 284px,505px 562px,531px 549px,482px 584px,373px 517px,535px 488px,542px 462px,388px 446px,389px 361px,530px 527px,297px 522px,425px 529px,335px 387px,517px 439px;
+    }
+    78% {
+        transform:    scale(0.21999999999999997,0.21999999999999997);
+        background-size: 63px 63px,51px 51px,21px 21px,49px 49px,41px 41px,164px 164px,151px 151px,19px 19px,36px 36px,140px 140px,25px 25px,22px 22px,27px 27px,44px 44px,7px 7px;
+        background-position: 410px 515px,550px 283px,519px 567px,535px 540px,490px 583px,377px 518px,530px 475px,540px 448px,380px 453px,374px 358px,543px 521px,301px 526px,442px 533px,334px 393px,500px 444px;
+    }
+    80% {
+        transform:    scale(0.19999999999999996,0.19999999999999996);
+        background-size: 64px 64px,52px 52px,21px 21px,51px 51px,42px 42px,171px 171px,157px 157px,19px 19px,37px 37px,145px 145px,25px 25px,22px 22px,27px 27px,46px 46px,7px 7px;
+        background-position: 415px 524px,544px 282px,531px 570px,538px 528px,498px 581px,380px 517px,523px 461px,535px 435px,374px 460px,359px 357px,553px 513px,304px 531px,461px 533px,334px 400px,483px 455px;
+    }
+    82% {
+        transform:    scale(0.18000000000000005,0.18000000000000005);
+        background-size: 66px 66px,54px 54px,21px 21px,52px 52px,42px 42px,179px 179px,164px 164px,19px 19px,37px 37px,151px 151px,25px 25px,22px 22px,27px 27px,47px 47px,6px 6px;
+        background-position: 422px 530px,537px 282px,543px 571px,539px 516px,506px 577px,385px 516px,515px 446px,529px 425px,370px 468px,345px 356px,561px 503px,308px 535px,483px 529px,335px 407px,469px 474px;
+    }
+    84% {
+        transform:    scale(0.16000000000000003,0.16000000000000003);
+        background-size: 67px 67px,56px 56px,21px 21px,53px 53px,43px 43px,187px 187px,172px 172px,19px 19px,37px 37px,158px 158px,25px 25px,22px 22px,27px 27px,48px 48px,6px 6px;
+        background-position: 431px 534px,531px 282px,554px 570px,538px 502px,514px 571px,389px 512px,506px 431px,521px 418px,366px 475px,332px 357px,565px 493px,313px 539px,505px 517px,336px 414px,460px 497px;
+    }
+    86% {
+        transform:    scale(0.14,0.14);
+        background-size: 68px 68px,58px 58px,21px 21px,55px 55px,43px 43px,195px 195px,179px 179px,19px 19px,37px 37px,164px 164px,25px 25px,23px 23px,27px 27px,50px 50px,6px 6px;
+        background-position: 441px 535px,524px 282px,565px 569px,534px 486px,520px 564px,393px 508px,494px 415px,512px 413px,364px 483px,321px 358px,567px 483px,318px 543px,523px 498px,337px 421px,460px 520px;
+    }
+    88% {
+        transform:    scale(0.12,0.12);
+        background-size: 69px 69px,60px 60px,20px 20px,56px 56px,43px 43px,204px 204px,187px 187px,19px 19px,37px 37px,171px 171px,25px 25px,23px 23px,28px 28px,51px 51px,6px 6px;
+        background-position: 452px 534px,518px 283px,574px 566px,527px 470px,526px 556px,397px 501px,480px 399px,502px 410px,363px 491px,310px 360px,566px 473px,323px 547px,534px 477px,340px 429px,465px 539px;
+    }
+    90% {
+        transform:    scale(0.09999999999999998,0.09999999999999998);
+        background-size: 71px 71px,62px 62px,20px 20px,58px 58px,44px 44px,213px 213px,195px 195px,19px 19px,37px 37px,178px 178px,25px 25px,23px 23px,28px 28px,53px 53px,6px 6px;
+        background-position: 464px 529px,511px 284px,582px 563px,513px 454px,531px 546px,401px 493px,463px 383px,492px 410px,363px 499px,300px 362px,563px 463px,329px 551px,538px 457px,343px 437px,475px 554px;
+    }
+    92% {
+        transform:    scale(0.07999999999999996,0.07999999999999996);
+        background-size: 72px 72px,64px 64px,20px 20px,60px 60px,44px 44px,223px 223px,204px 204px,19px 19px,37px 37px,185px 185px,24px 24px,24px 24px,28px 28px,55px 55px,6px 6px;
+        background-position: 475px 520px,504px 285px,589px 559px,494px 441px,535px 534px,405px 483px,442px 368px,482px 412px,365px 506px,291px 364px,557px 455px,335px 554px,537px 439px,347px 445px,485px 565px;
+    }
+    94% {
+        transform:    scale(0.06000000000000005,0.06000000000000005);
+        background-size: 73px 73px,66px 66px,20px 20px,61px 61px,45px 45px,233px 233px,213px 213px,19px 19px,37px 37px,193px 193px,24px 24px,24px 24px,28px 28px,56px 56px,6px 6px;
+        background-position: 486px 507px,497px 287px,596px 554px,469px 434px,537px 521px,408px 471px,416px 357px,472px 417px,367px 514px,283px 367px,549px 447px,342px 557px,535px 423px,352px 453px,497px 572px;
+    }
+    96% {
+        transform:    scale(0.040000000000000036,0.040000000000000036);
+        background-size: 75px 75px,68px 68px,20px 20px,63px 63px,45px 45px,243px 243px,222px 222px,18px 18px,37px 37px,201px 201px,24px 24px,24px 24px,28px 28px,58px 58px,6px 6px;
+        background-position: 493px 488px,489px 289px,601px 548px,444px 434px,536px 505px,411px 458px,386px 351px,462px 425px,371px 521px,276px 370px,539px 441px,350px 560px,530px 409px,358px 462px,508px 576px;
+    }
+    98% {
+        transform:    scale(0.020000000000000018,0.020000000000000018);
+        background-size: 76px 76px,70px 70px,19px 19px,65px 65px,46px 46px,254px 254px,232px 232px,18px 18px,37px 37px,209px 209px,24px 24px,24px 24px,28px 28px,60px 60px,6px 6px;
+        background-position: 494px 465px,482px 292px,606px 543px,423px 441px,532px 489px,412px 441px,356px 353px,455px 436px,376px 527px,270px 373px,526px 437px,358px 563px,525px 397px,365px 470px,519px 578px;
+    }
+    100% {
+        transform:    scale(0,0);
+        background-size: 78px 78px,73px 73px,19px 19px,66px 66px,46px 46px,265px 265px,242px 242px,18px 18px,37px 37px,218px 218px,24px 24px,25px 25px,28px 28px,62px 62px,5px 5px;
+        background-position: 488px 440px,475px 295px,610px 536px,408px 451px,523px 471px,412px 423px,331px 361px,449px 450px,381px 533px,264px 376px,510px 436px,367px 565px,519px 386px,373px 478px,529px 578px;
+    }} 
+.theButton.particles::after {
+    left: -455px;
+    top: -455px;
+    min-width: 1000px;
+    min-height: 1000px;
+}
+.theButton {
+    width: 90px;
+    height: 90px;
+    background: rgba(255, 201.99999999999994, 40, 1);
+    color: rgba(47, 47, 47, 1);
+    border-radius: 50px;
+    box-shadow: 0px 0px 0px 5px rgba(0, 0, 0, 0), 0px 0px 0px 9px rgba(0, 0, 0, 0), inset 0px 0px 0px 0px rgba(0, 0, 0, 0);
+}
+
+        </style>
+    </head>
+    <body>
+    
+        <div class='buttonWrap'>
+            <button class='theButton particleButton'>Click me</button>
+            <div class='theButton particleButton particles'></div>
+        </div>
+        <script>
+            document.querySelectorAll("button.particleButton").forEach(btn => {
+				let btnBg = btn.parentNode.querySelector(".particles")
+				let initalListener = () => {
+					btnBg.classList.add("animated")
+					btn.removeEventListener("mouseover", initalListener)
+				}
+				btn.addEventListener("mouseover", initalListener)
+			})
+        </script>
+    </body>
+</html>

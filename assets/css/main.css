@@ -1,0 +1,165 @@
+body{
+    overflow: hidden;
+    position: relative;
+    font-family: 'Anaheim';
+}
+#background{
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+h1,h2,h3,h4,h5,#eqpPreviewName{
+    font-family: 'MedievalSharp', cursive;
+    font-style: normal;
+    color: white;
+}
+
+.section-container{
+    color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0px 0px 90px 20px inset rgba(0,0,0, 1);
+    text-shadow: 1px 1px black;
+}
+#background.soul{background-image: url("../img/Backgrounds/soul.webp");}
+#background.town{background-image: url("../img/Backgrounds/town.webp");}
+#background.shop{background-image: url("../img/NPCs/Town/merchant.webp");}
+#background.forge{background-image: url("../img/NPCs/Town/blacksmith.webp");}
+#background.tower{background-image: url("../img/NPCs/Town/enchantress.webp");}
+#background.runes{background-image: url("../img/NPCs/Town/runemaster.webp");}
+#background.auras{background-image: url("../img/NPCs/Town/auramaster.webp");}
+#background.death{background-image: url("../img/Backgrounds/death.webp");}
+#background.bag{background-image: url("../img/Backgrounds/bag.webp");}
+#background.armory{background-image: url("../img/Backgrounds/armory.webp");}
+#background.map{background-image: url("../img/Backgrounds/map.webp");}
+#background.alchemist{background-image: url("../img/NPCs/Town/alchemist2.webp");}
+#background.maidens{
+    background: #21AAC2;
+    background: radial-gradient(circle, rgba(33, 170, 194, 1) 0%, rgba(0, 141, 166, 1) 34%, rgba(0, 62, 89, 1) 100%);
+}
+#background.mobs{
+    background: #21AAC2;
+    background: radial-gradient(circle, rgba(33, 170, 194, 1) 0%, rgba(0, 141, 166, 1) 34%, rgba(0, 62, 89, 1) 100%);
+}
+
+#background>#revive{
+    display: none;
+    position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; transform: translate(-50%, -50%); object-fit: cover;
+}
+.layer{
+    position: absolute;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: transparent;
+}
+#backgroundLabel{
+    font-family: 'MedievalSharp', cursive;
+    font-style: normal;
+    font-weight: bolder;
+    font-size: 3rem;
+    color: white;
+    text-shadow: 2px 3px black;
+    margin-top: 5vh;
+    width: 100vw;
+    text-align: center;
+}
+.icon-btn{
+    width: 50px; height: 50px; border: 3px solid white; border-radius: 50%; background-color: transparent;
+    font-size: 1.75rem;
+    color: white;
+}
+.icon-btn>img{
+    width: 90%;
+    transition: all 0.3s;
+}
+.icon-btn:active, .icon-btn:focus{
+    border-color: crimson;
+}
+.icon-btn-text{
+    font-size: 0.9rem; color: white; text-shadow: 1px 1px 15px black;
+    background-color: rgba(0,0,0, 0.5);
+    box-shadow: 0px 0px 8px 2px rgba(0,0,0, 0.5);
+    padding: 1px 3px;
+}
+#mapBtn{
+    width: 70px; height: 70px;
+}
+#mapBtn>img{
+    animation: pulse 0.5s ease-in-out infinite alternate;
+}
+#townMenuLeft{
+    margin-left: -100%;
+    transition: all 0.3s;
+}
+#townMenuLeft.visible{
+    margin-left: 0%;
+    transition: all 0.3s;
+}
+#townMenuRight{
+    margin-right: -100%;
+    transition: all 0.3s;
+}
+#townMenuRight.visible{
+    margin-right: 0%;
+    transition: all 0.3s;
+}
+#townMenuBottom{
+    margin-bottom: -100%;
+    transition: all 0.3s;
+}
+#townMenuBottom.visible{
+    margin-bottom: 0%;
+    transition: all 0.3s;
+}
+.stat-btn{
+    color: white;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 5px;
+    font-weight: bolder;
+}
+.stat-btn:active{
+    border-color: red;
+    color: red;
+}
+.equipment-slot{
+    transition: all 0.1s;
+}
+.equipment-slot:hover, .equipment-slot:active{
+    box-shadow: 0px 0px 40px 20px inset rgba(255, 0, 0, 0.5);
+}
+.equipment-slot, #eqpPreviewPanel{
+    box-shadow: none;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#eqpPreviewPanel{
+    background-size: contain;
+    background-position: top;
+}
+.eqp-top-tag{
+    margin-top: -10px;
+    margin-right: -5px;
+}
+#eqpPreviewPanel{
+    background-color: black;
+}
+.eqp-list-toggle{
+    width: 70px;
+    height: 70px;
+}
+#mapMenuDungeonList, #mapMenuFloorList{
+    max-height: 50vh;
+    overflow-y: auto;
+}
+.map-menu-btn{
+    background-color: transparent;
+    border-color: #EEEEEE;
+    color: #EEEEEE;
+}
