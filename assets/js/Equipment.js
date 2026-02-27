@@ -22,7 +22,7 @@ class Equipment {
         this.hpPoints = this.final_hp * 5;
         this.tier = tier;
         this.max_tier = max_tier;
-        this.form_change_1 = this.form_change_2 = this.aura_1 = this.aura_2 = false;  
+        this.form_change_1 = false; this.form_change_2 = false; this.aura_1 = false; this.aura_2 = false;  
         this.special_effect;
         this.enhancement = 0;
         this.affix = this.setAffix();

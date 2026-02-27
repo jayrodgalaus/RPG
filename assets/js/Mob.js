@@ -11,7 +11,7 @@ class Mob {
         this.increment = increment;
         this.baseGold = baseGold;
         this.distr = distr;
-        let {atk, spd, def, hp} = distributeMobStats(this.baseStats, this.increment, this.distr, floor, dungeon, isElite);
+        let {gold, atk, spd, def, hp} = distributeMobStats(this.baseGold,this.baseStats, this.increment, this.distr, floor, dungeon, isElite);
         this.atk = atk;
         this.dmg = atk*3;
         this.spd = spd;
@@ -19,6 +19,9 @@ class Mob {
         this.def = def;
         this.hp = hp;
         this.hpPoints = hp * 5;
+        this.gold = gold;
+        let minDmg = this.isBoss ? 0.4 : (this.isApex ? 0.5 : (this.isElite ? 0.3 : 0.2) );
+        
     }
     
     getTotalStats(){
