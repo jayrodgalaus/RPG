@@ -91,10 +91,10 @@
             </div>
             <div id="townMenuBottom" class="d-flex align-items-center justify-content-center visible">
                 <div class="flex-grow-1 d-flex flex-column align-items-center justify-content-center">
-                    <button id="armoryBtn" class="icon-btn town-btn" screen="bag">
+                    <button id="storageBtn" class="icon-btn town-btn" screen="storage">
                         <img src="assets/icons/noun-pouch-3244756.svg" alt="">
                     </button>
-                    <span class="icon-btn-text">Bag</span>
+                    <span class="icon-btn-text">Storage</span>
                 </div>
                 <div class="flex-grow-1 d-flex flex-column align-items-center justify-content-center">
                     <button id="armoryBtn" class="icon-btn town-btn" screen="armory">
@@ -126,37 +126,65 @@
     </div>
     <div id="shopMenu" class="layer menu d-none">
         <div class="d-flex flex-column h-100 w-100 p-3">
-            <button class="icon-btn town-btn ms-auto" screen="town">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
+            <div class="d-flex top-menu-btns">
+                <button class="icon-btn toggle-menu-btn" toggledOn="true">
+                    <i class="fa-solid fa-eye medium-text"></i>
+                </button>
+                <button class="icon-btn town-btn ms-auto" screen="town">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
         </div>
     </div>
     <div id="forgeMenu" class="layer menu d-none">
         <div class="d-flex flex-column h-100 w-100 p-3">
-            <button class="icon-btn town-btn ms-auto" screen="town">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
+            <div class="d-flex top-menu-btns">
+                <button class="icon-btn toggle-menu-btn" toggledOn="true">
+                    <i class="fa-solid fa-eye medium-text"></i>
+                </button>
+                <button class="icon-btn town-btn ms-auto" screen="town">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
         </div>
     </div>
     <div id="towerMenu" class="layer menu d-none">
         <div class="d-flex flex-column h-100 w-100 p-3">
-            <button class="icon-btn town-btn ms-auto" screen="town">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
+            <div class="d-flex top-menu-btns">
+                <button class="icon-btn toggle-menu-btn" toggledOn="true">
+                    <i class="fa-solid fa-eye medium-text"></i>
+                </button>
+                <button class="icon-btn town-btn ms-auto" screen="town">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
         </div>
     </div>
     <div id="runesMenu" class="layer menu d-none">
         <div class="d-flex flex-column h-100 w-100 p-3">
-            <button class="icon-btn town-btn ms-auto" screen="town">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
+            <div class="d-flex top-menu-btns">
+                <button class="icon-btn toggle-menu-btn" toggledOn="true">
+                    <i class="fa-solid fa-eye medium-text"></i>
+                </button>
+                <button class="icon-btn town-btn ms-auto" screen="town">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
         </div>
     </div>
     <div id="aurasMenu" class="layer menu d-none">
         <div class="d-flex flex-column h-100 w-100 p-3">
-            <button class="icon-btn town-btn ms-auto" screen="town">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
+            <div class="d-flex top-menu-btns">
+                <button class="icon-btn toggle-menu-btn" toggledOn="true">
+                    <i class="fa-solid fa-eye medium-text"></i>
+                </button>
+                <button class="icon-btn town-btn ms-auto" screen="town">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="section-container">
+                heyq
+            </div>
         </div>
     </div>
     <div id="soulMenu" class="layer menu d-none">
@@ -234,23 +262,44 @@
     </div>
     <div id="alchemistMenu" class="layer menu d-none">
         <div class="d-flex flex-column h-100 w-100 p-3">
-            <button class="icon-btn town-btn ms-auto" screen="town">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
+            <div class="d-flex top-menu-btns">
+                <button class="icon-btn toggle-menu-btn" toggledOn="true">
+                    <i class="fa-solid fa-eye medium-text"></i>
+                </button>
+                <button class="icon-btn town-btn ms-auto" screen="town">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="section-container">
+                heyq
+            </div>
         </div>
     </div>
-    <div id="bagMenu" class="layer menu d-none">
+    <div id="storageMenu" class="layer menu d-none">
         <div class="d-flex flex-column h-100 w-100 p-3">
-            <button class="icon-btn town-btn ms-auto" screen="town">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
+            <div class="d-flex top-menu-btns">
+                <button class="icon-btn toggle-menu-btn" toggledOn="true">
+                    <i class="fa-solid fa-eye medium-text"></i>
+                </button>
+                <button class="icon-btn town-btn ms-auto" screen="town">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="section-container">
+                heyq
+            </div>
         </div>
     </div>
     <div id="armoryMenu" class="layer menu d-none">
         <div class="d-flex h-30 w-100 p-3">
-            <button class="icon-btn town-btn ms-auto" screen="town">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
+            <div class="d-flex top-menu-btns">
+                <button class="icon-btn toggle-menu-btn" toggledOn="true">
+                    <i class="fa-solid fa-eye medium-text"></i>
+                </button>
+                <button class="icon-btn town-btn ms-auto" screen="town">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
         </div>
         
         <div class="d-flex flex-column w-100 p-3 pos-rel align-items-center justify-content-center">
@@ -337,28 +386,7 @@
                 </div>
                 <div class="section-container ms-2">
                     <h5>Floor</h5>
-                    <div class="list-group list-group-flush" id="mapMenuFloorList">
-                        <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn" floor=1>Level 1</button>
-                        <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn" floor=2>Level 2</button>
-                        <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn" floor=3>Level 3</button>
-                        <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn" floor=4>Level 4</button>
-                        <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn" floor=5>Level 5</button>
-                        <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn" floor=6>Level 6</button>
-                        <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn" floor=7>Level 7</button>
-                        <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn" floor=8>Level 8</button>
-                        <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn" floor=9>Level 9</button>
-                        <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn" floor=10>Level 10</button>
-                        <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn" floor=11>Level 11</button>
-                        <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn" floor=12>Level 12</button>
-                        <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn" floor=13>Level 13</button>
-                        <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn" floor=14>Level 14</button>
-                        <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn" floor=15>Level 15</button>
-                        <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn" floor=16>Level 16</button>
-                        <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn" floor=17>Level 17</button>
-                        <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn" floor=18>Level 18</button>
-                        <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn" floor=19>Level 19</button>
-                        <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn" floor=19>Level 20</button>
-                    </div>
+                    <div class="list-group list-group-flush" id="mapMenuFloorList"></div>
                 </div>
             </div>
         </div>

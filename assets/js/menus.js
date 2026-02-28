@@ -16,6 +16,19 @@ $(function(){
             
         }
     })
+    .on('click','.toggle-menu-btn',function(){
+        console.log($(this).attr("toggledOn"))
+        if($(this).attr("toggledOn") == "true"){ // menu on
+            $(this).parent().siblings().hide();
+            $(this).children('i').removeClass('fa-eye').addClass('fa-eye-slash');
+            $(this).attr("toggledOn",false)
+        }else{
+            $(this).parent().siblings().show();
+            $(this).children('i').removeClass('fa-eye-slash').addClass('fa-eye');
+            $(this).attr("toggledOn",true)
+        }
+    })
+    
     //soul menu interactions
     .on('click', '#saveStats', function(){
         let atk = parseInt($('#baseAtk').text());
