@@ -138,6 +138,7 @@ $(document).ready(async function(){
     initLoadOut();
     //UI
     populateStatMenu();
+    populateRefinerMenu();
     populateDungeonFloors();
 })
 

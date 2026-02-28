@@ -8,7 +8,7 @@ class Soul {
         this.hp = hp;
         this.hpPoints = hp * 5;
         this.availableStats = availableStats;
-        this.gold = 100;
+        this.gold = 1000;
         this.minDmg = 0.1;
     }
 

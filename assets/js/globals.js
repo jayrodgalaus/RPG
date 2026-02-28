@@ -3,9 +3,10 @@
 var db;
 var soul;
 const eqp_path = "assets/img/Equipment/";
-const mob_path = "assets/img/Mobs/"
-const npc_path = "assets/img/NPCs/"
-const portals_path = "assets/img/Portals/"
+const mob_path = "assets/img/Mobs/";
+const npc_town_path = "assets/img/NPCs/Town/";
+const npc_maidens_path = "assets/img/NPCs/Maidens/";
+const portals_path = "assets/img/Portals/";
 var inventory = [];
 var loadOut = [];
 var currentEqpPreview = {};
@@ -18,7 +19,6 @@ var goldGoblinRun = 0; //save the last time goldGoblin was encountered
 var currentDungeon = "town";
 var currentFloor = 0;
 var currentRun = 0;
-var numOfRuns = 0;
 
 //functions
 function calcTotalStats(){
@@ -48,14 +48,6 @@ function populateStatMenu(){
     $('#totalAPS').text((1/calcAtkspd).toFixed(2));
     $('#totalHPP').text(calcHppoints);
 }
-function populateDungeonFloors(){
-    let floorHTML = '';
-    let floor = 1;
-    while(floor <= 50 ){
-        floorHTML += `<button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn" floor=${floor}>Level ${floor}</button>`
-        floor ++;
-    }
-    $('#mapMenuFloorList').html(floorHTML)
-}
+
 
 //mob functions

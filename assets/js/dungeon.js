@@ -11,3 +11,12 @@ var dungeons = {
     demons: { species: "demons", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.07 },
     angels: { species: "angels", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.07 },
 }
+function populateDungeonFloors(){
+    let floorHTML = '';
+    let floor = 1;
+    while(floor <= 50 ){
+        floorHTML += `<button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn" floor=${floor}>Level ${floor}</button>`
+        floor ++;
+    }
+    $('#mapMenuFloorList').html(floorHTML)
+}

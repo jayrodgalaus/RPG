@@ -20,6 +20,8 @@
     <title>RPG Slop</title>
     <!-- game scripts -->
     <script src="assets/js/globals.js"></script>
+    <script src="assets/js/npcs/refiners.js"></script>
+    <script src="assets/js/npcs/maidens.js"></script>
     <script src="assets/js/armors.js"></script>
     <script src="assets/js/weapons.js"></script>
     <script src="assets/js/materials.js"></script>
@@ -78,6 +80,12 @@
                             <img src="assets/icons/noun-potion-flask-3340871.svg" alt="">
                         </button>
                         <span class="icon-btn-text">Pots</span>
+                    </div>
+                    <div class="mb-2">
+                        <button id="guildBtn" class="icon-btn town-btn text-centered" screen="guild">
+                            <img src="assets/icons/noun-guild.svg" alt="">
+                        </button>
+                        <span class="icon-btn-text">Guild</span>
                     </div> 
                 </div>
                 <div id="townMenuRight" class="d-flex flex-column align-items-end ms-auto visible">
@@ -272,6 +280,25 @@
             </div>
             <div class="section-container">
                 heyq
+            </div>
+        </div>
+    </div>
+    <div id="guildMenu" class="layer menu d-none">
+        <div class="d-flex flex-column h-100 w-100 p-3">
+            <div class="d-flex top-menu-btns">
+                <button class="icon-btn toggle-menu-btn" toggledOn="true">
+                    <i class="fa-solid fa-eye medium-text"></i>
+                </button>
+                <button class="icon-btn town-btn ms-auto" screen="town">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="section-container vh-60 mt-auto flex-column" id="guildContainer">
+                <h5>Hire Refiners</h5>
+                <div id="refinerList">
+
+                </div>
+                
             </div>
         </div>
     </div>
