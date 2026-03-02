@@ -76,6 +76,34 @@ $(function(){
         $('#refinerPreviewDetails').text(refiner.buff.description);
         $('#refinerPreviewSalary').text(refiner.salary+"g")
         $('#refinerPreviewPanel').css('background-image', `url('${refiner.portrait}')`);
+        $('#refinerPreviewPanel').attr('refinerPreviewId',idx)
+        if(refiner.bonus){
+            const video = $('#refinerPreviewBonusVid')[0];
+            $(video).find('source').remove(); // clear old sources
+            $(video).append(`<source src="${refiner.bonus.path}" type="video/webm">`);
+            video.load();
+
+        }else{
+            const video = $('#refinerPreviewBonusVid')[0];
+            $(video).find('source').remove(); // clear old sources
+            $(video).append(`<source src="" type="video/webm">`);
+            video.load();
+        }
+    })
+    .on('click', '.refinerPreviewBonus', function(){
+        let idx = $('#refinerPreviewPanel').attr('refinerPreviewId');
+        if(activeRefiner && activeRefinerIndex == idx){
+            $('#refinerBonusContainer').toggleClass('d-none');
+            if($(this).hasClass('stop')){
+                const vid = $('#refinerPreviewBonusVid')[0];
+                vid.pause(); vid.currentTime = 0;
+            }            
+            else
+                document.getElementById('refinerPreviewBonusVid').play();
+        }else{
+            alert("Refiner not active.")
+        }
+        
     })
     //soul menu interactions
     .on('click', '#saveStats', function(){

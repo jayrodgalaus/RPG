@@ -16,6 +16,10 @@ h1,h2,h3,h4,h5,#eqpPreviewName{
     font-style: normal;
     color: white;
 }
+.offcanvas-header, .offcanvas-body{
+    position: relative;
+    z-index: 1050;
+}
 .section-container, .npc-portrait{
     color: white;
     border: 2px solid white;
@@ -244,4 +248,15 @@ h1,h2,h3,h4,h5,#eqpPreviewName{
         background-size: cover;
         background-position: top;
         background-color: black;
+    }
+    #refinerBonusContainer{
+        top: 0;
+        left: 0;
+        z-index: 1046;
+    }
+    #refinerBonusContainer>div.pos-a{
+        right: 0;
+    }
+    #refinerBonusContainer>div.pos-a>div.d-flex{
+        right: 0;
     }

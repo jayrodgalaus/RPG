@@ -497,20 +497,37 @@
             </button>
         </div>
     </div>
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="refinerPreviewPanel" aria-labelledby="refinerPreviewPanel">
+    <div id="refinerBonusContainer" class="d-none pos-a vw-100 vh-100">
+        <div class="pos-a w-100 h-100">
+            <video id="refinerPreviewBonusVid" muted playsinline class="h-100 pos-a">
+                <source src="" type="video/webm">
+            </video>
+            <div class="d-flex p-3 pos-a">
+                <button class="icon-btn ms-auto refinerPreviewBonus stop">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="refinerPreviewPanel" aria-labelledby="refinerPreviewPanel" refinerPreviewId>
         <div class="offcanvas-header">
             <button class="icon-btn ms-auto" data-bs-dismiss="offcanvas" aria-label="Close">
                 <i class="fa-solid fa-xmark"></i>
             </button>
         </div>
         <div class="offcanvas-body d-flex flex-column" >
+            
             <div class="section-container mt-auto pos-rel">
                 <button class="btn btn-light toggle-preview-section-container">
                     <i class="fa-solid fa-caret-down"></i>
                 </button>
-                <h5 class="text-light"><span id="refinerPreviewName"></span></h5>
-                <div><span id="refinerPreviewDetails"></span></div><br>
+                <h5 class="text-light"><span id="refinerPreviewName"></span> <i class="fa-solid fa-video refinerPreviewBonus"></i></h5>
+                <div>
+                    <span id="refinerPreviewDetails"></span>
+                </div><br>
                 <div>Salary: <span id="refinerPreviewSalary"></span></div>
+                
             </div>
         </div>
     </div>
