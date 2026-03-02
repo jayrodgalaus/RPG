@@ -73,7 +73,7 @@ $(function(){
         let idx = $(this).closest('.refiner-container').attr('refinerIndex');
         let refiner = refiners[idx];
         $('#refinerPreviewName').text(refiner.name);
-        $('#refinerPreviewDetails').text(refiner.description);
+        $('#refinerPreviewDetails').text(refiner.buff.description);
         $('#refinerPreviewSalary').text(refiner.salary+"g")
         $('#refinerPreviewPanel').css('background-image', `url('${refiner.portrait}')`);
     })

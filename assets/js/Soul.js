@@ -1,5 +1,5 @@
 class Soul {
-    constructor({ atk = 0, spd = 0, def = 0, hp = 0, availableStats = 15, gold = 1000, minDmg = 0.1 } = {}) {
+    constructor({ atk = 0, spd = 0, def = 0, hp = 0, availableStats = 15, gold = 5000, minDmg = 0.1 } = {}) {
         this.id = 1;
         this.atk = atk;
         this.dmg = atk*3;

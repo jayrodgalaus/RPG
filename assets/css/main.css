@@ -237,6 +237,9 @@ h1,h2,h3,h4,h5,#eqpPreviewName{
         bottom: 0;
     }
 /* GUILD MENU */
+    #guildContainer{
+        overflow-x: auto;
+    }
     #refinerPreviewPanel{
         background-size: cover;
         background-position: top;
