@@ -7,28 +7,76 @@ $(function(){
         let screenLabel = "-"+screen.charAt(0).toUpperCase() + screen.slice(1)+"-";
         $('#backgroundLabel').text(screenLabel);
         $('#background').attr('class',screen);
+        if(screen == "storage" && activeRefiner){
+            $('#background.storage').css({"background-image": 'url("'+activeRefiner.img+'")'});
+        }
         $('.menu').addClass('d-none');
         $('#'+screen+"Menu").removeClass('d-none');
         if(screen != "town"){
             $('#townMenuLeft.visible, #townMenuBottom.visible, #townMenuRight.visible').removeClass('visible')
         }else{
+            $('#background').removeAttr('style');
             setTimeout(function(){$('#townMenuLeft, #townMenuBottom, #townMenuRight').addClass('visible')},100);
             
         }
     })
     .on('click','.toggle-menu-btn',function(){
-        console.log($(this).attr("toggledOn"))
         if($(this).attr("toggledOn") == "true"){ // menu on
-            $(this).parent().siblings().hide();
+            $(this).parent().siblings().addClass('d-none');
             $(this).children('i').removeClass('fa-eye').addClass('fa-eye-slash');
             $(this).attr("toggledOn",false)
         }else{
-            $(this).parent().siblings().show();
+            $(this).parent().siblings().removeClass('d-none');
             $(this).children('i').removeClass('fa-eye-slash').addClass('fa-eye');
             $(this).attr("toggledOn",true)
         }
     })
-    
+    .on('click', '.toggle-preview-section-container', function(){
+        $(this).parent().toggleClass('hidden')
+        $(this).siblings().toggleClass('d-none')
+        $(this).find('i').toggleClass('fa-caret-down fa-caret-up');
+        $(this).closest('.offcanvas').find('.icon-btn[aria-label="Close"]').toggleClass('hidden')
+    })
+    //town menu
+    .on('click','.buff-icon-wrapper',function(){
+        $(this).prev().toggleClass('d-none')
+    })
+    // refiner menu
+    .on('click','#guildBtn',function(){
+        if(activeRefiner){$('#buffEffectDisplay').text(activeRefiner.description);}
+        else{$('#buffEffectDisplay').text("None");}
+        checkHireBtnStatus();
+    })
+    .on('click','.hire-refiner-btn',function(){
+        if($(this).is('.hired')){return;}
+        let idx = $(this).closest('.refiner-container').attr('refinerIndex');
+        let refiner = refiners[idx];
+        if(soul.gold < refiner.salary){
+            $(this).attr('disabled','disabled');
+        }else{
+            hireRefiner(idx);
+            $('#refinerHireRun').text(refinerHireRun)
+            $("#refinerBuffIcon").removeClass('d-none');
+            $('.hire-refiner-btn.hired').removeClass('hired btn-warning').addClass('btn-light');
+            $(this).html("<strong>Active</strong>").addClass('hired btn-warning').removeClass('btn-light');
+            $('#buffEffectDisplay').text(refiner.description);
+            $('.hire-refiner-btn').not('.hired').each(function(index, btn) {
+                const $btn = $(btn);
+                const btnSalary = $btn.attr('salary'); // assuming you stored salary in data-salary
+                $btn.html("<strong>" + btnSalary + "g</strong>");
+            });
+            checkHireBtnStatus()
+
+        }
+    })
+    .on('click', '.refiner-portrait',function(){
+        let idx = $(this).closest('.refiner-container').attr('refinerIndex');
+        let refiner = refiners[idx];
+        $('#refinerPreviewName').text(refiner.name);
+        $('#refinerPreviewDetails').text(refiner.description);
+        $('#refinerPreviewSalary').text(refiner.salary+"g")
+        $('#refinerPreviewPanel').css('background-image', `url('${refiner.portrait}')`);
+    })
     //soul menu interactions
     .on('click', '#saveStats', function(){
         let atk = parseInt($('#baseAtk').text());

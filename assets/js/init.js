@@ -4,7 +4,7 @@
 // IndexedDB setup
 function openDB() {
     return new Promise((resolve, reject) => {
-        const request = indexedDB.open("RPGSlop", 7);
+        const request = indexedDB.open("RPGSlop", 9);
         request.onupgradeneeded = (event) => {
             const db = event.target.result;
             if (!db.objectStoreNames.contains("Soul")) {
@@ -12,6 +12,9 @@ function openDB() {
             }
             if (!db.objectStoreNames.contains("Inventory")) {
                 db.createObjectStore("Inventory", { keyPath: "id", autoIncrement: true });
+            }
+            if (!db.objectStoreNames.contains("RefinerState")) {
+                db.createObjectStore("RefinerState", { keyPath: "id" }); 
             }
         };
         request.onsuccess = () => resolve(request.result);
@@ -66,25 +69,26 @@ async function initInventory() {
                 console.log("No equipment found, creating new starter set...");
 
                 // create beginner weapon
-                await createEquipment(db, { eqp_type: "weapon", eqp_id: 6, tier: "G", max_tier: "G" },false);
+                await createEquipment(db, { eqp_type: "weapon", eqp_id: 6, tier: "G", max_tier: "G" },true);
                 // create beginner armor (helmet, breastplate, gloves, greaves)
-                await createEquipment(db, { eqp_type: "armor", eqp_id: 0, tier: "G", max_tier: "G" }, false);
-                await createEquipment(db, { eqp_type: "armor", eqp_id: 1, tier: "G", max_tier: "G" }, false);
-                await createEquipment(db, { eqp_type: "armor", eqp_id: 2, tier: "G", max_tier: "G" }, false);
-                await createEquipment(db, { eqp_type: "armor", eqp_id: 3, tier: "G", max_tier: "G" }, false);
+                await createEquipment(db, { eqp_type: "armor", eqp_id: 0, tier: "G", max_tier: "G" }, true);
+                await createEquipment(db, { eqp_type: "armor", eqp_id: 1, tier: "G", max_tier: "G" }, true);
+                await createEquipment(db, { eqp_type: "armor", eqp_id: 2, tier: "G", max_tier: "G" }, true);
+                await createEquipment(db, { eqp_type: "armor", eqp_id: 3, tier: "G", max_tier: "G" }, true);
                 //create fallen equipment
-                await createEquipment(db, { eqp_type: "weapon", eqp_id: 9, tier: "E", max_tier: "SR" }, true);
-                await createEquipment(db, { eqp_type: "armor", eqp_id: 4, tier: "E", max_tier: "SR" }, true);
-                await createEquipment(db, { eqp_type: "armor", eqp_id: 5, tier: "D", max_tier: "SR" }, true);
-                await createEquipment(db, { eqp_type: "armor", eqp_id: 6, tier: "C", max_tier: "SR" }, true);
-                await createEquipment(db, { eqp_type: "armor", eqp_id: 7, tier: "B", max_tier: "SR" }, true);
-                await createEquipment(db, { eqp_type: "armor", eqp_id: 8, tier: "A", max_tier: "SR" }, true);
-                
+                await createEquipment(db, { eqp_type: "weapon", eqp_id: 9, tier: "E", max_tier: "SR" }, false);
+                await createEquipment(db, { eqp_type: "armor", eqp_id: 4, tier: "E", max_tier: "SR" }, false);
+                await createEquipment(db, { eqp_type: "armor", eqp_id: 5, tier: "D", max_tier: "SR" }, false);
+                await createEquipment(db, { eqp_type: "armor", eqp_id: 6, tier: "C", max_tier: "SR" }, false);
+                await createEquipment(db, { eqp_type: "armor", eqp_id: 7, tier: "B", max_tier: "SR" }, false);
+                await createEquipment(db, { eqp_type: "armor", eqp_id: 8, tier: "A", max_tier: "SR" }, false);
+                console.log("inventory",inventory)
                 resolve("Starter equipment created");
             } else {
                 console.log("Equipment found in DB");
                 // assign to your global inventory variable
                 inventory = inventoryData.map(obj => Object.assign(new Equipment(obj), obj));
+                console.log("inventory",inventory)
                 resolve(inventoryData);
             }
         };
@@ -126,16 +130,53 @@ async function initDungeon() {
         getAllRequest.onerror = () => reject(getAllRequest.error);
     });
 }
+async function initRefiner() {
+    return new Promise((resolve, reject) => {
+        const tx = db.transaction("RefinerState", "readwrite");
+        const store = tx.objectStore("RefinerState");
+
+        const getRequest = store.get(1); // always look for id=1
+
+        getRequest.onsuccess = async () => {
+            let refinerState = getRequest.result;
+
+            if (!refinerState) {
+                console.log("No refiner found, creating new refiner state...");
+                refinerState = {
+                    id: 1,
+                    activeRefinerIndex,
+                    activeRefiner,
+                    refinerHireRun
+                };
+                await new Promise(resolve => {
+                    const req = store.add(refinerState);
+                    req.onsuccess = e => resolve(e.target.result);
+                });
+                resolve("Refiner state created");
+            } else {
+                console.log("Refiner found in DB");
+                activeRefinerIndex = refinerState.activeRefinerIndex;
+                activeRefiner = refinerState.activeRefiner;
+                refinerHireRun = refinerState.refinerHireRun;
+                resolve(refinerState);
+            }
+        };
+
+        getRequest.onerror = () => reject(getRequest.error);
+    });
+}
+
 
 
 $(document).ready(async function(){
     //db
     db = await openDB();
-    initSoul().then(dbsoul => {
-        soul = dbsoul;
-    });
+    soul = await initSoul();
+    console.log(soul.gold)
+    setGold();
     await initInventory();
     initLoadOut();
+    await initRefiner();
     //UI
     populateStatMenu();
     populateRefinerMenu();

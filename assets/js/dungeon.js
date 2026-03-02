@@ -11,6 +11,10 @@ var dungeons = {
     demons: { species: "demons", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.07 },
     angels: { species: "angels", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.07 },
 }
+var mobSpawnRate = 0.6;
+var currentDungeon = "town";
+var currentFloor = 0;
+var currentRun = 0;
 function populateDungeonFloors(){
     let floorHTML = '';
     let floor = 1;

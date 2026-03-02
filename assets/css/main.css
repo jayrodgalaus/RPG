@@ -20,11 +20,17 @@ h1,h2,h3,h4,h5,#eqpPreviewName{
     color: white;
     border: 2px solid white;
     border-radius: 10px;
-    padding: 10px;
     text-shadow: 1px 1px black;
 }
-.section-container{    
+.section-container{
+    padding: 10px;
     box-shadow: 0px 0px 90px 20px inset rgba(0,0,0, 1);
+    transition: all 0.2s;
+}
+.section-container.hidden{
+    padding: 0;
+    border: none;
+    height: 0;
 }
 #background.soul{background-image: url("../img/Backgrounds/soul.webp");}
 #background.town{background-image: url("../img/Backgrounds/town.webp");}
@@ -73,6 +79,10 @@ h1,h2,h3,h4,h5,#eqpPreviewName{
     width: 50px; height: 50px; border: 3px solid white; border-radius: 50%; background-color: transparent;
     font-size: 1.75rem;
     color: white;
+    transition: all 0.2s;
+}
+.icon-btn.hidden{
+    transform: translateX(150px);
 }
 .icon-btn>img{
     width: 90%;
@@ -87,6 +97,38 @@ h1,h2,h3,h4,h5,#eqpPreviewName{
     box-shadow: 0px 0px 8px 2px rgba(0,0,0, 0.5);
     padding: 1px 3px;
 }
+.buff-icon-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.buff-icon-wrapper::before {
+  content: "";
+  position: absolute;
+  width: 1%;   /* same size as icon */
+  height: 1%;
+  border-radius: 50%;
+  box-shadow: 0 0 10px 10px rgb(6 255 0); /* aura glow */
+  z-index: 0;
+  animation: pulse 0.5s ease-in-out infinite alternate;
+}
+.buff-icon-wrapper img {
+  position: relative;
+  z-index: 1;
+  width: 30px;
+}
+.toggle-preview-section-container{
+    font-size: 9pt;
+    font-weight: bolder;
+    width: 25px;
+    height: 25px;
+    padding: 2px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -100%);
+}
+
 /* TOWN MENU */
     #townMenuLeft{
         margin-left: -100%;
@@ -135,22 +177,20 @@ h1,h2,h3,h4,h5,#eqpPreviewName{
     .equipment-slot:hover, .equipment-slot:active{
         box-shadow: 0px 0px 40px 20px inset rgba(255, 0, 0, 0.5);
     }
-    .equipment-slot, #eqpPreviewPanel{
+    .equipment-slot, #eqpPreviewPanel, #refinerPreviewPanel{
         box-shadow: none;
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
     }
-    #eqpPreviewPanel{
+    #eqpPreviewPanel, #refinerPreviewPanel{
         background-size: contain;
         background-position: top;
+        background-color: black;
     }
     .eqp-top-tag{
         margin-top: -10px;
         margin-right: -5px;
-    }
-    #eqpPreviewPanel{
-        background-color: black;
     }
     .eqp-list-toggle{
         width: 70px;
@@ -183,5 +223,22 @@ h1,h2,h3,h4,h5,#eqpPreviewName{
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
+        overflow: hidden;
+    }
+    .npc-portrait-name {
+        width: 100%;
+        text-align: center;
+        font-size: 0.9rem;
+        color: white;
+        text-shadow: 1px 1px 15px black;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 1px 3px;
+        position: absolute;
+        bottom: 0;
     }
 /* GUILD MENU */
+    #refinerPreviewPanel{
+        background-size: cover;
+        background-position: top;
+        background-color: black;
+    }

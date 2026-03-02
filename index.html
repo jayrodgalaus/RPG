@@ -88,13 +88,22 @@
                         <span class="icon-btn-text">Guild</span>
                     </div> 
                 </div>
-                <div id="townMenuRight" class="d-flex flex-column align-items-end ms-auto visible">
-                    <div class="mb-2">
+                <div id="townMenuRight" class="d-flex flex-column align-items-end ms-auto visible h-100">                    
+                    <div class="mb-2 flex-grow-1 d-flex flex-column align-items-center justify-content-center" id="buffDisplay">
+                        <div class="buff-wrapper d-flex align-items-center justify-content-center" id="refinerBuff">
+                            <div class="d-inline buff-display-info icon-btn-text small-text d-none">Refiner buff active</div>
+                            <div class="buff-icon-wrapper mb-2 d-none" id="refinerBuffIcon">
+                                <img src="assets/icons/noun-knife-8088598.svg" alt="">
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="mb-2 flex-grow-1">
                         <span class="icon-btn-text">Soul</span>
                         <button id="blacksmithBtn" class="icon-btn town-btn text-centered" screen="soul">
                             <img src="assets/icons/noun-sun-8284237.svg" alt="" class="w-100">
                         </button>
-                    </div> 
+                    </div>
                 </div>
             </div>
             <div id="townMenuBottom" class="d-flex align-items-center justify-content-center visible">
@@ -202,13 +211,19 @@
             </button>
         </div>
         <div class="d-flex flex-column w-100 p-3">
-            <div class="mt-auto section-container">
-                <h1>Total Stats</h1>
-                <div class="lead d-flex align-items-center justify-content-center">
-                    <div class="flex-grow-1">ATK: <span id="totalAtk">0</span></div>
-                    <div class="flex-grow-1">SPD: <span id="totalSpd">0</span></div>
-                    <div class="flex-grow-1">DEF: <span id="totalDef">0</span></div>
-                    <div class="flex-grow-1">HP: <span id="totalHP">0</span> </div>
+            <div class="d-flex mt-auto">
+                <div class="section-container ms-auto p-2">
+                    <i class="fa-solid fa-coins"></i> 
+                    <span class="gold-display"></span>g
+                </div>
+            </div>
+            <div class="mt-2 section-container">
+                <h5>Total Stats</h5>
+                <div class="d-flex align-items-center justify-content-center">
+                    <div class="flex-grow-1"><b>ATK: <span id="totalAtk">0</span></b></div>
+                    <div class="flex-grow-1"><b>SPD: <span id="totalSpd">0</span></b></div>
+                    <div class="flex-grow-1"><b>DEF: <span id="totalDef">0</span></b></div>
+                    <div class="flex-grow-1"><b>HP: <span id="totalHP">0</span></b> </div>
                 </div>
                 <div class="d-flex">
                     <div class="flex-grow-1">ATK/s: <span id="totalAPS">0</span></div>
@@ -293,13 +308,24 @@
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
-            <div class="section-container vh-60 mt-auto flex-column" id="guildContainer">
-                <h5>Hire Refiners</h5>
-                <div id="refinerList">
-
+            <div class="mt-auto">
+                <div class="d-flex">
+                    <div>
+                        <div class="small-text text-light">Refiner hired on run: <span id="refinerHireRun">None</span></div>
+                        <div class="small-text text-light">Effect:</div>
+                        <div class="small-text text-light" id="buffEffectDisplay">None</div>
+                    </div>
+                    <div class="section-container ms-auto mt-auto p-2">
+                        <i class="fa-solid fa-coins"></i> 
+                        <span class="gold-display"></span>g
+                    </div>
                 </div>
-                
+                <div class="section-container vh-60 d-flex flex-column mt-2" id="guildContainer">
+                    <h5>Hire Refiners</h5>
+                    <div id="refinerList"></div>
+                </div>
             </div>
+            
         </div>
     </div>
     <div id="storageMenu" class="layer menu d-none">
@@ -313,13 +339,14 @@
                 </button>
             </div>
             <div class="section-container">
-                heyq
+                hey
             </div>
         </div>
     </div>
-    <div id="armoryMenu" class="layer menu d-none">
-        <div class="d-flex h-30 w-100 p-3">
-            <div class="d-flex top-menu-btns">
+    <div id="armoryMenu" class="layer menu d-none">        
+        <div class="d-flex flex-column h-100 w-100 p-3 pos-rel align-items-center">
+            
+            <div class="d-flex w-100 top-menu-btns">
                 <button class="icon-btn toggle-menu-btn" toggledOn="true">
                     <i class="fa-solid fa-eye medium-text"></i>
                 </button>
@@ -327,11 +354,7 @@
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
-        </div>
-        
-        <div class="d-flex flex-column w-100 p-3 pos-rel align-items-center justify-content-center">
-            
-            <div class="d-flex w-100" >
+            <div class="d-flex w-100 mt-auto" >
                 <div class="d-flex flex-column mx-1 w-30">
                     <div class="section-container my-1 equipment-slot vh-25" id="inventorySlot1" isEmpty="" data-bs-toggle="offcanvas" data-bs-target="#eqpPreviewPanel" aria-controls="eqpPreviewPanel">
                         <div class="float-end eqp-top-tag">
@@ -472,6 +495,23 @@
             <button type="button" class="section-container mt-2" id="toggleEquip" action="equip" data-bs-dismiss="offcanvas">
                 Equip
             </button>
+        </div>
+    </div>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="refinerPreviewPanel" aria-labelledby="refinerPreviewPanel">
+        <div class="offcanvas-header">
+            <button class="icon-btn ms-auto" data-bs-dismiss="offcanvas" aria-label="Close">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column" >
+            <div class="section-container mt-auto pos-rel">
+                <button class="btn btn-light toggle-preview-section-container">
+                    <i class="fa-solid fa-caret-down"></i>
+                </button>
+                <h5 class="text-light"><span id="refinerPreviewName"></span></h5>
+                <div><span id="refinerPreviewDetails"></span></div><br>
+                <div>Salary: <span id="refinerPreviewSalary"></span></div>
+            </div>
         </div>
     </div>
     

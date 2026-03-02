@@ -1,5 +1,6 @@
 class Soul {
-    constructor({ atk = 0, spd = 0, def = 0, hp = 0, availableStats = 15 } = {}) {
+    constructor({ atk = 0, spd = 0, def = 0, hp = 0, availableStats = 15, gold = 1000, minDmg = 0.1 } = {}) {
+        this.id = 1;
         this.atk = atk;
         this.dmg = atk*3;
         this.spd = spd;
@@ -8,8 +9,8 @@ class Soul {
         this.hp = hp;
         this.hpPoints = hp * 5;
         this.availableStats = availableStats;
-        this.gold = 1000;
-        this.minDmg = 0.1;
+        this.gold = gold;
+        this.minDmg = minDmg;
     }
 
     setStats(atk, spd, def, hp, availableStats = this.availableStats) {
@@ -26,8 +27,9 @@ class Soul {
         // Persist to IndexedDB using the already-open db
         const tx = db.transaction("Soul", "readwrite");
         const store = tx.objectStore("Soul");
-
-        store.put({
+        console.log(soul.gold)
+        store.put(soul);
+        /* {
             id: 1,
             atk: this.atk,
             dmg: this.dmg,
@@ -37,12 +39,22 @@ class Soul {
             hp: this.hp,
             hpPoints: this.hpPoints,
             availableStats: this.availableStats
-        });
+        } */
+        tx.oncomplete = () => console.log("Soul updated in IndexedDB");
+        tx.onerror = () => console.error("Failed to update Soul in IndexedDB");
+    }
+    updateGold(gold){
+        this.gold = gold;
+        $('.gold-display').text(this.gold);
+        const tx = db.transaction("Soul", "readwrite");
+        const store = tx.objectStore("Soul");
+        store.put(soul);
 
         tx.oncomplete = () => console.log("Soul updated in IndexedDB");
         tx.onerror = () => console.error("Failed to update Soul in IndexedDB");
     }
+}
 
-    
-    
+function setGold(){
+    $('.gold-display').text(soul.gold);
 }

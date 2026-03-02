@@ -109,6 +109,8 @@ var apexMobs = [
     {name: "Morbolg the Ebon Ooze", species:"slimes", img: mob_path+"Slimes/apex.webp", category:"slimes", isApex:true},
     {name: "Rotlord Grawl", species:"zombies", img: mob_path+"Zombies/apex.webp", category:"zombies", isApex:true},
 ];
+var enemyMob;
+var goldGoblinRun = 0; //save the last time goldGoblin was encountered
 function distributeMobStats(baseGold,baseStats, increment, distr, floor, dungeon, isElite){
     let totalStats = (baseStats + (increment * floor)) * (1 + (dungeon.difficulty * floor));
     let gold = (baseGold + (increment * floor)) * (1 + (dungeon.difficulty * floor));

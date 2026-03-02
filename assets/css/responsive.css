@@ -708,7 +708,7 @@ html{/*scroll-behavior: smooth; scroll-padding-top: 60px;*/}
 /* .d-none{display: none !important;} */
 /* TYPOGRAPHY */
 .strong{font-weight: bolder;}
-.small-text{font-size: 0.8rem;}
+.small-text{font-size: 0.8rem !important;}
 .medium-text{font-size: 1rem;}
 .big-text{font-size: 1.2rem;}
 .small-caps{font-variant: small-caps;}
@@ -776,6 +776,7 @@ html{/*scroll-behavior: smooth; scroll-padding-top: 60px;*/}
 .w-60{width: 50% !important;}
 .w-75{width: 75% !important;}
 .w-100{width: 100% !important;}
+.h-0{height: 0% !important;}
 .h-10{height: 10% !important;}
 .h-15{height: 15% !important;}
 .h-20{height: 20% !important;}
