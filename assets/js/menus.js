@@ -188,6 +188,7 @@ $(function(){
     //dungeon menu
     .on('click','#mapMenuDungeonList button',function(){
         $('#mapMenuDungeonList button').removeClass('active');
+        $("#floorListContainer").removeClass('invisible');
         $(this).addClass('active');
         currentDungeon = dungeons[$(this).text().toLowerCase()];
         $('#mapMenuFloorList button').removeClass('active');
@@ -197,10 +198,14 @@ $(function(){
         if(currentDungeon != "town" && $('#mapMenuDungeonList button.active').length == 1 ){
             $('#mapMenuFloorList button').removeClass('active');
             $(this).addClass('active');
+            $('#startRunBtn').removeClass('invisible');
             currentFloor = parseInt($(this).attr('floor'));
-            spawnMob()
+            currentRoom = 0;
+            // spawnMob()
         }
-        
+    })
+    .on('click','#testDungeonBtn, #startRunBtn',function(){
+        startRun()
     })
 
 })

@@ -126,6 +126,7 @@ function spawnMob(){
     let mob;
     let mobSource;
     if (Math.random() <= (0.6)) { //0.6
+        console.log("spawning dungeon mob...")
         // spawn mob by dungeon species
         mobSource = dungeonMobs.filter(m => m.species === currentDungeon.species) 
         if (mobSource.length > 0) {
@@ -140,6 +141,7 @@ function spawnMob(){
             }
         }
     }else{
+        console.log("spawning neutral mob...")
         //spawn neutrals
         mobSource = dungeonMobs.filter(m => m.species === "neutral") 
         if (mobSource.length > 0) {
@@ -158,7 +160,9 @@ function spawnMob(){
             }
         }
     }
-    console.log("enemy mob:", mob.name)
+    
     enemyMob = new Mob(mob, currentFloor, currentDungeon);
+    
+    console.log("enemy mob:", enemyMob)
     console.log("gold:",enemyMob.gold)  
 }

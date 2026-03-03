@@ -721,6 +721,7 @@ html{/*scroll-behavior: smooth; scroll-padding-top: 60px;*/}
 .text-gray-3{color: #cbd5e1;}
 .text-complement{color: #D6299A;}
 /* BACKGROUNDS */
+.invisible{opacity: 0;}
 .bg-white{background-color: white;}
 .bg-none{background-color: transparent !important;}
 .bg-green-3{background-color: #86efac;}

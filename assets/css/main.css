@@ -181,11 +181,12 @@ h1,h2,h3,h4,h5,#eqpPreviewName{
     .equipment-slot:hover, .equipment-slot:active{
         box-shadow: 0px 0px 40px 20px inset rgba(255, 0, 0, 0.5);
     }
-    .equipment-slot, #eqpPreviewPanel, #refinerPreviewPanel{
+    .equipment-slot, #eqpPreviewPanel, #refinerPreviewPane, #dungeonPanel{
         box-shadow: none;
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
+        background-color: black;
     }
     #eqpPreviewPanel, #refinerPreviewPanel{
         background-size: contain;
@@ -215,7 +216,7 @@ h1,h2,h3,h4,h5,#eqpPreviewName{
     #mapBtn{
         width: 70px; height: 70px;
     }
-    #mapBtn>img{
+    #mapBtn>img, #startRunBtn>img{
         animation: pulse 0.5s ease-in-out infinite alternate;
     }
 /* MAP MENU */
@@ -260,3 +261,11 @@ h1,h2,h3,h4,h5,#eqpPreviewName{
     #refinerBonusContainer>div.pos-a>div.d-flex{
         right: 0;
     }
+
+/* DUNGEON */
+    #dungeonCanvas { position: absolute; inset: 0; z-index: 1046; display: none;}
+    #dungeonPanel.thief {background: url('../img/Backgrounds/thief.webp') center center / cover no-repeat;}
+    #dungeonPanel.statue {background: url('../img/Backgrounds/statue.webp') center center / cover no-repeat;}
+    #dungeonPanel.chest {background: url('../img/Backgrounds/chest.webp') center center / cover no-repeat;}
+    #dungeonPanel.next {background: url('../img/Backgrounds/next.webp') center center / cover no-repeat;}
+/* DUNGEON */

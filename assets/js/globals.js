@@ -5,7 +5,6 @@ var soul;
 const eqp_path = "assets/img/Equipment/";
 const mob_path = "assets/img/Mobs/";
 const npc_town_path = "assets/img/NPCs/Town/";
-const npc_maidens_path = "assets/img/NPCs/Maidens/";
 const portals_path = "assets/img/Portals/";
 var inventory = [];
 var loadOut = [];
@@ -19,6 +18,10 @@ var calcAtk = 0, calcSpd = 0, calcDef = 0, calcHP = 0, calcDmg = 0, calcAtkspd =
 // var currentDungeon = "town";
 // var currentFloor = 0;
 // var currentRun = 0;
+// var currentRoom, 
+//maidens
+// var maidens, var currentMaiden
+
 
 //functions
 function calcTotalStats(){

@@ -417,7 +417,7 @@
             <button class="icon-btn town-btn ms-auto" screen="town">
                 <i class="fa-solid fa-xmark"></i>
             </button>
-            <div class="d-flex align-items-center justify-content-center flex-grow-1">
+            <div class="d-flex align-items-center justify-content-center mt-auto">
                 <div class="section-container flex-grow-1">
                     <h5>Dungeon</h5>
                     <div class="list-group list-group-flush" id="mapMenuDungeonList">
@@ -434,11 +434,15 @@
                         <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn">Angels</button>
                     </div>
                 </div>
-                <div class="section-container ms-2">
+                <div class="section-container ms-2 invisible" id="floorListContainer">
                     <h5>Floor</h5>
                     <div class="list-group list-group-flush" id="mapMenuFloorList"></div>
                 </div>
             </div>
+            <button id="startRunBtn" class="icon-btn mx-auto mt-2 invisible" data-bs-toggle="offcanvas" data-bs-target="#dungeonPanel" aria-controls="dungeonPanel">
+                <img src="assets/icons/crossed-swords-white.svg" alt="">
+            </button>
+            <!-- <button class="btn btn-lg btn-outline-light " id=""><b>START</b></button> -->
         </div>
     </div>
     <div id="maidensMenu" class="layer menu d-none">
@@ -449,6 +453,13 @@
         </div>
     </div>
     <div id="mobsMenu" class="layer menu d-none">
+        <div class="d-flex flex-column h-100 w-100 p-3">
+            <button class="icon-btn town-btn ms-auto" screen="town">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+    </div>
+    <div id="dungeonMenu" class="layer menu d-none">
         <div class="d-flex flex-column h-100 w-100 p-3">
             <button class="icon-btn town-btn ms-auto" screen="town">
                 <i class="fa-solid fa-xmark"></i>
@@ -508,8 +519,7 @@
                 </button>
             </div>
         </div>
-    </div>
-    
+    </div>    
     <div class="offcanvas offcanvas-end" tabindex="-1" id="refinerPreviewPanel" aria-labelledby="refinerPreviewPanel" refinerPreviewId>
         <div class="offcanvas-header">
             <button class="icon-btn ms-auto" data-bs-dismiss="offcanvas" aria-label="Close">
@@ -529,6 +539,26 @@
                 <div>Salary: <span id="refinerPreviewSalary"></span></div>
                 
             </div>
+        </div>
+    </div>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="dungeonPanel" aria-labelledby="dungeonPanel" refinerPreviewId>
+        <canvas id="dungeonCanvas" class="w-100 h-100"></canvas>
+        <div class="offcanvas-header">
+            <button class="icon-btn ms-auto" data-bs-dismiss="offcanvas" aria-label="Close">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column" >
+            <button class="icon-btn ms-auto" id="testDungeonBtn">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <!-- <button class="icon-btn town-btn ms-auto">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <button class="icon-btn town-btn ms-auto">
+                <i class="fa-solid fa-xmark"></i>
+            </button> -->
+
         </div>
     </div>
     
