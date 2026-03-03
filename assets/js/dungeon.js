@@ -128,12 +128,21 @@ async function updateDungeonState(){
 }
 async function startRun(){
     $('#dungeonCanvas').hide();
+    //hide encounter menus
+    $('#thiefMenu, #chestMenu').addClass('d-none');
     currentRoom += 1;
     console.log("room ",currentRoom)
     if(currentRoom == 6){
         //next floor logic
-        $('#dungeonPanel').addClass('next').removeClass('maiden thief statue chest').removeAttr('style')
+        if(currentFloor % 9 == 0){
+            console.log("Spawn boss shit")
+            // spawn boss shit
+        }else{
+            currentFloor+=1;
+            $('#dungeonPanel').addClass('next').removeClass('maiden thief statue chest').removeAttr('style')
+        }
         currentRoom = 0;
+
     }else{
         // await updateDungeonState();
         /* 
@@ -141,6 +150,9 @@ async function startRun(){
         */
         //Add computation of refiner buff if applicable
         let enemyEncounter = (mobSpawnRate + refinerMobSpawnBuff());
+        if(currentFloor == 1 && currentRoom == 1){
+            enemyEncounter = 1; //no special encounters in first floor first room
+        }        
         let otherEncounters = (1 - enemyEncounter)/4;
         let maidenEncounter = currentMaiden ? enemyEncounter : enemyEncounter + otherEncounters; //no encounters if there is a maiden
         let splitEncounters = currentMaiden ? otherEncounters/3 : 0; // split maiden probability to other encounters
@@ -155,18 +167,24 @@ async function startRun(){
             $('#dungeonPanel').css({'background-image':`url('${bg}')`})
             initDungeonCanvas();
         }else if(encounterRoll > enemyEncounter && encounterRoll <= maidenEncounter){
-            console.log("maiden encounter");
+            setActiveMaiden();
+            $('#dungeonPanel').css({'background-image':`url('${currentMaiden.img}')`});
         }else if(encounterRoll > maidenEncounter && encounterRoll <= thiefEncounter){
+            let stolenGold = Math.floor(Math.min(soul.gold * 0.05, currentFloor*5));
+            let gold = soul.gold - stolenGold;
+            soul.updateGold(gold);
+            $('#thiefMenu').removeClass('d-none');
+            $("#stolenGold").text(stolenGold);
             $('#dungeonPanel').addClass('thief').removeClass('maiden statue chest next').removeAttr('style')
-            console.log("thief encounter");
         }else if(encounterRoll > thiefEncounter && encounterRoll <= statueEncounter){
             $('#dungeonPanel').addClass('statue').removeClass('maiden thief chest next').removeAttr('style')
-            console.log("statue encounter");
         }else if(encounterRoll > statueEncounter && encounterRoll <= chestEncounter){
+            let foundGold = Math.floor(Math.min(soul.gold * 0.05, currentFloor*5));
+            let gold = soul.gold + foundGold;
+            soul.updateGold(gold);
+            $('#chestMenu').removeClass('d-none');
+            $("#foundGold").text(foundGold);
             $('#dungeonPanel').addClass('chest').removeClass('maiden thief statue next').removeAttr('style')
-            console.log("chest encounter");
         }
     }
-    
-    
 }

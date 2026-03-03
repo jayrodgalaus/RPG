@@ -27,7 +27,6 @@ class Soul {
         // Persist to IndexedDB using the already-open db
         const tx = db.transaction("Soul", "readwrite");
         const store = tx.objectStore("Soul");
-        console.log(soul.gold)
         store.put(soul);
         /* {
             id: 1,

@@ -547,11 +547,20 @@
             <button class="icon-btn ms-auto" data-bs-dismiss="offcanvas" aria-label="Close">
                 <i class="fa-solid fa-xmark"></i>
             </button>
+            <button class="icon-btn" id="testDungeonBtn">
+                <i class="fa-solid fa-plus"></i>
+            </button>
         </div>
         <div class="offcanvas-body d-flex flex-column" >
-            <button class="icon-btn ms-auto" id="testDungeonBtn">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
+            <!-- thief encounter -->
+            <div class="d-flex flex-column h-100 align-items-center justify-content-center d-none" id="thiefMenu">
+                <h1>Thief!</h1>
+                <div class="icon-btn-text">You lost <b><span id="stolenGold"></span>g</b>!</div>
+            </div>
+            <div class="d-flex flex-column h-100 align-items-center justify-content-center d-none" id="chestMenu">
+                <h1>Gold chest!</h1>
+                <div class="icon-btn-text">You found <b><span id="foundGold"></span>g</b>!</div>
+            </div>
             <!-- <button class="icon-btn town-btn ms-auto">
                 <i class="fa-solid fa-xmark"></i>
             </button>
