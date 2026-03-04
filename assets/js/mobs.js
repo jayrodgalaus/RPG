@@ -84,17 +84,17 @@ var dungeonMobs = [
 
 ];
 var bossMobs = [
-    {name: "Elyndra", species:"angels", img: mob_path+"Angels/apex.webp", category:"angels", isBoss:true},
-    {name: "Thessra", species:"arachne", img: mob_path+"Arachne/apex.webp", category:"arachne", isBoss:true},
-    {name: "Zerath", species:"cultists", img: mob_path+"Cultists/apex.webp", category:"cultists", isBoss:true},
-    {name: "Morvak", species:"demons", img: mob_path+"Demons/apex.webp", category:"demons", isBoss:true},
-    {name: "Kaelthys", species:"dragons", img: mob_path+"Dragons/apex.webp", category:"dragons", isBoss:true},
-    {name: "Ilyra", species:"ghosts", img: mob_path+"Ghosts/apex.webp", category:"ghosts", isBoss:true},
-    {name: "Graknir", species:"goblins", img: mob_path+"Goblins/apex.webp", category:"goblins", isBoss:true},
-    {name: "Skirrek", species:"kobolds", img: mob_path+"Kobolds/apex.webp", category:"kobolds", isBoss:true},
-    {name: "Dravok", species:"skeletons", img: mob_path+"Skeletons/apex.webp", category:"skeletons", isBoss:true},
-    {name: "Gloxx", species:"slimes", img: mob_path+"Slimes/apex.webp", category:"slimes", isBoss:true},
-    {name: "Veynar", species:"zombies", img: mob_path+"Zombies/apex.webp", category:"zombies", isBoss:true},
+    {name: "Elyndra", species:"angels", img: mob_path+"Angels/boss.webp", category:"angels", isBoss:true},
+    {name: "Thessra", species:"arachne", img: mob_path+"Arachne/boss.webp", category:"arachne", isBoss:true},
+    {name: "Zerath", species:"cultists", img: mob_path+"Cultists/boss.webp", category:"cultists", isBoss:true},
+    {name: "Morvak", species:"demons", img: mob_path+"Demons/boss.webp", category:"demons", isBoss:true},
+    {name: "Kaelthys", species:"dragons", img: mob_path+"Dragons/boss.webp", category:"dragons", isBoss:true},
+    {name: "Ilyra", species:"ghosts", img: mob_path+"Ghosts/boss.webp", category:"ghosts", isBoss:true, baseStats: 50, increment: 6, baseGold:100, distr:statDistr.hp},
+    {name: "Graknir", species:"goblins", img: mob_path+"Goblins/boss.webp", category:"goblins", isBoss:true, isBoss:true, baseStats: 50, increment: 6, baseGold:100, distr:statDistr.atk},
+    {name: "Skirrek", species:"kobolds", img: mob_path+"Kobolds/boss.webp", category:"kobolds", isBoss:true, isBoss:true, baseStats: 50, increment: 6, baseGold:100, distr:statDistr.hp},
+    {name: "Dravok", species:"skeletons", img: mob_path+"Skeletons/boss.webp", category:"skeletons", isBoss:true, isBoss:true, baseStats: 50, increment: 6, baseGold:100, distr:statDistr.atk},
+    {name: "Gloxx", species:"slimes", img: mob_path+"Slimes/boss.webp", category:"slimes", isBoss:true},
+    {name: "Veynar", species:"zombies", img: mob_path+"Zombies/boss.webp", category:"zombies", isBoss:true, isBoss:true, baseStats: 50, increment: 6, baseGold:100, distr:statDistr.hp},
 ];
 var apexMobs = [
     {name: "Seraphis the Dawnbringer", species:"angels", img: mob_path+"Angels/apex.webp", category:"angels", isApex:true},
@@ -125,15 +125,24 @@ function spawnMob(isBoss = false, isApex = false){
     //spawn chance is 60% dungeon specific mob, 40% neutrals
     let mob;
     let mobSource;
-    if (Math.random() <= (0.6)) { //0.6
+    let dungeonMobChance = isBoss || isApex ? 1 : 0.6;
+    let neutralMobChance = 1-dungeonMobChance;
+    
+    if (Math.random() <= dungeonMobChance) { //0.6
         console.log("spawning dungeon mob...")
         // spawn mob by dungeon species
-        mobSource = dungeonMobs.filter(m => m.species === currentDungeon.species) 
-        if (mobSource.length > 0) {
+        let source = isBoss ? bossMobs: (isApex ? apexMobs : dungeonMobs);
+        console.log("source:",source)
+        console.log("currentDungeon.species:",currentDungeon.species)
+        mobSource = source.filter(m => m.species === currentDungeon.species)
+        mob = structuredClone(mobSource[Math.floor(Math.random() * mobSource.length)]);
+        mob.isBoss = isBoss;
+        mob.isApex = isApex;
+        if (mobSource.length > 0 && !isBoss && !isApex) {
             let baseElite = 0.1;//chance to spawn elite
             let bonusElite = (currentFloor * 0.6) / 100;
             let eliteChance = Math.min(0.4, baseElite + bonusElite); //cap at 40%
-            mob = structuredClone(mobSource[Math.floor(Math.random() * mobSource.length)]);
+            
             if (Math.random() <= (eliteChance)) {
                 //spawn elite
                 mob.isElite = true;
@@ -157,7 +166,6 @@ function spawnMob(isBoss = false, isApex = false){
             }
         }
     }
-    
     enemyMob = new Mob(mob, currentFloor, currentDungeon);
     
     console.log("enemy mob:", enemyMob)

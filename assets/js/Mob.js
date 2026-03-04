@@ -1,5 +1,5 @@
 class Mob {
-    constructor({name, species, img, category, baseStats, increment, baseGold, distr, isElite= false},floor, dungeon, isBoss = false, isApex = false) {
+    constructor({name, species, img, category, baseStats, increment, baseGold, distr, isElite= false, isBoss = false, isApex = false},floor, dungeon) {
         this.isElite = isElite;
         this.isBoss = isBoss;
         this.isApex = isApex;

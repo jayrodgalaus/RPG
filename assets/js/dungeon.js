@@ -140,15 +140,14 @@ async function nextRoom() {
     $('#maidenMenu, #thiefMenu, #chestMenu, #statueMenu').addClass('d-none');
     $('#dungeonCanvas').hide();
     if(currentRoom == 6){
+        currentRoom = 0;
+        currentFloor+=1;
         //next floor logic
-        if(currentFloor % 9 == 0){
-            console.log("Spawn boss shit")
-            // spawn boss shit
+        if(currentFloor % 10 == 0){
+            bossFight()
         }else{
-            currentFloor+=1;
             $('#dungeonPanel').addClass('next').removeClass('maiden thief statue chest').removeAttr('style')
         }
-        currentRoom = 0;
 
     }else{
         // await updateDungeonState();
@@ -178,6 +177,7 @@ async function nextRoom() {
         }else if(encounterRoll > enemyEncounter && encounterRoll <= maidenEncounter){
             setActiveMaiden();
             $('#maidenMenu').removeClass('d-none');
+            $('#maidenBuffText').text(currentMaiden.buff.description);
             $('#dungeonPanel').css({'background-image':`url('${currentMaiden.img}')`});
         }else if(encounterRoll > maidenEncounter && encounterRoll <= thiefEncounter){
             let stolenGold = Math.floor(Math.min(collectedGold * 0.05, currentFloor*5));
@@ -201,4 +201,13 @@ async function nextRoom() {
             $('#dungeonPanel').addClass('chest').removeClass('maiden thief statue next').removeAttr('style')
         }
     }
+}
+function bossFight(){
+    let isApex = currentFloor == 50;
+    let isBoss = currentFloor % 10 == 0 && currentFloor != 50;
+    spawnMob(isBoss,isApex);
+    let bg = enemyMob.img;
+    $('#dungeonCanvas').show();
+    $('#dungeonPanel').css({'background-image':`url('${bg}')`})
+    initDungeonCanvas();
 }
