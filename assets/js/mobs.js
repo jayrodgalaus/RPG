@@ -113,7 +113,7 @@ var enemyMob;
 var goldGoblinRun = 0; //save the last time goldGoblin was encountered
 function distributeMobStats(baseGold,baseStats, increment, distr, floor, dungeon, isElite){
     let totalStats = (baseStats + (increment * floor)) * (1 + (dungeon.difficulty * floor));
-    let gold = (baseGold + (increment * floor)) * (1 + (dungeon.difficulty * floor));
+    let gold = Math.floor((baseGold + (increment * floor)) * (1 + (dungeon.difficulty * floor)));
     if(isElite) totalStats *= 1.3;
     let atk = Math.floor(totalStats * distr.atk);
     let def = Math.floor(totalStats * distr.def);
@@ -121,7 +121,7 @@ function distributeMobStats(baseGold,baseStats, increment, distr, floor, dungeon
     let hp = Math.ceil(totalStats * distr.hp);
     return {gold, atk, spd, def, hp};
 }
-function spawnMob(){
+function spawnMob(isBoss = false, isApex = false){
     //spawn chance is 60% dungeon specific mob, 40% neutrals
     let mob;
     let mobSource;
@@ -133,7 +133,6 @@ function spawnMob(){
             let baseElite = 0.1;//chance to spawn elite
             let bonusElite = (currentFloor * 0.6) / 100;
             let eliteChance = Math.min(0.4, baseElite + bonusElite); //cap at 40%
-            console.log("elite chance:", eliteChance)
             mob = structuredClone(mobSource[Math.floor(Math.random() * mobSource.length)]);
             if (Math.random() <= (eliteChance)) {
                 //spawn elite
@@ -148,8 +147,6 @@ function spawnMob(){
             let baseGoblin = 0.1; //spawn chance of gold goblin
             let bonusGoblin = (currentRun - goldGoblinRun) / 100;
             let goblinChance = Math.min(0.7, bonusGoblin+baseGoblin); //cap at 70% 
-            
-            console.log("gold goblin chance:",goblinChance );
             if (Math.random() <= (goblinChance)) {
                 //spawn goblin
                 mob = structuredClone(dungeonMobs[dungeonMobs.findIndex(mob => mob.name === "Gold Goblin")]);

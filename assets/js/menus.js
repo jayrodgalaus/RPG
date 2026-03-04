@@ -103,7 +103,11 @@ $(function(){
         }else{
             alert("Refiner not active.")
         }
-        
+    })
+    .on('click','#refinerPreviewBonusVid',function(){
+        const vid = $('#refinerPreviewBonusVid')[0];
+        vid.pause(); vid.currentTime = 0;
+        document.getElementById('refinerPreviewBonusVid').play();
     })
     //soul menu interactions
     .on('click', '#saveStats', function(){
@@ -204,8 +208,11 @@ $(function(){
             // spawnMob()
         }
     })
-    .on('click','#testDungeonBtn, #startRunBtn',function(){
+    .on('click','#startRunBtn',function(){
         startRun()
+    })
+    .on('click','#testDungeonBtn',function(){
+        nextRoom();
     })
 
 })

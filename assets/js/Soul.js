@@ -49,7 +49,7 @@ class Soul {
         const store = tx.objectStore("Soul");
         store.put(soul);
 
-        tx.oncomplete = () => console.log("Soul updated in IndexedDB");
+        tx.oncomplete = () => console.log("Gold updated");
         tx.onerror = () => console.error("Failed to update Soul in IndexedDB");
     }
 }

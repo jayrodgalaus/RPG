@@ -14,22 +14,22 @@ var refinerBuffs = [
 var refinerBonus = [
     {idx:0,},
     {idx:1,},
-    {idx:2,},
+    {idx:2, path:refiners_bonus+"3.webm"},
     {idx:3, path:refiners_bonus+"4.webm"},
-    {idx:4,},
+    {idx:4, path:refiners_bonus+"5.webm"},
     {idx:5, path:refiners_bonus+"6-1.webm"},
-    {idx:6,},
+    {idx:6, path:refiners_bonus+"7.webm"},
     {idx:7,},
     {idx:8, path:refiners_bonus+"9.webm"},
 ]
 var refiners = [
     {name: "Lira", salary: 150, portrait:refiners_path+"p1.webp", img:refiners_path+"1.webp", bonus:false , buff: refinerBuffs[0]},
     {name: "Aria", salary: 250, portrait:refiners_path+"p2.webp", img:refiners_path+"2.webp", bonus:false , buff: refinerBuffs[1]},
-    {name: "Kaela", salary: 375, portrait:refiners_path+"p3.webp", img:refiners_path+"3.webp", bonus:false , buff: refinerBuffs[2]},
+    {name: "Kaela", salary: 375, portrait:refiners_path+"p3.webp", img:refiners_path+"3.webp", bonus:refinerBonus[2] , buff: refinerBuffs[2]},
     {name: "Mira", salary: 650, portrait:refiners_path+"p4.webp", img:refiners_path+"4.webp", bonus:refinerBonus[3] , buff: refinerBuffs[3]},
-    {name: "Selene", salary: 700, portrait:refiners_path+"p5.webp", img:refiners_path+"5.webp", bonus:false , buff: refinerBuffs[4]},
+    {name: "Selene", salary: 700, portrait:refiners_path+"p5.webp", img:refiners_path+"5.webp", bonus:refinerBonus[4] , buff: refinerBuffs[4]},
     {name: "Talia", salary: 750, portrait:refiners_path+"p6.webp", img:refiners_path+"6.webp", bonus:refinerBonus[5] , buff: refinerBuffs[5]},
-    {name: "Lilia", salary: 1000, portrait:refiners_path+"p7.webp", img:refiners_path+"7.webp", bonus:false , buff: refinerBuffs[6]},
+    {name: "Lilia", salary: 1000, portrait:refiners_path+"p7.webp", img:refiners_path+"7.webp", bonus:refinerBonus[6] , buff: refinerBuffs[6]},
     {name: "Guin", salary: 1500, portrait:refiners_path+"p8.webp", img:refiners_path+"8.webp", bonus:false , buff: refinerBuffs[7]},
     {name: "Luna", salary: 2500, portrait:refiners_path+"p9.webp", img:refiners_path+"9.webp", bonus:refinerBonus[8] , buff: refinerBuffs[8]},
 ];
