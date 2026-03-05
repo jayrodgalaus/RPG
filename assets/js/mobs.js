@@ -77,17 +77,17 @@ var dungeonMobs = [
         {name: "Death", species:"neutral", img: mob_path+"Neutrals/death.webp", category:"special", baseStats: 70, increment: 6, baseGold:0, distr:statDistr.xxatk},
         {name: "Gold Goblin", species:"neutral", img: mob_path+"Neutrals/goldgoblin.webp", category:"special", baseStats: 50, increment: 10, baseGold:100, distr:statDistr.goldgoblin},
     //skeletons
-        {name: "Skeleton Fighter", species:"skeletons", img: mob_path+"Skeletons/1.webp", category:"generic", baseStats: 30, increment: 6, baseGold:25, distr:statDistr.atk},
-        {name: "Skeleton Duelist", species:"skeletons", img: mob_path+"Skeletons/2.webp", category:"generic", baseStats: 30, increment: 6, baseGold:25, distr:statDistr.balanced},
-        {name: "Skeleton Marauder", species:"skeletons", img: mob_path+"Skeletons/3.webp", category:"generic", baseStats: 30, increment: 6, baseGold:25, distr:statDistr.spd},
+        {name: "Skeleton Fighter", species:"skeletons", img: mob_path+"Skeletons/1.webp", category:"generic", baseStats: 30, increment: 6, baseGold:30, distr:statDistr.atk},
+        {name: "Skeleton Duelist", species:"skeletons", img: mob_path+"Skeletons/2.webp", category:"generic", baseStats: 30, increment: 6, baseGold:30, distr:statDistr.balanced},
+        {name: "Skeleton Marauder", species:"skeletons", img: mob_path+"Skeletons/3.webp", category:"generic", baseStats: 30, increment: 6, baseGold:30, distr:statDistr.spd},
     //slimes
         {name: "Purple Slime", species:"slimes", img: mob_path+"Slimes/1.webp", category:"generic", baseStats: 30, increment: 5, baseGold:25, distr:statDistr.def},
         {name: "Yellow Slime", species:"slimes", img: mob_path+"Slimes/2.webp", category:"generic", baseStats: 30, increment: 5, baseGold:25, distr:statDistr.atk},
         {name: "Blue Slime", species:"slimes", img: mob_path+"Slimes/3.webp", category:"generic", baseStats: 30, increment: 5, baseGold:25, distr:statDistr.spd},
     //zombies
-        {name: "Zombie (M)", species:"zombies", img: mob_path+"Zombies/1.webp", category:"generic", baseStats: 30, increment: 6, baseGold:25, distr:statDistr.atk},
-        {name: "Zombie (F)", species:"zombies", img: mob_path+"Zombies/2.webp", category:"generic", baseStats: 30, increment: 6, baseGold:25, distr:statDistr.spd},
-        {name: "Fresh Zombie", species:"zombies", img: mob_path+"Zombies/3.webp", category:"generic", baseStats: 30, increment: 6, baseGold:25, distr:statDistr.hp},
+        {name: "Zombie (M)", species:"zombies", img: mob_path+"Zombies/1.webp", category:"generic", baseStats: 30, increment: 6, baseGold:30, distr:statDistr.atk},
+        {name: "Zombie (F)", species:"zombies", img: mob_path+"Zombies/2.webp", category:"generic", baseStats: 30, increment: 6, baseGold:30, distr:statDistr.spd},
+        {name: "Fresh Zombie", species:"zombies", img: mob_path+"Zombies/3.webp", category:"generic", baseStats: 30, increment: 6, baseGold:30, distr:statDistr.hp},
 
 ];
 var bossMobs = [
@@ -96,12 +96,12 @@ var bossMobs = [
     {name: "Zerath", species:"cultists", img: mob_path+"Cultists/boss.webp", category:"cultists", isBoss:true},
     {name: "Morvak", species:"demons", img: mob_path+"Demons/boss.webp", category:"demons", isBoss:true},
     {name: "Kaelthys", species:"dragons", img: mob_path+"Dragons/boss.webp", category:"dragons", isBoss:true},
-    {name: "Ilyra", species:"ghosts", img: mob_path+"Ghosts/boss.webp", category:"ghosts", isBoss:true, baseStats: 50, increment: 6, baseGold:100, distr:statDistr.hp},
-    {name: "Graknir", species:"goblins", img: mob_path+"Goblins/boss.webp", category:"goblins", isBoss:true, isBoss:true, baseStats: 50, increment: 6, baseGold:100, distr:statDistr.atk},
-    {name: "Skirrek", species:"kobolds", img: mob_path+"Kobolds/boss.webp", category:"kobolds", isBoss:true, isBoss:true, baseStats: 50, increment: 6, baseGold:100, distr:statDistr.hp},
-    {name: "Dravok", species:"skeletons", img: mob_path+"Skeletons/boss.webp", category:"skeletons", isBoss:true, isBoss:true, baseStats: 50, increment: 6, baseGold:100, distr:statDistr.atk},
-    {name: "Gloxx", species:"slimes", img: mob_path+"Slimes/boss.webp", category:"slimes", isBoss:true},
-    {name: "Veynar", species:"zombies", img: mob_path+"Zombies/boss.webp", category:"zombies", isBoss:true, isBoss:true, baseStats: 50, increment: 6, baseGold:100, distr:statDistr.hp},
+    {name: "Ilyra", species:"ghosts", img: mob_path+"Ghosts/boss.webp", category:"ghosts", isBoss:true, baseStats: 50, increment: 9, baseGold:100, distr:statDistr.hp},
+    {name: "Graknir", species:"goblins", img: mob_path+"Goblins/boss.webp", category:"goblins", isBoss:true, baseStats: 50, increment: 9, baseGold:100, distr:statDistr.atk},
+    {name: "Skirrek", species:"kobolds", img: mob_path+"Kobolds/boss.webp", category:"kobolds", isBoss:true, isBoss:true, baseStats: 50, increment: 9, baseGold:100, distr:statDistr.hp},
+    {name: "Dravok", species:"skeletons", img: mob_path+"Skeletons/boss.webp", category:"skeletons", isBoss:true, baseStats: 50, increment: 9, baseGold:100, distr:statDistr.atk},
+    {name: "Gloxx", species:"slimes", img: mob_path+"Slimes/boss.webp", category:"slimes", isBoss:true, baseStats: 45, increment: 8, baseGold:75, distr:statDistr.spd},
+    {name: "Veynar", species:"zombies", img: mob_path+"Zombies/boss.webp", category:"zombies", isBoss:true, isBoss:true, baseStats: 50, increment: 9, baseGold:100, distr:statDistr.hp},
 ];
 var apexMobs = [
     {name: "Seraphis the Dawnbringer", species:"angels", img: mob_path+"Angels/apex.webp", category:"angels", isApex:true},
@@ -120,6 +120,7 @@ var enemyMob;
 var goldGoblinRun = 0; //save the last time goldGoblin was encountered
 function distributeMobStats(baseGold,baseStats, increment, distr, floor, dungeon, isElite){
     let totalStats = (baseStats + (increment * floor)) * (1 + (dungeon.difficulty * floor));
+    console.log('total stats:',totalStats)
     let gold = Math.floor((baseGold + (increment * floor)) * (1 + (dungeon.difficulty * floor)));
     if(isElite) totalStats *= 1.3;
     let atk = Math.floor(totalStats * distr.atk);
@@ -133,18 +134,18 @@ function spawnMob(isBoss = false, isApex = false){
     let mob;
     let mobSource;
     let dungeonMobChance = isBoss || isApex ? 1 : 0.6;
-    let neutralMobChance = 1-dungeonMobChance;
     
     if (Math.random() <= dungeonMobChance) { //0.6
         console.log("spawning dungeon mob...")
         // spawn mob by dungeon species
         let source = isBoss ? bossMobs: (isApex ? apexMobs : dungeonMobs);
-        console.log("source:",source)
+        // console.log("source:",source)
         console.log("currentDungeon.species:",currentDungeon.species)
         mobSource = source.filter(m => m.species === currentDungeon.species)
         mob = structuredClone(mobSource[Math.floor(Math.random() * mobSource.length)]);
         mob.isBoss = isBoss;
         mob.isApex = isApex;
+        console.log("selected mob:",mob)
         
     }else{
         console.log("spawning neutral mob...")

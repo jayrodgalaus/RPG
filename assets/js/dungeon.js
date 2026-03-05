@@ -20,6 +20,10 @@ var currentRoom = 0;
 var currentMaiden;
 var collectedGold = 0;
 var collectedMats = [];
+var currentATK = 0;
+var currentDmg = 0;
+var currentSPD = 1;
+var currentDEF = 0;
 var currentHP = 0;
 function populateDungeonFloors(){
     let floorHTML = '';
@@ -131,14 +135,17 @@ async function updateDungeonState(){
 }
 async function startRun(){
     clearDungeonMenus();
-    currentHP = soul.hpPoints;
-    currentRoom = 0;
+    currentATK = soul.atk + loadOuttotalAtk;
+    currentSPD = soul.spd + loadOuttotalSpd;
+    currentASPD = soul.spd + loadOuttotalSpd >= 430 ? 0.14 : 1 - ((soul.spd + loadOuttotalSpd) * 0.002);;
+    currentDEF = soul.def + loadOuttotalDef;
+    currentHP = soul.hpPoints + loadOuttotalHP*5;
+    currentRoom = 0; 
     currentMobRate +=  refinerMobSpawnBuff();
     //hide encounter menus
     nextRoom();
 }
 async function nextRoom() {
-    console.log(currentRoom)
     triggerTransition();
     currentRoom += 1;
     clearDungeonMenus();
@@ -164,10 +171,12 @@ async function nextRoom() {
             changeDungeonPanelBG('next')
             if(currentFloor % 10 == 0){
                 if(currentFloor != 50){
+                    clearDungeonMenus();
                     $('#bossMenu').removeClass('d-none');
                     // $('#dungeonPanel').addClass('bossPortal').removeClass('maiden thief statue chest apexPortal').removeAttr('style')
                     changeDungeonPanelBG('bossPortal')
                 }else{
+                    clearDungeonMenus();
                     $('#apexMenu').removeClass('d-none');
                     // $('#dungeonPanel').addClass('apexPortal').removeClass('maiden thief statue chest next bossPortal').removeAttr('style')
                     changeDungeonPanelBG('apexPortal')
@@ -235,9 +244,11 @@ async function nextRoom() {
 
         }
     }
+    console.log(" floor ",currentFloor,"room ",currentRoom)
     
 }
 function bossFight(){
+    console.log("boss fight")
     clearDungeonMenus()
     let isApex = currentFloor == 50;
     let isBoss = currentFloor % 10 == 0 && currentFloor != 50;
@@ -248,12 +259,15 @@ function bossFight(){
     initDungeonCanvas();
 }
 function triggerTransition(){
+    console.log('transition triggered')
     $('#transitionOverlay').addClass('transitioning');
     setTimeout(function(){$('#transitionOverlay').removeClass('transitioning');}, 500)
 }
 function clearDungeonMenus(){
+    console.log('dungeon menu cleared')
     $('#nextFloorMenu,#maidenMenu, #thiefMenu, #chestMenu, #statueMenu, #bossMenu, #apexMenu, .portal-menu').addClass('d-none');
 }
 function changeDungeonPanelBG(bg){
+    console.log('dungeon bg changed to ',bg)
     $('#dungeonPanel').removeClass('next maiden thief statue chest bossPortal apexPortal').addClass(bg).removeAttr('style')
 }

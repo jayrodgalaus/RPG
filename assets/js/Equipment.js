@@ -264,16 +264,16 @@ function previewEqp(equipment){
 }
 
 function calcLoadOutStats(){
-    let loadOuttotalAtk = 0;
-    let loadOuttotalSpd = 0;
-    let loadOuttotalDef = 0;
-    let loadOuttotalHP = 0;
     
     loadOut.forEach(equipment => {
         loadOuttotalAtk += equipment.final_atk || 0;
         loadOuttotalSpd += equipment.final_spd || 0;
         loadOuttotalDef += equipment.final_def || 0;
         loadOuttotalHP += equipment.final_hp || 0;
+        
     });
+    
+    loadOuttotalASpd = loadOuttotalSpd >= 430 ? 0.14 : 1 - (loadOuttotalSpd * 0.002);
+    loadOuttotalHPPoints = loadOuttotalHP * 5;
     return {loadOuttotalAtk, loadOuttotalSpd, loadOuttotalDef, loadOuttotalHP};
 }
