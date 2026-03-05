@@ -9,7 +9,10 @@
   80% { transform: translateX(5px); }
   100% { transform: translateX(0); }
 }
-
+@keyframes overlayTransition{
+    from{opacity: 1;}
+    to{ opacity: 0;}
+}
 .shake {
   animation: shake 0.1s;
 }

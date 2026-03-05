@@ -12,6 +12,10 @@ var statDistr = {
     xspd:{ atk: 0.10, spd: 0.45, def: 0.10, hp: 0.35},
     xdef:{ atk: 0.10, spd: 0.10, def: 0.45, hp: 0.35},
     xhp:{ atk: 0.10, spd: 0.10, def: 0.10, hp: 0.70},
+    xxatk:{ atk: 0.65, spd: 0.0, def: 0.0, hp: 0.35},
+    xxspd:{ atk: 0.10, spd: 0.65, def: 0.0, hp: 0.25},
+    xxdef:{ atk: 0.10, spd: 0.0, def: 0.65, hp: 0.25},
+    xxhp:{ atk: 0.10, spd: 0.0, def: 0.0, hp: 0.90},
 }
 var dungeonMobs = [
     //angels: [
@@ -50,13 +54,15 @@ var dungeonMobs = [
         {name: "Sacrifice", species:"ghosts", img: mob_path+"Ghosts/2.webp", category:"generic", baseStats: 30, increment: 6, baseGold:50, distr:statDistr.spd},
         {name: "Haunted Doll", species:"ghosts", img: mob_path+"Ghosts/3.webp", category:"generic", baseStats: 30, increment: 6, baseGold:35, distr:statDistr.xatk},
     //goblins
-        {name: "Goblin", species:"goblins", img: mob_path+"Goblins/1.webp", category:"generic", baseStats: 30, increment: 6, baseGold:50, distr:statDistr.hp},
-        {name: "Goblin", species:"goblins", img: mob_path+"Goblins/2.webp", category:"generic", baseStats: 30, increment: 6, baseGold:50, distr:statDistr.hp},
-        {name: "Goblin", species:"goblins", img: mob_path+"Goblins/3.webp", category:"generic", baseStats: 30, increment: 6, baseGold:35, distr:statDistr.hp},
+        {name: "Goblin", species:"goblins", img: mob_path+"Goblins/1.webp", category:"generic", baseStats: 30, increment: 6, baseGold:50, distr:statDistr.spd},
+        {name: "Goblin", species:"goblins", img: mob_path+"Goblins/2.webp", category:"generic", baseStats: 30, increment: 6, baseGold:50, distr:statDistr.atk},
+        {name: "Goblin", species:"goblins", img: mob_path+"Goblins/3.webp", category:"generic", baseStats: 30, increment: 6, baseGold:35, distr:statDistr.balanced},
+        {name: "Goblin", species:"goblins", img: mob_path+"Goblins/4.webp", category:"generic", baseStats: 30, increment: 6, baseGold:35, distr:statDistr.def},
     //kobolds
         {name: "Kobold", species:"kobolds", img: mob_path+"Kobolds/1.webp", category:"generic", baseStats: 30, increment: 6, baseGold:50, distr:statDistr.hp},
         {name: "Kobold", species:"kobolds", img: mob_path+"Kobolds/2.webp", category:"generic", baseStats: 30, increment: 6, baseGold:50, distr:statDistr.hp},
         {name: "Kobold kid", species:"kobolds", img: mob_path+"Kobolds/3.webp", category:"generic", baseStats: 30, increment: 6, baseGold:35, distr:statDistr.hp},
+        {name: "Kobold", species:"kobolds", img: mob_path+"Kobolds/4.webp", category:"generic", baseStats: 30, increment: 6, baseGold:50, distr:statDistr.hp},
     //neutrals
         {name: "Chest Mimic", species:"neutral", img: mob_path+"Neutrals/chest.webp", category:"generic", baseStats: 30, increment: 5, baseGold:100, distr:statDistr.hp},
         {name: "Door Mimic", species:"neutral", img: mob_path+"Neutrals/door.webp", category:"generic", baseStats: 30, increment: 5, baseGold:50, distr:statDistr.hp},
@@ -68,13 +74,14 @@ var dungeonMobs = [
         {name: "Stacy", species:"neutral", img: mob_path+"Neutrals/nurse2.webp", category:"special", baseStats: 35, increment: 6, baseGold:35, distr:statDistr.balanced},
         {name: "Mandy", species:"neutral", img: mob_path+"Neutrals/nurse3.webp", category:"special", baseStats: 35, increment: 6, baseGold:35, distr:statDistr.balanced},
         {name: "Sasha", species:"neutral", img: mob_path+"Neutrals/nurse1.webp", category:"special", baseStats: 35, increment: 6, baseGold:35, distr:statDistr.balanced},
+        {name: "Death", species:"neutral", img: mob_path+"Neutrals/death.webp", category:"special", baseStats: 70, increment: 6, baseGold:0, distr:statDistr.xxatk},
         {name: "Gold Goblin", species:"neutral", img: mob_path+"Neutrals/goldgoblin.webp", category:"special", baseStats: 50, increment: 10, baseGold:100, distr:statDistr.goldgoblin},
     //skeletons
         {name: "Skeleton Fighter", species:"skeletons", img: mob_path+"Skeletons/1.webp", category:"generic", baseStats: 30, increment: 6, baseGold:25, distr:statDistr.atk},
         {name: "Skeleton Duelist", species:"skeletons", img: mob_path+"Skeletons/2.webp", category:"generic", baseStats: 30, increment: 6, baseGold:25, distr:statDistr.balanced},
         {name: "Skeleton Marauder", species:"skeletons", img: mob_path+"Skeletons/3.webp", category:"generic", baseStats: 30, increment: 6, baseGold:25, distr:statDistr.spd},
     //slimes
-        {name: "PurpleSlime", species:"slimes", img: mob_path+"Slimes/1.webp", category:"generic", baseStats: 30, increment: 5, baseGold:25, distr:statDistr.def},
+        {name: "Purple Slime", species:"slimes", img: mob_path+"Slimes/1.webp", category:"generic", baseStats: 30, increment: 5, baseGold:25, distr:statDistr.def},
         {name: "Yellow Slime", species:"slimes", img: mob_path+"Slimes/2.webp", category:"generic", baseStats: 30, increment: 5, baseGold:25, distr:statDistr.atk},
         {name: "Blue Slime", species:"slimes", img: mob_path+"Slimes/3.webp", category:"generic", baseStats: 30, increment: 5, baseGold:25, distr:statDistr.spd},
     //zombies
@@ -138,16 +145,7 @@ function spawnMob(isBoss = false, isApex = false){
         mob = structuredClone(mobSource[Math.floor(Math.random() * mobSource.length)]);
         mob.isBoss = isBoss;
         mob.isApex = isApex;
-        if (mobSource.length > 0 && !isBoss && !isApex) {
-            let baseElite = 0.1;//chance to spawn elite
-            let bonusElite = (currentFloor * 0.6) / 100;
-            let eliteChance = Math.min(0.4, baseElite + bonusElite); //cap at 40%
-            
-            if (Math.random() <= (eliteChance)) {
-                //spawn elite
-                mob.isElite = true;
-            }
-        }
+        
     }else{
         console.log("spawning neutral mob...")
         //spawn neutrals
@@ -164,6 +162,17 @@ function spawnMob(isBoss = false, isApex = false){
                 // spawn neutral mob
                 mob = structuredClone(mobSource[Math.floor(Math.random() * mobSource.length)]);
             }
+        }
+    }
+    if (mobSource.length > 0 && !isBoss && !isApex) {
+        let baseElite = 0.1;//chance to spawn elite
+        let bonusElite = (currentFloor * 0.6) / 100;
+        let eliteChance = Math.min(0.4, baseElite + bonusElite); //cap at 40%
+        
+        if (Math.random() <= (eliteChance)) {
+            //spawn elite
+            mob.isElite = true;
+            mob.img = mob.img.replace(/(\.webp)$/, "-elite$1");
         }
     }
     enemyMob = new Mob(mob, currentFloor, currentDungeon);

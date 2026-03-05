@@ -211,8 +211,25 @@ $(function(){
     .on('click','#startRunBtn',function(){
         startRun()
     })
-    .on('click','#testDungeonBtn',function(){
+    .on('click','#startBossBtn, #startApexBtn',function(){
+        bossFight();
+    })
+    .on('click','#testDungeonBtn, .next-room-btn',function(){
         nextRoom();
+    })
+    .on('click','.escape-btn',function(){
+        triggerTransition();
+        //reset dungeon state
+        currentFloor = 0;
+        currentDungeon = null;
+        currentRoom = null;
+        //compute total gold, add to soul.gold
+
+        //compute total mats, with refiner
+
+        //release maiden
+
+        //push equipment into inventory
     })
 
 })
