@@ -52,6 +52,7 @@ var dungeonMobs = [
     //ghosts
         {name: "Sacrifice", species:"ghosts", img: mob_path+"Ghosts/1.webp", category:"generic", baseStats: 30, increment: 6, baseGold:50, distr:statDistr.atk},
         {name: "Sacrifice", species:"ghosts", img: mob_path+"Ghosts/2.webp", category:"generic", baseStats: 30, increment: 6, baseGold:50, distr:statDistr.spd},
+        {name: "Noble Sacrifice", species:"ghosts", img: mob_path+"Ghosts/4.webp", category:"generic", baseStats: 30, increment: 6, baseGold:50, distr:statDistr.spd},
         {name: "Haunted Doll", species:"ghosts", img: mob_path+"Ghosts/3.webp", category:"generic", baseStats: 30, increment: 6, baseGold:35, distr:statDistr.xatk},
     //goblins
         {name: "Goblin", species:"goblins", img: mob_path+"Goblins/1.webp", category:"generic", baseStats: 30, increment: 6, baseGold:50, distr:statDistr.spd},

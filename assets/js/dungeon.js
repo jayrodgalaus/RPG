@@ -25,6 +25,8 @@ var currentDmg = 0;
 var currentSPD = 1;
 var currentDEF = 0;
 var currentHP = 0;
+var atkInterval;
+var hitInterval;
 function populateDungeonFloors(){
     let floorHTML = '';
     let floor = 1;
@@ -87,6 +89,19 @@ function initDungeonCanvas(){
 
     // Initial draw
     drawHealthBars(canvas,ctx, soul.hpPoints, enemyMob.hpPoints,enemyMob.name);
+}
+function initFightMenu(){
+    $('#EName').text(enemyMob.name);
+    $('#currentFloor').text(currentFloor);
+    let roomText = currentFloor % 10 == 0 ? (currentFloor == 50 ? "Apex room" : "Boss room") : `Room ${currentRoom}`;
+    $('#currentRoom').text(roomText);
+    $('#currentHP').text(calcHppoints);
+    $('#maxHP').text(calcHppoints);
+    $('#currentEHP').text(enemyMob.hpPoints);
+    $('#maxEHP').text(enemyMob.hpPoints);
+    $('#fightMenu').removeClass('d-none');
+    $('#PActB').css({'animation':`actionLoading ${calcAtkspd}s infinite`})
+    atkInterval = setInterval(function(){attack()},calcAtkspd*1000);
     
 
 }
@@ -135,11 +150,11 @@ async function updateDungeonState(){
 }
 async function startRun(){
     clearDungeonMenus();
-    currentATK = soul.atk + loadOuttotalAtk;
-    currentSPD = soul.spd + loadOuttotalSpd;
-    currentASPD = soul.spd + loadOuttotalSpd >= 430 ? 0.14 : 1 - ((soul.spd + loadOuttotalSpd) * 0.002);;
-    currentDEF = soul.def + loadOuttotalDef;
-    currentHP = soul.hpPoints + loadOuttotalHP*5;
+    currentATK = calcAtk;
+    currentSPD = calcSpd;
+    currentASPD = calcAtkspd;
+    currentDEF = calcDef;
+    currentHP = calcHppoints;
     currentRoom = 0; 
     currentMobRate +=  refinerMobSpawnBuff();
     //hide encounter menus
@@ -207,9 +222,10 @@ async function nextRoom() {
                 let bg = enemyMob.img;
                 $('#dungeonCanvas').show();
                 $('#dungeonPanel').css({'background-image':`url('${bg}')`})
-                initDungeonCanvas();
+                initFightMenu();
+                // initDungeonCanvas();
                 // testing
-                collectedGold += enemyMob.gold;
+                // collectedGold += enemyMob.gold;
             }else if(encounterRoll > enemyEncounter && encounterRoll <= maidenEncounter){
                 setActiveMaiden();
                 $('#maidenMenu').removeClass('d-none');
@@ -254,20 +270,56 @@ function bossFight(){
     let isBoss = currentFloor % 10 == 0 && currentFloor != 50;
     spawnMob(isBoss,isApex);
     let bg = enemyMob.img;
-    $('#dungeonCanvas').show();
+    // $('#dungeonCanvas').show();
     $('#dungeonPanel').css({'background-image':`url('${bg}')`})
-    initDungeonCanvas();
+    // initDungeonCanvas();
+    initFightMenu();
 }
 function triggerTransition(){
-    console.log('transition triggered')
     $('#transitionOverlay').addClass('transitioning');
-    setTimeout(function(){$('#transitionOverlay').removeClass('transitioning');}, 500)
+    setTimeout(function(){$('#transitionOverlay').removeClass('transitioning');}, 1100)
+}
+function triggerHitTaken(){
+    $('#hitOverlay').addClass('transitioning');
+    setTimeout(function(){$('#hitOverlay').removeClass('transitioning');}, 500)
+}
+function triggerReward(){
+    $('#rewardOverlayCont').css({'left': 0});
 }
 function clearDungeonMenus(){
     console.log('dungeon menu cleared')
-    $('#nextFloorMenu,#maidenMenu, #thiefMenu, #chestMenu, #statueMenu, #bossMenu, #apexMenu, .portal-menu').addClass('d-none');
+    $('#fightMenu, #nextFloorMenu,#maidenMenu, #thiefMenu, #chestMenu, #statueMenu, #bossMenu, #apexMenu, .portal-menu').addClass('d-none');
 }
 function changeDungeonPanelBG(bg){
     console.log('dungeon bg changed to ',bg)
     $('#dungeonPanel').removeClass('next maiden thief statue chest bossPortal apexPortal').addClass(bg).removeAttr('style')
+}
+function attack(){
+    if(enemyMob.hpPoints > 0){
+        $('#dungeonPanel').addClass('shake');
+        setTimeout(function(){$('#dungeonPanel').removeClass('shake');},120);
+        
+        console.log("enemyMob.hpPoints",enemyMob.hpPoints)
+        let baseDmg = Math.max(calcAtk - enemyMob.def, calcAtk * soul.minDmg);
+        let randomMultiplier = 0.9 + Math.random() * 0.2;  // 0.9 ~ 1.1
+        let finalDmg = Math.floor(baseDmg * randomMultiplier);
+        let reducedMobHp = Math.max(0, enemyMob.hpPoints - finalDmg);
+        console.log("baseDmg:",baseDmg)
+        console.log("randomMultiplier:",randomMultiplier)
+        console.log("finalDmg:",finalDmg)
+        console.log("reducedMobHp:",reducedMobHp)
+        // bar width = current HP / max HP * 100
+        let barWidth = (reducedMobHp / enemyMob.hpPoints) * 100;
+        // reduce HP but not below 0
+        enemyMob.hpPoints = reducedMobHp
+        $('#currentEHP').text(enemyMob.hpPoints);
+        $('#EHB').css({'width': `${barWidth}%`});
+    }else{
+        clearInterval(atkInterval);
+        $('#PActB').removeAttr('style');
+        collectedGold += enemyMob.gold;
+        triggerReward()
+    }
+    
+    // clearInterval(hitInterval);
 }

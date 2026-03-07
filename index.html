@@ -545,15 +545,44 @@
     </div>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="dungeonPanel" aria-labelledby="dungeonPanel" refinerPreviewId>
         <canvas id="dungeonCanvas" class="w-100 h-100"></canvas>
-        <div class="offcanvas-header">
+        <!-- <div class="offcanvas-header">
             <button class="icon-btn ms-auto" data-bs-dismiss="offcanvas" aria-label="Close">
                 <i class="fa-solid fa-xmark"></i>
             </button>
             <button class="icon-btn" id="testDungeonBtn">
                 <i class="fa-solid fa-plus"></i>
             </button>
-        </div>
-        <div class="offcanvas-body d-flex flex-column" >
+        </div> -->
+        
+        <div class="offcanvas-body d-flex flex-column vh-100" >
+            <div class="d-flex flex-column h-100 w-100 align-items-center justify-content-center d-none" id="fightMenu">
+                <div class="pos-rel w-100 text-light">
+                    <div class="pos-rel" id="EHBCont">
+                        <div class="pos-a text-center" id="EHB"></div>
+                        <div class="d-flex pos-a align-items-center justify-content-center text-light w-100 h-100">
+                            <span id="currentEHP"></span> / <span id="maxEHP"></span>
+                        </div>
+                    </div>
+                    
+                </div>
+                <h3 class="mt-2 mb-auto icon-btn-text" id="EName"></h3>
+                
+                <div class="d-flex align-items-center justify-content-center text-light w-100 mt-auto">
+                    <div class="pos-rel" id="PHBCont">
+                        <div class="pos-a player-meter" id="PHB"></div>
+                        <div class="d-flex pos-a align-items-center justify-content-center text-light w-100 h-100">
+                            <span id="currentHP"></span> / <span id="maxHP"></span>
+                        </div>
+                    </div>
+                    <div class="icon-btn-text flex-grow-1 text-center">Floor <span id="currentFloor"></span>&nbsp;<span id="currentRoom"></span></div>
+                    <div class="pos-rel" id="PActCont">
+                        <div class="pos-a player-meter" id="PActB"></div>
+                        <div class="d-flex pos-a align-items-center justify-content-center text-light w-100 h-100">
+                            <img src="assets/icons/crossed-swords-white.svg" alt="" style="width: 30px; height: 30px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="d-flex flex-column h-100 align-items-center justify-content-center d-none" id="nextFloorMenu">
                 <h1>Go deeper!</h1>
                 <button class="icon-btn next-room-btn my-3 small-text">
@@ -693,6 +722,20 @@
         </div>
         <div id="transitionOverlay" class="w-100 h-100">
 
+        </div>
+        <div id="hitOverlay" class="w-100 h-100">
+
+        </div>
+        
+    </div>
+    <div id="rewardOverlayCont" class="vw-100 vh-100">
+        <div id="rewardOverlay" class="w-100 h-100 d-flex align-items-center justify-content-center">
+            <div id="rewardPanel" class="section-container w-60 text-center">
+                <h3>You received</h3>
+                <span id="rewadGold"></span><br>
+                <span id="rewardMats"></span><br>
+                <span id="rewardEqpt"></span>
+            </div>
         </div>
     </div>
     
