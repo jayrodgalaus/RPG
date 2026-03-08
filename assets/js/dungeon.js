@@ -20,6 +20,7 @@ var currentRoom = 0;
 var currentMaiden;
 var collectedGold = 0;
 var collectedMats = [];
+var collectedEqp = [];
 var currentATK = 0;
 var currentDmg = 0;
 var currentSPD = 1;
@@ -95,14 +96,21 @@ function initFightMenu(){
     $('#currentFloor').text(currentFloor);
     let roomText = currentFloor % 10 == 0 ? (currentFloor == 50 ? "Apex room" : "Boss room") : `Room ${currentRoom}`;
     $('#currentRoom').text(roomText);
-    $('#currentHP').text(calcHppoints);
+    $('#currentHP').text(currentHP);
     $('#maxHP').text(calcHppoints);
     $('#currentEHP').text(enemyMob.hpPoints);
-    $('#maxEHP').text(enemyMob.hpPoints);
+    $('#EHB').css({'width':'100%'});
+    let maxEHP = enemyMob.hpPoints;
+    $('#maxEHP').text(maxEHP);
     $('#fightMenu').removeClass('d-none');
     $('#PActB').css({'animation':`actionLoading ${calcAtkspd}s infinite`})
-    atkInterval = setInterval(function(){attack()},calcAtkspd*1000);
-    
+    atkInterval = setInterval(function(){attack(maxEHP)},calcAtkspd*1000);
+    hitInterval = setInterval(function(){enemyAttack(calcHppoints)},enemyMob.atkspd*1000);
+    if(enemyMob.name == "Gold Goblin" || enemyMob.name == "Elite Gold Goblin"){
+        setTimeout(function(){
+            clearInterval(atkInterval); clearInterval(hitInterval);triggerReward(true);}
+            ,10000);
+    }
 
 }
 async function updateDungeonState(){
@@ -157,7 +165,7 @@ async function startRun(){
     currentHP = calcHppoints;
     currentRoom = 0; 
     currentMobRate +=  refinerMobSpawnBuff();
-    //hide encounter menus
+    
     nextRoom();
 }
 async function nextRoom() {
@@ -169,11 +177,9 @@ async function nextRoom() {
         if(currentFloor != 50){
             $('#bossMenu').removeClass('d-none');
             changeDungeonPanelBG('bossPortal')
-            // $('#dungeonPanel').addClass('bossPortal').removeClass('next maiden thief statue chest apexPortal').removeAttr('style')
         }else{
             $('#apexMenu').removeClass('d-none');
             changeDungeonPanelBG('apexPortal')
-            // $('#dungeonPanel').addClass('apexPortal').removeClass('maiden thief statue chest next bossPortal').removeAttr('style')
         }
         
     }else{
@@ -201,10 +207,7 @@ async function nextRoom() {
             }
         }else{
             // await updateDungeonState();
-            /* 
-                Add computation of maiden bonus
-            */
-            //Add computation of refiner buff if applicable
+            
             let enemyEncounter = currentMobRate;
             if(currentFloor == 1 && currentRoom == 1){
                 enemyEncounter = 1; //no special encounters in first floor first room
@@ -243,8 +246,8 @@ async function nextRoom() {
                 // $('#dungeonPanel').addClass('statue').removeClass('maiden thief chest next bossPortal apexPortal').removeAttr('style');
                 changeDungeonPanelBG('statue')
                 $('#statueMenu').removeClass('d-none');
-                let heal = Math.floor((soul.hpPoints - currentHP)*0.2);
-                currentHP = Math.min(currentHP + heal, soul.hpPoints);
+                let heal = Math.round((calcHppoints - currentHP)*0.2);
+                currentHP = Math.min(currentHP + heal, calcHppoints);
                 console.log(`healed ${heal} HP`);
             }else if(encounterRoll > statueEncounter && encounterRoll <= chestEncounter){
                 let foundGold = Math.floor(Math.min(collectedGold * 0.05, currentFloor*5));
@@ -256,6 +259,8 @@ async function nextRoom() {
                 changeDungeonPanelBG('chest')
             }else if(encounterRoll <= portalEncounter){
                 spawnPortal();
+            }else{
+                nextRoom();
             }
 
         }
@@ -283,43 +288,100 @@ function triggerHitTaken(){
     $('#hitOverlay').addClass('transitioning');
     setTimeout(function(){$('#hitOverlay').removeClass('transitioning');}, 500)
 }
-function triggerReward(){
+function triggerReward(isGoldGob = false){
+    clearInterval(atkInterval);
+    clearInterval(hitInterval);
+    $('#PActB').removeAttr('style');
+    if(isGoldGob){
+        let maxehp = parseInt($('#maxEHP').text());
+        let currentehp = parseInt($('#currentEHP').text());
+        let gold = Math.round(((maxehp - currentehp) / maxehp)*enemyMob.gold);
+        collectedGold += gold;
+    }else
+        collectedGold += enemyMob.gold;
+    let mat = rollMaterialDrop();
+    let matRewardText = "";
+    if(mat){
+        let matName = materialList[mat].name;
+
+        matRewardText = matName;
+        if(activeRefiner && activeRefiner.buff.idx == 6){
+            let double = Math.random <= 0.2; //10% chance to double drop
+            if(double){
+                collectedMats.push(mat);
+                matRewardText+=" x2";
+            }
+        }else{
+            matRewardText+=" x1";
+        }
+        collectedMats.push(mat);
+    }
+    $('#rewadGold').text("+"+enemyMob.gold+"g")
+    $('#rewardMats').text(matRewardText)
+    $('#rewardEqpt').text()
+    
+    
     $('#rewardOverlayCont').css({'left': 0});
+
+}
+function triggerDeath(){
+    triggerTransition();
+    clearDungeonMenus();
+    changeDungeonPanelBG('death');
+    $('#deathMenu').removeClass('d-none');
+    clearInterval(atkInterval);
+    clearInterval(hitInterval);
+    $('#collectedGold').text(`${collectedGold}g`);
+    let totalGold = Math.round(soul.gold + collectedGold);
+    if(activeRefiner){ applyRefinerBonus();}
+    collectedMats.forEach(item =>{
+        bag.push(item);
+    });
+    updateBag();
+    soul.updateGold(totalGold);
 }
 function clearDungeonMenus(){
     console.log('dungeon menu cleared')
     $('#fightMenu, #nextFloorMenu,#maidenMenu, #thiefMenu, #chestMenu, #statueMenu, #bossMenu, #apexMenu, .portal-menu').addClass('d-none');
+    $('#rewardOverlayCont').css({'left': '100vw'});
 }
 function changeDungeonPanelBG(bg){
     console.log('dungeon bg changed to ',bg)
-    $('#dungeonPanel').removeClass('next maiden thief statue chest bossPortal apexPortal').addClass(bg).removeAttr('style')
+    $('#dungeonPanel').removeClass('next maiden thief statue chest bossPortal apexPortal death').addClass(bg).removeAttr('style')
 }
-function attack(){
+function attack(maxEHP){
     if(enemyMob.hpPoints > 0){
         $('#dungeonPanel').addClass('shake');
         setTimeout(function(){$('#dungeonPanel').removeClass('shake');},120);
-        
-        console.log("enemyMob.hpPoints",enemyMob.hpPoints)
-        let baseDmg = Math.max(calcAtk - enemyMob.def, calcAtk * soul.minDmg);
+        let baseDmg = Math.max(calcAtk - enemyMob.def, Math.floor(calcAtk * soul.minDmg));
         let randomMultiplier = 0.9 + Math.random() * 0.2;  // 0.9 ~ 1.1
         let finalDmg = Math.floor(baseDmg * randomMultiplier);
         let reducedMobHp = Math.max(0, enemyMob.hpPoints - finalDmg);
-        console.log("baseDmg:",baseDmg)
-        console.log("randomMultiplier:",randomMultiplier)
-        console.log("finalDmg:",finalDmg)
-        console.log("reducedMobHp:",reducedMobHp)
         // bar width = current HP / max HP * 100
-        let barWidth = (reducedMobHp / enemyMob.hpPoints) * 100;
+        let barWidth = (reducedMobHp / maxEHP) * 100;
         // reduce HP but not below 0
-        enemyMob.hpPoints = reducedMobHp
+        enemyMob.hpPoints = reducedMobHp;
         $('#currentEHP').text(enemyMob.hpPoints);
         $('#EHB').css({'width': `${barWidth}%`});
     }else{
-        clearInterval(atkInterval);
-        $('#PActB').removeAttr('style');
-        collectedGold += enemyMob.gold;
         triggerReward()
     }
-    
-    // clearInterval(hitInterval);
+}
+function enemyAttack(maxHP){
+    if(currentHP > 0){
+        $('#PHBCont').addClass('shake');
+        setTimeout(function(){$('#PHBCont').removeClass('shake');},120);
+        let baseDmg = Math.max(enemyMob.dmg - calcDef, Math.floor(enemyMob.dmg * enemyMob.minDmg));
+        let randomMultiplier = 0.9 + Math.random() * 0.2;  // 0.9 ~ 1.1
+        let finalDmg = Math.floor(baseDmg * randomMultiplier);
+        let reducedMobHp = Math.max(0, currentHP - finalDmg);
+        // bar width = current HP / max HP * 100
+        let barHeight = (reducedMobHp / maxHP) * 100;
+        // reduce HP but not below 0
+        currentHP = reducedMobHp;
+        $('#currentHP').text(currentHP);
+        $('#PHB').css({'height': `${barHeight}%`});
+    }else{
+        triggerDeath()
+    }
 }

@@ -4,7 +4,7 @@
 // IndexedDB setup
 function openDB() {
     return new Promise((resolve, reject) => {
-        const request = indexedDB.open("RPGSlop", 9);
+        const request = indexedDB.open("RPGSlop", 11);
         request.onupgradeneeded = (event) => {
             const db = event.target.result;
             if (!db.objectStoreNames.contains("Soul")) {
@@ -12,6 +12,9 @@ function openDB() {
             }
             if (!db.objectStoreNames.contains("Inventory")) {
                 db.createObjectStore("Inventory", { keyPath: "id", autoIncrement: true });
+            }
+            if (!db.objectStoreNames.contains("Bag")) {
+                db.createObjectStore("Bag", { keyPath: "id" }); 
             }
             if (!db.objectStoreNames.contains("RefinerState")) {
                 db.createObjectStore("RefinerState", { keyPath: "id" }); 
@@ -178,7 +181,37 @@ async function initRefiner() {
         getRequest.onerror = () => reject(getRequest.error);
     });
 }
+async function initBag() {
+    return new Promise((resolve, reject) => {
+        const tx = db.transaction("Bag", "readwrite");
+        const store = tx.objectStore("Bag");
 
+        const getRequest = store.get(1); // always look for id=1
+
+        getRequest.onsuccess = async () => {
+            let db_bag = getRequest.result;
+
+            if (!db_bag) {
+                console.log("No bag found, creating empty bag...");
+                db_bag = {
+                    id: 1,
+                    items: []
+                };
+                await new Promise(resolve => {
+                    const req = store.add(db_bag);
+                    req.onsuccess = e => resolve(e.target.result);
+                });
+                resolve("Bag created");
+            } else {
+                console.log("Bag found in DB");
+                bag = db_bag.items
+                resolve(db_bag);
+            }
+        };
+
+        getRequest.onerror = () => reject(getRequest.error);
+    });
+}
 
 
 $(document).ready(async function(){
@@ -188,6 +221,7 @@ $(document).ready(async function(){
     setGold();
     await initInventory();
     await initRefiner();
+    await initBag();
     //UI
     populateStatMenu();
     populateRefinerMenu();

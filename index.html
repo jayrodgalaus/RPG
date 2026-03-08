@@ -21,6 +21,8 @@
     <!-- game scripts -->
     <script src="assets/js/globals.js"></script>
     <script src="assets/js/npcs/refiners.js"></script>
+    <script src="assets/js/runes.js"></script>
+    <script src="assets/js/consumables.js"></script>
     <script src="assets/js/npcs/maidens.js"></script>
     <script src="assets/js/armors.js"></script>
     <script src="assets/js/weapons.js"></script>
@@ -545,15 +547,7 @@
     </div>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="dungeonPanel" aria-labelledby="dungeonPanel" refinerPreviewId>
         <canvas id="dungeonCanvas" class="w-100 h-100"></canvas>
-        <!-- <div class="offcanvas-header">
-            <button class="icon-btn ms-auto" data-bs-dismiss="offcanvas" aria-label="Close">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            <button class="icon-btn" id="testDungeonBtn">
-                <i class="fa-solid fa-plus"></i>
-            </button>
-        </div> -->
-        
+               
         <div class="offcanvas-body d-flex flex-column vh-100" >
             <div class="d-flex flex-column h-100 w-100 align-items-center justify-content-center d-none" id="fightMenu">
                 <div class="pos-rel w-100 text-light">
@@ -585,6 +579,16 @@
             </div>
             <div class="d-flex flex-column h-100 align-items-center justify-content-center d-none" id="nextFloorMenu">
                 <h1>Go deeper!</h1>
+                <button class="icon-btn next-room-btn my-3 small-text">
+                    <i class="fa-solid fa-o"></i> <i class="fa-solid fa-k"></i>
+                </button>
+            </div>
+            <div class="d-flex flex-column h-100 align-items-center justify-content-center d-none" id="deathMenu">
+                <div id="deathRewards" class="section-container d-flex flex-column align-items-center justify-content-center w-75 text-center mt-auto">
+                    <h3 class="w-100">A random equipment got damaged.</h3>
+                    <div class="icon-btn-text">Total gold: <span id="collectedGold"></span></div>
+                    <div id="collectedMats"></div>
+                </div>
                 <button class="icon-btn next-room-btn my-3 small-text">
                     <i class="fa-solid fa-o"></i> <i class="fa-solid fa-k"></i>
                 </button>
@@ -729,13 +733,16 @@
         
     </div>
     <div id="rewardOverlayCont" class="vw-100 vh-100">
-        <div id="rewardOverlay" class="w-100 h-100 d-flex align-items-center justify-content-center">
+        <div id="rewardOverlay" class="w-100 h-100 d-flex flex-column align-items-center justify-content-center">
             <div id="rewardPanel" class="section-container w-60 text-center">
-                <h3>You received</h3>
-                <span id="rewadGold"></span><br>
-                <span id="rewardMats"></span><br>
-                <span id="rewardEqpt"></span>
+                <h3>Loot</h3>
+                <div id="rewadGold"></div>
+                <div id="rewardMats"></div>
+                <div id="rewardEqpt"></div>
             </div>
+            <button class="icon-btn next-room-btn my-3 small-text">
+                <i class="fa-solid fa-o"></i> <i class="fa-solid fa-k"></i>
+            </button>
         </div>
     </div>
     

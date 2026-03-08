@@ -1,22 +1,7 @@
 /* 
     minimum damage : dungeonMobs - 30%, bossMobs - 40%, apexMobs - 50%
 */
-var statDistr = {
-    atk:{ atk: 0.3, spd: 0.15, def: 0.15, hp: 0.4},
-    spd:{ atk: 0.15, spd: 0.3, def: 0.15, hp: 0.4},
-    def:{ atk: 0.15, spd: 0.15, def: 0.3, hp: 0.4},
-    hp:{ atk: 0.15, spd: 0.15, def: 0.15, hp: 0.55},
-    goldgoblin:{atk: 0, spd: 0, def: 0.30, hp: 0.70},
-    balanced:{ atk: 0.25, spd: 0.25, def: 0.25, hp: 0.25},
-    xatk:{ atk: 0.45, spd: 0.10, def: 0.10, hp: 0.35},
-    xspd:{ atk: 0.10, spd: 0.45, def: 0.10, hp: 0.35},
-    xdef:{ atk: 0.10, spd: 0.10, def: 0.45, hp: 0.35},
-    xhp:{ atk: 0.10, spd: 0.10, def: 0.10, hp: 0.70},
-    xxatk:{ atk: 0.65, spd: 0.0, def: 0.0, hp: 0.35},
-    xxspd:{ atk: 0.10, spd: 0.65, def: 0.0, hp: 0.25},
-    xxdef:{ atk: 0.10, spd: 0.0, def: 0.65, hp: 0.25},
-    xxhp:{ atk: 0.10, spd: 0.0, def: 0.0, hp: 0.90},
-}
+
 var dungeonMobs = [
     //angels: [
         {name: "Corrupt Angel", species:"angels", img: mob_path+"Angels/1.webp", category:"angels", baseStats: 50, increment: 12, baseGold:100, distr:statDistr.atk},
@@ -75,7 +60,7 @@ var dungeonMobs = [
         {name: "Stacy", species:"neutral", img: mob_path+"Neutrals/nurse2.webp", category:"special", baseStats: 35, increment: 6, baseGold:35, distr:statDistr.balanced},
         {name: "Mandy", species:"neutral", img: mob_path+"Neutrals/nurse3.webp", category:"special", baseStats: 35, increment: 6, baseGold:35, distr:statDistr.balanced},
         {name: "Sasha", species:"neutral", img: mob_path+"Neutrals/nurse1.webp", category:"special", baseStats: 35, increment: 6, baseGold:35, distr:statDistr.balanced},
-        {name: "Death", species:"neutral", img: mob_path+"Neutrals/death.webp", category:"special", baseStats: 70, increment: 6, baseGold:0, distr:statDistr.xxatk},
+        {name: "Death", species:"neutral", img: mob_path+"Neutrals/death.webp", category:"death", baseStats: 70, increment: 6, baseGold:0, distr:statDistr.xxatk},
         {name: "Gold Goblin", species:"neutral", img: mob_path+"Neutrals/goldgoblin.webp", category:"special", baseStats: 50, increment: 10, baseGold:100, distr:statDistr.goldgoblin},
     //skeletons
         {name: "Skeleton Fighter", species:"skeletons", img: mob_path+"Skeletons/1.webp", category:"generic", baseStats: 30, increment: 6, baseGold:30, distr:statDistr.atk},
@@ -92,20 +77,21 @@ var dungeonMobs = [
 
 ];
 var bossMobs = [
-    {name: "Elyndra", species:"angels", img: mob_path+"Angels/boss.webp", category:"angels", isBoss:true},
-    {name: "Thessra", species:"arachne", img: mob_path+"Arachne/boss.webp", category:"arachne", isBoss:true},
-    {name: "Zerath", species:"cultists", img: mob_path+"Cultists/boss.webp", category:"cultists", isBoss:true},
-    {name: "Morvak", species:"demons", img: mob_path+"Demons/boss.webp", category:"demons", isBoss:true},
-    {name: "Kaelthys", species:"dragons", img: mob_path+"Dragons/boss.webp", category:"dragons", isBoss:true},
-    {name: "Ilyra", species:"ghosts", img: mob_path+"Ghosts/boss.webp", category:"ghosts", isBoss:true, baseStats: 50, increment: 9, baseGold:100, distr:statDistr.hp},
-    {name: "Graknir", species:"goblins", img: mob_path+"Goblins/boss.webp", category:"goblins", isBoss:true, baseStats: 50, increment: 9, baseGold:100, distr:statDistr.atk},
-    {name: "Skirrek", species:"kobolds", img: mob_path+"Kobolds/boss.webp", category:"kobolds", isBoss:true, isBoss:true, baseStats: 50, increment: 9, baseGold:100, distr:statDistr.hp},
-    {name: "Dravok", species:"skeletons", img: mob_path+"Skeletons/boss.webp", category:"skeletons", isBoss:true, baseStats: 50, increment: 9, baseGold:100, distr:statDistr.atk},
+    {name: "Elyndrus", species:"angels", img: mob_path+"Angels/boss.webp", category:"angels", isBoss:true, baseStats: 75, increment: 15, baseGold:200, distr:statDistr.xspd},
+    {name: "Thessra", species:"arachne", img: mob_path+"Arachne/boss.webp", category:"arachne", isBoss:true, baseStats: 60, increment: 12, baseGold:150, distr:statDistr.xspd},
+    {name: "Zerath", species:"cultists", img: mob_path+"Cultists/boss.webp", category:"cultists", isBoss:true, baseStats: 60, increment: 12, baseGold:150, distr:statDistr.xatk},
+    {name: "Morvak", species:"demons", img: mob_path+"Demons/boss.webp", category:"demons", isBoss:true, baseStats: 75, increment: 15, baseGold:200, distr:statDistr.xatk},
+    {name: "Kaelthys", species:"dragons", img: mob_path+"Dragons/boss.webp", category:"dragons", isBoss:true, baseStats: 75, increment: 15, baseGold:200, distr:statDistr.xhp},
+    {name: "Karma", species:"fallen", img: mob_path+"Dragons/boss.webp", category:"fallen", isBoss:true, baseStats: 60, increment: 12, baseGold:150, distr:statDistr.xdef},
+    {name: "Ilyra", species:"ghosts", img: mob_path+"Ghosts/boss.webp", category:"ghosts", isBoss:true, baseStats: 50, increment: 9, baseGold:100, distr:statDistr.def},
+    {name: "Graknir", species:"goblins", img: mob_path+"Goblins/boss.webp", category:"goblins", isBoss:true, baseStats: 50, increment: 9, baseGold:100, distr:statDistr.hp},
+    {name: "Skirrek", species:"kobolds", img: mob_path+"Kobolds/boss.webp", category:"kobolds", isBoss:true, isBoss:true, baseStats: 50, increment: 9, baseGold:100, distr:statDistr.atk},
+    {name: "Dravok", species:"skeletons", img: mob_path+"Skeletons/boss.webp", category:"skeletons", isBoss:true, baseStats: 50, increment: 9, baseGold:100, distr:statDistr.balanced},
     {name: "Gloxx", species:"slimes", img: mob_path+"Slimes/boss.webp", category:"slimes", isBoss:true, baseStats: 45, increment: 8, baseGold:75, distr:statDistr.spd},
     {name: "Veynar", species:"zombies", img: mob_path+"Zombies/boss.webp", category:"zombies", isBoss:true, isBoss:true, baseStats: 50, increment: 9, baseGold:100, distr:statDistr.hp},
 ];
 var apexMobs = [
-    {name: "Seraphis the Dawnbringer", species:"angels", img: mob_path+"Angels/apex.webp", category:"angels", isApex:true},
+    {name: "Seraphis the Dawnbringer", species:"angels", img: mob_path+"Angels/apex.webp", category:"angels", isApex:true, baseStats:100, increment: 18, baseGold:300, distr:statDistr.balanced},
     {name: "Webmother Nethis", species:"arachne", img: mob_path+"Arachne/apex.webp", category:"arachne", isApex:true},
     {name: "Voidchanter Orveth", species:"cultists", img: mob_path+"Cultists/apex.webp", category:"cultists", isApex:true},
     {name: "Hellbrand Malrik", species:"demons", img: mob_path+"Demons/apex.webp", category:"demons", isApex:true},
@@ -120,8 +106,7 @@ var apexMobs = [
 var enemyMob;
 var goldGoblinRun = 0; //save the last time goldGoblin was encountered
 function distributeMobStats(baseGold,baseStats, increment, distr, floor, dungeon, isElite){
-    let totalStats = (baseStats + (increment * floor)) * (1 + (dungeon.difficulty * floor));
-    console.log('total stats:',totalStats)
+    let totalStats = Math.round((baseStats + (increment * floor)) * (1 + (dungeon.difficulty * floor)));
     let gold = Math.floor((baseGold + (increment * floor)) * (1 + (dungeon.difficulty * floor)));
     if(isElite) totalStats *= 1.3;
     let atk = Math.floor(totalStats * distr.atk);
@@ -180,5 +165,6 @@ function spawnMob(isBoss = false, isApex = false){
     enemyMob = new Mob(mob, currentFloor, currentDungeon);
     
     console.log("enemy mob:", enemyMob)
-    console.log("gold:",enemyMob.gold)  
+    console.log("mob stats",enemyMob.getTotalStats())
+    // console.log("gold:",enemyMob.gold)  
 }

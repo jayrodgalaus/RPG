@@ -8,6 +8,7 @@
     mat drops = random from array of materialList where materialList obj.mob == dungeonMobs' mob.species)
 */
 var materialList = [
+    {id: 0, mob: "death", category:"material", name: "Soul", stat: "ATK", min: 10, max: 10},
     {id: 1, mob: "angels", category:"material", name: "Angel feather", stat: "SPD", min: 5, max: 7},
     {id: 2, mob: "angels", category:"material", name: "Angel hair", stat: "HP", min: 5, max: 7},
     {id: 3, mob: "angels", category:"material", name: "Corrupt ichor", stat: "ATK", min: 5, max: 10}, //specialty
@@ -33,14 +34,15 @@ var materialList = [
     {id: 23, mob: "generic", category:"material", name: "Frenzy Stone", stat: "SPD", min: 2, max: 2},
 ]
 
-function rollMaterialDrop(mobData,bonus=0) {
+function rollMaterialDrop(bonus=0) {
     // base 40% chance; 50% for boss, 60% for apex
-    let base = mobData.isApex ? 0.6 : (mobData.isBoss ? 0.5 : 0.4);
+    let base = enemyMob.isApex ? 0.6 : (enemyMob.isBoss ? 0.5 : 0.4);
 
     let drop_chance = bonus >= 0.6 ? 1 : base+bonus;  
-    if (Math.random() < (drop_chance)) {
+    if (Math.random() <= (drop_chance)) {
         // filter materials by mobCategory
-        let mats = materialList.filter(m => m.mob === mobData.mobCategory);
+
+        let mats = materialList.filter(m => m.mob === enemyMob.category);
         if (mats.length > 0) {
             // pick random material and return only its id
             let mat = mats[Math.floor(Math.random() * mats.length)];
@@ -49,3 +51,11 @@ function rollMaterialDrop(mobData,bonus=0) {
     }
     return null; // no drop
 }
+function updateBag(){
+        const tx = db.transaction("Bag", "readwrite");
+        const store = tx.objectStore("Bag");
+        store.put({id: 1, items:bag});
+
+        tx.oncomplete = () => console.log("Bag updated");
+        tx.onerror = () => console.error("Failed to update Soul in IndexedDB");
+    }

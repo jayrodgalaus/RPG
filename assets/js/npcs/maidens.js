@@ -72,5 +72,32 @@ function setActiveMaiden(){
             }
         }
         currentMaiden = bracket[Math.floor(Math.random() * bracket.length)];
+        applyMaidenBuff()
+    }
+}
+
+function applyMaidenBuff(){
+    switch (currentMaiden.idx){
+        // "Gives tome that grants +(current floor x (1 - 3)) random stats"},
+        case 0:
+            bag.push(consumables[0]);
+            break;
+        // "Gives random C-S rune"},
+        // "Title slot unlock (max 1 slots unlocked this way) otherwise, +5% all stats, double damage every 5th attack until end of run"},
+        // "+15% ATK and SPD"},
+        // "+15% all stats"},
+        // "Occasional healing 10% missing health"},
+        // "+20% gold after run"},
+        // "+20% mats after run"},
+        // "+10% DEF"},
+        // "+10% HP"},
+        // "+30% Gold, ‑10% mats after run"},
+        // "+50% damage every 5 hits "},
+        // "+1% to all stats"},
+        // "+2% to two random stats"},
+        // "+10% ATK SPD, ‑6% HP"},
+        // "+10% HP, ‑6% ATK"},
+        // "Gold x 0% - 200% after each battle"},
+        // "Gold x 50% - 150% after each battle"},
     }
 }

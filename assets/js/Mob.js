@@ -20,7 +20,7 @@ class Mob {
         this.hp = hp;
         this.hpPoints = hp * 5;
         this.gold = gold;
-        let minDmg = this.isBoss ? 0.4 : (this.isApex ? 0.5 : (this.isElite ? 0.3 : 0.2) );
+        this.minDmg = this.isBoss ? 0.4 : (this.isApex ? 0.5 : (this.isElite ? 0.3 : 0.2) );
         
     }
     
