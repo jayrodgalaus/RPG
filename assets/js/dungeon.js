@@ -103,14 +103,23 @@ function initFightMenu(){
     let maxEHP = enemyMob.hpPoints;
     $('#maxEHP').text(maxEHP);
     $('#fightMenu').removeClass('d-none');
-    $('#PActB').css({'animation':`actionLoading ${calcAtkspd}s infinite`})
-    atkInterval = setInterval(function(){attack(maxEHP)},calcAtkspd*1000);
-    hitInterval = setInterval(function(){enemyAttack(calcHppoints)},enemyMob.atkspd*1000);
-    if(enemyMob.name == "Gold Goblin" || enemyMob.name == "Elite Gold Goblin"){
-        setTimeout(function(){
-            clearInterval(atkInterval); clearInterval(hitInterval);triggerReward(true);}
-            ,10000);
-    }
+    
+    setTimeout(function(){
+        $('#PActB').css({'animation':`actionLoading ${calcAtkspd}s infinite`});
+        atkInterval = setInterval(function(){attack(maxEHP)},calcAtkspd*1000);
+        hitInterval = setInterval(function(){enemyAttack(calcHppoints)},enemyMob.atkspd*1000);
+        if(enemyMob.name == "Gold Goblin" || enemyMob.name == "Elite Gold Goblin"){
+            setTimeout(function(){
+                clearInterval(atkInterval); clearInterval(hitInterval);triggerReward(true);}
+                ,10000);
+            $('#EName').addClass('gold')
+        }else if(enemyMob.name == "Death" || enemyMob.name == "Elite Death"){
+            $('#EName').addClass('death')
+        }else{
+            $('#EName').removeClass('gold death')
+        }
+    }, 500)
+    
 
 }
 async function updateDungeonState(){
@@ -165,7 +174,7 @@ async function startRun(){
     currentHP = calcHppoints;
     currentRoom = 0; 
     currentMobRate +=  refinerMobSpawnBuff();
-    
+    currentRun ++;
     nextRoom();
 }
 async function nextRoom() {
@@ -260,6 +269,7 @@ async function nextRoom() {
             }else if(encounterRoll <= portalEncounter){
                 spawnPortal();
             }else{
+                currentRoom --;
                 nextRoom();
             }
 
@@ -333,19 +343,34 @@ function triggerDeath(){
     clearInterval(hitInterval);
     $('#collectedGold').text(`${collectedGold}g`);
     let totalGold = Math.round(soul.gold + collectedGold);
-    if(activeRefiner){ applyRefinerBonus();}
-    collectedMats.forEach(item =>{
-        bag.push(item);
-    });
-    updateBag();
     soul.updateGold(totalGold);
+    if(collectedMats.length > 0){
+        if(activeRefiner){ applyRefinerBonus();}
+        collectedMats.forEach(item =>{
+            bag.push(item);
+        });
+        let compiledMats = compileMats("collected");
+        if(compiledMats.length > 0){
+            let collectedMatsText = '';
+            compiledMats.forEach(drop => {
+                let idx = materialList.findIndex(mat => mat.id === drop.id);
+                let matData = materialList[idx];
+                collectedMatsText += `<span class="icon-btn-text">${matData.name} x${drop.cnt}</span><br>`
+            });
+            $('#collectedMats').html(collectedMatsText);
+        }
+        updateBag();
+    }
+    
+    //reset dungeon initial values
+    resetDungeon();
 }
 function clearDungeonMenus(){
     console.log('dungeon menu cleared')
-    $('#fightMenu, #nextFloorMenu,#maidenMenu, #thiefMenu, #chestMenu, #statueMenu, #bossMenu, #apexMenu, .portal-menu').addClass('d-none');
+    $('#deathMenu, #fightMenu, #nextFloorMenu,#maidenMenu, #thiefMenu, #chestMenu, #statueMenu, #bossMenu, #apexMenu, .portal-menu').addClass('d-none');
     $('#rewardOverlayCont').css({'left': '100vw'});
 }
-function changeDungeonPanelBG(bg){
+function changeDungeonPanelBG(bg = ''){
     console.log('dungeon bg changed to ',bg)
     $('#dungeonPanel').removeClass('next maiden thief statue chest bossPortal apexPortal death').addClass(bg).removeAttr('style')
 }
@@ -363,6 +388,9 @@ function attack(maxEHP){
         enemyMob.hpPoints = reducedMobHp;
         $('#currentEHP').text(enemyMob.hpPoints);
         $('#EHB').css({'width': `${barWidth}%`});
+        if(reducedMobHp == 0){
+            triggerReward();
+        }
     }else{
         triggerReward()
     }
@@ -381,7 +409,29 @@ function enemyAttack(maxHP){
         currentHP = reducedMobHp;
         $('#currentHP').text(currentHP);
         $('#PHB').css({'height': `${barHeight}%`});
+        if(currentHP == 0){
+            triggerDeath();
+        }
     }else{
         triggerDeath()
     }
+}
+function resetDungeon(){
+    baseMobSpawnRate = 0.6;
+    currentMobRate = baseMobSpawnRate;
+    currentDungeon = "town";
+    currentFloor = 0;
+    currentRoom = 0;
+    currentMaiden = null;
+    collectedGold = 0;
+    collectedMats = [];
+    collectedEqp = [];
+    currentATK = 0;
+    currentDmg = 0;
+    currentSPD = 1;
+    currentDEF = 0;
+    currentHP = 0;
+    clearInterval(atkInterval);
+    clearInterval(hitInterval);
+    $('#PActB').removeAttr('css')
 }

@@ -9,6 +9,8 @@ $(function(){
         $('#background').attr('class',screen);
         if(screen == "storage" && activeRefiner){
             $('#background.storage').css({"background-image": 'url("'+activeRefiner.img+'")'});
+            $('#storageTabs .nav-link').removeClass('active').attr('aria-selected','false');
+            $('#mats-tab').click();
         }
         $('.menu').addClass('d-none');
         $('#'+screen+"Menu").removeClass('d-none');
@@ -189,6 +191,10 @@ $(function(){
     .on('click',"#toggleEquip",function(){
         currentEqpPreview.toggleEquip();
     })
+    //bag menu
+    .on('click','#mats-tab',function(){
+        populateMatsTab()
+    })
     //dungeon menu
     .on('click','#mapMenuDungeonList button',function(){
         $('#mapMenuDungeonList button').removeClass('active');
@@ -209,6 +215,8 @@ $(function(){
         }
     })
     .on('click','#startRunBtn',function(){
+        currentDungeon = dungeons[$('#mapMenuDungeonList button.active').text().toLowerCase()];
+        currentFloor = parseInt($('#mapMenuFloorList button.active').attr('floor'));
         startRun()
     })
     .on('click','#startBossBtn, #startApexBtn',function(){
@@ -217,19 +225,9 @@ $(function(){
     .on('click','#testDungeonBtn, .next-room-btn',function(){
         nextRoom();
     })
-    .on('click','.escape-btn',function(){
+    .on('click','#resetDunBtn',function(){
         triggerTransition();
-        //reset dungeon state
-        currentFloor = 0;
-        currentDungeon = null;
-        currentRoom = null;
-        //compute total gold, add to soul.gold
-
-        //compute total mats, with refiner
-
-        //release maiden
-
-        //push equipment into inventory
+        resetDungeon();
     })
 
 })

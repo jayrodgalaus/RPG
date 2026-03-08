@@ -52,10 +52,59 @@ function rollMaterialDrop(bonus=0) {
     return null; // no drop
 }
 function updateBag(){
-        const tx = db.transaction("Bag", "readwrite");
-        const store = tx.objectStore("Bag");
-        store.put({id: 1, items:bag});
+    const tx = db.transaction("Bag", "readwrite");
+    const store = tx.objectStore("Bag");
+    store.put({id: 1, items:bag});
 
-        tx.oncomplete = () => console.log("Bag updated");
-        tx.onerror = () => console.error("Failed to update Soul in IndexedDB");
+    tx.oncomplete = () => console.log("Bag updated");
+    tx.onerror = () => console.error("Failed to update Soul in IndexedDB");
+}
+// global var collectedMats = [array of int ids]
+
+function compileCollectedMats() {
+    const counts = {};
+    const result = [];
+
+    // count each id
+    for (let id of collectedMats) {
+        counts[id] = (counts[id] || 0) + 1;
     }
+
+    // convert to array of {id, cnt}
+    for (let id in counts) {
+        result.push({ id: parseInt(id), cnt: counts[id] });
+    }
+
+    return result;
+}
+
+function compileMats(src = "bag"){
+    const counts = {};
+    const result = [];
+    let arr = src != "bag" ? collectedMats : bag;
+    for (let id of arr) {
+        counts[id] = (counts[id] || 0) + 1;
+    }
+
+    // convert to array of {id, cnt}
+    for (let id in counts) {
+        result.push({ id: parseInt(id), cnt: counts[id] });
+    }
+
+    return result;
+}
+
+function populateMatsTab(){
+    let html = `<ul class="list-group list-group-flush">`;
+    let matsList = compileMats();
+    if(matsList.length > 0){
+        matsList.forEach(drop => {
+            let idx = materialList.findIndex(mat => mat.id === drop.id);
+            let matData = materialList[idx];
+            html += `<li class="list-group-item">${matData.name} x${drop.cnt}</li>`
+        });
+    }
+    html += `</ul>`
+    
+    $('#mats-tab-pane').html(html);
+}
