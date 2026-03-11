@@ -7,10 +7,14 @@ $(function(){
         let screenLabel = "-"+screen.charAt(0).toUpperCase() + screen.slice(1)+"-";
         $('#backgroundLabel').text(screenLabel);
         $('#background').attr('class',screen);
-        if(screen == "storage" && activeRefiner){
-            $('#background.storage').css({"background-image": 'url("'+activeRefiner.img+'")'});
+        if(screen == "storage"){
+            if(activeRefiner){
+                $('#background.storage').css({"background-image": 'url("'+activeRefiner.img+'")'});
+                $('#refinerPaymentInfo').text(`Pay refiner ${activeRefiner.salary} on run ${nextPayableRun}`)
+            }
             $('#storageTabs .nav-link').removeClass('active').attr('aria-selected','false');
             $('#mats-tab').click();
+            
         }
         $('.menu').addClass('d-none');
         $('#'+screen+"Menu").removeClass('d-none');

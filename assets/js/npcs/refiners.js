@@ -37,26 +37,36 @@ var refiners = [
 var activeRefinerIndex;
 var activeRefiner;
 var refinerHireRun;
+var refinerPaidRun = 0;
+var nextPayableRun = 0;
 function isRefinerPayable(){
     if(activeRefiner)
         return soul.gold >= activeRefiner.salary;
 }
 function resetRefiner(){
     if(activeRefiner){
-        if ((currentRun - refinerHireRun) % 5 == 0){//pay every 5 runs
+        nextPayableRun = refinerHireRun;
+        if(currentRun == refinerHireRun){nextPayableRun+= 5;}
+        if ((currentRun - refinerHireRun) % 5 == 0){//pay every 5 runs, this should be equiv to refinerPaidRun
             if(!isRefinerPayable()){
                 //end contract
                 activeRefiner = null;
                 refinerHireRun = 0;
+                refinerPaidRun = 0;
+                nextPayableRun = 0;
                 $("#refinerBuffIcon").addClass('d-none');
+                $('#refinerPaymentInfo').text('')
                 // $('#background.storage').css({"background-image": 'url("../img/Backgrounds/storage.webp")'});
                 // $('#background.storage').removeAttr("refinerImage");
 
             }else{
+                refinerPaidRun = currentRun;
+                nextPayableRun = currentRun + 5;
                 soul.gold -= activeRefiner.salary;
                 soul.updateGold(soul.gold);
             }
         }
+        $('#refinerPaymentInfo').text(`Pay refiner ${activeRefiner.salary} on run ${nextPayableRun}`)
     }
 }
 function hireRefiner(index){
@@ -92,7 +102,9 @@ async function updateRefinerState() {
                     id: 1,
                     activeRefinerIndex,
                     activeRefiner,
-                    refinerHireRun
+                    refinerHireRun,
+                    refinerPaidRun,
+                    nextPayableRun
                 };
                 await new Promise(resolve => {
                     const req = store.add(refinerState);
@@ -104,7 +116,9 @@ async function updateRefinerState() {
                     id: 1,
                     activeRefinerIndex,
                     activeRefiner,
-                    refinerHireRun
+                    refinerHireRun,
+                    refinerPaidRun,
+                    nextPayableRun
                 });
                 resolve("Refiner state updated");
             }

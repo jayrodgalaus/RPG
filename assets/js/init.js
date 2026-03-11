@@ -162,7 +162,9 @@ async function initRefiner() {
                     id: 1,
                     activeRefinerIndex,
                     activeRefiner,
-                    refinerHireRun
+                    refinerHireRun,
+                    refinerPaidRun,
+                    nextPayableRun
                 };
                 await new Promise(resolve => {
                     const req = store.add(refinerState);
@@ -174,6 +176,8 @@ async function initRefiner() {
                 activeRefinerIndex = refinerState.activeRefinerIndex;
                 activeRefiner = refinerState.activeRefiner;
                 refinerHireRun = refinerState.refinerHireRun;
+                refinerPaidRun = refinerState.refinerPaidRun,
+                nextPayableRun = refinerState.nextPayableRun
                 resolve(refinerState);
             }
         };
