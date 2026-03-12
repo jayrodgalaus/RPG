@@ -90,8 +90,42 @@ async function initInventory() {
             } else {
                 console.log("Equipment found in DB");
                 // assign to your global inventory variable
-                inventory = inventoryData.map(obj => Object.assign(new Equipment(obj), obj));
                 
+                // inventory = inventoryData.map(obj => Object.assign(new Equipment(obj), obj));
+                inventoryData.forEach(eqp => {
+                    let newEqp = new Equipment({eqp_type:eqp.eqp_type, eqp_id:eqp.eqp_id, tier:eqp.tier, max_tier:eqp.max_tier})
+                    newEqp.id = eqp.id;
+                    newEqp.eqp_type = eqp.eqp_type;
+                    newEqp.eqp_id = eqp.eqp_id;
+                    newEqp.tier = eqp.tier;
+                    newEqp.max_tier = eqp.max_tier;
+                    newEqp.slot = eqp.slot;
+                    newEqp.atk = eqp.atk;
+                    newEqp.atk_buff = eqp.atk_buff;
+                    newEqp.final_atk = eqp.final_atk;
+                    newEqp.dmg = eqp.dmg;
+                    newEqp.spd = eqp.spd;
+                    newEqp.spd_buff = eqp.spd_buff;
+                    newEqp.final_spd = eqp.final_spd;
+                    newEqp.atkspd = eqp.atkspd;
+                    newEqp.def = eqp.def;
+                    newEqp.def_buff = eqp.def_buff;
+                    newEqp.final_def = eqp.final_def;
+                    newEqp.hp = eqp.hp;
+                    newEqp.hp_buff = eqp.hp_buff;
+                    newEqp.final_hp = eqp.final_hp;
+                    newEqp.hpPoints = eqp.hpPoints;
+                    newEqp.form_change_1 = eqp.form_change_1;
+                    newEqp.form_change_2 = eqp.form_change_2;
+                    newEqp.aura_1 = eqp.aura_1;
+                    newEqp.aura_2 = eqp.aura_2;
+                    newEqp.special_effect = eqp.special_effect;
+                    newEqp.enhancement = eqp.enhancement;
+                    newEqp.suffix = eqp.suffix;
+                    newEqp.isEquipped = eqp.isEquipped;
+                    newEqp.value = eqp.value;
+                    inventory.push(newEqp);
+                });
                 resolve(inventoryData);
             }
             initLoadOut();
@@ -230,6 +264,7 @@ $(document).ready(async function(){
     populateStatMenu();
     populateRefinerMenu();
     populateDungeonFloors();
+    initStars();
 })
 
 

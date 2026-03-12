@@ -6,12 +6,18 @@ const eqp_path = "assets/img/Equipment/";
 const mob_path = "assets/img/Mobs/";
 const npc_town_path = "assets/img/NPCs/Town/";
 const portals_path = "assets/img/Portals/";
+var nsfw = false;
 var bag = []; //mats and consumables
-var inventory = []; // equipment
+
 var loadOut = [];
 var currentEqpPreview = {};
 var loadOuttotalAtk = 0, loadOuttotalSpd = 0, loadOuttotalDef = 0, loadOuttotalHP = 0;
 var calcAtk = 0, calcSpd = 0, calcDef = 0, calcHP = 0, calcDmg = 0, calcAtkspd = 0, calcHppoints = 0;
+//eqp
+const tiers = ["G","F","E","D","C","B","A","S","SR"];
+// var inventory = []; // equipment
+// var weapons = [];
+// var armor = [];
 //mobs
 // var enemyMob;
 // var goldGoblinRun = 0; //save the last time goldGoblin was encountered
@@ -42,10 +48,10 @@ var statDistr = {
 
 //functions
 function calcTotalStats(){
-    calcAtk = loadOuttotalAtk + soul.atk;
-    calcSpd = loadOuttotalSpd  + soul.spd;
-    calcDef = loadOuttotalDef  + soul.def;
-    calcHP = loadOuttotalHP  + soul.hp;
+    calcAtk = parseInt(loadOuttotalAtk) + soul.atk;
+    calcSpd = parseInt(loadOuttotalSpd)  + soul.spd;
+    calcDef = parseInt(loadOuttotalDef)  + soul.def;
+    calcHP = parseInt(loadOuttotalHP)  + soul.hp;
     calcDmg = calcAtk*3;
     calcAtkspd = calcSpd >= 430 ? 0.14 : 1 - (calcSpd * 0.002);
     calcHppoints = calcHP*5;

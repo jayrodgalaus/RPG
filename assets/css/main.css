@@ -47,8 +47,14 @@ h1,h2,h3,h4,h5,#eqpPreviewName{
 #background.storage{background-image: url("../img/Backgrounds/storage.webp");}
 #background.armory{background-image: url("../img/Backgrounds/armory.webp");}
 #background.map{background-image: url("../img/Backgrounds/map.webp");}
-#background.alchemist{background-image: url("../img/NPCs/Town/alchemist2.webp");}
+#background.alchemist{background-image: url("../img/NPCs/Town/alchemist1.webp");}
 #background.guild{background-image: url("../img/Backgrounds/guild.webp");}
+#background.shop.nsfw{background-image: url("../img/NPCs/Town/merchant-nsfw.webp") !important;}
+#background.forge.nsfw{background-image: url("../img/NPCs/Town/blacksmith-nsfw.webp") !important;}
+#background.tower.nsfw{background-image: url("../img/NPCs/Town/enchantress-nsfw.webp") !important;}
+#background.runes.nsfw{background-image: url("../img/NPCs/Town/runemaster-nsfw.webp") !important;}
+#background.auras.nsfw{background-image: url("../img/NPCs/Town/auramaster-nsfw.webp") !important;}
+#background.alchemist.nsfw{background-image: url("../img/NPCs/Town/alchemist1-nsfw.webp") !important;}
 #background.maidens{
     background: #21AAC2;
     background: radial-gradient(circle, rgba(33, 170, 194, 1) 0%, rgba(0, 141, 166, 1) 34%, rgba(0, 62, 89, 1) 100%);
@@ -95,7 +101,7 @@ h1,h2,h3,h4,h5,#eqpPreviewName{
 .icon-btn:active, .icon-btn:focus{
     border-color: crimson;
 }
-.icon-btn-text, #dungeonPanel h1, #dungeonPanel h2, #dungeonPanel h4, #dungeonPanel h3{
+.icon-btn-text, #dungeonPanel h1, #dungeonPanel h2, #dungeonPanel h4, #dungeonPanel h3, #forgeMenu h1, #forgeStars{
     color: white; text-shadow: 1px 1px 15px black;
     background-color: rgba(0,0,0, 0.5);
     box-shadow: 0px 0px 8px 2px rgba(0,0,0, 0.5);
@@ -161,6 +167,31 @@ h1,h2,h3,h4,h5,#eqpPreviewName{
     }
 /* TOWN MENU */
 
+/* FORGE MENu */
+    #enhanceBtn{
+        width: 70px;
+        height: 70px;
+    }
+    #forgeMenuEqp{
+        min-height: 20vh;
+        overflow-y: auto;
+    }
+    #forgeContent > .section-container{
+        max-height: 30vh;
+        overflow-y: auto;
+        min-height: 30vh;
+    }
+    #forgeEqpPreview{
+        width: 40vw;
+        height: calc(40vw * 16 / 9);
+    }
+    .forge-eqp-btn{
+        background-color: transparent;
+        border-color: #EEEEEE;
+        color: #EEEEEE;
+    }
+/* FORGE MENU */
+
 /* SOUL MENU */
     .stat-btn{
         color: white;
@@ -182,7 +213,7 @@ h1,h2,h3,h4,h5,#eqpPreviewName{
     .equipment-slot:hover, .equipment-slot:active{
         box-shadow: 0px 0px 40px 20px inset rgba(255, 0, 0, 0.5);
     }
-    .equipment-slot, #eqpPreviewPanel, #refinerPreviewPane, #dungeonPanel{
+    .equipment-slot, #eqpPreviewPanel, #refinerPreviewPane, #dungeonPanel, #forgeEqpPreview{
         box-shadow: none;
         background-size: cover;
         background-position: center;
@@ -205,11 +236,12 @@ h1,h2,h3,h4,h5,#eqpPreviewName{
 /* EQUIPMENT MENU */
 
 /* MAP MENU */
+    forgeEqpPreview
     #mapMenuDungeonList, #mapMenuFloorList{
         max-height: 50vh;
         overflow-y: auto;
     }
-    .map-menu-btn{
+    .map-menu-btn {
         background-color: transparent;
         border-color: #EEEEEE;
         color: #EEEEEE;
@@ -242,7 +274,6 @@ h1,h2,h3,h4,h5,#eqpPreviewName{
         position: absolute;
         bottom: 0;
     }
-
     #guildContainer{
         overflow-x: auto;
     }
@@ -272,7 +303,7 @@ h1,h2,h3,h4,h5,#eqpPreviewName{
     }
 /* GUILD MENU */
 /* BAG MENU */
-    #storageTabsCont .section-container{
+    .nav-tabs-container .section-container{
         border-top-left-radius: 0;
         border-top-right-radius: 0;
         padding: 0;
@@ -281,14 +312,14 @@ h1,h2,h3,h4,h5,#eqpPreviewName{
     }
     #storageContent{
         max-height: 45vh;
-        overflow: auto;
+        overflow-y: auto;
         min-height: 25vh;
     }
-    #storageTabsCont .nav-link, #storageContent .list-group-item{
+    .nav-tabs-container .nav-link, #storageContent .list-group-item{
         background-color: rgba(0, 0, 0, 0.5);
         color: #EEEEEE;
     }
-    #storageTabsCont .nav-link.active{
+    .nav-tabs-container .nav-link.active{
         background-color: #EEEEEE;
         color: black;
     }

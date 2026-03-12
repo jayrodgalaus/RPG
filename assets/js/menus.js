@@ -6,15 +6,18 @@ $(function(){
         else if(screen == "pots") screen = "alchemist"
         let screenLabel = "-"+screen.charAt(0).toUpperCase() + screen.slice(1)+"-";
         $('#backgroundLabel').text(screenLabel);
-        $('#background').attr('class',screen);
-        if(screen == "storage"){
+        $('#background').attr('class', nsfw ? screen + " " + "nsfw" : screen);
+        if(screen == "forge"){
+            resetForge();
+            populateEqpList("forge");
+        }else if(screen == "storage"){
             if(activeRefiner){
-                $('#background.storage').css({"background-image": 'url("'+activeRefiner.img+'")'});
+                if(nsfw)
+                    $('#background.storage').css({"background-image": 'url("'+activeRefiner.img+'")'});
                 $('#refinerPaymentInfo').text(`Pay refiner ${activeRefiner.salary} on run ${nextPayableRun}`)
             }
             $('#storageTabs .nav-link').removeClass('active').attr('aria-selected','false');
             $('#mats-tab').click();
-            
         }
         $('.menu').addClass('d-none');
         $('#'+screen+"Menu").removeClass('d-none');
@@ -46,6 +49,69 @@ $(function(){
     //town menu
     .on('click','.buff-icon-wrapper',function(){
         $(this).prev().toggleClass('d-none')
+    })
+    //forge
+    .on('click','.forge-eqp-btn',function(){
+        let idx = parseInt($(this).attr('idx'));
+        let array = $(this).attr('array');
+        let src = array == "loadout" ? loadOut : (array == "weapons" ? weapons : armor);
+        let eqp = src[idx];
+        let bg = eqp.eqp.img;
+        let tier = eqp.tier;
+        $('#forgeEqpPreview').css({'background-image':`url('${bg}')`});
+        $('#forgeCurrentEnhance').text(eqp.enhancement);
+        $('.forge-eqp-btn').removeClass('active')
+        $(this).addClass('active');
+        $('#enhanceBtn').attr('index',idx).attr("array",array);
+        initStars(eqp.enhancement, tier == "G" ? 5 : 10);
+        $('#forgeAtk').text(eqp.final_atk);
+        $('#forgeSpd').text(eqp.final_spd);
+        $('#forgeDef').text(eqp.final_def);
+        $('#forgeHp').text(eqp.final_hp);
+        let cost = forgeCosts[`${tier}`];
+        if(soul.gold < cost){
+            $("#enhanceBtn").attr('disabled','disabled');
+            $('#forgeCost').addClass('text-danger')
+        }else{
+            $("#enhanceBtn").removeAttr('disabled');
+            $('#forgeCost').removeClass('text-danger')
+        }
+        $('#forgeCost').text(cost);
+    })
+    .on('click',"#enhanceBtn", function(){
+        if($(this).attr('index') == '-1'){return false;}
+        let idx = parseInt($(this).attr('index'));
+        let array = $(this).attr('array');
+        let src = array == "loadout" ? loadOut : (array == "weapons" ? weapons : armor);
+        let eqp = src[idx];
+        let tier = eqp.tier;
+        let cost = forgeCosts[`${tier}`];
+        if(soul.gold >= cost){
+            
+            eqp.enhance();
+            $('#forgeCurrentEnhance').parent().addClass('grow');
+            setTimeout(function(){$('#forgeCurrentEnhance').parent().removeClass('grow');},120);
+            initStars(eqp.enhancement, tier == "G" ? 5 : 10);
+            $('#forgeCurrentEnhance').text(eqp.enhancement);
+            $('#forgeAtk').text(eqp.final_atk);
+            $('#forgeSpd').text(eqp.final_spd);
+            $('#forgeDef').text(eqp.final_def);
+            $('#forgeHp').text(eqp.final_hp);
+            populateStatMenu()
+            
+            //deduct gold
+            soul.updateGold(soul.gold - cost);
+            if(soul.gold < cost){
+                $("#enhanceBtn").attr('disabled','disabled');
+                $('#forgeCost').addClass('text-danger')
+            }else{
+                $("#enhanceBtn").removeAttr('disabled');
+                $('#forgeCost').removeClass('text-danger');
+            }
+            setGold();
+        }else{
+            $("#enhanceBtn").attr('disabled','disabled');
+        }
     })
     // refiner menu
     .on('click','#guildBtn',function(){
@@ -81,7 +147,7 @@ $(function(){
         $('#refinerPreviewName').text(refiner.name);
         $('#refinerPreviewDetails').text(refiner.buff.description);
         $('#refinerPreviewSalary').text(refiner.salary+"g")
-        $('#refinerPreviewPanel').css('background-image', `url('${refiner.portrait}')`);
+        $('#refinerPreviewPanel').css('background-image', `url('${refiner.portrait+(nsfw ? '-nsfw.webp':'.webp')}')`);
         $('#refinerPreviewPanel').attr('refinerPreviewId',idx)
         if(refiner.bonus){
             const video = $('#refinerPreviewBonusVid')[0];
@@ -116,6 +182,12 @@ $(function(){
         document.getElementById('refinerPreviewBonusVid').play();
     })
     //soul menu interactions
+    .on('click','#nsfwTrigger', function(){
+        $('#nsfwTrigger > i').toggleClass('text-danger pulse');
+        $('#background').toggleClass('nsfw');
+        nsfw = !nsfw;
+        populateRefinerMenu();
+    })
     .on('click', '#saveStats', function(){
         let atk = parseInt($('#baseAtk').text());
         let spd = parseInt($('#baseSpd').text());
@@ -233,5 +305,29 @@ $(function(){
         triggerTransition();
         resetDungeon();
     })
+    .on('click','.escape-btn',function(){
+        triggerReward();
+        let totalGold = Math.round(soul.gold + collectedGold);
+        soul.updateGold(totalGold);
+        if(collectedMats.length > 0){
+            if(activeRefiner){ applyRefinerBonus();}
+            collectedMats.forEach(item =>{
+                bag.push(item);
+            });
+            let compiledMats = compileMats("collected");
+            if(compiledMats.length > 0){
+                let collectedMatsText = '';
+                compiledMats.forEach(drop => {
+                    let idx = materialList.findIndex(mat => mat.id === drop.id);
+                    let matData = materialList[idx];
+                    collectedMatsText += `<span class="icon-btn-text">${matData.name} x${drop.cnt}</span><br>`
+                });
+                $('#collectedMats').html(collectedMatsText);
+            }
+            updateBag();
+        }
+        resetDungeon();
+    })
+
 
 })

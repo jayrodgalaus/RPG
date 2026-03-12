@@ -1,5 +1,17 @@
+.pulse{
+  animation: pulse 0.5s ease-in-out infinite alternate;
+}
+.shake {
+  animation: shake 0.1s;
+}
+.grow{
+  animation: grow 0.1s alternate;
+}
 @keyframes pulse {
     from { transform: scale(0.9); } to { transform: scale(1); }
+}
+@keyframes grow {
+    from { transform: scale(1); } to { transform: scale(1.3); }
 }
 @keyframes shake {
   0% { transform: translateX(0); }
@@ -17,6 +29,4 @@
     from{height: 0%;}
     to{height: 100%;}
 }
-.shake {
-  animation: shake 0.1s;
-}
+

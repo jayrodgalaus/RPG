@@ -37,61 +37,8 @@ function populateDungeonFloors(){
     }
     $('#mapMenuFloorList').html(floorHTML)
 }
-function drawHealthBars(canvas,ctx, playerHP, enemyHP, enemyName) {
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    // ctx.fillStyle = 'rgba(128,128,128,0.7)';
-    // ctx.fillRect(0, 0, canvas.width, 70);
-    // Enemy health bar (top)
-    ctx.beginPath();
-    ctx.roundRect(49, 19, canvas.width - 98, 22, 5); // full container
-    ctx.fillStyle = '#ff9696'; // background color
-    ctx.fill();
-    ctx.strokeStyle = 'white';
-    ctx.stroke();
-
-    ctx.beginPath();
-    ctx.roundRect(50, 20, (enemyHP / enemyMob.hpPoints) * (canvas.width - 100), 20, 5); // current HP
-    ctx.fillStyle = 'red';
-    ctx.fill();
-
-    // Enemy name placeholder
-    ctx.fillStyle = 'White';
-    ctx.font = '18px MedievalSharp';
-    ctx.textAlign = 'center';
-    ctx.shadowColor = 'black'; ctx.shadowBlur = 4; ctx.shadowOffsetX = 2; ctx.shadowOffsetY = 2;
-    ctx.fillText(enemyName, canvas.width / 2, 57);
-    ctx.font = '12px Anaheim';
-    ctx.fillText(`Floor ${currentFloor} Room ${currentRoom}`, canvas.width / 2, 70);
-    ctx.shadowColor = 'transparent'; ctx.shadowBlur = 0; ctx.shadowOffsetX = 0; ctx.shadowOffsetY = 0;
-    
-    // Player health bar (bottom)
-    ctx.beginPath();
-    ctx.roundRect(49, canvas.height - 41, canvas.width - 98, 23, 5); // full container
-    ctx.fillStyle = '#5fff7f';
-    ctx.fill();
-    ctx.strokeStyle = 'white';
-    ctx.stroke();
-
-
-    ctx.beginPath();
-    ctx.roundRect(50, canvas.height - 40, (playerHP / soul.hpPoints) * (canvas.width - 100), 20, 5); // current HP
-    ctx.fillStyle = 'green';
-    ctx.fill();
-}
-function initDungeonCanvas(){
- 
-    const canvas = document.getElementById('dungeonCanvas');
-    const ctx = canvas.getContext('2d');
-
-    // Match internal resolution to CSS size
-    canvas.width = canvas.clientWidth;
-    canvas.height = canvas.clientHeight;
-
-    // Initial draw
-    drawHealthBars(canvas,ctx, soul.hpPoints, enemyMob.hpPoints,enemyMob.name);
-}
-function initFightMenu(){
+function initFightMenu(type=""){
     $('#EName').text(enemyMob.name);
     $('#currentFloor').text(currentFloor);
     let roomText = currentFloor % 10 == 0 ? (currentFloor == 50 ? "Apex room" : "Boss room") : `Room ${currentRoom}`;
@@ -105,9 +52,10 @@ function initFightMenu(){
     $('#fightMenu').removeClass('d-none');
     
     setTimeout(function(){
-        $('#PActB').css({'animation':`actionLoading ${calcAtkspd}s infinite`});
+        
         atkInterval = setInterval(function(){attack(maxEHP)},calcAtkspd*1000);
         hitInterval = setInterval(function(){enemyAttack(calcHppoints)},enemyMob.atkspd*1000);
+        $('#PActB').css({'animation':`actionLoading ${calcAtkspd}s infinite`});
         if(enemyMob.name == "Gold Goblin" || enemyMob.name == "Elite Gold Goblin"){
             setTimeout(function(){
                 clearInterval(atkInterval); clearInterval(hitInterval);triggerReward(true);}
@@ -167,6 +115,7 @@ async function updateDungeonState(){
 }
 async function startRun(){
     clearDungeonMenus();
+    resetDungeon();
     currentATK = calcAtk;
     currentSPD = calcSpd;
     currentASPD = calcAtkspd;
@@ -175,6 +124,7 @@ async function startRun(){
     currentRoom = 0; 
     currentMobRate +=  refinerMobSpawnBuff();
     currentRun ++;
+
     nextRoom();
 }
 async function nextRoom() {
@@ -184,6 +134,11 @@ async function nextRoom() {
     $('#dungeonCanvas').hide();
     if(currentFloor % 10 == 0){
         if(currentFloor != 50){
+            if(currentRoom > 1){
+                currentFloor++;
+                currentRoom = 5;
+                nextRoom();
+            }
             $('#bossMenu').removeClass('d-none');
             changeDungeonPanelBG('bossPortal')
         }else{
@@ -235,7 +190,6 @@ async function nextRoom() {
                 $('#dungeonCanvas').show();
                 $('#dungeonPanel').css({'background-image':`url('${bg}')`})
                 initFightMenu();
-                // initDungeonCanvas();
                 // testing
                 // collectedGold += enemyMob.gold;
             }else if(encounterRoll > enemyEncounter && encounterRoll <= maidenEncounter){
@@ -257,7 +211,8 @@ async function nextRoom() {
                 $('#statueMenu').removeClass('d-none');
                 let heal = Math.round((calcHppoints - currentHP)*0.2);
                 currentHP = Math.min(currentHP + heal, calcHppoints);
-                console.log(`healed ${heal} HP`);
+                let barHeight = currentHP / calcHppoints;
+                $('#PHB').css({'height': `${barHeight}%`});
             }else if(encounterRoll > statueEncounter && encounterRoll <= chestEncounter){
                 let foundGold = Math.floor(Math.min(collectedGold * 0.05, currentFloor*5));
                 collectedGold +=  foundGold;
@@ -279,16 +234,13 @@ async function nextRoom() {
     
 }
 function bossFight(){
-    console.log("boss fight")
     clearDungeonMenus()
     let isApex = currentFloor == 50;
     let isBoss = currentFloor % 10 == 0 && currentFloor != 50;
     spawnMob(isBoss,isApex);
     let bg = enemyMob.img;
-    // $('#dungeonCanvas').show();
     $('#dungeonPanel').css({'background-image':`url('${bg}')`})
-    // initDungeonCanvas();
-    initFightMenu();
+    initFightMenu('boss');
 }
 function triggerTransition(){
     $('#transitionOverlay').addClass('transitioning');
@@ -419,8 +371,8 @@ function enemyAttack(maxHP){
 function resetDungeon(){
     baseMobSpawnRate = 0.6;
     currentMobRate = baseMobSpawnRate;
-    currentDungeon = "town";
-    currentFloor = 0;
+    currentDungeon = dungeons[$('#mapMenuDungeonList button.active').text().toLowerCase()];
+    currentFloor = parseInt($('#mapMenuFloorList button.active').attr('floor'));
     currentRoom = 0;
     currentMaiden = null;
     collectedGold = 0;
@@ -433,5 +385,6 @@ function resetDungeon(){
     currentHP = 0;
     clearInterval(atkInterval);
     clearInterval(hitInterval);
-    $('#PActB').removeAttr('css')
+    $('#PHB').css({'height': `100%`});
+    $('#PActB').removeAttr('style');
 }

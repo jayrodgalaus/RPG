@@ -23,15 +23,15 @@ var refinerBonus = [
     {idx:8, path:refiners_bonus+"9.webm"},
 ]
 var refiners = [
-    {name: "Lira", salary: 500, portrait:refiners_path+"p1.webp", img:refiners_path+"1.webp", bonus:refinerBonus[0] , buff: refinerBuffs[0]},
-    {name: "Aria", salary: 550, portrait:refiners_path+"p2.webp", img:refiners_path+"2.webp", bonus:refinerBonus[1] , buff: refinerBuffs[1]},
-    {name: "Kaela", salary: 575, portrait:refiners_path+"p3.webp", img:refiners_path+"3.webp", bonus:refinerBonus[2] , buff: refinerBuffs[2]},
-    {name: "Mira", salary: 850, portrait:refiners_path+"p4.webp", img:refiners_path+"4.webp", bonus:refinerBonus[3] , buff: refinerBuffs[3]},
-    {name: "Selene", salary: 900, portrait:refiners_path+"p5.webp", img:refiners_path+"5.webp", bonus:refinerBonus[4] , buff: refinerBuffs[4]},
-    {name: "Talia", salary: 950, portrait:refiners_path+"p6.webp", img:refiners_path+"6.webp", bonus:refinerBonus[5] , buff: refinerBuffs[5]},
-    {name: "Lilia", salary: 1200, portrait:refiners_path+"p7.webp", img:refiners_path+"7.webp", bonus:refinerBonus[6] , buff: refinerBuffs[6]},
-    {name: "Guin", salary: 1700, portrait:refiners_path+"p8.webp", img:refiners_path+"8.webp", bonus:refinerBonus[7] , buff: refinerBuffs[7]},
-    {name: "Luna", salary: 2700, portrait:refiners_path+"p9.webp", img:refiners_path+"9.webp", bonus:refinerBonus[8] , buff: refinerBuffs[8]},
+    {name: "Lira", salary: 1500, portrait:refiners_path+"p1", img:refiners_path+"1.webp", bonus:refinerBonus[0] , buff: refinerBuffs[0]},
+    {name: "Aria", salary: 1550, portrait:refiners_path+"p2", img:refiners_path+"2.webp", bonus:refinerBonus[1] , buff: refinerBuffs[1]},
+    {name: "Kaela", salary: 1575, portrait:refiners_path+"p3", img:refiners_path+"3.webp", bonus:refinerBonus[2] , buff: refinerBuffs[2]},
+    {name: "Mira", salary: 1850, portrait:refiners_path+"p4", img:refiners_path+"4.webp", bonus:refinerBonus[3] , buff: refinerBuffs[3]},
+    {name: "Selene", salary: 1900, portrait:refiners_path+"p5", img:refiners_path+"5.webp", bonus:refinerBonus[4] , buff: refinerBuffs[4]},
+    {name: "Talia", salary: 1950, portrait:refiners_path+"p6", img:refiners_path+"6.webp", bonus:refinerBonus[5] , buff: refinerBuffs[5]},
+    {name: "Lilia", salary: 2200, portrait:refiners_path+"p7", img:refiners_path+"7.webp", bonus:refinerBonus[6] , buff: refinerBuffs[6]},
+    {name: "Guin", salary: 2700, portrait:refiners_path+"p8", img:refiners_path+"8.webp", bonus:refinerBonus[7] , buff: refinerBuffs[7]},
+    {name: "Luna", salary: 3700, portrait:refiners_path+"p9", img:refiners_path+"9.webp", bonus:refinerBonus[8] , buff: refinerBuffs[8]},
 ];
 
 var activeRefinerIndex;
@@ -140,7 +140,7 @@ function populateRefinerMenu() {
             menuHTML += `
                 <div class="d-flex flex-column align-items-center justify-content-center mx-auto refiner-container" id="refiner${j}" refinerIndex=${j}>
                     <div class="npc-portrait refiner-portrait pos-rel" data-bs-toggle="offcanvas" data-bs-target="#refinerPreviewPanel" aria-controls="refinerPreviewPanel"
-                         style="background-image: url('${refiner.portrait}'); 
+                         style="background-image: url('${refiner.portrait+(nsfw ? '-nsfw.webp':'.webp')}'); 
                                 background-size: cover; 
                                 background-position: center;">
                         <div class="npc-portrait-name">${refiner.name}</div>
@@ -158,6 +158,8 @@ function populateRefinerMenu() {
         $('#refinerHireRun').text(refinerHireRun)
         $('#buffEffectDisplay').text(activeRefiner.description);
         $("#refinerBuffIcon").removeClass('d-none');
+        if(nsfw) $('.refinerPreviewBonus').removeClass('d-none');
+        else $('.refinerPreviewBonus').addClass('d-none');
     }
     $('#refinerList').html(menuHTML);
 }

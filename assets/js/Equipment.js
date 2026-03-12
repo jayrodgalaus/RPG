@@ -5,7 +5,7 @@ class Equipment {
         this.eqp_id = eqp_id; //from weapons table or armor table
         this.eqp = eqp_type == "weapon" ? weaponList[eqp_id] : armorList[eqp_id]; //don't need to save this in DB
         this.slot = this.eqp.type.slot;
-        this.atk = 1;
+        this.atk = 2;
         this.atk_buff = 0;
         this.final_atk = this.atk * (1 + this.atk_buff);
         this.dmg = this.final_atk * 3;
@@ -13,10 +13,10 @@ class Equipment {
         this.spd_buff = 0;
         this.final_spd = this.spd * (1 + this.spd_buff);
         this.atkspd = this.spd * (1 + this.spd_buff) >= 430 ? 0.14 : 1 - (this.spd * 0.002);
-        this.def = 3;
+        this.def = 2;
         this.def_buff = 0;
         this.final_def = this.def * (1 + this.def_buff);
-        this.hp = 4;
+        this.hp = 2;
         this.hp_buff = 0;
         this.final_hp = this.hp * (1 + this.hp_buff);
         this.hpPoints = this.final_hp * 5;
@@ -33,6 +33,9 @@ class Equipment {
     }
     setAffix() {
         if (this.tier === 'F' || this.tier === 'G') {
+            return '';
+        }
+        if ([this.atk, this.spd, this.def, this.hp].every(v => v === 0)) {
             return '';
         }
 
@@ -96,31 +99,78 @@ class Equipment {
         return affixMap[key][top1];
     }
     enhance() {
-        // Collect stats into an array for easier indexing
-        let stats = [this.atk, this.spd, this.def, this.hp];
         let atk_chance = this.eqp.type.atk_chance;
-        let spd_chance = this.eqp.type.spd_chance;
-        let def_chance = this.eqp.type.def_chance;
-        let hp_chance = this.eqp.type.hp_chance;
-        // Generate random index from 0–3
-        const random_stat_index = Math.floor(Math.random() * 4);
-
+        let spd_chance = atk_chance + this.eqp.type.spd_chance;
+        let def_chance = spd_chance + this.eqp.type.def_chance;
+        let hp_chance = def_chance + this.eqp.type.hp_chance;
+        
         // Generate random increase from 1–5
         const random_stat_increase = Math.floor(Math.random() * 5) + 1;
 
         
-        if(!(this.tier == "G" && this.enhancement == 5) && this.enhancement < 10){
+        if(this.enhancement < 10){
+            if((this.tier == "G" && this.enhancement == 5)){
+                return;
+            }
             // Apply enhancement
-            stats[random_stat_index] += random_stat_increase;
-            // Push updated values back into the object
-            [this.atk, this.spd, this.def, this.hp] = stats;
+            let roll = Math.random();
+            if(roll <= atk_chance) this.atk += random_stat_increase;
+            else if(roll <= spd_chance) this.spd += random_stat_increase;
+            else if(roll <= def_chance) this.def += random_stat_increase;
+            else if(roll <= hp_chance) this.hp += random_stat_increase;
+            else this.hp += random_stat_increase;
+            // Recalculate derived stats
+            this.final_atk = this.atk * (1 + this.atk_buff);
+            this.dmg = this.final_atk * 3;
+            this.final_spd = this.spd * (1 + this.spd_buff);
+            this.atkspd = this.spd * (1 + this.spd_buff) >= 430 ? 0.14 : 1 - (this.spd * 0.002);
+            this.final_def = this.def * (1 + this.def_buff);
+            this.final_hp = this.hp * (1 + this.hp_buff);
+            this.hpPoints = this.final_hp * 5;
+            this.enhancement += 1;
+            this.affix = this.setAffix();
+            //compute item value
+            $('.forge-eqp-btn.active .forge-item-enhancements').text(this.enhancement)
+        }else{
+            let idx = tiers.indexOf(this.tier);
+            let maxidx = tiers.indexOf(this.max_tier);
+            if(idx < maxidx)
+                this.raiseTier();
+        }
+        let prevEqpIndex = inventory.findIndex(eqp => eqp.id === this.id);
+        // console.log(inventory[prevEqpIndex])
+        // inventory[prevEqpIndex] = this;
+        calcLoadOutStats();
+        calcTotalStats();
+        console.log(inventory[prevEqpIndex]);
+        updateInventory();
+    }
+    damage(){
+        if(this.enhancement > 1){
+            let atk_chance = this.eqp.type.atk_chance;
+            let spd_chance = atk_chance + this.eqp.type.spd_chance;
+            let def_chance = spd_chance + this.eqp.type.def_chance;
+            let hp_chance = def_chance + this.eqp.type.hp_chance;
+            
+            // Generate random increase from 1–5
+            const random_stat_increase = Math.floor(Math.random() * 5) + 1;
+
+            // Apply damage
+            let roll = Math.random();
+            if(roll <= atk_chance) this.atk -= random_stat_increase;
+            else if(roll <= spd_chance) this.spd -= random_stat_increase;
+            else if(roll <= def_chance) this.def -= random_stat_increase;
+            else if(roll <= hp_chance) this.hp -= random_stat_increase;
+            else this.hp -= random_stat_increase;
             // Recalculate derived stats 
             this.dmg = this.atk * 3;
             this.atkspd = this.spd >= 430 ? 0.14 : 1 - (this.spd * 0.002);
             this.hpPoints = this.hp * 5;
-            this.enhancement += 1;
+            this.enhancement -= 1;
             //compute item value
-        }        
+                
+        }
+        
     }
     raiseTier() {
         let stats = [this.atk_buff, this.spd_buff, this.def_buff, this.hp_buff];
@@ -151,7 +201,7 @@ class Equipment {
                         break;
                 }
             }
-            let tiers = ["F","E","D","C","B","A","S","SR"];
+            
             //update this.tier to next tier in line
             let currentIndex = tiers.indexOf(this.tier);
             if (currentIndex >= 0 && currentIndex < tiers.length - 1) {
@@ -194,86 +244,8 @@ class Equipment {
         $("#loadOuttotalSpd").text(loadOuttotalSpd);
         $("#loadOuttotalDef").text(loadOuttotalDef);
         $("#loadOuttotalHP").text(loadOuttotalHP);
+        populateStatMenu()
     }
 
 }
 
-async function createEquipment(db, stats, isBeginner = false) {
-    const tx = db.transaction("Inventory", "readwrite");
-    const store = tx.objectStore("Inventory");
-
-    const equipment = new Equipment(stats);
-    equipment.isEquipped = isBeginner;
-    const id = await new Promise(resolve => {
-        const req = store.add(equipment);
-        req.onsuccess = e => resolve(e.target.result);
-    });
-
-    equipment.id = id;
-    inventory.push(equipment)
-    return equipment;
-}
-
-function initLoadOut() {
-    // Loop through all equipment in the global inventory
-    inventory.forEach(equipment => {
-        if (equipment.isEquipped) {
-            //Equipment UI
-            loadOut.push(equipment);
-            let slot = equipment.slot;
-            let idx = inventory.findIndex(eqp => eqp.id === equipment.id);
-            $('#inventorySlot' + slot).attr('isEmpty', false).attr('eqpId',equipment.id);
-            $('#inventorySlot' + slot).attr('inventoryIndex', idx);
-            $('#inventorySlot' + slot).css('background-image', `url(${equipment.eqp.img})`);
-            $('#inventorySlot' + slot).attr("style",`background-image: url('${equipment.eqp.img}')`);
-            $('#here').css('background-image', `url(${equipment.eqp.img})`);
-            $('#inventorySlot' + slot + " .eqp-tier").text(equipment.tier);
-            $('#inventorySlot' + slot + " .eqp-enhancements").text("+"+equipment.enhancement);
-            
-        }
-    });
-    ({loadOuttotalAtk, loadOuttotalSpd, loadOuttotalDef, loadOuttotalHP} = calcLoadOutStats());
-    calcTotalStats();
-    $("#loadOuttotalAtk").text(loadOuttotalAtk);
-    $("#loadOuttotalSpd").text(loadOuttotalSpd);
-    $("#loadOuttotalDef").text(loadOuttotalDef);
-    $("#loadOuttotalHP").text(loadOuttotalHP);
-}
-
-function previewEqp(equipment){
-    $("#eqpPreviewPanel").css('background-image', `url('${equipment.eqp.img}')`);
-    $('#eqpPreviewName').text(equipment.displayName);
-    $('#previewEqpEnhancements').text(equipment.enhancement);
-    $('#previewEqpTier').text(equipment.tier);
-    $("#eqpPreviewATK").text(equipment.final_atk)
-    $("#eqpPreviewSPD").text(equipment.final_spd)
-    $("#eqpPreviewDEF").text(equipment.final_def)
-    $("#eqpPreviewHP").text(equipment.final_hp)
-    $("#eqpPreviewEnhancements").text(equipment.enhancement)
-    $("#eqpPreviewTier").text(equipment.tier)
-    $("#eqpPreviewATKBuff").text(equipment.atk_buff)
-    $("#eqpPreviewSPDBuff").text(equipment.spd_buff)
-    $("#eqpPreviewDEFBuff").text(equipment.def_buff)
-    $("#eqpPreviewHPBuff").text(equipment.hp_buff)
-    $("#eqpPreviewMaxTier").text(equipment.max_tier)
-    $("#eqpPreviewValue").text(equipment.value)
-    $("#eqpPreviewEffects").text(equipment.special_effect ? equipment.special_effect : "None")
-    let equipAction = equipment.isEquipped ? "unequip" : "equip";
-    $("#toggleEquip").text(equipAction.charAt(0).toUpperCase()+ equipAction.slice(1)).attr('action', equipAction).show();
-    
-}
-
-function calcLoadOutStats(){
-    
-    loadOut.forEach(equipment => {
-        loadOuttotalAtk += equipment.final_atk || 0;
-        loadOuttotalSpd += equipment.final_spd || 0;
-        loadOuttotalDef += equipment.final_def || 0;
-        loadOuttotalHP += equipment.final_hp || 0;
-        
-    });
-    
-    loadOuttotalASpd = loadOuttotalSpd >= 430 ? 0.14 : 1 - (loadOuttotalSpd * 0.002);
-    loadOuttotalHPPoints = loadOuttotalHP * 5;
-    return {loadOuttotalAtk, loadOuttotalSpd, loadOuttotalDef, loadOuttotalHP};
-}
