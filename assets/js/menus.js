@@ -306,11 +306,14 @@ $(function(){
         resetDungeon();
     })
     .on('click','.escape-btn',function(){
-        triggerReward();
-        let totalGold = Math.round(soul.gold + collectedGold);
+        triggerReward(false,true);
+        if(currentMaiden && currentMaiden.idx == 6) collectedGold *= 1.2;
+        let totalGold = Math.round(collectedGold);
         soul.updateGold(totalGold);
+        $('#rewadGold').text("+"+totalGold+"g")
         if(collectedMats.length > 0){
             if(activeRefiner){ applyRefinerBonus();}
+            if(currentMaiden && currentMaiden.idx == 7){ applyRefinerBonus(true); }
             collectedMats.forEach(item =>{
                 bag.push(item);
             });

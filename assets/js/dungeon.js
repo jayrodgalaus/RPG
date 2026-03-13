@@ -26,8 +26,10 @@ var currentDmg = 0;
 var currentSPD = 1;
 var currentDEF = 0;
 var currentHP = 0;
+var currentMaxHP = 0;
 var atkInterval;
 var hitInterval;
+var atkCounter = 0;
 function populateDungeonFloors(){
     let floorHTML = '';
     let floor = 1;
@@ -44,7 +46,7 @@ function initFightMenu(type=""){
     let roomText = currentFloor % 10 == 0 ? (currentFloor == 50 ? "Apex room" : "Boss room") : `Room ${currentRoom}`;
     $('#currentRoom').text(roomText);
     $('#currentHP').text(currentHP);
-    $('#maxHP').text(calcHppoints);
+    $('#maxHP').text(currentMaxHP);
     $('#currentEHP').text(enemyMob.hpPoints);
     $('#EHB').css({'width':'100%'});
     let maxEHP = enemyMob.hpPoints;
@@ -53,9 +55,9 @@ function initFightMenu(type=""){
     
     setTimeout(function(){
         
-        atkInterval = setInterval(function(){attack(maxEHP)},calcAtkspd*1000);
-        hitInterval = setInterval(function(){enemyAttack(calcHppoints)},enemyMob.atkspd*1000);
-        $('#PActB').css({'animation':`actionLoading ${calcAtkspd}s infinite`});
+        atkInterval = setInterval(function(){attack(maxEHP)},currentASPD*1000);
+        hitInterval = setInterval(function(){enemyAttack()},enemyMob.atkspd*1000);
+        $('#PActB').css({'animation':`actionLoading ${currentASPD}s infinite`});
         if(enemyMob.name == "Gold Goblin" || enemyMob.name == "Elite Gold Goblin"){
             setTimeout(function(){
                 clearInterval(atkInterval); clearInterval(hitInterval);triggerReward(true);}
@@ -117,10 +119,12 @@ async function startRun(){
     clearDungeonMenus();
     resetDungeon();
     currentATK = calcAtk;
+    currentDmg = calcDmg;
     currentSPD = calcSpd;
     currentASPD = calcAtkspd;
     currentDEF = calcDef;
     currentHP = calcHppoints;
+    currentMaxHP = calcHppoints;
     currentRoom = 0; 
     currentMobRate +=  refinerMobSpawnBuff();
     currentRun ++;
@@ -209,10 +213,7 @@ async function nextRoom() {
                 // $('#dungeonPanel').addClass('statue').removeClass('maiden thief chest next bossPortal apexPortal').removeAttr('style');
                 changeDungeonPanelBG('statue')
                 $('#statueMenu').removeClass('d-none');
-                let heal = Math.round((calcHppoints - currentHP)*0.2);
-                currentHP = Math.min(currentHP + heal, calcHppoints);
-                let barHeight = currentHP / calcHppoints;
-                $('#PHB').css({'height': `${barHeight}%`});
+                regen(0.2)
             }else if(encounterRoll > statueEncounter && encounterRoll <= chestEncounter){
                 let foundGold = Math.floor(Math.min(collectedGold * 0.05, currentFloor*5));
                 collectedGold +=  foundGold;
@@ -250,34 +251,51 @@ function triggerHitTaken(){
     $('#hitOverlay').addClass('transitioning');
     setTimeout(function(){$('#hitOverlay').removeClass('transitioning');}, 500)
 }
-function triggerReward(isGoldGob = false){
+function triggerReward(isGoldGob = false, escape = false){
+    let matRewardText = "";
     clearInterval(atkInterval);
     clearInterval(hitInterval);
     $('#PActB').removeAttr('style');
-    if(isGoldGob){
-        let maxehp = parseInt($('#maxEHP').text());
-        let currentehp = parseInt($('#currentEHP').text());
-        let gold = Math.round(((maxehp - currentehp) / maxehp)*enemyMob.gold);
-        collectedGold += gold;
-    }else
-        collectedGold += enemyMob.gold;
-    let mat = rollMaterialDrop();
-    let matRewardText = "";
-    if(mat){
-        let matName = materialList[mat].name;
+    
 
-        matRewardText = matName;
-        if(activeRefiner && activeRefiner.buff.idx == 6){
-            let double = Math.random <= 0.2; //10% chance to double drop
-            if(double){
-                collectedMats.push(mat);
-                matRewardText+=" x2";
-            }
-        }else{
-            matRewardText+=" x1";
+    if(escape){
+        if(currentMaiden && !currentMaiden.isUnlocked){unlockMaiden();}
+        consolidateGold(escape);
+        consolidateMats(escape);
+    }else{
+        let gold = enemyMob.gold;
+        if(isGoldGob){
+            let maxehp = parseInt($('#maxEHP').text());
+            let currentehp = parseInt($('#currentEHP').text());
+            gold = Math.round((1+((maxehp - currentehp) / maxehp))*enemyMob.gold);
         }
-        collectedMats.push(mat);
+        if(currentMaiden){
+            if(currentMaiden.idx == 16){
+                gold = Math.round(Math.random() * 2);
+            }else if(currentMaiden.idx == 17){
+                gold = Math.round(0.5 + Math.random() * 1.5);
+            }
+        }
+        collectedGold += gold;
+        let mat = rollMaterialDrop();
+        matRewardText = "";
+        if(mat){
+            let matName = materialList[mat].name;
+
+            matRewardText = matName;
+            if(activeRefiner && activeRefiner.buff.idx == 6){
+                let double = Math.random <= 0.2; //10% chance to double drop
+                if(double){
+                    collectedMats.push(mat);
+                    matRewardText+=" x2";
+                }
+            }else{
+                matRewardText+=" x1";
+            }
+            collectedMats.push(mat);
+        }
     }
+    
     $('#rewadGold').text("+"+enemyMob.gold+"g")
     $('#rewardMats').text(matRewardText)
     $('#rewardEqpt').text()
@@ -293,26 +311,8 @@ function triggerDeath(){
     $('#deathMenu').removeClass('d-none');
     clearInterval(atkInterval);
     clearInterval(hitInterval);
-    $('#collectedGold').text(`${collectedGold}g`);
-    let totalGold = Math.round(soul.gold + collectedGold);
-    soul.updateGold(totalGold);
-    if(collectedMats.length > 0){
-        if(activeRefiner){ applyRefinerBonus();}
-        collectedMats.forEach(item =>{
-            bag.push(item);
-        });
-        let compiledMats = compileMats("collected");
-        if(compiledMats.length > 0){
-            let collectedMatsText = '';
-            compiledMats.forEach(drop => {
-                let idx = materialList.findIndex(mat => mat.id === drop.id);
-                let matData = materialList[idx];
-                collectedMatsText += `<span class="icon-btn-text">${matData.name} x${drop.cnt}</span><br>`
-            });
-            $('#collectedMats').html(collectedMatsText);
-        }
-        updateBag();
-    }
+    consolidateGold();
+    consolidateMats();
     
     //reset dungeon initial values
     resetDungeon();
@@ -321,6 +321,7 @@ function clearDungeonMenus(){
     console.log('dungeon menu cleared')
     $('#deathMenu, #fightMenu, #nextFloorMenu,#maidenMenu, #thiefMenu, #chestMenu, #statueMenu, #bossMenu, #apexMenu, .portal-menu').addClass('d-none');
     $('#rewardOverlayCont').css({'left': '100vw'});
+    $('#atkDmgTextArea').empty();
 }
 function changeDungeonPanelBG(bg = ''){
     console.log('dungeon bg changed to ',bg)
@@ -328,37 +329,49 @@ function changeDungeonPanelBG(bg = ''){
 }
 function attack(maxEHP){
     if(enemyMob.hpPoints > 0){
+        atkCounter++;
         $('#dungeonPanel').addClass('shake');
         setTimeout(function(){$('#dungeonPanel').removeClass('shake');},120);
-        let baseDmg = Math.max(calcAtk - enemyMob.def, Math.floor(calcAtk * soul.minDmg));
-        let randomMultiplier = 0.9 + Math.random() * 0.2;  // 0.9 ~ 1.1
+        let color="light";
+        let baseDmg = Math.max(currentDmg - enemyMob.def, Math.floor(currentDmg * soul.minDmg));
+        if(currentMaiden && atkCounter % 5 == 0 && atkCounter > 1){
+            if(currentMaiden.idx == 2) {baseDmg *= 2; color = "danger"}
+            else if(currentMaiden.idx == 5) regen(0.1);
+            else if(currentMaiden.idx == 11) {baseDmg *= 1.5; color = "danger";}
+        }
+        let randomMultiplier = 0.99 + Math.random() * 0.02;  // 0.99 ~ 1.01
         let finalDmg = Math.floor(baseDmg * randomMultiplier);
         let reducedMobHp = Math.max(0, enemyMob.hpPoints - finalDmg);
+        
         // bar width = current HP / max HP * 100
         let barWidth = (reducedMobHp / maxEHP) * 100;
         // reduce HP but not below 0
         enemyMob.hpPoints = reducedMobHp;
         $('#currentEHP').text(enemyMob.hpPoints);
         $('#EHB').css({'width': `${barWidth}%`});
+        spawnAtkDmg(finalDmg,color);
+        
         if(reducedMobHp == 0){
+            atkCounter = 0;
             triggerReward();
         }
     }else{
+        atkCounter = 0;
         triggerReward()
     }
 }
-function enemyAttack(maxHP){
+function enemyAttack(){
     if(currentHP > 0){
         $('#PHBCont').addClass('shake');
         setTimeout(function(){$('#PHBCont').removeClass('shake');},120);
-        let baseDmg = Math.max(enemyMob.dmg - calcDef, Math.floor(enemyMob.dmg * enemyMob.minDmg));
+        let baseDmg = Math.max(enemyMob.dmg - currentDEF, Math.floor(enemyMob.dmg * enemyMob.minDmg));
         let randomMultiplier = 0.9 + Math.random() * 0.2;  // 0.9 ~ 1.1
         let finalDmg = Math.floor(baseDmg * randomMultiplier);
-        let reducedMobHp = Math.max(0, currentHP - finalDmg);
+        let reducedPlayerHp = Math.max(0, currentHP - finalDmg);
         // bar width = current HP / max HP * 100
-        let barHeight = (reducedMobHp / maxHP) * 100;
+        let barHeight = (reducedPlayerHp / currentMaxHP) * 100;
         // reduce HP but not below 0
-        currentHP = reducedMobHp;
+        currentHP = reducedPlayerHp;
         $('#currentHP').text(currentHP);
         $('#PHB').css({'height': `${barHeight}%`});
         if(currentHP == 0){
@@ -383,8 +396,52 @@ function resetDungeon(){
     currentSPD = 1;
     currentDEF = 0;
     currentHP = 0;
+    currentMaxHP = 0;
     clearInterval(atkInterval);
     clearInterval(hitInterval);
+    atkCounter = 0;
+    calcTotalStats()
     $('#PHB').css({'height': `100%`});
     $('#PActB').removeAttr('style');
+    $('#atkDmgTextArea').empty();
+}
+function spawnAtkDmg(dmg,color="light"){
+    let $el = $(`<div class="text-${color}} pop dmg-text">${dmg}</div>`);
+    $('#atkDmgTextArea').append($el);
+    $el.on('animationend', () => $el.remove());
+}
+function regen(regen){
+    let heal = Math.round((currentMaxHP - currentHP)*regen);
+    currentHP = Math.min(currentHP + heal, currentMaxHP);
+    let barHeight = (currentHP / currentMaxHP)*100;
+    $('#PHB').css({'height': `${barHeight}%`});
+}
+function consolidateGold(escape = false){
+    if(escape){
+        if(currentMaiden && currentMaiden.idx == 6 || currentMaiden.idx == 10) collectedGold *= 1.2;
+    }
+    $('#collectedGold').text(`${collectedGold}g`);
+    let totalGold = Math.round(soul.gold + collectedGold);
+    
+    soul.updateGold(totalGold);
+}
+function consolidateMats(escape=false){
+    if(collectedMats.length > 0){
+        if(activeRefiner){ applyRefinerBonus();}
+        if(currentMaiden && currentMaiden.idx == 7){ applyRefinerBonus("m7"); }
+        collectedMats.forEach(item =>{
+            bag.push(item);
+        });
+        let compiledMats = compileMats("collected");
+        if(compiledMats.length > 0){
+            let collectedMatsText = '';
+            compiledMats.forEach(drop => {
+                let idx = materialList.findIndex(mat => mat.id === drop.id);
+                let matData = materialList[idx];
+                collectedMatsText += `<span class="icon-btn-text">${matData.name} x${drop.cnt}</span><br>`
+            });
+            $('#collectedMats').html(collectedMatsText);
+        }
+        updateBag();
+    }
 }

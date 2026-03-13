@@ -175,7 +175,7 @@ function checkHireBtnStatus(){
         }
     })
 }
-function applyRefinerBonus(){
+function applyRefinerBonus(maiden = false){
     let dungeonSpecies = currentDungeon.species;
     if (["slimes","goblins","kobolds","zombies","skeletons","ghosts"].includes(dungeonSpecies)) {
         dungeonSpecies = "generic";
@@ -184,7 +184,8 @@ function applyRefinerBonus(){
     let bonusDmats = 0;
     let bonusRmats = 0;
     if(matAmt > 0){
-        switch(activeRefiner.buff.idx){
+        let buffer = maiden ? maiden : activeRefiner.buff.idx; 
+        switch(buffer){
             // "+15% dungeon mats, +20% random mats"
             case 0:
                 bonusDmats = Math.round(matAmt * 0.15);
@@ -225,6 +226,17 @@ function applyRefinerBonus(){
                 }                
                 break;
             // "+20% enemy spawn rate", bonus: 0.1
+            case "m7":
+                bonusDmats = Math.round(matAmt * 0.2);
+                addRefinerMats(bonusDmats,"dungeon");
+                break;
+            case "m10":
+                let toRemove = Math.round(collectedMats.length * 0.1);
+                while(toRemove > 0 && collectedMats.length > 0){
+                    collectedMats.pop();
+                    toRemove--;
+                }
+                break;
         }
     }
 }
@@ -236,7 +248,7 @@ function addRefinerMats(amt,src){
     if(amt > 0){
         for(let i = 0; i < amt; i++){
             let mat = matsrc[Math.floor(Math.random() * matsrc.length)];
-            bag.push(mat.id);
+            collectedMats.push(mat.id);
         }
     }
 }

@@ -7,6 +7,9 @@
 .grow{
   animation: grow 0.1s alternate;
 }
+.pop{
+  animation: pop 0.5s ease-out forwards;
+}
 @keyframes pulse {
     from { transform: scale(0.9); } to { transform: scale(1); }
 }
@@ -29,4 +32,32 @@
     from{height: 0%;}
     to{height: 100%;}
 }
+@keyframes pop {
+  0% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(25px, -30px);
+  }
+  20% { /* peak at 0.1s */
+    transform: translate(50px, -50px);
+  }
+  40% {
+    opacity: 1;
+    transform: translate(70px, -30px);
+  }
+  60% {
+    transform: translate(85px, -15px);
+  }
+  80% {
+    transform: translate(95px, -5px);
+  }
+  100% {
+    transform: translate(100px, 0);
+    opacity: 0;
+  }
+}
+
+
+
 

@@ -4,7 +4,7 @@
 // IndexedDB setup
 function openDB() {
     return new Promise((resolve, reject) => {
-        const request = indexedDB.open("RPGSlop", 11);
+        const request = indexedDB.open("RPGSlop", 12);
         request.onupgradeneeded = (event) => {
             const db = event.target.result;
             if (!db.objectStoreNames.contains("Soul")) {
@@ -18,6 +18,9 @@ function openDB() {
             }
             if (!db.objectStoreNames.contains("RefinerState")) {
                 db.createObjectStore("RefinerState", { keyPath: "id" }); 
+            }
+            if (!db.objectStoreNames.contains("Maidens")) {
+                db.createObjectStore("Maidens", { keyPath: "id" }); 
             }
         };
         request.onsuccess = () => resolve(request.result);
@@ -250,6 +253,33 @@ async function initBag() {
         getRequest.onerror = () => reject(getRequest.error);
     });
 }
+async function initMaidens() {
+
+    return new Promise((resolve, reject) => {
+        const tx = db.transaction("Maidens", "readwrite");
+        const store = tx.objectStore("Maidens");
+        const getRequest = store.get(1); // single Soul record with id=1
+        getRequest.onsuccess = () => {
+            let maidendata = getRequest.result;
+
+            if (!maidendata) {
+                console.log("No maidens found, creating new one...");
+                const putRequest = store.put({ id: 1, unlockedMaidens:unlockedMaidens });
+
+                putRequest.onsuccess = () => {
+                    console.log("New maidens saved to IndexedDB");
+                    resolve(unlockedMaidens);
+                };
+                putRequest.onerror = () => reject(putRequest.error);
+            } else {
+                console.log("Maidens found in DB:", maidendata);
+                unlockedMaidens = maidendata.unlockedMaidens
+                resolve(unlockedMaidens);
+            }
+        };
+        getRequest.onerror = () => reject(getRequest.error);
+    });
+}
 
 
 $(document).ready(async function(){
@@ -260,6 +290,7 @@ $(document).ready(async function(){
     await initInventory();
     await initRefiner();
     await initBag();
+    await initMaidens();
     //UI
     populateStatMenu();
     populateRefinerMenu();

@@ -92,6 +92,7 @@
                         <span class="icon-btn-text">Guild</span>
                     </div> 
                 </div>
+                
                 <div id="townMenuRight" class="d-flex flex-column align-items-end ms-auto visible h-100">                    
                     <div class="mb-2 flex-grow-1 d-flex flex-column align-items-center justify-content-center" id="buffDisplay">
                         <div class="buff-wrapper d-flex align-items-center justify-content-center" id="refinerBuff">
@@ -613,8 +614,6 @@
         </div>
     </div>
     <div class="offcanvas offcanvas-end vw-100" tabindex="-1" id="dungeonPanel" aria-labelledby="dungeonPanel" refinerPreviewId>
-        <canvas id="dungeonCanvas" class="w-100 h-100"></canvas>
-               
         <div class="offcanvas-body d-flex flex-column vh-100" >
             <div class="d-flex flex-column h-100 w-100 align-items-center justify-content-center d-none" id="fightMenu">
                 <div class="pos-rel w-100 text-light">
@@ -627,6 +626,7 @@
                     
                 </div>
                 <h3 class="mt-2 mb-auto icon-btn-text" id="EName"></h3>
+                <div class="flex-grow-1 w-100 d-flex align-items-center justify-content-center" id="atkDmgTextArea"><div class="text-light pop" id="dmg-text"></div></div>
                 
                 <div class="d-flex align-items-center justify-content-center text-light w-100 mt-auto">
                     <div class="pos-rel" id="PHBCont">
@@ -782,21 +782,9 @@
                     <img src="assets/icons/crossed-swords-white.svg" alt="">
                 </button>
             </div>
-            
-            <!-- <button class="icon-btn town-btn ms-auto">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            <button class="icon-btn town-btn ms-auto">
-                <i class="fa-solid fa-xmark"></i>
-            </button> -->
-
         </div>
-        <div id="transitionOverlay" class="w-100 h-100">
-
-        </div>
-        <div id="hitOverlay" class="w-100 h-100">
-
-        </div>
+        <div id="transitionOverlay" class="w-100 h-100"></div>
+        <div id="hitOverlay" class="w-100 h-100"></div>
         
     </div>
     <div id="rewardOverlayCont" class="vw-100 vh-100">

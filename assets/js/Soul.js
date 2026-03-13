@@ -11,8 +11,18 @@ class Soul {
         this.availableStats = availableStats;
         this.gold = gold;
         this.minDmg = minDmg;
+        this.title1Unlocked = false;
+        this.title2Unlocked = false;
+        this.titles = [];
     }
-
+    update(){
+        // Persist to IndexedDB using the already-open db
+        const tx = db.transaction("Soul", "readwrite");
+        const store = tx.objectStore("Soul");
+        store.put(soul);
+        tx.oncomplete = () => console.log("Soul updated in IndexedDB");
+        tx.onerror = () => console.error("Failed to update Soul in IndexedDB");
+    }
     setStats(atk, spd, def, hp, availableStats = this.availableStats) {
         // Update in-memory values
         this.atk = atk;
@@ -28,17 +38,6 @@ class Soul {
         const tx = db.transaction("Soul", "readwrite");
         const store = tx.objectStore("Soul");
         store.put(soul);
-        /* {
-            id: 1,
-            atk: this.atk,
-            dmg: this.dmg,
-            spd: this.spd,
-            atkspd: this.atkspd,
-            def: this.def,
-            hp: this.hp,
-            hpPoints: this.hpPoints,
-            availableStats: this.availableStats
-        } */
         tx.oncomplete = () => console.log("Soul updated in IndexedDB");
         tx.onerror = () => console.error("Failed to update Soul in IndexedDB");
     }
