@@ -3,8 +3,8 @@ const maiden_buffs = [
     {idx: 0, description: "Gives tome that grants +(current floor x (1 - 3)) random stats"},
     {idx: 1, description: "Gives random C-S rune"},
     {idx: 2, description: "Title slot unlock (max 1 slots unlocked this way) otherwise, +5% all stats, double damage every 5th attack until end of run"},
-    {idx: 3, description: "+15% ATK and SPD"},
-    {idx: 4, description: "+15% all stats"},
+    {idx: 3, description: "<div class='text-warning pulse'><b>Unlock Aura.</b></div>&nbsp;+15% ATK and SPD"},
+    {idx: 4, description: "<div class='text-warning pulse'><b>Unlock Runes.</b></div>&nbsp;+15% all stats"},
     {idx: 5, description: "Occasional healing 10% missing health"},
     {idx: 6, description: "+20% gold after run"},
     {idx: 7, description: "+20% dungeon mats after run"},
@@ -20,15 +20,21 @@ const maiden_buffs = [
     {idx: 17, description: "Gold x 50% - 150% after each battle"},
 ]
 var unlockedMaidens = [];
-var maidens_SR = generateMaidenList(["Vaelith", "Seraphine", "Veyra"],0);
-var maidens_S = generateMaidenList(["Enchantress","Aura Master"],3);
-var maidens_A = generateMaidenList(["Calistra","Zephyra", "Orlith", "Maerith", "Dravenna", "Nyxara", "Noctira"],5);
-var maidens_B = generateMaidenList(["Elira","Morrigan", "Kaelenne", "Isolde"],12);
-var maidens_C = generateMaidenList(["Thalira","Lilith"],16);
+var maidensAll = [];
 var maidenQ1Complete = false;
 var maidenQ2Complete = false;
-
-
+var maidens_SR = [];
+var maidens_S = [];
+var maidens_A = [];
+var maidens_B = [];
+var maidens_C = [];
+function generateMaidens(){
+    maidens_SR = generateMaidenList(["Vaelith", "Seraphine", "Veyra"],0);
+    maidens_S = generateMaidenList(["Enchantress","Aura Master"],3);
+    maidens_A = generateMaidenList(["Calistra","Zephyra", "Orlith", "Maerith", "Dravenna", "Nyxara", "Noctira"],5);
+    maidens_B = generateMaidenList(["Elira","Morrigan", "Kaelenne", "Isolde"],12);
+    maidens_C = generateMaidenList(["Thalira","Lilith"],16);
+}
 function generateMaidenList(names, idx) {
     return names.map(name => {
         const maiden = {
@@ -39,6 +45,7 @@ function generateMaidenList(names, idx) {
             location: Math.random() <= 0.5 ? "town" : "dungeon",
             isUnlocked: unlockedMaidens.includes(idx) //check if idx is in unlockedMaidens
         };
+        maidensAll.push(maiden);
         idx++; // increment after creating the object
         return maiden;
     });
@@ -56,14 +63,17 @@ function updateMaidenLocation(){
     
 }
 
-function setActiveMaiden(){
-    if (!currentMaiden){
-        let SRChance = 0.05;
-        let AChance = SRChance + 0.175;
-        let BChance = AChance + 0.475
-        let CChance = BChance + 0.3;
-        let bracket;
-        while(!bracket){
+function setActiveMaiden(idx = null){
+    if(idx){
+        currentMaiden = maidensAll[idx];
+        applyMaidenBuff();
+    }else{
+        if (!currentMaiden){
+            let SRChance = 0.05;
+            let AChance = SRChance + 0.175;
+            let BChance = AChance + 0.475
+            let CChance = BChance + 0.3;
+            let bracket;
             let roll = Math.random();
             if(roll <= SRChance){
                 bracket = maidens_SR;
@@ -71,16 +81,30 @@ function setActiveMaiden(){
                 bracket = maidens_A;
             }else if(roll <= BChance){
                 bracket = maidens_B;
-            }else if(roll <= CChance){
+            }else{
                 bracket = maidens_C;
             }
+            
+            let available = bracket.filter(m => m.location === "dungeon");
+            if(available.length > 0) {
+                let bracketMaidenIdx = available[Math.floor(Math.random() * available.length)].idx; 
+                currentMaiden = maidensAll[bracketMaidenIdx];
+                applyMaidenBuff()
+            }
         }
-        currentMaiden = bracket[Math.floor(Math.random() * bracket.length)];
-        applyMaidenBuff()
     }
+    
 }
-
 function applyMaidenBuff(){
+    console.log(
+        "currentATK:",currentATK,
+        "currentDmg:",currentDmg,
+        "currentSPD:",currentSPD,
+        "currentASPD:",currentASPD,
+        "currentDEF:",currentDEF,
+        "currentHP:",currentHP,
+        "currentMaxHP:",currentMaxHP,
+    )
     switch (currentMaiden.idx){
         case 0:
         // "Gives tome that grants +(current floor x (1 - 3)) random stats"},
@@ -95,31 +119,31 @@ function applyMaidenBuff(){
                 soul.title1Unlocked = true;
                 soul.update();
             }else{
-                currentATK *= 1.02;                
+                currentATK = Math.round(currentATK * 1.02);                
                 currentDmg = Math.floor(currentATK*3);
-                currentSPD *= 1.02;
+                currentSPD = Math.round(currentSPD * 1.02);
                 currentASPD = currentSPD >= 430 ? 0.14 : 1 - (currentSPD * 0.002);
-                currentDEF *= 1.02;
-                currentHP += calcHppoints * 0.02;
-                currentMaxHP += calcHppoints * 0.02;          
+                currentDEF = Math.round(currentDEF *1.02);
+                currentHP += Math.round(calcHppoints * 0.02);
+                currentMaxHP += Math.round(calcHppoints * 0.02);          
             }
             break;
         case 3:
         // "+15% ATK and SPD"},
-            currentATK *= 1.15;                
+            currentATK = Math.round(currentATK * 1.15);             
             currentDmg = Math.floor(currentATK*3);
-            currentSPD *= 1.15;
+            currentSPD = Math.round(currentSPD * 1.15);
             currentASPD = currentSPD >= 430 ? 0.14 : 1 - (currentSPD * 0.002);
             break;
         case 4:
         // "+15% all stats"},
-            currentATK *= 1.15;                
+            currentATK = Math.round(currentATK * 1.15);                 
             currentDmg = Math.floor(currentATK*3);
-            currentSPD *= 1.15;
+            currentSPD = Math.round(currentSPD * 1.15);
             currentASPD = currentSPD >= 430 ? 0.14 : 1 - (currentSPD * 0.002);
-            currentDEF *= 1.15;
-            currentHP += calcHppoints * 0.02;
-            currentMaxHP += calcHppoints * 0.02;
+            currentDEF = Math.round(currentDEF *1.15);
+            currentHP += Math.round(calcHppoints * 0.15);
+            currentMaxHP += Math.round(calcHppoints * 0.15);
             break;
         case 5:
         // "Occasional healing 10% missing health"},
@@ -132,12 +156,12 @@ function applyMaidenBuff(){
             break;
         case 8:
         // "+10% DEF"},
-            currentDEF *= 1.1;
+            currentDEF = Math.round(currentDEF *1.1);
             break;
         case 9:
         // "+10% HP"},
-            currentHP += calcHppoints * 0.02;
-            currentMaxHP += calcHppoints * 0.02;
+            currentHP += Math.round(calcHppoints * 0.1);
+            currentMaxHP += Math.round(calcHppoints * 0.1);
             break;
         case 10:
         // "+20% Gold, ‑10% mats after run"},
@@ -147,54 +171,113 @@ function applyMaidenBuff(){
             break;
         case 12:
         // "+1% to all stats"},
-            currentATK *= 1.01;                
+            currentATK = Math.round(currentATK * 1.01);                 
             currentDmg = Math.floor(currentATK*3);
-            currentSPD *= 1.01;
+            currentSPD = Math.round(currentSPD * 1.01);
             currentASPD = currentSPD >= 430 ? 0.14 : 1 - (currentSPD * 0.002);
-            currentDEF *= 1.01;
-            currentHP += calcHppoints * 0.01;
-            currentMaxHP += calcHppoints * 0.01;  
+            currentDEF = Math.round(currentDEF *1.01);
+            currentHP += Math.round(calcHppoints * 0.01);
+            currentMaxHP += Math.round(calcHppoints * 0.01);
             break;
         // "+2% to two random stats"},
         case 13:
             if(Math.random() <= 0.5){
-                currentATK *= 1.02;                
+                currentATK = Math.round(currentATK * 1.02);                   
                 currentDmg = Math.floor(currentATK*3);
             }else{
-                currentSPD *= 1.02;
+                currentSPD = Math.round(currentSPD * 1.02);
                 currentASPD = currentSPD >= 430 ? 0.14 : 1 - (currentSPD * 0.002);
             }
             if(Math.random() <= 0.5){
-                currentDEF *= 1.02;                
+                currentDEF = Math.round(currentDEF *1.02);              
             }else{
-                currentHP += calcHppoints * 0.02;
-                currentMaxHP += calcHppoints * 0.02;  
+                currentHP += Math.round(calcHppoints * 0.02);
+                currentMaxHP += Math.round(calcHppoints * 0.02);
             }
             break;
         case 14:
         // "+10% ATK SPD, ‑6% HP"},
-            currentSPD *= 1.1;
-            currentHP -= calcHppoints * 0.06;
-            currentMaxHP -= calcHppoints * 0.06;  
+            currentSPD = Math.round(currentSPD * 1.1);
+            currentASPD = currentSPD >= 430 ? 0.14 : 1 - (currentSPD * 0.002);
+            currentHP += Math.round(calcHppoints * 0.06);
+            currentMaxHP += Math.round(calcHppoints * 0.06); 
             break;
         case 15:
         // "+10% HP, ‑6% ATK"},
-            currentATK *= 0.94;                
+            currentATK = Math.round(currentATK * 0.94);           
             currentDmg = Math.floor(currentATK*3);
-            currentHP += calcHppoints * 0.1;
-            currentMaxHP += calcHppoints * 0.1;  
+            currentHP += Math.round(calcHppoints * 0.1);
+            currentMaxHP += Math.round(calcHppoints * 0.1);
         // "Gold x 0% - 200% after each battle"},
         // "Gold x 50% - 150% after each battle"},
     }
+    console.log(
+        "currentATK:",currentATK,
+        "currentDmg:",currentDmg,
+        "currentSPD:",currentSPD,
+        "currentASPD:",currentASPD,
+        "currentDEF:",currentDEF,
+        "currentHP:",currentHP,
+        "currentMaxHP:",currentMaxHP,
+    )
 }
 function unlockMaiden(){
     if(!unlockedMaidens.includes(currentMaiden.idx)){
         unlockedMaidens.push(currentMaiden.idx);
         currentMaiden.isUnlocked = true;
-        const tx = db.transaction("Maidens", "readwrite");
-        const store = tx.objectStore("Maidens");
-        store.put({ id: 1, unlockedMaidens:unlockedMaidens });
-        tx.oncomplete = () => console.log("Maidens updated in IndexedDB");
-        tx.onerror = () => console.error("Failed to update Soul in IndexedDB");
+        updateMaidenStatus();
     }
+}
+function populateMaidenMenu() {
+    let menuHTML = '';
+    for (let i = 0; i < maidensAll.length; i += 3) {
+        menuHTML += `<div class="d-flex align-items-center justify-content-center mt-${i === 0 ? 2 : 3}">`;
+        
+        // group of 3 maidens
+        for (let j = i; j < i + 3 && j < maidensAll.length; j++) {
+            const maiden = maidensAll[j];
+            menuHTML += `
+                <div class="d-flex flex-column align-items-center justify-content-center mx-auto maiden-container" id="refiner${j}" maidenIndex=${j}>
+                    <div class="npc-portrait maiden-portrait pos-rel ${maiden.location == "dungeon" ? "in-dungeon":""}" ${maiden.isUnlocked ? 'data-bs-toggle="offcanvas" data-bs-target="#maidenPreviewPanel" aria-controls="maidenPreviewPanel"' : ''}
+                         style="background-image: url('${maiden.img}'); 
+                                background-size: cover; 
+                                background-position: center;">
+                        ${maiden.isUnlocked ? '':'<div class="section-container border-0 w-100 h-100 pos-a pos-tr"></div>'}
+                        <div class="npc-portrait-name">${maiden.name}</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        menuHTML += `</div>`;
+    }
+    $('#maidensGalleryList').html(menuHTML);
+}
+function changeMaidenLocations(){
+    maidensAll.forEach(m => {
+        m.location = Math.random() <= 0.5? "town": "dungeon"
+    })
+}
+function checkMaidenQuests(){
+    if(maidenQ1Complete) $("#auramasterBtnContainer").removeClass('d-none')
+    if(maidenQ2Complete) $("#enchantressBtnContainer").removeClass('d-none')
+}
+function updateMaidenStatus(){
+    const tx = db.transaction("Maidens", "readwrite");
+    const store = tx.objectStore("Maidens");
+    store.put({ id: 1, 
+        unlockedMaidens:unlockedMaidens, 
+        maidenQ1Complete:maidenQ1Complete, 
+        maidenQ2Complete:maidenQ2Complete,
+    });
+    tx.oncomplete = () => console.log("Maidens updated in IndexedDB");
+    tx.onerror = () => console.error("Failed to update Soul in IndexedDB");
+}
+function showMaidenInfo(idx){
+    
+    let maiden = maidensAll[idx];
+    $('#maidenPreviewName').text(maiden.name);
+    $('#maidenPreviewDetails').html(maiden.buff.description);
+    $('#maidenPreviewPanel').css('background-image', `url('${maiden.img}')`);
+    $('#maidenLocation').text(maiden.location);
 }

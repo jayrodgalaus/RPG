@@ -70,6 +70,10 @@ function populateStatMenu(){
     $('#totalAPS').text((1/calcAtkspd).toFixed(2));
     $('#totalHPP').text(calcHppoints);
 }
+function initTown(){
+    checkMaidenQuests()
+    
+}
 
 
 //mob functions

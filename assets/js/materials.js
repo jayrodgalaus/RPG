@@ -26,7 +26,7 @@ var materialList = [
     {id: 15, mob: "fallen", category:"material", name: "Corrupt ichor", stat: "SPD", min: 3, max: 5},
     {id: 16, mob: "fallen", category:"material", name: "Corrupt ichor", stat: "DEF", min: 3, max: 5},
     {id: 17, mob: "fallen", category:"material", name: "Corrupt ichor", stat: "HP", min: 3, max: 5},
-    {id: 18, mob: "fallen", category:"material", name: "Madness", stat: "ATK", min: -3, max: 10}, //specialty 
+    {id: 18, mob: "fallen", category:"material", name: "Bloodlust", stat: "ATK", min: -3, max: 10}, //specialty 
     {id: 19, mob: "generic", category:"material", name: "Madness", stat: "ATK", min: -2, max: 5}, //specialty
     {id: 20, mob: "generic", category:"material", name: "Weapon shard", stat: "ATK", min: 1, max: 3}, 
     {id: 21, mob: "generic", category:"material", name: "Armor shard", stat: "DEF", min: 1, max: 3}, 
@@ -107,4 +107,16 @@ function populateMatsTab(){
     html += `</ul>`
     
     $('#mats-tab-pane').html(html);
+}
+function populateMatsList(){
+    let matlistHTML = '';
+    let matsList = compileMats();
+    if(matsList.length > 0){
+        matsList.forEach(drop => {
+            let idx = materialList.findIndex(mat => mat.id === drop.id);
+            let matData = materialList[idx];
+            matlistHTML += `<button type="button" class="list-group-item list-group-item-action list-group-item-light tower-mat-btn" idx=${idx} cnt=${drop.cnt}>${matData.name} x<span class="mat-stock">${drop.cnt}</span></btn>`
+        });
+    }
+    $('#e-material-tab-pane>.list-group').html(matlistHTML);
 }

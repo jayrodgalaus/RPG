@@ -67,13 +67,13 @@
                         </button>
                         <span class="icon-btn-text">Enchant</span>
                     </div>
-                    <div class="mb-2">
+                    <div class="mb-2 d-none" id="enchantressBtnContainer">
                         <button id="runemasterBtn" class="icon-btn town-btn"  screen="runes">
                             <img src="assets/icons/noun-item-rune-stone-2360138.svg" class="w-75" alt="">
                         </button>
                         <span class="icon-btn-text">Runes</span>
                     </div>
-                    <div class="mb-2">
+                    <div class="mb-2 d-none" id="auramasterBtnContainer">
                         <button id="auramasterBtn" class="icon-btn town-btn"  screen="auras">
                             <img src="assets/icons/noun-fire-7792492.svg" class="w-75" alt="">
                         </button>
@@ -224,6 +224,57 @@
                 <button class="icon-btn town-btn ms-auto" screen="town">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
+            </div>
+            <div class="w-100 mt-auto mb-2 h-40 d-flex align-items-center">
+                <div class="section-container me-3" id="enchantEqpPreview"></div>
+                <div class="d-flex flex-column align-items-center justify-content-center flex-grow-1">
+                    <h1>+<span id="enchantCurrentEnhance">0</span></h1>
+                    <div id="enchantStars" class="small-text d-flex justify-content-center w-100 text-light"></div>
+                    <div class="section-container w-100 mt-2">
+                        <div class="d-flex">
+                            <div class="flex-grow-1">ATK: <span id="enchantAtk"></span></div>
+                            <div class="flex-grow-1">DEF: <span id="enchantDef"></span></div>
+                        </div>
+                        <div class="d-flex">
+                            <div class="flex-grow-1">SPD: <span id="enchantSpd"></span></div>
+                            <div class="flex-grow-1">HP: <span id="enchantHp"></span></div>
+                        </div>
+                    </div>
+                    <button class="icon-btn mt-2" id="enchantBtn" index="-1">
+                        <i class="fa-solid fa-gavel pulse"></i>
+                    </button>
+                    <div class="icon-btn-text">Enchant(<span id="enchantCost">0</span>g)</div>
+                </div>
+            </div>
+            <div id="enchantTabsCont" class="nav-tabs-container">
+                <ul class="nav nav-tabs" id="enchantTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="e-equipped-tab" data-bs-toggle="tab" data-bs-target="#e-equipped-tab-pane" type="button" role="tab" aria-controls="f-equipped-tab-pane" aria-selected="true">Equipped</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="e-weapons-tab" data-bs-toggle="tab" data-bs-target="#e-weapons-tab-pane" type="button" role="tab" aria-controls="f-weapons-tab-pane" aria-selected="false">Weapons</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="e-armor-tab" data-bs-toggle="tab" data-bs-target="#e-armor-tab-pane" type="button" role="tab" aria-controls="f-armor-tab-pane" aria-selected="false">Armor</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="e-mats-tab" data-bs-toggle="tab" data-bs-target="#e-material-tab-pane" type="button" role="tab" aria-controls="f-material-tab-pane" aria-selected="false">Mats</button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="enchantContent">
+                    <div class="tab-pane fade show active section-container" id="e-equipped-tab-pane" role="tabpanel" tabindex="0">
+                        <div class="list-group list-group-flush"></div>
+                    </div>
+                    <div class="tab-pane fade section-container" id="e-weapons-tab-pane" role="tabpanel"  tabindex="0">
+                        <div class="list-group list-group-flush"></div>
+                    </div>
+                    <div class="tab-pane fade section-container" id="e-armor-tab-pane" role="tabpanel"  tabindex="0">
+                        <div class="list-group list-group-flush"></div>
+                    </div>
+                    <div class="tab-pane fade section-container" id="e-material-tab-pane" role="tabpanel"  tabindex="0">
+                        <div class="list-group list-group-flush"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -522,6 +573,7 @@
             <button class="icon-btn town-btn ms-auto" screen="town">
                 <i class="fa-solid fa-xmark"></i>
             </button>
+            <div id="maidensGalleryList" class="mt-2"></div>
         </div>
     </div>
     <div id="mobsMenu" class="layer menu d-none">
@@ -613,7 +665,7 @@
             </div>
         </div>
     </div>
-    <div class="offcanvas offcanvas-end vw-100" tabindex="-1" id="dungeonPanel" aria-labelledby="dungeonPanel" refinerPreviewId>
+    <div class="offcanvas offcanvas-end vw-100" tabindex="-1" id="dungeonPanel" aria-labelledby="dungeonPanel">
         <div class="offcanvas-body d-flex flex-column vh-100" >
             <div class="d-flex flex-column h-100 w-100 align-items-center justify-content-center d-none" id="fightMenu">
                 <div class="pos-rel w-100 text-light">
@@ -798,6 +850,27 @@
             <button class="icon-btn next-room-btn my-3 small-text">
                 <i class="fa-solid fa-o"></i> <i class="fa-solid fa-k"></i>
             </button>
+        </div>
+    </div>
+    <div class="offcanvas offcanvas-end vw-100" tabindex="-1" id="maidenPreviewPanel" aria-labelledby="maidenPreviewPanel" maidenPreviewId>
+        <div class="offcanvas-header">
+            <button class="icon-btn ms-auto" data-bs-dismiss="offcanvas" aria-label="Close">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column" >
+            
+            <div class="section-container mt-auto pos-rel">
+                <button class="btn btn-light toggle-preview-section-container">
+                    <i class="fa-solid fa-caret-down"></i>
+                </button>
+                <h5 class="text-light"><span id="maidenPreviewName"></span></h5>
+                <div>
+                    <span id="maidenPreviewDetails"></span>
+                </div><br>
+                <div>Location: <span id="maidenLocation"></span></div>
+                
+            </div>
         </div>
     </div>
     

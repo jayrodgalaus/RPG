@@ -5,11 +5,15 @@ $(function(){
         if(screen == "enchantress") screen = "tower";
         else if(screen == "pots") screen = "alchemist"
         let screenLabel = "-"+screen.charAt(0).toUpperCase() + screen.slice(1)+"-";
-        $('#backgroundLabel').text(screenLabel);
+        
         $('#background').attr('class', nsfw ? screen + " " + "nsfw" : screen);
         if(screen == "forge"){
             resetForge();
             populateEqpList("forge");
+        }else if(screen == "tower"){
+            resetTower();
+            populateEqpList("tower");
+            populateMatsList();
         }else if(screen == "storage"){
             if(activeRefiner){
                 if(nsfw)
@@ -18,7 +22,11 @@ $(function(){
             }
             $('#storageTabs .nav-link').removeClass('active').attr('aria-selected','false');
             $('#mats-tab').click();
+        }else if(screen == "maidens"){
+            screenLabel = "";
+            populateMaidenMenu();
         }
+        $('#backgroundLabel').text(screenLabel);
         $('.menu').addClass('d-none');
         $('#'+screen+"Menu").removeClass('d-none');
         if(screen != "town"){
@@ -111,6 +119,84 @@ $(function(){
             setGold();
         }else{
             $("#enhanceBtn").attr('disabled','disabled');
+        }
+    })
+    //tower
+    .on('click','.tower-eqp-btn',function(){
+        let idx = parseInt($(this).attr('idx'));
+        let array = $(this).attr('array');
+        let src = array == "loadout" ? loadOut : (array == "weapons" ? weapons : armor);
+        let eqp = src[idx];
+        let bg = eqp.eqp.img;
+        let tier = eqp.tier;
+        $('#enchantEqpPreview').css({'background-image':`url('${bg}')`});
+        $('#enchantCurrentEnhance').text(eqp.enchantment);
+        $('.tower-eqp-btn').removeClass('active')
+        $(this).addClass('active');
+        $('#enchantBtn').attr('index',idx).attr("array",array);
+        initStars(eqp.enchantment, tier == "G" ? 5 : 10);
+        $('#enchantAtk').text(eqp.final_atk);
+        $('#enchantSpd').text(eqp.final_spd);
+        $('#enchantDef').text(eqp.final_def);
+        $('#enchantHp').text(eqp.final_hp);
+        let cost = enchantCosts[`${tier}`];
+        if(soul.gold < cost){
+            $("#enchantBtn").attr('disabled','disabled');
+            $('#enchantCost').addClass('text-danger')
+        }else{
+            $("#enchantBtn").removeAttr('disabled');
+            $('#enchantCost').removeClass('text-danger')
+        }
+        $('#enchantCost').text(cost);
+    })
+    .on('click','.tower-mat-btn',function(){
+        
+        $(this).addClass('active');
+        $("#enchantBtn").attr("m-index",$(this.attr('idx')));
+        let cost = enchantCosts[`${tier}`];
+        if(soul.gold < cost){
+            $("#enchantBtn").attr('disabled','disabled');
+            $('#enchantCost').addClass('text-danger')
+        }else{
+            $("#enchantBtn").removeAttr('disabled');
+            $('#enchantCost').removeClass('text-danger')
+        }
+        $('#enchantCost').text(cost);
+    })
+    .on('click',"#enchantBtn", function(){
+        if($(this).attr('index') == '-1'){alert("Select equipment first.");return false;}
+        if($(this).attr('m-index') == '-1'){alert("Select material first.");return false;}
+        let idx = parseInt($(this).attr('index'));
+        let array = $(this).attr('array');
+        let src = array == "loadout" ? loadOut : (array == "weapons" ? weapons : armor);
+        let eqp = src[idx];
+        let tier = eqp.tier;
+        let cost = enchantCosts[`${tier}`];
+        if(soul.gold >= cost){
+            
+            eqp.enchant();
+            $('#enchantCurrentEnhance').parent().addClass('grow');
+            setTimeout(function(){$('#enchantCurrentEnhance').parent().removeClass('grow');},120);
+            initStars(eqp.enchantment, tier == "G" ? 5 : 10);
+            $('#enchantCurrentEnhance').text(eqp.enchantment);
+            $('#enchantAtk').text(eqp.final_atk);
+            $('#enchantSpd').text(eqp.final_spd);
+            $('#enchantDef').text(eqp.final_def);
+            $('#enchantHp').text(eqp.final_hp);
+            populateStatMenu()
+            
+            //deduct gold
+            soul.updateGold(soul.gold - cost);
+            if(soul.gold < cost){
+                $("#enchantBtn").attr('disabled','disabled');
+                $('#enchantCost').addClass('text-danger')
+            }else{
+                $("#enchantBtn").removeAttr('disabled');
+                $('#enchantCost').removeClass('text-danger');
+            }
+            setGold();
+        }else{
+            $("#enchantBtn").attr('disabled','disabled');
         }
     })
     // refiner menu
@@ -307,30 +393,11 @@ $(function(){
     })
     .on('click','.escape-btn',function(){
         triggerReward(false,true);
-        if(currentMaiden && currentMaiden.idx == 6) collectedGold *= 1.2;
-        let totalGold = Math.round(collectedGold);
-        soul.updateGold(totalGold);
-        $('#rewadGold').text("+"+totalGold+"g")
-        if(collectedMats.length > 0){
-            if(activeRefiner){ applyRefinerBonus();}
-            if(currentMaiden && currentMaiden.idx == 7){ applyRefinerBonus(true); }
-            collectedMats.forEach(item =>{
-                bag.push(item);
-            });
-            let compiledMats = compileMats("collected");
-            if(compiledMats.length > 0){
-                let collectedMatsText = '';
-                compiledMats.forEach(drop => {
-                    let idx = materialList.findIndex(mat => mat.id === drop.id);
-                    let matData = materialList[idx];
-                    collectedMatsText += `<span class="icon-btn-text">${matData.name} x${drop.cnt}</span><br>`
-                });
-                $('#collectedMats').html(collectedMatsText);
-            }
-            updateBag();
-        }
-        resetDungeon();
     })
-
+    //maiden menu
+    .on('click', '.maiden-portrait',function(){
+        let idx = $(this).closest('.maiden-container').attr('maidenIndex');
+        showMaidenInfo(idx);
+    })
 
 })

@@ -172,20 +172,20 @@ h1,h2,h3,h4,h5,#eqpPreviewName{
         width: 70px;
         height: 70px;
     }
-    #forgeMenuEqp{
+    #forgeMenuEqp, #enchantMenuEqp{
         min-height: 20vh;
         overflow-y: auto;
     }
-    #forgeContent > .section-container{
+    #forgeContent > .section-container, #enchantContent > .section-container{
         max-height: 30vh;
         overflow-y: auto;
         min-height: 30vh;
     }
-    #forgeEqpPreview{
+    #forgeEqpPreview, #enchantEqpPreview{
         width: 40vw;
         height: calc(40vw * 16 / 9);
     }
-    .forge-eqp-btn{
+    .forge-eqp-btn, .tower-eqp-btn, .tower-mat-btn{
         background-color: transparent;
         border-color: #EEEEEE;
         color: #EEEEEE;
@@ -213,7 +213,7 @@ h1,h2,h3,h4,h5,#eqpPreviewName{
     .equipment-slot:hover, .equipment-slot:active{
         box-shadow: 0px 0px 40px 20px inset rgba(255, 0, 0, 0.5);
     }
-    .equipment-slot, #eqpPreviewPanel, #refinerPreviewPane, #dungeonPanel, #forgeEqpPreview{
+    .equipment-slot, #eqpPreviewPanel, #refinerPreviewPane, #dungeonPanel, #forgeEqpPreview, #enchantEqpPreview{
         box-shadow: none;
         background-size: cover;
         background-position: center;
@@ -236,7 +236,6 @@ h1,h2,h3,h4,h5,#eqpPreviewName{
 /* EQUIPMENT MENU */
 
 /* MAP MENU */
-    forgeEqpPreview
     #mapMenuDungeonList, #mapMenuFloorList{
         max-height: 50vh;
         overflow-y: auto;
@@ -277,7 +276,7 @@ h1,h2,h3,h4,h5,#eqpPreviewName{
     #guildContainer{
         overflow-x: auto;
     }
-    #refinerPreviewPanel{
+    #refinerPreviewPanel, #maidenPreviewPanel{
         background-size: cover;
         background-position: top;
         background-color: black;
@@ -360,5 +359,14 @@ h1,h2,h3,h4,h5,#eqpPreviewName{
     #EHB{left: 0;}
     #PActB{width: 100%; height: 0%; background-color: rgba(0, 0, 0, 0.5); border-top: 3px solid purple; }
     #atkDmgTextArea{overflow: hidden;}
-    .dmg-text{font-weight: bolder; font-size: 2rem;}
+    .dmg-text{font-weight: bolder; font-size: 2rem; color: white;}
 /* DUNGEON */
+/* MAIDENS */
+    #maidensGalleryList{
+        max-height: calc(100vh - 2.5rem - 50px);
+        overflow-y: auto;
+    }
+    .npc-portrait.in-dungeon{
+        border-color: red;
+    }
+/* MAIDENS */

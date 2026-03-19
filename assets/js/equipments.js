@@ -5,7 +5,8 @@ var loadOuttotalAtk = 0;
 var loadOuttotalSpd = 0;
 var loadOuttotalDef = 0;
 var loadOuttotalHP = 0;
-var forgeCosts = {"G":50,"F":120,"E":2500,"D":550,"C":1200,"B":2500,"A":5750,"S":11500,"SR":20000};
+var forgeCosts = {"G":50,"F":120,"E":250,"D":550,"C":1200,"B":2500,"A":5750,"S":11500,"SR":20000};
+var enchantCosts = {"G":50,"F":100,"E":220,"D":500,"C":1000,"B":2000,"A":5200,"S":10000,"SR":18000};
 
 async function createEquipment(db, stats, isBeginner = false) {
     const tx = db.transaction("Inventory", "readwrite");
@@ -154,8 +155,6 @@ function initStars(stars = 0, maxstars = 10){
 }
 function populateEqpList(screen){
     let loadOutHTML = '', weaponsHTML = '', armorHTML = '';
-    console.log(inventory);
-    console.log(inventory[0].eqp.category); //returns weapon
     inventory.forEach(item => {
         if(item.eqp.category == "weapon"){weapons.push(item)}
         else{armor.push(item)}
@@ -172,18 +171,34 @@ function populateEqpList(screen){
     armor.forEach((item, idx) => {
         armorHTML += `<button type="button" class="list-group-item list-group-item-action list-group-item-light ${screen}-eqp-btn" idx=${idx} array="armor">${item.displayName}(${item.tier}+<span class="forge-item-enhancements">${item.enhancement}</span>)</button>`
     });
-
-    $('#f-equipped-tab-pane>.list-group').html(loadOutHTML);
-    $('#f-weapons-tab-pane>.list-group').html(weaponsHTML);
-    $('#f-armor-tab-pane>.list-group').html(armorHTML);
-    //reset forge menu
-    resetForge();
+    if(screen == "forge"){
+        $('#f-equipped-tab-pane>.list-group').html(loadOutHTML);
+        $('#f-weapons-tab-pane>.list-group').html(weaponsHTML);
+        $('#f-armor-tab-pane>.list-group').html(armorHTML);
+        //reset forge menu
+        resetForge();
+    }else if(screen == "tower"){
+        $('#e-equipped-tab-pane>.list-group').html(loadOutHTML);
+        $('#e-weapons-tab-pane>.list-group').html(weaponsHTML);
+        $('#e-armor-tab-pane>.list-group').html(armorHTML);
+        //reset forge menu
+        resetTower();
+    }
 }
 function resetForge(){
-    $('#forgeEqpPreview').removeAttr('css');
+    $('#forgeEqpPreview').removeAttr('style');
     $('#forgeCurrentEnhance').text(0);
     $('#enhanceBtn').attr('index',"-1").removeAttr("array").removeAttr('disabled');
     $('#forgeCost').text(0);
     $('#forgeCost').removeClass('text-danger')
     initStars()
+}
+function resetTower(){
+    $('#enchantEqpPreview').removeAttr('style');
+    $('#enchantCurrentEnhance').text(0);
+    $('#enchantBtn').attr('index',"-1").removeAttr("array").removeAttr('disabled');
+    $('#enchantCost').text(0);
+    $('#enchantCost').removeClass('text-danger')
+    initStars()
+
 }

@@ -10,7 +10,11 @@ var dungeons = {
     fallen: { species: "fallen", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.06 },
     demons: { species: "demons", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.07 },
     angels: { species: "angels", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.07 },
+    abyss: { species: "abyss", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.07 },
 }
+const easyDungeons = ["goblins","kobolds","zombies","skeletons","ghosts"];
+const midDungeons = ["arachne","cultists","fallen"];
+const lateDungeons = ["demons","angels","abyss"];
 var baseMobSpawnRate = 0.6;
 var currentMobRate = baseMobSpawnRate;
 var currentDungeon = "town";
@@ -135,39 +139,51 @@ async function nextRoom() {
     triggerTransition();
     currentRoom += 1;
     clearDungeonMenus();
-    $('#dungeonCanvas').hide();
-    if(currentFloor % 10 == 0){
+    if(currentFloor % 10 == 0 && currentRoom == 6){
+        spawnPortal(0);
+    }else if(currentFloor % 10 == 0 && currentRoom < 6){
+        console.log("currentFloor:",currentFloor, " currentRoom:",currentRoom)
+        currentRoom = 5;
         if(currentFloor != 50){
-            if(currentRoom > 1){
+            /* if(currentRoom > 1){
                 currentFloor++;
                 currentRoom = 5;
                 nextRoom();
-            }
+            } */
             $('#bossMenu').removeClass('d-none');
             changeDungeonPanelBG('bossPortal')
         }else{
             $('#apexMenu').removeClass('d-none');
             changeDungeonPanelBG('apexPortal')
         }
-        
+    }else if(easyDungeons.includes(currentDungeon.species) && !maidenQ1Complete && currentRoom == 5 && currentFloor == 9){
+        setActiveMaiden(3);
+        $('#maidenMenu').removeClass('d-none');
+        $('#maidenBuffText').html(currentMaiden.buff.description);
+        $('#dungeonPanel').css({'background-image':`url('${currentMaiden.img}')`});
+    }else if(easyDungeons.includes(currentDungeon.species) && !maidenQ1Complete && currentRoom == 5 && currentFloor == 19){
+        setActiveMaiden(4);
+        $('#maidenMenu').removeClass('d-none');
+        $('#maidenBuffText').html(currentMaiden.buff.description);
+        $('#dungeonPanel').css({'background-image':`url('${currentMaiden.img}')`});
     }else{
-        if(currentRoom == 6){
+        if(currentRoom >= 6){
             currentRoom = 0;
-            currentFloor+=1;
+            currentFloor++;
+            
+            console.log("currentFloor:",currentFloor, " currentRoom:",currentRoom)
             //next floor logic
             $('#nextFloorMenu').removeClass('d-none');
-            // $('#dungeonPanel').addClass('next').removeClass('maiden thief statue chest bossPortal apexPortal').removeAttr('style')
             changeDungeonPanelBG('next')
-            if(currentFloor % 10 == 0){
+            if(currentFloor % 10 == 0 && currentRoom < 6){
+                currentRoom = 5;
                 if(currentFloor != 50){
                     clearDungeonMenus();
                     $('#bossMenu').removeClass('d-none');
-                    // $('#dungeonPanel').addClass('bossPortal').removeClass('maiden thief statue chest apexPortal').removeAttr('style')
                     changeDungeonPanelBG('bossPortal')
                 }else{
                     clearDungeonMenus();
                     $('#apexMenu').removeClass('d-none');
-                    // $('#dungeonPanel').addClass('apexPortal').removeClass('maiden thief statue chest next bossPortal').removeAttr('style')
                     changeDungeonPanelBG('apexPortal')
                 }
             }else{
@@ -188,45 +204,67 @@ async function nextRoom() {
             let chestEncounter = statueEncounter + otherEncounters;
             let portalEncounter = chestEncounter + otherEncounters;
             let encounterRoll = Math.random();
+/* 
+TEST TEST TEST
+TEST TEST TEST
+TEST TEST TEST
+*/              
+            /* enemyEncounter = 0;
+            maidenEncounter = 0.5;
+            thiefEncounter = 0;
+            statueEncounter = 0;
+            chestEncounter = 0;
+            portalEncounter = 1;
+            console.log(encounterRoll) */
+/* 
+TEST TEST TEST
+TEST TEST TEST
+TEST TEST TEST
+*/
             if(encounterRoll <= enemyEncounter){
                 spawnMob();
                 let bg = enemyMob.img;
                 $('#dungeonCanvas').show();
                 $('#dungeonPanel').css({'background-image':`url('${bg}')`})
                 initFightMenu();
-                // testing
-                // collectedGold += enemyMob.gold;
             }else if(encounterRoll > enemyEncounter && encounterRoll <= maidenEncounter){
                 setActiveMaiden();
-                $('#maidenMenu').removeClass('d-none');
-                $('#maidenBuffText').text(currentMaiden.buff.description);
-                $('#dungeonPanel').css({'background-image':`url('${currentMaiden.img}')`});
+                if(currentMaiden){
+                    $('#maidenMenu').removeClass('d-none');
+                    $('#maidenBuffText').text(currentMaiden.buff.description);
+                    $('#dungeonPanel').css({'background-image':`url('${currentMaiden.img}')`});
+                }else{
+                    spawnMob();
+                    let bg = enemyMob.img;
+                    $('#dungeonCanvas').show();
+                    $('#dungeonPanel').css({'background-image':`url('${bg}')`})
+                    initFightMenu();
+                }
+                
             }else if(encounterRoll > maidenEncounter && encounterRoll <= thiefEncounter){
                 let stolenGold = Math.floor(Math.min(collectedGold * 0.05, currentFloor*5));
                 collectedGold -= stolenGold;
-                // soul.updateGold(gold);
                 $('#thiefMenu').removeClass('d-none');
                 $("#stolenGold").text(stolenGold);
-                // $('#dungeonPanel').addClass('thief').removeClass('maiden statue chest next bossPortal apexPortal').removeAttr('style')
                 changeDungeonPanelBG('thief')
             }else if(encounterRoll > thiefEncounter && encounterRoll <= statueEncounter){
-                // $('#dungeonPanel').addClass('statue').removeClass('maiden thief chest next bossPortal apexPortal').removeAttr('style');
                 changeDungeonPanelBG('statue')
                 $('#statueMenu').removeClass('d-none');
                 regen(0.2)
             }else if(encounterRoll > statueEncounter && encounterRoll <= chestEncounter){
                 let foundGold = Math.floor(Math.min(collectedGold * 0.05, currentFloor*5));
                 collectedGold +=  foundGold;
-                // soul.updateGold(gold);
                 $('#chestMenu').removeClass('d-none');
                 $("#foundGold").text(foundGold);
-                // $('#dungeonPanel').addClass('chest').removeClass('maiden thief statue next bossPortal apexPortal').removeAttr('style')
                 changeDungeonPanelBG('chest')
             }else if(encounterRoll <= portalEncounter){
                 spawnPortal();
             }else{
-                currentRoom --;
-                nextRoom();
+                let foundGold = Math.floor(Math.min(collectedGold * 0.05, currentFloor*5));
+                collectedGold +=  foundGold;
+                $('#chestMenu').removeClass('d-none');
+                $("#foundGold").text(foundGold);
+                changeDungeonPanelBG('chest')
             }
 
         }
@@ -235,7 +273,7 @@ async function nextRoom() {
     
 }
 function bossFight(){
-    clearDungeonMenus()
+    clearDungeonMenus();
     let isApex = currentFloor == 50;
     let isBoss = currentFloor % 10 == 0 && currentFloor != 50;
     spawnMob(isBoss,isApex);
@@ -252,18 +290,32 @@ function triggerHitTaken(){
     setTimeout(function(){$('#hitOverlay').removeClass('transitioning');}, 500)
 }
 function triggerReward(isGoldGob = false, escape = false){
+    
     let matRewardText = "";
     clearInterval(atkInterval);
     clearInterval(hitInterval);
     $('#PActB').removeAttr('style');
-    
+    let gold = 0;
 
     if(escape){
-        if(currentMaiden && !currentMaiden.isUnlocked){unlockMaiden();}
+        
         consolidateGold(escape);
         consolidateMats(escape);
+        gold = collectedGold;
+        if(currentMaiden){
+            if(!currentMaiden.isUnlocked) unlockMaiden();
+            currentMaiden.location = "town";
+            let spc = currentDungeon.species;
+            if(easyDungeons.includes(spc) && !maidenQ1Complete && currentMaiden.idx == 3){
+                maidenQ1Complete = true;
+            }else if(easyDungeons.includes(spc) && !maidenQ2Complete && currentMaiden.idx == 4){
+                maidenQ2Complete = true;
+            }
+            updateMaidenStatus();
+        }
+        resetDungeon();
     }else{
-        let gold = enemyMob.gold;
+        gold = enemyMob.gold;
         if(isGoldGob){
             let maxehp = parseInt($('#maxEHP').text());
             let currentehp = parseInt($('#currentEHP').text());
@@ -271,9 +323,9 @@ function triggerReward(isGoldGob = false, escape = false){
         }
         if(currentMaiden){
             if(currentMaiden.idx == 16){
-                gold = Math.round(Math.random() * 2);
+                gold = gold * (Math.round(Math.random() * 2));
             }else if(currentMaiden.idx == 17){
-                gold = Math.round(0.5 + Math.random() * 1.5);
+                gold = gold * (Math.round(0.5 + Math.random() * 1.5));
             }
         }
         collectedGold += gold;
@@ -294,14 +346,15 @@ function triggerReward(isGoldGob = false, escape = false){
             }
             collectedMats.push(mat);
         }
+        console.log("collectedGold",collectedGold);
     }
     
-    $('#rewadGold').text("+"+enemyMob.gold+"g")
+    changeMaidenLocations();
+    $('#rewadGold').text("+"+gold+"g")
     $('#rewardMats').text(matRewardText)
-    $('#rewardEqpt').text()
+    $('#rewardEqpt').text();
+    setTimeout(function(){$('#rewardOverlayCont').css({'left': 0});},300)
     
-    
-    $('#rewardOverlayCont').css({'left': 0});
 
 }
 function triggerDeath(){
@@ -382,6 +435,7 @@ function enemyAttack(){
     }
 }
 function resetDungeon(){
+    changeMaidenLocations();
     baseMobSpawnRate = 0.6;
     currentMobRate = baseMobSpawnRate;
     currentDungeon = dungeons[$('#mapMenuDungeonList button.active').text().toLowerCase()];
@@ -418,9 +472,10 @@ function regen(regen){
 }
 function consolidateGold(escape = false){
     if(escape){
-        if(currentMaiden && currentMaiden.idx == 6 || currentMaiden.idx == 10) collectedGold *= 1.2;
+        if(currentMaiden && (currentMaiden.idx == 6 || currentMaiden.idx == 10)) collectedGold *= 1.2;
     }
     $('#collectedGold').text(`${collectedGold}g`);
+    $('#rewadGold').text(`${collectedGold}g`);
     let totalGold = Math.round(soul.gold + collectedGold);
     
     soul.updateGold(totalGold);

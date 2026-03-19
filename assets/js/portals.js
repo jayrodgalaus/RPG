@@ -6,21 +6,29 @@ var portals = [
     {name:"gold", img: portals_path+"gold.webp", },
 ];
 
-function spawnPortal(){
-    let chance = 1 / 5;
-    let roll = Math.random();
+function spawnPortal(idx = null){
+    
     let portal;
-    if(roll <= chance){
-        portal = portals[0];
-    }else if(roll <= chance*2){
-        portal = portals[1];
-    }else if(roll <= chance*3){
-        portal = portals[2];
-    }else if(roll <= chance*4){
-        portal = portals[3];
-    }else if(roll <= chance*5){
-        portal = portals[4];
+    if(idx){
+        portal = portals[idx];
+    }else{
+        let chance = 1 / 5;
+        let roll = Math.random();
+        if(roll <= chance){
+            portal = portals[0];
+        }else if(roll <= chance*2){
+            portal = portals[1];
+        }else if(roll <= chance*3){
+            portal = portals[2];
+        }else if(roll <= chance*4){
+            portal = portals[3];
+        }else if(roll <= chance*5){
+            portal = portals[4];
+        }else{
+            portal = portals[0];
+        }
     }
+    
     $('#dungeonPanel').css({'background-image':`url('${portal.img}')`});
     $(`#${portal.name}portalMenu`).removeClass('d-none');
 }

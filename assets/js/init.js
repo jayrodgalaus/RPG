@@ -41,7 +41,7 @@ async function initSoul() {
 
             if (!soulData) {
                 console.log("No Soul found, creating new one...");
-                const newSoul = new Soul({ atk: 5, spd: 0, def: 0, hp: 5, availableStats: 15 });
+                const newSoul = new Soul({ atk: 150, spd: 150, def: 150, hp: 150, availableStats: 15 });
                 const putRequest = store.put({ id: 1, ...newSoul });
 
                 putRequest.onsuccess = () => {
@@ -264,7 +264,11 @@ async function initMaidens() {
 
             if (!maidendata) {
                 console.log("No maidens found, creating new one...");
-                const putRequest = store.put({ id: 1, unlockedMaidens:unlockedMaidens });
+                const putRequest = store.put({ id: 1, 
+                    unlockedMaidens:unlockedMaidens, 
+                    maidenQ1Complete:false,
+                    maidenQ2Complete:false,
+                });
 
                 putRequest.onsuccess = () => {
                     console.log("New maidens saved to IndexedDB");
@@ -273,7 +277,9 @@ async function initMaidens() {
                 putRequest.onerror = () => reject(putRequest.error);
             } else {
                 console.log("Maidens found in DB:", maidendata);
-                unlockedMaidens = maidendata.unlockedMaidens
+                unlockedMaidens = maidendata.unlockedMaidens;
+                maidenQ1Complete = maidendata.maidenQ1Complete;
+                maidenQ2Complete = maidendata.maidenQ2Complete;
                 resolve(unlockedMaidens);
             }
         };
@@ -292,10 +298,12 @@ $(document).ready(async function(){
     await initBag();
     await initMaidens();
     //UI
+    initTown();
     populateStatMenu();
     populateRefinerMenu();
     populateDungeonFloors();
     initStars();
+    generateMaidens();
 })
 
 

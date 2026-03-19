@@ -25,6 +25,7 @@ class Equipment {
         this.form_change_1 = false; this.form_change_2 = false; this.aura_1 = false; this.aura_2 = false;  
         this.special_effect;
         this.enhancement = 0;
+        this.enchantment = 0;
         this.affix = this.setAffix();
         this.suffix;
         this.isEquipped = false;
@@ -103,6 +104,52 @@ class Equipment {
         let spd_chance = atk_chance + this.eqp.type.spd_chance;
         let def_chance = spd_chance + this.eqp.type.def_chance;
         let hp_chance = def_chance + this.eqp.type.hp_chance;
+        
+        // Generate random increase from 1–5
+        const random_stat_increase = Math.floor(Math.random() * 5) + 1;
+
+        
+        if(this.enhancement < 10){
+            if((this.tier == "G" && this.enhancement == 5)){
+                return;
+            }
+            // Apply enhancement
+            let roll = Math.random();
+            if(roll <= atk_chance) this.atk += random_stat_increase;
+            else if(roll <= spd_chance) this.spd += random_stat_increase;
+            else if(roll <= def_chance) this.def += random_stat_increase;
+            else if(roll <= hp_chance) this.hp += random_stat_increase;
+            else this.hp += random_stat_increase;
+            // Recalculate derived stats
+            this.final_atk = this.atk * (1 + this.atk_buff);
+            this.dmg = this.final_atk * 3;
+            this.final_spd = this.spd * (1 + this.spd_buff);
+            this.atkspd = this.spd * (1 + this.spd_buff) >= 430 ? 0.14 : 1 - (this.spd * 0.002);
+            this.final_def = this.def * (1 + this.def_buff);
+            this.final_hp = this.hp * (1 + this.hp_buff);
+            this.hpPoints = this.final_hp * 5;
+            this.enhancement += 1;
+            this.affix = this.setAffix();
+            //compute item value
+            $('.forge-eqp-btn.active .forge-item-enhancements').text(this.enhancement)
+        }else{
+            let idx = tiers.indexOf(this.tier);
+            let maxidx = tiers.indexOf(this.max_tier);
+            if(idx < maxidx)
+                this.raiseTier();
+        }
+        let prevEqpIndex = inventory.findIndex(eqp => eqp.id === this.id);
+        // console.log(inventory[prevEqpIndex])
+        // inventory[prevEqpIndex] = this;
+        calcLoadOutStats();
+        calcTotalStats();
+        console.log(inventory[prevEqpIndex]);
+        updateInventory();
+    }
+    enchant(idx) {
+        let mat = materialList.find(mat => mat.idx == idx);
+        console.log(mat)
+        return;
         
         // Generate random increase from 1–5
         const random_stat_increase = Math.floor(Math.random() * 5) + 1;
