@@ -498,5 +498,7 @@ function consolidateMats(escape=false){
             $('#collectedMats').html(collectedMatsText);
         }
         updateBag();
+    }else{
+        $('#collectedMats').html('');
     }
 }

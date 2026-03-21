@@ -99,7 +99,7 @@ class Equipment {
 
         return affixMap[key][top1];
     }
-    enhance() {
+    enhance(cost) {
         let atk_chance = this.eqp.type.atk_chance;
         let spd_chance = atk_chance + this.eqp.type.spd_chance;
         let def_chance = spd_chance + this.eqp.type.def_chance;
@@ -130,7 +130,9 @@ class Equipment {
             this.hpPoints = this.final_hp * 5;
             this.enhancement += 1;
             this.affix = this.setAffix();
+            $(".forge-eqp-btn.active").html(`${this.displayName}(${this.tier}+<span class="forge-item-enhancements">${this.enhancement}</span>)`)
             //compute item value
+            
             $('.forge-eqp-btn.active .forge-item-enhancements').text(this.enhancement)
         }else{
             let idx = tiers.indexOf(this.tier);
@@ -141,32 +143,38 @@ class Equipment {
         let prevEqpIndex = inventory.findIndex(eqp => eqp.id === this.id);
         // console.log(inventory[prevEqpIndex])
         // inventory[prevEqpIndex] = this;
+        //deduct gold
+        soul.updateGold(soul.gold - cost);
+        setGold();
         calcLoadOutStats();
         calcTotalStats();
-        console.log(inventory[prevEqpIndex]);
         updateInventory();
     }
-    enchant(idx) {
-        let mat = materialList.find(mat => mat.idx == idx);
-        console.log(mat)
-        return;
+    enchant(tier, idx, cost) {
+        let mat = materialList.find(mat => mat.id == idx);
+        let bagidx = bag.findIndex(item => item==idx);
         
-        // Generate random increase from 1–5
-        const random_stat_increase = Math.floor(Math.random() * 5) + 1;
-
-        
-        if(this.enhancement < 10){
-            if((this.tier == "G" && this.enhancement == 5)){
-                return;
+        let maxStars = 3;
+        switch(tier){
+            case "G": maxStars = 3; break;
+            case "F": maxStars = 4; break;
+            case "E": maxStars = 5; break;
+            case "D": maxStars = 6; break;
+            case "C": maxStars = 7; break;
+            case "B": maxStars = 8; break;
+            case "A": maxStars = 9; break;
+            case "S": maxStars = 10; break;
+            case "SR": maxStars = 12; break;
+        }
+        if(this.enchantment < maxStars){
+            const random_stat_increase = Math.floor(Math.random() * mat.max) + mat.min;
+            switch(mat.stat){
+                case "ATK": this.atk += random_stat_increase; break;
+                case "SPD": this.spd += random_stat_increase; break;
+                case "DEF": this.def += random_stat_increase; break;
+                case "HP": this.hp += random_stat_increase; break;
+                default: break;
             }
-            // Apply enhancement
-            let roll = Math.random();
-            if(roll <= atk_chance) this.atk += random_stat_increase;
-            else if(roll <= spd_chance) this.spd += random_stat_increase;
-            else if(roll <= def_chance) this.def += random_stat_increase;
-            else if(roll <= hp_chance) this.hp += random_stat_increase;
-            else this.hp += random_stat_increase;
-            // Recalculate derived stats
             this.final_atk = this.atk * (1 + this.atk_buff);
             this.dmg = this.final_atk * 3;
             this.final_spd = this.spd * (1 + this.spd_buff);
@@ -174,23 +182,21 @@ class Equipment {
             this.final_def = this.def * (1 + this.def_buff);
             this.final_hp = this.hp * (1 + this.hp_buff);
             this.hpPoints = this.final_hp * 5;
-            this.enhancement += 1;
+            this.enchantment += 1;
             this.affix = this.setAffix();
-            //compute item value
-            $('.forge-eqp-btn.active .forge-item-enhancements').text(this.enhancement)
-        }else{
-            let idx = tiers.indexOf(this.tier);
-            let maxidx = tiers.indexOf(this.max_tier);
-            if(idx < maxidx)
-                this.raiseTier();
+            bag.splice(bagidx,1);
+            populateMatsTab();
+            populateMatsList();
+            $(".tower-eqp-btn.active").html(`${this.displayName}(${this.tier}+<span class="forge-item-enhancements">${this.enhancement}</span>)`)
+            calcLoadOutStats();
+            calcTotalStats();
+            updateInventory();
+            soul.updateGold(soul.gold - cost);
+            setGold();
+            updateBag();
         }
-        let prevEqpIndex = inventory.findIndex(eqp => eqp.id === this.id);
-        // console.log(inventory[prevEqpIndex])
-        // inventory[prevEqpIndex] = this;
-        calcLoadOutStats();
-        calcTotalStats();
-        console.log(inventory[prevEqpIndex]);
-        updateInventory();
+        return;
+        
     }
     damage(){
         if(this.enhancement > 1){

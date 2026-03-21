@@ -41,7 +41,7 @@ async function initSoul() {
 
             if (!soulData) {
                 console.log("No Soul found, creating new one...");
-                const newSoul = new Soul({ atk: 150, spd: 150, def: 150, hp: 150, availableStats: 15 });
+                const newSoul = new Soul({ atk: 5, spd: 0, def: 0, hp: 5, availableStats: 15 });
                 const putRequest = store.put({ id: 1, ...newSoul });
 
                 putRequest.onsuccess = () => {
@@ -124,6 +124,8 @@ async function initInventory() {
                     newEqp.aura_2 = eqp.aura_2;
                     newEqp.special_effect = eqp.special_effect;
                     newEqp.enhancement = eqp.enhancement;
+                    newEqp.enchantment = eqp.enchantment;
+                    newEqp.affix = eqp.affix,
                     newEqp.suffix = eqp.suffix;
                     newEqp.isEquipped = eqp.isEquipped;
                     newEqp.value = eqp.value;

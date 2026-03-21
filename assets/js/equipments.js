@@ -5,8 +5,8 @@ var loadOuttotalAtk = 0;
 var loadOuttotalSpd = 0;
 var loadOuttotalDef = 0;
 var loadOuttotalHP = 0;
-var forgeCosts = {"G":50,"F":120,"E":250,"D":550,"C":1200,"B":2500,"A":5750,"S":11500,"SR":20000};
-var enchantCosts = {"G":50,"F":100,"E":220,"D":500,"C":1000,"B":2000,"A":5200,"S":10000,"SR":18000};
+var forgeCosts = {"G":100,"F":150,"E":250,"D":550,"C":1200,"B":2500,"A":5750,"S":11500,"SR":20000};
+var enchantCosts = {"G":100,"F":150,"E":250,"D":500,"C":1000,"B":2000,"A":5200,"S":10000,"SR":18000};
 
 async function createEquipment(db, stats, isBeginner = false) {
     const tx = db.transaction("Inventory", "readwrite");
@@ -55,6 +55,8 @@ async function updateInventory() {
         aura_2: eqp.aura_2,
         special_effect: eqp.special_effect,
         enhancement: eqp.enhancement,
+        enchantment: eqp.enchantment,
+        affix: eqp.affix,
         suffix: eqp.suffix,
         isEquipped: eqp.isEquipped,
         value: eqp.value
@@ -139,7 +141,7 @@ function calcLoadOutStats(){
     return {loadOuttotalAtk, loadOuttotalSpd, loadOuttotalDef, loadOuttotalHP};
 }
 
-function initStars(stars = 0, maxstars = 10){
+function initStars(stars = 0, maxstars = 0){
     let html = '';
     let i = 0, j = 0;
     let empty = maxstars - stars;
@@ -152,24 +154,34 @@ function initStars(stars = 0, maxstars = 10){
         j++;
     }
     $('#forgeStars').html(html);
+    $('#enchantStars').html(html);
 }
 function populateEqpList(screen){
     let loadOutHTML = '', weaponsHTML = '', armorHTML = '';
     inventory.forEach(item => {
+        item.affix = item.setAffix();
+        item.displayName = item.affix+" "+item.eqp.mob+" "+item.eqp.type.type;
         if(item.eqp.category == "weapon"){weapons.push(item)}
         else{armor.push(item)}
     });
+    let modifierText = '';
+    
     // weapons = inventory.filter(w => w.eqp.category == "weapon");
     // armor = inventory.filter(a => a.eqp.category == "armor");
-    console.log(weapons, armor);
     loadOut.forEach((item, idx) => {
-        loadOutHTML += `<button type="button" class="list-group-item list-group-item-action list-group-item-light ${screen}-eqp-btn" idx=${idx} array="loadout">${item.displayName}(${item.tier}+<span class="forge-item-enhancements">${item.enhancement}</span>)</button>`
+        if(screen == 'forge') modifierText = `<span class="forge-item-enhancements">${item.enhancement}</span>`;
+        else if(screen == 'tower') modifierText = `<span class="tower-item-enchantments">${item.enchantment}<i class="fa-solid fa-star"></i></span>`;
+        loadOutHTML += `<button type="button" class="list-group-item list-group-item-action list-group-item-light ${screen}-eqp-btn" idx=${idx} array="loadout">${item.displayName}(${item.tier}+${modifierText})</button>`
     });
     weapons.forEach((item, idx) => {
-        weaponsHTML += `<button type="button" class="list-group-item list-group-item-action list-group-item-light ${screen}-eqp-btn" idx=${idx} array="weapons">${item.displayName}(${item.tier}+<span class="forge-item-enhancements">${item.enhancement}</span>)</button>`
+        if(screen == 'forge') modifierText = `<span class="forge-item-enhancements">${item.enhancement}</span>`;
+        else if(screen == 'tower') modifierText = `<span class="tower-item-enchantments">${item.enchantment}<i class="fa-solid fa-star"></i></span>`;
+        weaponsHTML += `<button type="button" class="list-group-item list-group-item-action list-group-item-light ${screen}-eqp-btn" idx=${idx} array="weapons">${item.displayName}(${item.tier}+${modifierText})</button>`
     });
     armor.forEach((item, idx) => {
-        armorHTML += `<button type="button" class="list-group-item list-group-item-action list-group-item-light ${screen}-eqp-btn" idx=${idx} array="armor">${item.displayName}(${item.tier}+<span class="forge-item-enhancements">${item.enhancement}</span>)</button>`
+        if(screen == 'forge') modifierText = `<span class="forge-item-enhancements">${item.enhancement}</span>`;
+        else if(screen == 'tower') modifierText = `<span class="tower-item-enchantments">${item.enchantment}<i class="fa-solid fa-star"></i></span>`;
+        armorHTML += `<button type="button" class="list-group-item list-group-item-action list-group-item-light ${screen}-eqp-btn" idx=${idx} array="armor">${item.displayName}(${item.tier}+${modifierText})</button>`
     });
     if(screen == "forge"){
         $('#f-equipped-tab-pane>.list-group').html(loadOutHTML);

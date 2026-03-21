@@ -101,7 +101,10 @@ function populateMatsTab(){
         matsList.forEach(drop => {
             let idx = materialList.findIndex(mat => mat.id === drop.id);
             let matData = materialList[idx];
-            html += `<li class="list-group-item">${matData.name} x${drop.cnt}</li>`
+            let min = `${matData.min < 1 ? matData.min : "+"+matData.min}</b>`;
+            let max = `<b>+${matData.max}</b>`;
+            let range = `(${min} - ${max})`;
+            html += `<li class="list-group-item">${matData.name} x${drop.cnt}: <b>${matData.stat} ${range}</li>`
         });
     }
     html += `</ul>`
@@ -115,7 +118,10 @@ function populateMatsList(){
         matsList.forEach(drop => {
             let idx = materialList.findIndex(mat => mat.id === drop.id);
             let matData = materialList[idx];
-            matlistHTML += `<button type="button" class="list-group-item list-group-item-action list-group-item-light tower-mat-btn" idx=${idx} cnt=${drop.cnt}>${matData.name} x<span class="mat-stock">${drop.cnt}</span></btn>`
+            let min = `<b>${matData.min < 1 ? matData.min : "+"+matData.min}</b>`;
+            let max = `<b>+${matData.max}</b>`;
+            let range = `(${min} - ${max})`;
+            matlistHTML += `<button type="button" class="list-group-item list-group-item-action list-group-item-light tower-mat-btn" idx=${idx} cnt=${drop.cnt}>${matData.name} x<span class="mat-stock">${drop.cnt}</span>: <b>${matData.stat} ${range}</btn>`
         });
     }
     $('#e-material-tab-pane>.list-group').html(matlistHTML);

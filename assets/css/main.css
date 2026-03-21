@@ -101,7 +101,7 @@ h1,h2,h3,h4,h5,#eqpPreviewName{
 .icon-btn:active, .icon-btn:focus{
     border-color: crimson;
 }
-.icon-btn-text, #dungeonPanel h1, #dungeonPanel h2, #dungeonPanel h4, #dungeonPanel h3, #forgeMenu h1, #forgeStars{
+.icon-btn-text, #dungeonPanel h1, #dungeonPanel h2, #dungeonPanel h4, #dungeonPanel h3, #forgeMenu h1, #forgeStars, .shaded{
     color: white; text-shadow: 1px 1px 15px black;
     background-color: rgba(0,0,0, 0.5);
     box-shadow: 0px 0px 8px 2px rgba(0,0,0, 0.5);
@@ -191,7 +191,16 @@ h1,h2,h3,h4,h5,#eqpPreviewName{
         color: #EEEEEE;
     }
 /* FORGE MENU */
-
+/* ENCHANT MENU */
+    #enchantTabsCont #enchantTabs button{
+        width: 40px;
+        height: 40px;
+        padding: 10%;
+    }
+    .tower-item-enchantments i{
+        font-size: 10pt;
+    }
+/* ENCHANT MENU */
 /* SOUL MENU */
     .stat-btn{
         color: white;

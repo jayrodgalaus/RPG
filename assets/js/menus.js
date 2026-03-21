@@ -96,7 +96,7 @@ $(function(){
         let cost = forgeCosts[`${tier}`];
         if(soul.gold >= cost){
             
-            eqp.enhance();
+            eqp.enhance(cost);
             $('#forgeCurrentEnhance').parent().addClass('grow');
             setTimeout(function(){$('#forgeCurrentEnhance').parent().removeClass('grow');},120);
             initStars(eqp.enhancement, tier == "G" ? 5 : 10);
@@ -107,8 +107,7 @@ $(function(){
             $('#forgeHp').text(eqp.final_hp);
             populateStatMenu()
             
-            //deduct gold
-            soul.updateGold(soul.gold - cost);
+            
             if(soul.gold < cost){
                 $("#enhanceBtn").attr('disabled','disabled');
                 $('#forgeCost').addClass('text-danger')
@@ -116,7 +115,6 @@ $(function(){
                 $("#enhanceBtn").removeAttr('disabled');
                 $('#forgeCost').removeClass('text-danger');
             }
-            setGold();
         }else{
             $("#enhanceBtn").attr('disabled','disabled');
         }
@@ -134,13 +132,25 @@ $(function(){
         $('.tower-eqp-btn').removeClass('active')
         $(this).addClass('active');
         $('#enchantBtn').attr('index',idx).attr("array",array);
-        initStars(eqp.enchantment, tier == "G" ? 5 : 10);
+        let maxStars = 3;
+        switch(tier){
+            case "G": maxStars = 3; break;
+            case "F": maxStars = 4; break;
+            case "E": maxStars = 5; break;
+            case "D": maxStars = 6; break;
+            case "C": maxStars = 7; break;
+            case "B": maxStars = 8; break;
+            case "A": maxStars = 9; break;
+            case "S": maxStars = 10; break;
+            case "SR": maxStars = 12; break;
+        }
+        initStars(eqp.enchantment, maxStars);
         $('#enchantAtk').text(eqp.final_atk);
         $('#enchantSpd').text(eqp.final_spd);
         $('#enchantDef').text(eqp.final_def);
         $('#enchantHp').text(eqp.final_hp);
         let cost = enchantCosts[`${tier}`];
-        if(soul.gold < cost){
+        if((soul.gold < cost) || (!$("#enchantBtn").attr("m-index")) || ($("#enchantBtn").attr("m-index") == '-1')){
             $("#enchantBtn").attr('disabled','disabled');
             $('#enchantCost').addClass('text-danger')
         }else{
@@ -150,11 +160,19 @@ $(function(){
         $('#enchantCost').text(cost);
     })
     .on('click','.tower-mat-btn',function(){
-        
+        let btnidx = $("#enchantBtn").attr('index');
+        if(!btnidx || btnidx == '-1'){alert("Select equipment first.");return false;}
+        $('.tower-mat-btn').removeClass('active');
         $(this).addClass('active');
-        $("#enchantBtn").attr("m-index",$(this.attr('idx')));
+        $("#enchantBtn").attr("m-index",$(this).attr('idx'));
+        
+        let idx = parseInt(btnidx);
+        let array = $("#enchantBtn").attr('array');
+        let src = array == "loadout" ? loadOut : (array == "weapons" ? weapons : armor);
+        let eqp = src[idx];
+        let tier = eqp.tier;
         let cost = enchantCosts[`${tier}`];
-        if(soul.gold < cost){
+        if((soul.gold < cost) || (!$("#enchantBtn").attr("index")) || ($("#enchantBtn").attr("index") == '-1')){
             $("#enchantBtn").attr('disabled','disabled');
             $('#enchantCost').addClass('text-danger')
         }else{
@@ -172,12 +190,25 @@ $(function(){
         let eqp = src[idx];
         let tier = eqp.tier;
         let cost = enchantCosts[`${tier}`];
+        let midx = $(this).attr('m-index');
         if(soul.gold >= cost){
             
-            eqp.enchant();
+            eqp.enchant(tier,midx, cost);
             $('#enchantCurrentEnhance').parent().addClass('grow');
             setTimeout(function(){$('#enchantCurrentEnhance').parent().removeClass('grow');},120);
-            initStars(eqp.enchantment, tier == "G" ? 5 : 10);
+            let maxStars = 3;
+            switch(tier){
+                case "G": maxStars = 3; break;
+                case "F": maxStars = 4; break;
+                case "E": maxStars = 5; break;
+                case "D": maxStars = 6; break;
+                case "C": maxStars = 7; break;
+                case "B": maxStars = 8; break;
+                case "A": maxStars = 9; break;
+                case "S": maxStars = 10; break;
+                case "SR": maxStars = 12; break;
+            }
+            initStars(eqp.enchantment, maxStars);
             $('#enchantCurrentEnhance').text(eqp.enchantment);
             $('#enchantAtk').text(eqp.final_atk);
             $('#enchantSpd').text(eqp.final_spd);
@@ -186,7 +217,7 @@ $(function(){
             populateStatMenu()
             
             //deduct gold
-            soul.updateGold(soul.gold - cost);
+            
             if(soul.gold < cost){
                 $("#enchantBtn").attr('disabled','disabled');
                 $('#enchantCost').addClass('text-danger')
@@ -194,7 +225,7 @@ $(function(){
                 $("#enchantBtn").removeAttr('disabled');
                 $('#enchantCost').removeClass('text-danger');
             }
-            setGold();
+            
         }else{
             $("#enchantBtn").attr('disabled','disabled');
         }
