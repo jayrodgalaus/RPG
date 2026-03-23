@@ -461,8 +461,11 @@ function resetDungeon(){
 }
 function spawnAtkDmg(dmg,color="light"){
     let $el = $(`<div class="text-${color}} pop dmg-text">${dmg}</div>`);
-    $('#atkDmgTextArea').append($el);
+    let rotation = Math.floor(Math.random()*360)
+    let $slash = $(`<div class="slash"><div class="slash-trail" style="transform: rotate(${rotation}deg);"></div></div> `);
+    $('#atkDmgTextArea').append($el).append($slash);
     $el.on('animationend', () => $el.remove());
+    $slash.on('animationend', () => $slash.remove());
 }
 function regen(regen){
     let heal = Math.round((currentMaxHP - currentHP)*regen);

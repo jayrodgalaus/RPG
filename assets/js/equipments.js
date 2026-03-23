@@ -70,6 +70,7 @@ async function updateInventory() {
 }
 
 function initLoadOut() {
+    loadOut = [];
     // Loop through all equipment in the global inventory
     inventory.forEach(equipment => {
         if (equipment.isEquipped) {
@@ -81,7 +82,6 @@ function initLoadOut() {
             $('#inventorySlot' + slot).attr('inventoryIndex', idx);
             $('#inventorySlot' + slot).css('background-image', `url(${equipment.eqp.img})`);
             $('#inventorySlot' + slot).attr("style",`background-image: url('${equipment.eqp.img}')`);
-            $('#here').css('background-image', `url(${equipment.eqp.img})`);
             $('#inventorySlot' + slot + " .eqp-tier").text(equipment.tier);
             $('#inventorySlot' + slot + " .eqp-enhancements").text("+"+equipment.enhancement);
             
@@ -91,26 +91,51 @@ function initLoadOut() {
     calcTotalStats();
 }
 
-function previewEqp(equipment){
-    $("#eqpPreviewPanel").css('background-image', `url('${equipment.eqp.img}')`);
-    $('#eqpPreviewName').text(equipment.displayName);
-    $('#previewEqpEnhancements').text(equipment.enhancement);
-    $('#previewEqpTier').text(equipment.tier);
-    $("#eqpPreviewATK").text(equipment.final_atk)
-    $("#eqpPreviewSPD").text(equipment.final_spd)
-    $("#eqpPreviewDEF").text(equipment.final_def)
-    $("#eqpPreviewHP").text(equipment.final_hp)
-    $("#eqpPreviewEnhancements").text(equipment.enhancement)
-    $("#eqpPreviewTier").text(equipment.tier)
-    $("#eqpPreviewATKBuff").text(equipment.atk_buff)
-    $("#eqpPreviewSPDBuff").text(equipment.spd_buff)
-    $("#eqpPreviewDEFBuff").text(equipment.def_buff)
-    $("#eqpPreviewHPBuff").text(equipment.hp_buff)
-    $("#eqpPreviewMaxTier").text(equipment.max_tier)
-    $("#eqpPreviewValue").text(equipment.value)
-    $("#eqpPreviewEffects").text(equipment.special_effect ? equipment.special_effect : "None")
+function previewEqp(equipment, eqplist = false){
     let equipAction = equipment.isEquipped ? "unequip" : "equip";
-    $("#toggleEquip").text(equipAction.charAt(0).toUpperCase()+ equipAction.slice(1)).attr('action', equipAction).show();
+    if(!eqplist){
+        $("#eqpPreviewPanel").css('background-image', `url('${equipment.eqp.img}')`);
+        $('#eqpPreviewName').text(equipment.displayName);
+        $('#previewEqpEnhancements').text(equipment.enhancement);
+        $('#previewEqpTier').text(equipment.tier);
+        $("#eqpPreviewATK").text(equipment.final_atk)
+        $("#eqpPreviewSPD").text(equipment.final_spd)
+        $("#eqpPreviewDEF").text(equipment.final_def)
+        $("#eqpPreviewHP").text(equipment.final_hp)
+        $("#eqpPreviewEnhancements").text(equipment.enhancement)
+        $("#eqpPreviewEnchantments").text(equipment.enchantment)
+        $("#eqpPreviewTier").text(equipment.tier)
+        $("#eqpPreviewATKBuff").text(equipment.atk_buff)
+        $("#eqpPreviewSPDBuff").text(equipment.spd_buff)
+        $("#eqpPreviewDEFBuff").text(equipment.def_buff)
+        $("#eqpPreviewHPBuff").text(equipment.hp_buff)
+        $("#eqpPreviewMaxTier").text(equipment.max_tier)
+        $("#eqpPreviewValue").text(equipment.value)
+        $("#eqpPreviewEffects").text(equipment.special_effect ? equipment.special_effect : "None")
+        
+        $("#toggleEquip").text(equipAction.charAt(0).toUpperCase()+ equipAction.slice(1)).attr('action', equipAction).show();
+    }else{
+        $("#eqpListPreview").css('background-image', `url('${equipment.eqp.img}')`);
+        $('#eqpName').text(equipment.displayName);
+        $('#preEnhancements').text(equipment.enhancement);
+        $('#preTier').text(equipment.tier);
+        $("#eqpATK").text(equipment.final_atk)
+        $("#eqpSPD").text(equipment.final_spd)
+        $("#eqpDEF").text(equipment.final_def)
+        $("#eqpHP").text(equipment.final_hp)
+        $("#eqpEnhancements").text(equipment.enhancement)
+        $("#eqpEnchantments").text(equipment.enchantment)
+        $("#eqpTier").text(equipment.tier)
+        $("#eqpATKBuff").text(equipment.atk_buff)
+        $("#eqpSPDBuff").text(equipment.spd_buff)
+        $("#eqpDEFBuff").text(equipment.def_buff)
+        $("#eqpHPBuff").text(equipment.hp_buff)
+        $("#eqpMaxTier").text(equipment.max_tier)
+        $("#eqpValue").text(equipment.value)
+        $("#eqpEffects").text(equipment.special_effect ? equipment.special_effect : "None")
+        $("#eqpListInfo, #eqpListPreview").removeClass('d-none')
+        $("#eqpToggleEquip").text(equipAction.charAt(0).toUpperCase()+ equipAction.slice(1)).attr('action', equipAction).show();
+    }
     
 }
 
@@ -156,19 +181,28 @@ function initStars(stars = 0, maxstars = 0){
     $('#forgeStars').html(html);
     $('#enchantStars').html(html);
 }
-function populateEqpList(screen){
-    let loadOutHTML = '', weaponsHTML = '', armorHTML = '';
+function organizeInventory(){
+    let str = '';
+    loadOut.forEach(item=>{str += item.displayName + ";"})
+    console.log(str)
+    weapons = [];
+    armor = [];
     inventory.forEach(item => {
         item.affix = item.setAffix();
         item.displayName = item.affix+" "+item.eqp.mob+" "+item.eqp.type.type;
         if(item.eqp.category == "weapon"){weapons.push(item)}
         else{armor.push(item)}
     });
+}
+function populateEqpList(screen){
+    let loadOutHTML = '', weaponsHTML = '', armorHTML = '';
+    organizeInventory();
     let modifierText = '';
     
     // weapons = inventory.filter(w => w.eqp.category == "weapon");
     // armor = inventory.filter(a => a.eqp.category == "armor");
     loadOut.forEach((item, idx) => {
+        console.log(item.enchantment)
         if(screen == 'forge') modifierText = `<span class="forge-item-enhancements">${item.enhancement}</span>`;
         else if(screen == 'tower') modifierText = `<span class="tower-item-enchantments">${item.enchantment}<i class="fa-solid fa-star"></i></span>`;
         loadOutHTML += `<button type="button" class="list-group-item list-group-item-action list-group-item-light ${screen}-eqp-btn" idx=${idx} array="loadout">${item.displayName}(${item.tier}+${modifierText})</button>`
@@ -197,6 +231,19 @@ function populateEqpList(screen){
         resetTower();
     }
 }
+function populateInvEqpList(array){
+    
+    organizeInventory();
+    let src = array == 'weapons' ? weapons : armor;
+    let weaponsHTML = '';
+    let modifierText = '';
+    src.forEach((item, idx) => {
+        let color = item.tier;
+        modifierText = `<span>${item.enhancement}</span>`;
+        weaponsHTML += `<button type="button" class="list-group-item list-group-item-action list-group-item-light text-${color}  eqp-list-btn ${item.isEquipped ? "pulse": ""}" idx=${idx} array="${array}">${item.displayName}(${item.tier}+${modifierText})</button>`
+    });
+    $('#eqpList').html(weaponsHTML);
+}
 function resetForge(){
     $('#forgeEqpPreview').removeAttr('style');
     $('#forgeCurrentEnhance').text(0);
@@ -212,5 +259,8 @@ function resetTower(){
     $('#enchantCost').text(0);
     $('#enchantCost').removeClass('text-danger')
     initStars()
+
+}
+function dropEqp(){
 
 }

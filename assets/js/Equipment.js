@@ -268,27 +268,16 @@ class Equipment {
     }
     toggleEquip() {
         let isEquipped =this.isEquipped;
-        if(isEquipped){
-            // remove loadOut.findIndex(eqp => eqp.id === id);
-            let idx = loadOut.findIndex(eqp => eqp.id === this.id);
-            if (idx !== -1) {
-                loadOut.splice(idx, 1);
+        let idx = inventory.findIndex(eqp => eqp.id === this.id);
+        if(!isEquipped){
+            let equippedItem = loadOut.find(eqp => eqp.slot == this.slot);
+            if(equippedItem){
+                let equippedIdx = inventory.findIndex(item=> item.id == equippedItem.id)
+                inventory[equippedIdx].isEquipped = false;
             }
-            $('#inventorySlot' + this.slot).attr('isEmpty', true).attr('eqpId',"").attr('inventoryIndex', "");
-            $('#inventorySlot' + this.slot).css('background-image', '');
-            $('#inventorySlot' + this.slot + " .eqp-tier").text('');
-            $('#inventorySlot' + this.slot + " .eqp-enhancements").text('');
-        }else{
-            let idx = inventory.findIndex(eqp => eqp.id === this.id);
-            $('#inventorySlot' + this.slot).attr('isEmpty', false).attr('eqpId', this.id);
-            $('#inventorySlot' + this.slot).attr('inventoryIndex', idx);
-            $('#inventorySlot' + this.slot).css('background-image', `url(${this.eqp.img})`);
-            $('#inventorySlot' + this.slot + " .eqp-tier").text(this.tier);
-            $('#inventorySlot' + this.slot + " .eqp-enhancements").text("+"+this.enhancement);
-            
-            loadOut.push(this);
         }
-        this.isEquipped = !this.isEquipped;
+        inventory[idx].isEquipped = !isEquipped;
+        initLoadOut();
         let equipAction = this.isEquipped ? "unequip" : "equip";
         $("#toggleEquip").text(equipAction.charAt(0).toUpperCase()+ equipAction.slice(1)).attr('action', equipAction);
         ({loadOuttotalAtk, loadOuttotalSpd, loadOuttotalDef, loadOuttotalHP} = calcLoadOutStats());
@@ -297,7 +286,13 @@ class Equipment {
         $("#loadOuttotalSpd").text(loadOuttotalSpd);
         $("#loadOuttotalDef").text(loadOuttotalDef);
         $("#loadOuttotalHP").text(loadOuttotalHP);
-        populateStatMenu()
+        populateStatMenu();
+        organizeInventory();
+        updateInventory();
+        
+        let str = '';
+        loadOut.forEach(item=>{str += item.displayName + ";"})
+        console.log(str)
     }
 
 }

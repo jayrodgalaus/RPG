@@ -11,7 +11,7 @@ body{
     background-repeat: no-repeat;
     height: 100vh;
 }
-h1,h2,h3,h4,h5,#eqpPreviewName{
+h1,h2,h3,h4,h5,#eqpPreviewName,#eqpName{
     font-family: 'MedievalSharp', cursive;
     font-style: normal;
     color: white;
@@ -36,6 +36,15 @@ h1,h2,h3,h4,h5,#eqpPreviewName{
     border: none;
     height: 0;
 }
+.text-F{color: rgb(0, 255, 191) !important; text-shadow: black 0 0 2px 2px;}
+.text-E{color: rgb(0, 255, 4) !important;}
+.text-D{color: rgb(54, 57, 255) !important;}
+.text-C{color: rgb(255, 255, 0) !important;}
+.text-B{color: rgb(255, 187, 0) !important;}
+.text-A{color: rgb(211, 0, 222) !important;}
+.text-S{color: rgb(255, 0, 0) !important;}
+.text-SR{color: rgb(255, 0, 191) !important;}
+
 #background.soul{background-image: url("../img/Backgrounds/soul.webp");}
 #background.town{background-image: url("../img/Backgrounds/town.webp");}
 #background.shop{background-image: url("../img/NPCs/Town/merchant.webp");}
@@ -185,7 +194,7 @@ h1,h2,h3,h4,h5,#eqpPreviewName{
         width: 40vw;
         height: calc(40vw * 16 / 9);
     }
-    .forge-eqp-btn, .tower-eqp-btn, .tower-mat-btn{
+    .forge-eqp-btn, .tower-eqp-btn, .tower-mat-btn, .eqp-list-btn{
         background-color: transparent;
         border-color: #EEEEEE;
         color: #EEEEEE;
@@ -222,13 +231,16 @@ h1,h2,h3,h4,h5,#eqpPreviewName{
     .equipment-slot:hover, .equipment-slot:active{
         box-shadow: 0px 0px 40px 20px inset rgba(255, 0, 0, 0.5);
     }
-    .equipment-slot, #eqpPreviewPanel, #refinerPreviewPane, #dungeonPanel, #forgeEqpPreview, #enchantEqpPreview{
+    .equipment-slot, #eqpPreviewPanel, #refinerPreviewPane, #dungeonPanel, #forgeEqpPreview, #enchantEqpPreview, #eqpListPreview, #eqpListPanel{ 
         box-shadow: none;
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
         background-color: black;
     }
+    #eqpListPreview{ min-width: 50vw;}
+    #eqpListInfo, #eqpListContainer{overflow-x: hidden; overflow-y: auto;}
+    #eqpListContainer{max-height: 30vh;}
     #eqpPreviewPanel, #refinerPreviewPanel{
         background-size: contain;
         background-position: top;
@@ -242,6 +254,8 @@ h1,h2,h3,h4,h5,#eqpPreviewName{
         width: 70px;
         height: 70px;
     }
+    #eqpName{border-bottom: 1px solid white;}
+    .eqp-list-btn.equipped{border: 2px solid green;}
 /* EQUIPMENT MENU */
 
 /* MAP MENU */
@@ -369,6 +383,24 @@ h1,h2,h3,h4,h5,#eqpPreviewName{
     #PActB{width: 100%; height: 0%; background-color: rgba(0, 0, 0, 0.5); border-top: 3px solid purple; }
     #atkDmgTextArea{overflow: hidden;}
     .dmg-text{font-weight: bolder; font-size: 2rem; color: white;}
+    .slash{
+        transform: scale(1);
+        transition: all 0.1s;
+        position: absolute;
+        top: 0; left: 0vw;
+        width: 100vw;
+        height: 100vh;
+        animation: slash 0.2s ease-out forwards;
+    }
+    .slash-trail{
+        width: 100%;
+        position: relative;
+        top: 50vh;
+        background-color: white;
+        border: 5px solid white;
+        border-radius: 50%;
+        transform: translateX(50%, -50%);
+    }
 /* DUNGEON */
 /* MAIDENS */
     #maidensGalleryList{

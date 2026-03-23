@@ -531,10 +531,10 @@
                 </div>
             </div>
             <div class="d-flex align-items-center justify-content-center my-1 w-100">
-                <button class="btn btn-outline-light mx-1 eqp-list-toggle" id="eqpWeaponToggle">
+                <button class="btn btn-outline-light mx-1 eqp-list-toggle" array="weapons" data-bs-toggle="offcanvas" data-bs-target="#eqpListPanel" aria-controls="eqpListPanel">
                     <img src="assets/icons/noun-sword-3273851.svg" class="w-100" alt="">
                 </button>
-                <button class="btn btn-outline-light mx-1 eqp-list-toggle" id="eqpArmorToggle">
+                <button class="btn btn-outline-light mx-1 eqp-list-toggle" array="armor" data-bs-toggle="offcanvas" data-bs-target="#eqpListPanel" aria-controls="eqpListPanel">
                     <img src="assets/icons/noun-shield-6691280.svg" class="w-100" alt="">
                 </button>
             </div>
@@ -614,15 +614,15 @@
                         <div><b>DEF:</b> <span id="eqpPreviewDEF" class="eqpPreview-stat"></span></div>
                         <div><b>HP:</b> <span id="eqpPreviewHP" class="eqpPreview-stat"></span></div>
                         <div><b>Enhancements:</b> <span id="eqpPreviewEnhancements" class="eqpPreview-stat"></span></div>
-                        <div><b>Tier:</b> <span id="eqpPreviewTier" class="eqpPreview-stat"></span></div>
+                        <div><b>Enchantments:</b> <span id="eqpPreviewEnchantments" class="eqpPreview-stat"></span></div>
                     </div>
                     <div class="col">
                         <div><b>ATK Buff:</b> <span id="eqpPreviewATKBuff" class="eqpPreview-stat"></span></div>
                         <div><b>SPD Buff:</b> <span id="eqpPreviewSPDBuff" class="eqpPreview-stat"></span></div>
                         <div><b>DEF Buff:</b> <span id="eqpPreviewDEFBuff" class="eqpPreview-stat"></span></div>
                         <div><b>HP Buff:</b> <span id="eqpPreviewHPBuff" class="eqpPreview-stat"></span></div>
+                        <div><b>Tier:</b> <span id="eqpPreviewTier" class="eqpPreview-stat"></span></div>
                         <div><b>Max Tier:</b> <span id="eqpPreviewMaxTier" class="eqpPreview-stat"></span></div>
-                        <div><b>Value:</b> <span id="eqpPreviewValue" class="eqpPreview-stat"></span></div>
                     </div>
                 </div>
             </div>
@@ -634,6 +634,41 @@
                 </div>
             </div>
             <button type="button" class="section-container mt-2" id="toggleEquip" action="equip" data-bs-dismiss="offcanvas">
+                Equip
+            </button>
+        </div>
+    </div>
+    <div class="offcanvas offcanvas-end vw-100" tabindex="-1" id="eqpListPanel" aria-labelledby="eqpListPanel">
+        <div class="offcanvas-header">
+            <button class="icon-btn ms-auto" data-bs-dismiss="offcanvas" aria-label="Close">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column" >
+            <div class="d-flex vh-40">
+                <div id="eqpListPreview" class="h-100 vw-50 me-2 d-none"></div>
+                <div id="eqpListInfo" class="h-100 small-text text-light flex-grow-1 d-none">
+                    <div id="eqpName" class="w-100"></div> 
+                    <div><b>ATK:</b> <span id="eqpATK"></span></div>
+                    <div><b>SPD:</b> <span id="eqpSPD"></span></div>
+                    <div><b>DEF:</b> <span id="eqpDEF"></span></div>
+                    <div><b>HP:</b> <span id="eqpHP"></span></div>
+                    <div><b>Enhance:</b> <span id="eqpEnhancements"></span></div>
+                    <div><b>Enchant:</b> <span id="eqpEnchantments"></span></div>
+                    <div><b>ATK Buff:</b> <span id="eqpATKBuff"></span></div>
+                    <div><b>SPD Buff:</b> <span id="eqpSPDBuff"></span></div>
+                    <div><b>DEF Buff:</b> <span id="eqpDEFBuff"></span></div>
+                    <div><b>HP Buff:</b> <span id="eqpHPBuff"></span></div>
+                    <div><b>Tier:</b> <span id="eqpTier"></span></div>
+                    <div><b>Max Tier:</b> <span id="eqpMaxTier"></span></div>
+                </div>
+            </div>       
+            
+            <h5 id="eqpTypeLabel">Weapons</h5>
+            <div class="section-container p-0 flex-grow-1" id="eqpListContainer">
+                <div class="list-group list-group-flush" id="eqpList"></div>
+            </div>
+            <button type="button" class="section-container mt-2" id="eqpToggleEquip" action="equip" data-bs-dismiss="offcanvas">
                 Equip
             </button>
         </div>
@@ -879,16 +914,7 @@
             </div>
         </div>
     </div>
-    <div id="slash" class="pos-a pos-tl vw-100 vh-100">
-        <div
-            style="
-                width: 100vw;
-                background-color: white;
-                border: 2px solid white;
-                border-radius: 50% ;
-            "
-        ></div>
-    </div> 
+    
     
     <script src="assets/js/Equipment.js"></script>
     <script src="assets/js/Soul.js"></script>

@@ -82,12 +82,12 @@ async function initInventory() {
                 await createEquipment(db, { eqp_type: "armor", eqp_id: 2, tier: "G", max_tier: "G" }, true);
                 await createEquipment(db, { eqp_type: "armor", eqp_id: 3, tier: "G", max_tier: "G" }, true);
                 //create fallen equipment
-                await createEquipment(db, { eqp_type: "weapon", eqp_id: 9, tier: "E", max_tier: "SR" }, false);
-                await createEquipment(db, { eqp_type: "armor", eqp_id: 4, tier: "E", max_tier: "SR" }, false);
-                await createEquipment(db, { eqp_type: "armor", eqp_id: 5, tier: "D", max_tier: "SR" }, false);
-                await createEquipment(db, { eqp_type: "armor", eqp_id: 6, tier: "C", max_tier: "SR" }, false);
-                await createEquipment(db, { eqp_type: "armor", eqp_id: 7, tier: "B", max_tier: "SR" }, false);
-                await createEquipment(db, { eqp_type: "armor", eqp_id: 8, tier: "A", max_tier: "SR" }, false);
+                await createEquipment(db, { eqp_type: "weapon", eqp_id: 9, tier: "F", max_tier: "SR" }, false);
+                await createEquipment(db, { eqp_type: "armor", eqp_id: 4, tier: "F", max_tier: "SR" }, false);
+                await createEquipment(db, { eqp_type: "armor", eqp_id: 5, tier: "F", max_tier: "SR" }, false);
+                await createEquipment(db, { eqp_type: "armor", eqp_id: 6, tier: "F", max_tier: "SR" }, false);
+                await createEquipment(db, { eqp_type: "armor", eqp_id: 7, tier: "F", max_tier: "SR" }, false);
+                await createEquipment(db, { eqp_type: "armor", eqp_id: 8, tier: "F", max_tier: "SR" }, false);
                 
                 resolve("Starter equipment created");
             } else {

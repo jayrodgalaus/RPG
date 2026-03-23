@@ -230,6 +230,7 @@ $(function(){
             $("#enchantBtn").attr('disabled','disabled');
         }
     })
+
     // refiner menu
     .on('click','#guildBtn',function(){
         if(activeRefiner){$('#buffEffectDisplay').text(activeRefiner.description);}
@@ -383,6 +384,29 @@ $(function(){
     })
     .on('click',"#toggleEquip",function(){
         currentEqpPreview.toggleEquip();
+    })
+    .on('click',"#eqpToggleEquip",function(){
+        currentEqpPreview.toggleEquip();
+    })
+    .on('click', '.eqp-list-toggle', function(){
+        let array = $(this).attr('array')
+        $("#eqpListInfo, #eqpListPreview").addClass('d-none');
+        populateInvEqpList(array);
+    })
+    .on('click', '#eqpWeaponToggle', function(){
+        populateWeaponList();
+    })
+    .on('click', '#eqpArmorToggle', function(){
+        populateWeaponList();
+    })
+    .on('click', '.eqp-list-btn',function(){
+        let idx = parseInt($(this).attr('idx'));
+        let src = $(this).attr('array') == 'weapons' ? weapons : armor;
+        let eqp = src[idx];
+        if(eqp) {
+            currentEqpPreview = eqp;
+            previewEqp(currentEqpPreview, true)
+        }
     })
     //bag menu
     .on('click','#mats-tab',function(){
