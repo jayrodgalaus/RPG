@@ -92,16 +92,16 @@ var bossMobs = [
 ];
 var apexMobs = [
     {name: "Seraphis the Dawnbringer", species:"angels", img: mob_path+"Angels/apex.webp", category:"angels", isApex:true, baseStats:100, increment: 18, baseGold:300, distr:statDistr.balanced},
-    {name: "Webmother Nethis", species:"arachne", img: mob_path+"Arachne/apex.webp", category:"arachne", isApex:true},
-    {name: "Voidchanter Orveth", species:"cultists", img: mob_path+"Cultists/apex.webp", category:"cultists", isApex:true},
-    {name: "Hellbrand Malrik", species:"demons", img: mob_path+"Demons/apex.webp", category:"demons", isApex:true},
-    {name: "Ashwing Draveth", species:"dragons", img: mob_path+"Dragons/apex.webp", category:"dragons", isApex:true},
-    {name: "Wraithbound Olyth", species:"ghosts", img: mob_path+"Ghosts/apex.webp", category:"ghosts", isApex:true},
-    {name: "Bloodfang Kraggit", species:"goblins", img: mob_path+"Goblins/apex.webp", category:"goblins", isApex:true},
-    {name: "Warrenscale Zerrek", species:"kobolds", img: mob_path+"Kobolds/apex.webp", category:"kobolds", isApex:true},
-    {name: "Bone Sovereign Tharok", species:"skeletons", img: mob_path+"Skeletons/apex.webp", category:"skeletons", isApex:true},
-    {name: "Morbolg the Ebon Ooze", species:"slimes", img: mob_path+"Slimes/apex.webp", category:"slimes", isApex:true},
-    {name: "Rotlord Grawl", species:"zombies", img: mob_path+"Zombies/apex.webp", category:"zombies", isApex:true},
+    {name: "Webmother Nethis", species:"arachne", img: mob_path+"Arachne/apex.webp", category:"arachne", isApex:true, baseStats: 75, increment: 15, baseGold:200, distr:statDistr.xspd},
+    {name: "Voidchanter Orveth", species:"cultists", img: mob_path+"Cultists/apex.webp", category:"cultists", isApex:true, baseStats: 75, increment: 15, baseGold:200, distr:statDistr.xatk},
+    {name: "Hellbrand Malrik", species:"demons", img: mob_path+"Demons/apex.webp", category:"demons", isApex:true, baseStats:100, increment: 18, baseGold:300, distr:statDistr.xspd},
+    {name: "Ashwing Draveth", species:"dragons", img: mob_path+"Dragons/apex.webp", category:"dragons", isApex:true, baseStats:100, increment: 18, baseGold:300, distr:statDistr.def},
+    {name: "Wraithbound Olyth", species:"ghosts", img: mob_path+"Ghosts/apex.webp", category:"ghosts", isApex:true, baseStats: 60, increment: 12, baseGold:150, distr:statDistr.atk},
+    {name: "Bloodfang Kraggit", species:"goblins", img: mob_path+"Goblins/apex.webp", category:"goblins", isApex:true, baseStats: 60, increment: 12, baseGold:150, distr:statDistr.xatk},
+    {name: "Warrenscale Zerrek", species:"kobolds", img: mob_path+"Kobolds/apex.webp", category:"kobolds", isApex:true, baseStats: 60, increment: 12, baseGold:150, distr:statDistr.xxatk},
+    {name: "Bone Sovereign Tharok", species:"skeletons", img: mob_path+"Skeletons/apex.webp", category:"skeletons", isApex:true, baseStats: 60, increment: 12, baseGold:150, distr:statDistr.xdef},
+    {name: "Morbolg the Ebon Ooze", species:"slimes", img: mob_path+"Slimes/apex.webp", category:"slimes", isApex:true, baseStats: 60, increment: 12, baseGold:150, distr:statDistr.xhp},
+    {name: "Rotlord Grawl", species:"zombies", img: mob_path+"Zombies/apex.webp", category:"zombies", isApex:true, baseStats: 60, increment: 12, baseGold:150, distr:statDistr.xhp},
 ];
 var enemyMob;
 var goldGoblinRun = 0; //save the last time goldGoblin was encountered
@@ -126,12 +126,12 @@ function spawnMob(isBoss = false, isApex = false){
         // spawn mob by dungeon species
         let source = isBoss ? bossMobs: (isApex ? apexMobs : dungeonMobs);
         // console.log("source:",source)
-        console.log("currentDungeon.species:",currentDungeon.species)
+        // console.log("currentDungeon.species:",currentDungeon.species)
         mobSource = source.filter(m => m.species === currentDungeon.species)
         mob = structuredClone(mobSource[Math.floor(Math.random() * mobSource.length)]);
         mob.isBoss = isBoss;
         mob.isApex = isApex;
-        console.log("selected mob:",mob)
+        // console.log("selected mob:",mob)
         
     }else{
         console.log("spawning neutral mob...")
@@ -164,7 +164,7 @@ function spawnMob(isBoss = false, isApex = false){
     }
     enemyMob = new Mob(mob, currentFloor, currentDungeon);
     
-    console.log("enemy mob:", enemyMob)
-    console.log("mob stats",enemyMob.getTotalStats())
+    // console.log("enemy mob:", enemyMob)
+    // console.log("mob stats",enemyMob.getTotalStats())
     // console.log("gold:",enemyMob.gold)  
 }

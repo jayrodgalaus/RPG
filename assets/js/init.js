@@ -4,7 +4,7 @@
 // IndexedDB setup
 function openDB() {
     return new Promise((resolve, reject) => {
-        const request = indexedDB.open("RPGSlop", 12);
+        const request = indexedDB.open("RPGSlop", 13);
         request.onupgradeneeded = (event) => {
             const db = event.target.result;
             if (!db.objectStoreNames.contains("Soul")) {
@@ -21,6 +21,9 @@ function openDB() {
             }
             if (!db.objectStoreNames.contains("Maidens")) {
                 db.createObjectStore("Maidens", { keyPath: "id" }); 
+            }
+            if (!db.objectStoreNames.contains("Dungeon")) {
+                db.createObjectStore("Dungeon", { keyPath: "id" });
             }
         };
         request.onsuccess = () => resolve(request.result);
@@ -139,46 +142,46 @@ async function initInventory() {
         getAllRequest.onerror = () => reject(getAllRequest.error);
     });
 }
-async function initDungeon() {
-
+async function initDungeon(){
     return new Promise((resolve, reject) => {
         const tx = db.transaction("Dungeon", "readwrite");
         const store = tx.objectStore("Dungeon");
 
-        const getRequest = store.get(1); // always look for id=1
+        const getRequest = store.get(1);
 
         getRequest.onsuccess = async () => {
             let dungeonState = getRequest.result;
 
             if (!dungeonState) {
-                console.log("New dungeon state...");
                 dungeonState = {
                     id: 1,
-                    mobSpawnRate: 0.6,
-                    currentDungeon:"town",
-                    currentFloor: 0,
+                    dungeons: {
+                        slimes: { species: "slimes", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.04 },
+                        goblins: { species: "goblins", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.05 },
+                        kobolds: { species: "kobolds", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.05 },
+                        zombies: { species: "zombies", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.05 },
+                        skeletons: { species: "skeletons", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.05 },
+                        ghosts: { species: "ghosts", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.05 },
+                        arachne: { species: "arachne", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.06 },
+                        cultist: { species: "cultists", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.06 },
+                        fallen: { species: "fallen", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.06 },
+                        demons: { species: "demons", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.07 },
+                        angels: { species: "angels", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.07 },
+                        abyss: { species: "abyss", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.07 },
+                    },
                     currentRun: 0,
-                    currentRoom: 0,
-                    currentMaiden: null,
-                    collectedGold: 0,
-                    collectedMats: [],
                 };
+                dungeons = dungeonState.dungeons;
+                currentRun = 0;
                 await new Promise(resolve => {
                     const req = store.add(dungeonState);
                     req.onsuccess = e => resolve(e.target.result);
                 });
-                resolve("Dungeon state created");
+                resolve("Dungeon State created");
             } else {
-                console.log("Dungeon state found in DB");
-                mobSpawnRate = dungeonState.mobSpawnRate;
-                currentDungeon = dungeonState.currentDungeon;
-                currentFloor = dungeonState.currentFloor;
+                dungeons = dungeonState.dungeons;
                 currentRun = dungeonState.currentRun;
-                currentRoom = dungeonState.currentRoom;
-                currentMaiden = dungeonState.currentMaiden;
-                collectedGold= dungeonState.collectedGold;
-                collectedMats= dungeonState.collectedMats;
-                resolve(dungeonState);
+                resolve("Dungeon State fetched");
             }
         };
 
@@ -299,11 +302,11 @@ $(document).ready(async function(){
     await initRefiner();
     await initBag();
     await initMaidens();
+    await initDungeon();
     //UI
     initTown();
     populateStatMenu();
     populateRefinerMenu();
-    populateDungeonFloors();
     initStars();
     generateMaidens();
 })

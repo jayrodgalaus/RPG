@@ -1,17 +1,4 @@
-var dungeons = {
-    slimes: { species: "slimes", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.04 },
-    goblins: { species: "goblins", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.05 },
-    kobolds: { species: "kobolds", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.05 },
-    zombies: { species: "zombies", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.05 },
-    skeletons: { species: "skeletons", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.05 },
-    ghosts: { species: "ghosts", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.05 },
-    arachne: { species: "arachne", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.06 },
-    cultist: { species: "cultists", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.06 },
-    fallen: { species: "fallen", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.06 },
-    demons: { species: "demons", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.07 },
-    angels: { species: "angels", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.07 },
-    abyss: { species: "abyss", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.07 },
-}
+var dungeons = {}
 const easyDungeons = ["goblins","kobolds","zombies","skeletons","ghosts"];
 const midDungeons = ["arachne","cultists","fallen"];
 const lateDungeons = ["demons","angels","abyss"];
@@ -35,9 +22,12 @@ var atkInterval;
 var hitInterval;
 var atkCounter = 0;
 function populateDungeonFloors(){
+    let dungeonText = $('#mapMenuDungeonList button.active').text().toLowerCase();
+    let currentDungeon = dungeons[dungeonText];
+    console.log(currentDungeon);
     let floorHTML = '';
     let floor = 1;
-    while(floor <= 50 ){
+    while(floor <= currentDungeon.maxFloor ){
         floorHTML += `<button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn" floor=${floor}>Level ${floor}</button>`
         floor ++;
     }
@@ -77,47 +67,17 @@ function initFightMenu(type=""){
 
 }
 async function updateDungeonState(){
-    return new Promise((resolve, reject) => {
-        const tx = db.transaction("Dungeon", "readwrite");
-        const store = tx.objectStore("Dungeon");
-
-        const getRequest = store.get(1);
-
-        getRequest.onsuccess = async () => {
-            let dungeonState = getRequest.result;
-
-            if (!dungeonState) {
-                console.log("No dungeonState found, creating new refiner state...");
-                dungeonState = {
-                    id: 1,
-                    currentMobRate : currentMobRate,
-                    currentDungeon: currentDungeon,
-                    currentFloor: currentFloor,
-                    currentRun: currentRun,
-                    currentRoom: currentRoom,
-                    currentMaiden: currentMaiden,
-                };
-                await new Promise(resolve => {
-                    const req = store.add(dungeonState);
-                    req.onsuccess = e => resolve(e.target.result);
-                });
-                resolve("dungeonState created");
-            } else {
-                store.put({
-                    id: 1,
-                    currentMobRate : currentMobRate,
-                    currentDungeon: currentDungeon,
-                    currentFloor: currentFloor,
-                    currentRun: currentRun,
-                    currentRoom: currentRoom,
-                    currentMaiden: currentMaiden,
-                });
-                resolve("dungeonState state updated");
-            }
-        };
-
-        getRequest.onerror = () => reject(getRequest.error);
+    const tx = db.transaction("Dungeon", "readwrite");
+    const store = tx.objectStore("Dungeon");
+    let dungeonText = $('#mapMenuDungeonList button.active').text().toLowerCase();
+    dungeons[dungeonText].maxFloor = currentFloor;
+    store.put({
+        id: 1,
+        dungeons: dungeons,
+        currentRun: currentRun,
     });
+    tx.oncomplete = () => console.log("dungeon state updated in IndexedDB:",dungeons[dungeonText]);
+    tx.onerror = () => reject(getRequest.error);
 }
 async function startRun(){
     clearDungeonMenus();
@@ -131,25 +91,24 @@ async function startRun(){
     currentMaxHP = calcHppoints;
     currentRoom = 0; 
     currentMobRate +=  refinerMobSpawnBuff();
-    currentRun ++;
 
     nextRoom();
 }
 async function nextRoom() {
     triggerTransition();
-    currentRoom += 1;
     clearDungeonMenus();
+    if(currentFloor == 0){return;}
+    currentRoom += 1;
     if(currentFloor % 10 == 0 && currentRoom == 6){
+        if(currentFloor == 50){
+            let dungeonText = $('#mapMenuDungeonList button.active').text().toLowerCase();
+            dungeons[dungeonText].apexClear = true;
+        }
         spawnPortal(0);
     }else if(currentFloor % 10 == 0 && currentRoom < 6){
         console.log("currentFloor:",currentFloor, " currentRoom:",currentRoom)
         currentRoom = 5;
         if(currentFloor != 50){
-            /* if(currentRoom > 1){
-                currentFloor++;
-                currentRoom = 5;
-                nextRoom();
-            } */
             $('#bossMenu').removeClass('d-none');
             changeDungeonPanelBG('bossPortal')
         }else{
@@ -190,7 +149,6 @@ async function nextRoom() {
                 
             }
         }else{
-            // await updateDungeonState();
             
             let enemyEncounter = currentMobRate;
             if(currentFloor == 1 && currentRoom == 1){
@@ -260,11 +218,11 @@ TEST TEST TEST
             }else if(encounterRoll <= portalEncounter){
                 spawnPortal();
             }else{
-                let foundGold = Math.floor(Math.min(collectedGold * 0.05, currentFloor*5));
-                collectedGold +=  foundGold;
-                $('#chestMenu').removeClass('d-none');
-                $("#foundGold").text(foundGold);
-                changeDungeonPanelBG('chest')
+                spawnMob();
+                let bg = enemyMob.img;
+                $('#dungeonCanvas').show();
+                $('#dungeonPanel').css({'background-image':`url('${bg}')`})
+                initFightMenu();
             }
 
         }
@@ -289,7 +247,7 @@ function triggerHitTaken(){
     $('#hitOverlay').addClass('transitioning');
     setTimeout(function(){$('#hitOverlay').removeClass('transitioning');}, 500)
 }
-function triggerReward(isGoldGob = false, escape = false){
+async function triggerReward(isGoldGob = false, escape = false){
     
     let matRewardText = "";
     clearInterval(atkInterval);
@@ -313,6 +271,7 @@ function triggerReward(isGoldGob = false, escape = false){
             }
             updateMaidenStatus();
         }
+        await updateDungeonState();
         resetDungeon();
     }else{
         gold = enemyMob.gold;
@@ -357,7 +316,7 @@ function triggerReward(isGoldGob = false, escape = false){
     
 
 }
-function triggerDeath(){
+async function triggerDeath(){
     triggerTransition();
     clearDungeonMenus();
     changeDungeonPanelBG('death');
@@ -367,6 +326,7 @@ function triggerDeath(){
     consolidateGold();
     consolidateMats();
     
+    await updateDungeonState();
     //reset dungeon initial values
     resetDungeon();
 }
@@ -438,8 +398,11 @@ function resetDungeon(){
     changeMaidenLocations();
     baseMobSpawnRate = 0.6;
     currentMobRate = baseMobSpawnRate;
-    currentDungeon = dungeons[$('#mapMenuDungeonList button.active').text().toLowerCase()];
-    currentFloor = parseInt($('#mapMenuFloorList button.active').attr('floor'));
+    let dungeonText = $('#mapMenuDungeonList button.active').text().toLowerCase();
+    currentDungeon = dungeons[dungeonText];
+    currentRun += 1;
+    let activeFloor = $('#mapMenuFloorList button.active').attr('floor');
+    currentFloor = parseInt( activeFloor ? activeFloor : 0);
     currentRoom = 0;
     currentMaiden = null;
     collectedGold = 0;
@@ -458,6 +421,8 @@ function resetDungeon(){
     $('#PHB').css({'height': `100%`});
     $('#PActB').removeAttr('style');
     $('#atkDmgTextArea').empty();
+    populateDungeonFloors();
+    $('#startRunBtn').addClass('invisible');
 }
 function spawnAtkDmg(dmg,color="light"){
     let $el = $(`<div class="text-${color}} pop dmg-text">${dmg}</div>`);

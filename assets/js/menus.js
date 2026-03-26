@@ -418,6 +418,7 @@ $(function(){
         $("#floorListContainer").removeClass('invisible');
         $(this).addClass('active');
         currentDungeon = dungeons[$(this).text().toLowerCase()];
+        populateDungeonFloors();
         $('#mapMenuFloorList button').removeClass('active');
         currentFloor = 0;
     })
@@ -434,7 +435,10 @@ $(function(){
     .on('click','#startRunBtn',function(){
         currentDungeon = dungeons[$('#mapMenuDungeonList button.active').text().toLowerCase()];
         currentFloor = parseInt($('#mapMenuFloorList button.active').attr('floor'));
-        startRun()
+        if(!currentDungeon || !currentFloor || currentFloor == 0){
+            return false;
+        }
+        startRun();
     })
     .on('click','#startBossBtn, #startApexBtn',function(){
         bossFight();
