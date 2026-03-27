@@ -76,6 +76,7 @@ async function updateDungeonState(){
         dungeons: dungeons,
         currentRun: currentRun,
     });
+    $('#runCount').text(`Run ${currentRun}`)
     tx.oncomplete = () => console.log("dungeon state updated in IndexedDB:",dungeons[dungeonText]);
     tx.onerror = () => reject(getRequest.error);
 }

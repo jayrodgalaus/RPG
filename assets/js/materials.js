@@ -11,7 +11,7 @@ var materialList = [
     {id: 0, mob: "death", category:"material", name: "Soul", stat: "ATK", min: 10, max: 10},
     {id: 1, mob: "angels", category:"material", name: "Angel feather", stat: "SPD", min: 5, max: 7},
     {id: 2, mob: "angels", category:"material", name: "Angel hair", stat: "HP", min: 5, max: 7},
-    {id: 3, mob: "angels", category:"material", name: "Corrupt ichor", stat: "ATK", min: 5, max: 10}, //specialty
+    {id: 3, mob: "angels", category:"material", name: "Corrupt ichor (S)", stat: "ATK", min: 5, max: 10}, //specialty
     {id: 4, mob: "arachne", category:"material", name: "Carapace", stat: "DEF", min: 3, max: 5},
     {id: 5, mob: "arachne", category:"material", name: "Black silk", stat: "SPD", min: 3, max: 7}, //specialty
     {id: 6, mob: "cultists", category:"material", name: "Candle", stat: "HP", min: 3, max: 5},
@@ -22,16 +22,20 @@ var materialList = [
     {id: 11, mob: "dragons", category:"material", name: "Dragon scale", stat: "DEF", min: 5, max: 7},
     {id: 12, mob: "dragons", category:"material", name: "Dragon tooth", stat: "ATK", min: 5, max: 7},
     {id: 13, mob: "dragons", category:"material", name: "Reverse scale", stat: "DEF", min: 5, max: 10}, //specialty
-    {id: 14, mob: "fallen", category:"material", name: "Corrupt ichor", stat: "ATK", min: 3, max: 5},
-    {id: 15, mob: "fallen", category:"material", name: "Corrupt ichor", stat: "SPD", min: 3, max: 5},
-    {id: 16, mob: "fallen", category:"material", name: "Corrupt ichor", stat: "DEF", min: 3, max: 5},
-    {id: 17, mob: "fallen", category:"material", name: "Corrupt ichor", stat: "HP", min: 3, max: 5},
+    {id: 14, mob: "fallen", category:"material", name: "Corrupt ichor (A)", stat: "ATK", min: 3, max: 5},
+    {id: 15, mob: "fallen", category:"material", name: "Corrupt ichor (B)", stat: "SPD", min: 3, max: 5},
+    {id: 16, mob: "fallen", category:"material", name: "Corrupt ichor (C)", stat: "DEF", min: 3, max: 5},
+    {id: 17, mob: "fallen", category:"material", name: "Corrupt ichor (D)", stat: "HP", min: 3, max: 5},
     {id: 18, mob: "fallen", category:"material", name: "Bloodlust", stat: "ATK", min: -3, max: 10}, //specialty 
     {id: 19, mob: "generic", category:"material", name: "Madness", stat: "ATK", min: -2, max: 5}, //specialty
     {id: 20, mob: "generic", category:"material", name: "Weapon shard", stat: "ATK", min: 1, max: 3}, 
     {id: 21, mob: "generic", category:"material", name: "Armor shard", stat: "DEF", min: 1, max: 3}, 
     {id: 22, mob: "generic", category:"material", name: "Monster Blood", stat: "HP", min: 1, max: 3}, 
     {id: 23, mob: "generic", category:"material", name: "Frenzy Stone", stat: "SPD", min: 2, max: 2},
+    {id: 24, mob: "generic", category:"material", name: "Claw", stat: "ATK", min: 1, max: 2}, 
+    {id: 25, mob: "generic", category:"material", name: "Pelt", stat: "DEF", min: 1, max: 2}, 
+    {id: 26, mob: "generic", category:"material", name: "Slime", stat: "HP", min: 1, max: 1}, 
+    {id: 27, mob: "generic", category:"material", name: "Adrenalin", stat: "SPD", min: 1, max: 3},
 ]
 
 function rollMaterialDrop(bonus=0) {

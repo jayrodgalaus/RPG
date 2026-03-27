@@ -181,6 +181,7 @@ async function initDungeon(){
             } else {
                 dungeons = dungeonState.dungeons;
                 currentRun = dungeonState.currentRun;
+                $('#runCount').text(`Run ${currentRun}`)
                 resolve("Dungeon State fetched");
             }
         };

@@ -242,6 +242,7 @@ function applyRefinerBonus(maiden = false){
 }
 function addRefinerMats(amt,src){
     let matsrc = materialList;
+    let dungeonSpecies = currentDungeon.species;
     if(src == "dungeon"){
         matsrc = materialList.filter(m => m.mob === dungeonSpecies);
     }
