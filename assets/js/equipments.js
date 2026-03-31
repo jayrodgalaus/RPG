@@ -80,8 +80,8 @@ function initLoadOut() {
             let idx = inventory.findIndex(eqp => eqp.id === equipment.id);
             $('#inventorySlot' + slot).attr('isEmpty', false).attr('eqpId',equipment.id);
             $('#inventorySlot' + slot).attr('inventoryIndex', idx);
-            $('#inventorySlot' + slot).css('background-image', `url(${equipment.eqp.img})`);
-            $('#inventorySlot' + slot).attr("style",`background-image: url('${equipment.eqp.img}')`);
+            $('#inventorySlot' + slot).css('background-image', `url(${equipment.img})`);
+            $('#inventorySlot' + slot).attr("style",`background-image: url('${equipment.img}')`);
             $('#inventorySlot' + slot + " .eqp-tier").text(equipment.tier);
             $('#inventorySlot' + slot + " .eqp-enhancements").text("+"+equipment.enhancement);
             
@@ -94,7 +94,7 @@ function initLoadOut() {
 function previewEqp(equipment, eqplist = false){
     let equipAction = equipment.isEquipped ? "unequip" : "equip";
     if(!eqplist){
-        $("#eqpPreviewPanel").css('background-image', `url('${equipment.eqp.img}')`);
+        $("#eqpPreviewPanel").css('background-image', `url('${equipment.img}')`);
         $('#eqpPreviewName').text(equipment.displayName);
         $('#previewEqpEnhancements').text(equipment.enhancement);
         $('#previewEqpTier').text(equipment.tier);
@@ -115,7 +115,7 @@ function previewEqp(equipment, eqplist = false){
         
         $("#toggleEquip").text(equipAction.charAt(0).toUpperCase()+ equipAction.slice(1)).attr('action', equipAction).show();
     }else{
-        $("#eqpListPreview").css('background-image', `url('${equipment.eqp.img}')`);
+        $("#eqpListPreview").css('background-image', `url('${equipment.img}')`);
         $('#eqpName').text(equipment.displayName);
         $('#preEnhancements').text(equipment.enhancement);
         $('#preTier').text(equipment.tier);
@@ -240,7 +240,12 @@ function populateInvEqpList(array){
     src.forEach((item, idx) => {
         let color = item.tier;
         modifierText = `<span>${item.enhancement}</span>`;
-        weaponsHTML += `<button type="button" class="list-group-item list-group-item-action list-group-item-light text-${color}  eqp-list-btn ${item.isEquipped ? "pulse": ""}" idx=${idx} array="${array}">${item.displayName}(${item.tier}+${modifierText})</button>`
+        weaponsHTML += `<button type="button" class="list-group-item list-group-item-action list-group-item-light text-${color}  eqp-list-btn" idx=${idx} array="${array}">
+            <div class="w-100 d-flex align-items-center">
+                ${item.displayName}(${item.tier}+${modifierText})
+                <div class="ms-auto e-indicator ${item.isEquipped ? '':'invisible'}"></div>
+            </div>
+        </button>`
     });
     $('#eqpList').html(weaponsHTML);
 }

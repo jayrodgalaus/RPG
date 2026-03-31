@@ -7,14 +7,14 @@ const armorTypes = [
 ];
 const armorList = [
     //Beginner
-    /* 0 */{category:"armor", name: "Helmet", type: armorTypes[1], img: eqp_path+"Beginner/3.webp", mob:"Beginner"},
-    /* 1 */{category:"armor", name: "Breastplate", type: armorTypes[2], img: eqp_path+"Beginner/4.webp", mob:"Beginner"},
-    /* 2 */{category:"armor", name: "Gloves", type: armorTypes[3], img: eqp_path+"Beginner/5.webp", mob:"Beginner"},
-    /* 3 */{category:"armor", name: "Greaves", type: armorTypes[4], img: eqp_path+"Beginner/6.webp", mob:"Beginner"},
+    /* 0 */{category:"armor", name: "Helmet", type: armorTypes[1], img: eqp_path+"Helmet/Beginner/", mob:"Beginner"},
+    /* 1 */{category:"armor", name: "Breastplate", type: armorTypes[2], img: eqp_path+"Breastplate/Beginner/", mob:"Beginner"},
+    /* 2 */{category:"armor", name: "Gloves", type: armorTypes[3], img: eqp_path+"Gloves/Beginner/", mob:"Beginner"},
+    /* 3 */{category:"armor", name: "Greaves", type: armorTypes[4], img: eqp_path+"Greaves/Beginner/", mob:"Beginner"},
     //Fallen
-    /* 4 */{category:"armor", name: "Shield", type: armorTypes[0], img: eqp_path+"Shield/Fallen/F.webp", mob:"Fallen"},
-    /* 5 */{category:"armor", name: "Helmet", type: armorTypes[1], img: eqp_path+"Helmet/Fallen/D.webp", mob:"Fallen"},
-    /* 6 */{category:"armor", name: "Breastplate", type: armorTypes[2], img: eqp_path+"Breastplate/Fallen/C.webp", mob:"Fallen"},
-    /* 7 */{category:"armor", name: "Gloves", type: armorTypes[3], img: eqp_path+"Gloves/Fallen/B.webp", mob:"Fallen"},
-    /* 8 */{category:"armor", name: "Greaves", type: armorTypes[4], img: eqp_path+"Greaves/Fallen/A.webp", mob:"Fallen"},
+    /* 4 */{category:"armor", name: "Shield", type: armorTypes[0], img: eqp_path+"Shield/Fallen/", mob:"Fallen"},
+    /* 5 */{category:"armor", name: "Helmet", type: armorTypes[1], img: eqp_path+"Helmet/Fallen/", mob:"Fallen"},
+    /* 6 */{category:"armor", name: "Breastplate", type: armorTypes[2], img: eqp_path+"Breastplate/Fallen/", mob:"Fallen"},
+    /* 7 */{category:"armor", name: "Gloves", type: armorTypes[3], img: eqp_path+"Gloves/Fallen/", mob:"Fallen"},
+    /* 8 */{category:"armor", name: "Greaves", type: armorTypes[4], img: eqp_path+"Greaves/Fallen/", mob:"Fallen"},
 ];

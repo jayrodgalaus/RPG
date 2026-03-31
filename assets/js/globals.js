@@ -13,6 +13,20 @@ var loadOut = [];
 var currentEqpPreview = {};
 var loadOuttotalAtk = 0, loadOuttotalSpd = 0, loadOuttotalDef = 0, loadOuttotalHP = 0;
 var calcAtk = 0, calcSpd = 0, calcDef = 0, calcHP = 0, calcDmg = 0, calcAtkspd = 0, calcHppoints = 0;
+var classList = [
+  { name: 'Warden', atk: 8, spd: 8, def: 5, hp: 4, availableStats: 0 },
+  { name: 'Ravager', atk: 10, spd: 5, def: 6, hp: 4, availableStats: 0 },
+  { name: 'Sentinel', atk: 9, spd: 3, def: 8, hp: 5, availableStats: 0 },
+  { name: 'Reaper', atk: 6, spd: 9, def: 4, hp: 6, availableStats: 0 },
+  { name: 'Bladewind', atk: 5, spd: 11, def: 4, hp: 5, availableStats: 0 },
+  { name: 'Overlord', atk: 13, spd: 3, def: 6, hp: 3, availableStats: 0 },
+  { name: 'Shade', atk: 4, spd: 15, def: 3, hp: 3, availableStats: 0 },
+  { name: 'Vanguard', atk: 9, spd: 9, def: 5, hp: 2, availableStats: 0 },
+  { name: 'Nullborn', atk: 5, spd: 0, def: 0, hp: 5, availableStats: 15 }
+];
+
+
+
 //eqp
 const tiers = ["G","F","E","D","C","B","A","S","SR"];
 // var inventory = []; // equipment

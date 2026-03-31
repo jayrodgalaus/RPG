@@ -164,6 +164,10 @@ function spawnMob(isBoss = false, isApex = false){
     }
     enemyMob = new Mob(mob, currentFloor, currentDungeon);
     
+    let bg = enemyMob.img;
+    $('#dungeonCanvas').show();
+    $('#dungeonPanel').css({'background-image':`url('${bg}')`})
+    initFightMenu();
     // console.log("enemy mob:", enemyMob)
     // console.log("mob stats",enemyMob.getTotalStats())
     // console.log("gold:",enemyMob.gold)  

@@ -9,29 +9,29 @@ const weaponTypes = [
    /* 7 */{ type: "Spear", slot:1, atk_chance: 0.35, spd_chance: 0.35, def_chance: 0.20, hp_chance: 0.10 }
 ];
 const weaponList = [
-    {category:"weapon", name: "Sword", type: weaponTypes[0], mob: "Beginner", img: eqp_path + "Beginner/1.webp" },
-    {category:"weapon", name: "Axe", type: weaponTypes[1], mob: "Beginner", img: eqp_path + "Beginner/1.webp" },
-    {category:"weapon", name: "Hammer", type: weaponTypes[2], mob: "Beginner", img: eqp_path + "Beginner/1.webp" },
-    {category:"weapon", name: "Scythe", type: weaponTypes[3], mob: "Beginner", img: eqp_path + "Beginner/1.webp" },
-    {category:"weapon", name: "Twin Swords", type: weaponTypes[4], mob: "Beginner", img: eqp_path + "Beginner/1.webp" },
-    {category:"weapon", name: "Greatsword", type: weaponTypes[5], mob: "Beginner", img: eqp_path + "Beginner/1.webp" },
-    {category:"weapon", name: "Dagger", type: weaponTypes[6], mob: "Beginner", img: eqp_path + "Beginner/1.webp" },
-    {category:"weapon", name: "Shield", type: weaponTypes[7], mob: "Beginner", img: eqp_path + "Beginner/1.webp" },
-    {category:"weapon", name: "Spear",	type: weaponTypes[8], mob: "Beginner", img: eqp_path + "Beginner/1.webp" },
+    {category:"weapon", name: "Sword", type: weaponTypes[0], mob: "Beginner", img: eqp_path + "Sword/Beginner/" },
+    {category:"weapon", name: "Axe", type: weaponTypes[1], mob: "Beginner", img: eqp_path + "Beginner/" },
+    {category:"weapon", name: "Hammer", type: weaponTypes[2], mob: "Beginner", img: eqp_path + "Beginner/" },
+    {category:"weapon", name: "Scythe", type: weaponTypes[3], mob: "Beginner", img: eqp_path + "Beginner/" },
+    {category:"weapon", name: "Twin Swords", type: weaponTypes[4], mob: "Beginner", img: eqp_path + "Beginner/" },
+    {category:"weapon", name: "Greatsword", type: weaponTypes[5], mob: "Beginner", img: eqp_path + "Beginner/" },
+    {category:"weapon", name: "Dagger", type: weaponTypes[6], mob: "Beginner", img: eqp_path + "Beginner/" },
+    {category:"weapon", name: "Shield", type: weaponTypes[7], mob: "Beginner", img: eqp_path + "Beginner/" },
+    {category:"weapon", name: "Spear",	type: weaponTypes[8], mob: "Beginner", img: eqp_path + "Beginner/" },
     //Zombies
-    {category:"weapon", name: "Scythe", type: weaponTypes[3], mob: "zombies", img: eqp_path + "Scythe/Zombies/F.webp" },
+    {category:"weapon", name: "Scythe", type: weaponTypes[3], mob: "zombies", img: eqp_path + "Scythe/Zombies/" },
     //Kobold
-    {category:"weapon", name: "Hammer", type: weaponTypes[2], mob: "kobolds", img: eqp_path + "Hammer/Kobold/F.webp" },
-    {category:"weapon", name: "Dagger", type: weaponTypes[6], mob: "kobolds", img: eqp_path + "Dagger/Kobold/F.webp" },
+    {category:"weapon", name: "Hammer", type: weaponTypes[2], mob: "kobolds", img: eqp_path + "Hammer/Kobold/" },
+    {category:"weapon", name: "Dagger", type: weaponTypes[6], mob: "kobolds", img: eqp_path + "Dagger/Kobold/" },
     //Goblin
-    {category:"weapon", name: "Dagger", type: weaponTypes[6], mob: "goblins", img: eqp_path + "Dagger/Goblin/F.webp" },
+    {category:"weapon", name: "Dagger", type: weaponTypes[6], mob: "goblins", img: eqp_path + "Dagger/Goblin/" },
     //Ghost
-    {category:"weapon", name: "Hammer", type: weaponTypes[2], mob: "ghosts", img: eqp_path + "Hammer/Ghost/F.webp" },
+    {category:"weapon", name: "Hammer", type: weaponTypes[2], mob: "ghosts", img: eqp_path + "Hammer/Ghost/" },
     //Cultist
-    {category:"weapon", name: "Dagger", type: weaponTypes[6], mob: "cultists", img: eqp_path + "Dagger/Cultist/F.webp" },
+    {category:"weapon", name: "Dagger", type: weaponTypes[6], mob: "cultists", img: eqp_path + "Dagger/Cultist/" },
     //Fallen
-    {category:"weapon", name: "Axe", type: weaponTypes[1], mob: "fallen", img: eqp_path + "Axe/Fallen/F.webp" },
-    {category:"weapon", name: "Twin Swords", type: weaponTypes[4], mob: "fallen", img: eqp_path + "Twinswords/Fallen/F.webp" },
+    {category:"weapon", name: "Axe", type: weaponTypes[1], mob: "fallen", img: eqp_path + "Axe/Fallen/" },
+    {category:"weapon", name: "Twin Swords", type: weaponTypes[4], mob: "fallen", img: eqp_path + "Twinswords/Fallen/" },
 
 
 ];

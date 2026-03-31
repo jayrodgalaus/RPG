@@ -1,5 +1,5 @@
 class Soul {
-    constructor({ atk = 0, spd = 0, def = 0, hp = 0, availableStats = 15, gold = 100, minDmg = 0.1 } = {}) {
+    constructor({ atk = 5, spd = 0, def = 0, hp = 5, availableStats = 15} = {}, classIdx) {
         this.id = 1;
         this.atk = atk;
         this.dmg = atk*3;
@@ -9,11 +9,12 @@ class Soul {
         this.hp = hp;
         this.hpPoints = hp * 5;
         this.availableStats = availableStats;
-        this.gold = gold;
-        this.minDmg = minDmg;
+        this.gold = 100;
+        this.minDmg = 0.1;
         this.title1Unlocked = false;
         this.title2Unlocked = false;
         this.titles = [];
+        this.class = classList[classIdx]
     }
     update(){
         // Persist to IndexedDB using the already-open db

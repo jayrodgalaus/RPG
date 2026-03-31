@@ -4,6 +4,7 @@ class Equipment {
         this.eqp_type = eqp_type; //weapon or armor
         this.eqp_id = eqp_id; //from weapons table or armor table
         this.eqp = eqp_type == "weapon" ? weaponList[eqp_id] : armorList[eqp_id]; //don't need to save this in DB
+        
         this.slot = this.eqp.type.slot;
         this.atk = 2;
         this.atk_buff = 0;
@@ -31,6 +32,7 @@ class Equipment {
         this.isEquipped = false;
         this.value = 0;
         this.displayName = this.affix+" "+this.eqp.mob+" "+this.eqp.type.type;
+        this.img = `${this.eqp.img}${this.tier}.webp`;
     }
     setAffix() {
         if (this.tier === 'F' || this.tier === 'G') {
@@ -153,49 +155,53 @@ class Equipment {
     enchant(tier, idx, cost) {
         let mat = materialList.find(mat => mat.id == idx);
         let bagidx = bag.findIndex(item => item==idx);
-        
-        let maxStars = 3;
-        switch(tier){
-            case "G": maxStars = 3; break;
-            case "F": maxStars = 4; break;
-            case "E": maxStars = 5; break;
-            case "D": maxStars = 6; break;
-            case "C": maxStars = 7; break;
-            case "B": maxStars = 8; break;
-            case "A": maxStars = 9; break;
-            case "S": maxStars = 10; break;
-            case "SR": maxStars = 12; break;
-        }
-        if(this.enchantment < maxStars){
-            const random_stat_increase = Math.floor(Math.random() * mat.max) + mat.min;
-            switch(mat.stat){
-                case "ATK": this.atk += random_stat_increase; break;
-                case "SPD": this.spd += random_stat_increase; break;
-                case "DEF": this.def += random_stat_increase; break;
-                case "HP": this.hp += random_stat_increase; break;
-                default: break;
+        if(bagidx && bagidx != -1){
+            let maxStars = 3;
+            switch(tier){
+                case "G": maxStars = 3; break;
+                case "F": maxStars = 4; break;
+                case "E": maxStars = 5; break;
+                case "D": maxStars = 6; break;
+                case "C": maxStars = 7; break;
+                case "B": maxStars = 8; break;
+                case "A": maxStars = 9; break;
+                case "S": maxStars = 10; break;
+                case "SR": maxStars = 12; break;
             }
-            this.final_atk = this.atk * (1 + this.atk_buff);
-            this.dmg = this.final_atk * 3;
-            this.final_spd = this.spd * (1 + this.spd_buff);
-            this.atkspd = this.spd * (1 + this.spd_buff) >= 430 ? 0.14 : 1 - (this.spd * 0.002);
-            this.final_def = this.def * (1 + this.def_buff);
-            this.final_hp = this.hp * (1 + this.hp_buff);
-            this.hpPoints = this.final_hp * 5;
-            this.enchantment += 1;
-            this.affix = this.setAffix();
-            bag.splice(bagidx,1);
-            populateMatsTab();
-            populateMatsList();
-            $(".tower-eqp-btn.active").html(`${this.displayName}(${this.tier}+<span class="forge-item-enhancements">${this.enhancement}</span>)`)
-            calcLoadOutStats();
-            calcTotalStats();
-            updateInventory();
-            soul.updateGold(soul.gold - cost);
-            setGold();
-            updateBag();
+            if(this.enchantment < maxStars){
+                const random_stat_increase = Math.floor(Math.random() * mat.max) + mat.min;
+                switch(mat.stat){
+                    case "ATK": this.atk += random_stat_increase; break;
+                    case "SPD": this.spd += random_stat_increase; break;
+                    case "DEF": this.def += random_stat_increase; break;
+                    case "HP": this.hp += random_stat_increase; break;
+                    default: break;
+                }
+                this.final_atk = this.atk * (1 + this.atk_buff);
+                this.dmg = this.final_atk * 3;
+                this.final_spd = this.spd * (1 + this.spd_buff);
+                this.atkspd = this.spd * (1 + this.spd_buff) >= 430 ? 0.14 : 1 - (this.spd * 0.002);
+                this.final_def = this.def * (1 + this.def_buff);
+                this.final_hp = this.hp * (1 + this.hp_buff);
+                this.hpPoints = this.final_hp * 5;
+                this.enchantment += 1;
+                this.affix = this.setAffix();
+                bag.splice(bagidx,1);
+                populateMatsTab();
+                populateMatsList();
+                $(".tower-eqp-btn.active").html(`${this.displayName}(${this.tier}+<span class="forge-item-enhancements">${this.enhancement}</span>)`)
+                calcLoadOutStats();
+                calcTotalStats();
+                updateInventory();
+                soul.updateGold(soul.gold - cost);
+                setGold();
+                updateBag();
+            }
+            return;
+        }else{
+
         }
-        return;
+        
         
     }
     damage(){

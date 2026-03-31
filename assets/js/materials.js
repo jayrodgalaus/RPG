@@ -61,7 +61,7 @@ function updateBag(){
     store.put({id: 1, items:bag});
 
     tx.oncomplete = () => console.log("Bag updated");
-    tx.onerror = () => console.error("Failed to update Soul in IndexedDB");
+    tx.onerror = () => console.error("Failed to update bag in IndexedDB");
 }
 // global var collectedMats = [array of int ids]
 
