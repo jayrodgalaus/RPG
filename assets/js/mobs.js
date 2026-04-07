@@ -74,6 +74,42 @@ var dungeonMobs = [
         {name: "Zombie (M)", species:"zombies", img: mob_path+"Zombies/1.webp", category:"generic", baseStats: 30, increment: 6, baseGold:30, distr:statDistr.atk},
         {name: "Zombie (F)", species:"zombies", img: mob_path+"Zombies/2.webp", category:"generic", baseStats: 30, increment: 6, baseGold:30, distr:statDistr.spd},
         {name: "Fresh Zombie", species:"zombies", img: mob_path+"Zombies/3.webp", category:"generic", baseStats: 30, increment: 6, baseGold:30, distr:statDistr.hp},
+    //abyss
+        {name: "Siphonophore", species:"abyss", img: mob_path+"Abyss/1.webp", category:"abyss", baseStats: 70, increment: 15, baseGold:150, distr:statDistr.spd},
+        {name: "Redshift Warden", species:"abyss", img: mob_path+"Abyss/2.webp", category:"abyss", baseStats: 70, increment: 15, baseGold:150, distr:statDistr.spd},
+        {name: "Helix Rend Sovereign", species:"abyss", img: mob_path+"Abyss/3.webp", category:"abyss", baseStats: 70, increment: 15, baseGold:150, distr:statDistr.spd},
+        {name: "Null Whisperer", species:"abyss", img: mob_path+"Abyss/4.webp", category:"abyss", baseStats: 70, increment: 15, baseGold:150, distr:statDistr.atk},
+        {name: "Null Cantor", species:"abyss", img: mob_path+"Abyss/5.webp", category:"abyss", baseStats: 70, increment: 15, baseGold:150, distr:statDistr.spd},
+        {name: "Crimson Anchorite", species:"abyss", img: mob_path+"Abyss/6.webp", category:"abyss", baseStats: 70, increment: 15, baseGold:150, distr:statDistr.spd},
+        {name: "Fractureborn Prince", species:"abyss", img: mob_path+"Abyss/7.webp", category:"abyss", baseStats: 70, increment: 15, baseGold:150, distr:statDistr.def},
+        {name: "Violet Phase Lurker", species:"abyss", img: mob_path+"Abyss/8.webp", category:"abyss", baseStats: 70, increment: 15, baseGold:150, distr:statDistr.spd},
+        {name: "Fractured Orbit Sleeper", species:"abyss", img: mob_path+"Abyss/9.webp", category:"abyss", baseStats: 70, increment: 15, baseGold:150, distr:statDistr.spd},
+        {name: "Veilshroud Stalker", species:"abyss", img: mob_path+"Abyss/10.webp", category:"abyss", baseStats: 70, increment: 15, baseGold:150, distr:statDistr.spd},
+        {name: "Abyssal Choirist", species:"abyss", img: mob_path+"Abyss/11.webp", category:"abyss", baseStats: 70, increment: 15, baseGold:150, distr:statDistr.xxatk},
+        {name: "Fractureborn Princess", species:"abyss", img: mob_path+"Abyss/12.webp", category:"abyss", baseStats: 70, increment: 15, baseGold:150, distr:statDistr.spd},
+        {name: "Wraithweaver", species:"abyss", img: mob_path+"Abyss/13.webp", category:"abyss", baseStats: 70, increment: 15, baseGold:150, distr:statDistr.hp},
+        {name: "Abyssal Choirist", species:"abyss", img: mob_path+"Abyss/14.webp", category:"abyss", baseStats: 70, increment: 15, baseGold:150, distr:statDistr.xxatk},
+        {name: "Veilshroud Stalker", species:"abyss", img: mob_path+"Abyss/15.webp", category:"abyss", baseStats: 70, increment: 15, baseGold:150, distr:statDistr.spd},
+        {name: "Starless Gaze Weaver", species:"abyss", img: mob_path+"Abyss/16.webp", category:"abyss", baseStats: 70, increment: 15, baseGold:150, distr:statDistr.spd},
+        {name: "Scarlet Veil Colossus", species:"abyss", img: mob_path+"Abyss/17.webp", category:"abyss", baseStats: 70, increment: 15, baseGold:150, distr:statDistr.def},
+        {name: "Void Scribe", species:"abyss", img: mob_path+"Abyss/18.webp", category:"abyss", baseStats: 70, increment: 15, baseGold:150, distr:statDistr.spd},
+        {name: "Null Whisperer", species:"abyss", img: mob_path+"Abyss/19.webp", category:"abyss", baseStats: 70, increment: 15, baseGold:150, distr:statDistr.spd},
+        {name: "Null Whisperer", species:"abyss", img: mob_path+"Abyss/20.webp", category:"abyss", baseStats: 70, increment: 15, baseGold:150, distr:statDistr.def},
+        {name: "Null Whisperer", species:"abyss", img: mob_path+"Abyss/22.webp", category:"abyss", baseStats: 70, increment: 15, baseGold:150, distr:statDistr.hp},
+        {name: "Marrowfold Behemoth", species:"abyss", img: mob_path+"Abyss/23.webp", category:"abyss", baseStats: 70, increment: 15, baseGold:150, distr:statDistr.hp},
+        {name: "Null Whisperer", species:"abyss", img: mob_path+"Abyss/24.webp", category:"abyss", baseStats: 70, increment: 15, baseGold:150, distr:statDistr.balanced},
+        
+        
+        
+        
+        {name: "Fractured Orbit Sleeper", species:"abyss", img: mob_path+"Abyss/9.webp", category:"generic", baseStats: 70, increment: 15, baseGold:150, distr:statDistr.spd},
+        {name: "Starless Gaze Weaver", species:"abyss", img: mob_path+"Abyss/16.webp", category:"generic", baseStats: 70, increment: 15, baseGold:150, distr:statDistr.spd},
+        {name: "Siphonophore", species:"abyss", img: mob_path+"Abyss/1.webp", category:"generic", baseStats: 70, increment: 15, baseGold:150, distr:statDistr.spd},
+        {name: "Fractured Orbit Sleeper", species:"abyss", img: mob_path+"Abyss/9.webp", category:"generic", baseStats: 70, increment: 15, baseGold:150, distr:statDistr.spd},
+        {name: "Starless Gaze Weaver", species:"abyss", img: mob_path+"Abyss/16.webp", category:"generic", baseStats: 70, increment: 15, baseGold:150, distr:statDistr.spd},
+        {name: "Siphonophore", species:"abyss", img: mob_path+"Abyss/1.webp", category:"generic", baseStats: 70, increment: 15, baseGold:150, distr:statDistr.spd},
+        {name: "Fractured Orbit Sleeper", species:"abyss", img: mob_path+"Abyss/9.webp", category:"generic", baseStats: 70, increment: 15, baseGold:150, distr:statDistr.spd},
+        {name: "Starless Gaze Weaver", species:"abyss", img: mob_path+"Abyss/16.webp", category:"generic", baseStats: 70, increment: 15, baseGold:150, distr:statDistr.spd},
 
 ];
 var bossMobs = [
@@ -115,7 +151,7 @@ function distributeMobStats(baseGold,baseStats, increment, distr, floor, dungeon
     let hp = Math.ceil(totalStats * distr.hp);
     return {gold, atk, spd, def, hp};
 }
-function spawnMob(isBoss = false, isApex = false){
+function spawnMob(isBoss = false, isApex = false, species = null){
     //spawn chance is 60% dungeon specific mob, 40% neutrals
     let mob;
     let mobSource;
@@ -165,10 +201,12 @@ function spawnMob(isBoss = false, isApex = false){
     enemyMob = new Mob(mob, currentFloor, currentDungeon);
     
     let bg = enemyMob.img;
-    $('#dungeonCanvas').show();
-    $('#dungeonPanel').css({'background-image':`url('${bg}')`})
+    // $('#dungeonCanvas').show();
+    // $('#dungeonPanel').css({'background-image':`url('${bg}')`})
+    changeDungeonPanelBG();
+    $('#mobImg').css({'background-image':`url('${bg}')`})
     initFightMenu();
-    // console.log("enemy mob:", enemyMob)
+    console.log("enemy mob:", enemyMob)
     // console.log("mob stats",enemyMob.getTotalStats())
     // console.log("gold:",enemyMob.gold)  
 }

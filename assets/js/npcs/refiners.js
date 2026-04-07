@@ -49,33 +49,45 @@ function resetRefiner(){
         if(currentRun == refinerHireRun){nextPayableRun+= 5;}
         if ((currentRun - refinerHireRun) % 5 == 0){//pay every 5 runs, this should be equiv to refinerPaidRun
             if(!isRefinerPayable()){
+                alert('Unable to pay refiner. Contract ended.');
                 //end contract
+                activeRefinerIndex = null;
                 activeRefiner = null;
-                refinerHireRun = 0;
-                refinerPaidRun = 0;
-                nextPayableRun = 0;
+                refinerHireRun = null;
+                refinerPaidRun = null;
+                nextPayableRun = null;
                 $("#refinerBuffIcon").addClass('d-none');
-                $('#refinerPaymentInfo').text('')
+                $('#refinerPaymentInfo').text('');
+                $('#refinerHireRun').text('');
+                $('#buffEffectDisplay').text('');
                 // $('#background.storage').css({"background-image": 'url("../img/Backgrounds/storage.webp")'});
                 // $('#background.storage').removeAttr("refinerImage");
 
             }else{
+                alert('Refiner paid '+activeRefiner.salary+'g');
                 refinerPaidRun = currentRun;
                 nextPayableRun = currentRun + 5;
                 soul.gold -= activeRefiner.salary;
                 soul.updateGold(soul.gold);
+                $('#refinerPaymentInfo').text(`Pay refiner ${activeRefiner.salary} on run ${nextPayableRun}`);
             }
         }
-        $('#refinerPaymentInfo').text(`Pay refiner ${activeRefiner.salary} on run ${nextPayableRun}`)
     }
+    updateRefinerState();
+    
 }
-function hireRefiner(index){
+async function hireRefiner(index){
+    await getDungeonState();
     activeRefinerIndex = index;
     activeRefiner = refiners[index];
     refinerHireRun = currentRun;
+    refinerPaidRun = null;
+    nextPayableRun = refinerHireRun + 5;
     // $('#background.storage').attr("refinerImage",activeRefiner.img);
+    $('#refinerHireRun').text(refinerHireRun);
+    $('#buffEffectDisplay').text(activeRefiner.buff.description);
     resetRefiner();
-    updateRefinerState();
+    
 }
 function refinerMobSpawnBuff(){
     if(activeRefiner){
@@ -86,46 +98,29 @@ function refinerMobSpawnBuff(){
     }
     return 0;
 }
+async function getRefinerState(){
+    const tx = db.transaction("RefinerState", "readwrite");
+    const store = tx.objectStore("RefinerState");
+    let req = store.get(1);
+    req.onsuccess = async () => {
+        let RefinerState = req.result;
+        console.log(RefinerState)
+    }
+    // resolve("Dungeon State fetched");
+}
 async function updateRefinerState() {
-    return new Promise((resolve, reject) => {
-        const tx = db.transaction("RefinerState", "readwrite");
-        const store = tx.objectStore("RefinerState");
-
-        const getRequest = store.get(1);
-
-        getRequest.onsuccess = async () => {
-            let refinerState = getRequest.result;
-
-            if (!refinerState) {
-                console.log("No refiner found, creating new refiner state...");
-                refinerState = {
-                    id: 1,
-                    activeRefinerIndex,
-                    activeRefiner,
-                    refinerHireRun,
-                    refinerPaidRun,
-                    nextPayableRun
-                };
-                await new Promise(resolve => {
-                    const req = store.add(refinerState);
-                    req.onsuccess = e => resolve(e.target.result);
-                });
-                resolve("Refiner state created");
-            } else {
-                store.put({
-                    id: 1,
-                    activeRefinerIndex,
-                    activeRefiner,
-                    refinerHireRun,
-                    refinerPaidRun,
-                    nextPayableRun
-                });
-                resolve("Refiner state updated");
-            }
-        };
-
-        getRequest.onerror = () => reject(getRequest.error);
+    const tx = db.transaction("RefinerState", "readwrite");
+    const store = tx.objectStore("RefinerState");
+    store.put({
+        id: 1,
+        activeRefinerIndex,
+        activeRefiner,
+        refinerHireRun,
+        refinerPaidRun,
+        nextPayableRun
     });
+    tx.oncomplete = () => console.log("Refiner updated");
+    tx.onerror = () => console.error("Failed to update refiner in IndexedDB");
 }
 function populateRefinerMenu() {
     let menuHTML = '';

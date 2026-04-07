@@ -1,5 +1,86 @@
 $(function(){
+    let vids = ["Reaper","Dravenna","Bladewind"];
+    let bgindex = Math.round(Math.random() * (vids.length-1));
+    let loadbg = `assets/vid/${vids[bgindex]}_idle.webm`;
+    let splashvideo = $('#splashVid')[0];
+    $(splashvideo).find('source').remove(); // clear old sources
+    $(splashvideo).append(`<source src="${loadbg}" type="video/webm">`);
+    splashvideo.load();
+    // $('#fakeLoad').css({"background-image":`url('${loadbg}')`})
+    $('#fakeLoad').removeClass('d-none');
+    let $loadbar = $('#fakeBarProgress');
+    $loadbar.on('animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd', () => {$('#startGameBtn').removeClass('invisible').addClass('pulse')});
+    
     $(document)
+    .on('click','#startGameBtn',function(){
+        $('#fakeLoad').remove();
+    })
+    .on('click','.changeClass',function(){
+        let id = $(this).attr('id');
+        let idx = parseInt($(this).attr('idx'));
+        let currentClass;
+        if(id == 'prevClass'){
+            if(idx == 0){
+                $(this).attr('idx',classList.length-1)
+            }else{
+                $(this).attr('idx',idx-1);
+            }
+            let otherIdx = parseInt($('#nextClass').attr('idx'));
+            if(otherIdx == 0){
+                $('#nextClass').attr('idx',classList.length-1)
+            }else{
+                $('#nextClass').attr('idx',otherIdx-1);
+            }
+        }else{
+            if(idx == classList.length-1){
+                $(this).attr('idx',0)
+            }else{
+                $(this).attr('idx',idx+1);
+            }
+            let otherIdx = parseInt($('#prevClass').attr('idx'));
+            if(otherIdx == classList.length-1){
+                $('#prevClass').attr('idx',0)
+            }else{
+                $('#prevClass').attr('idx',otherIdx+1);
+            }
+        }
+        $('#classSelection').attr('classIdx',idx);
+        currentClass = classList[idx];
+        let classImg = `${soul_path}${currentClass.name}_M.webp`;
+        $('#male').addClass('active');
+        $('#female').removeClass('active');
+        $('#classSelection').css({'background-image':`url('${classImg}')`});
+        let specialIdx = classAbilities.findIndex(ability => ability.class == currentClass.name && ability.gender == 'M');
+        let special = classAbilities[specialIdx];
+        $('#className').text(currentClass.name)
+        $('#classSpecialName').text(special.name);
+        $('#classSpecialDesc').text(special.desc);
+    })
+    .on('click','.gender-btn',function(){
+        $('.gender-btn').toggleClass('active');
+        let idx = parseInt($('#classSelection').attr('classIdx'));
+        let currentClass = classList[idx];
+        let gender = $(this).attr('id');
+        let srcImg = `${soul_path}${currentClass.name}_`;
+        let classImg, specialIdx;
+        if(gender == 'male'){
+            classImg = `${srcImg}M.webp`;
+            specialIdx = classAbilities.findIndex(ability => ability.class == currentClass.name && ability.gender == 'M');
+        }else{
+            classImg = `${srcImg}F.webp`;
+            specialIdx = classAbilities.findIndex(ability => ability.class == currentClass.name && ability.gender == 'F');
+        }
+        let special = classAbilities[specialIdx];
+        $('#classSelection').css({'background-image':`url('${classImg}')`});
+        $('#className').text(currentClass.name)
+        $('#classSpecialName').text(special.name);
+        $('#classSpecialDesc').text(special.desc);
+    })
+    .on('click','#selectClassBtn',async function(){
+        $(this).attr('disabled',true);
+        $(this).text('Creating soul');
+        await initSoul();
+    })
     .on('click', '.town-btn', function(){
         let screen = $(this).attr('screen');
         if(screen == "enchantress") screen = "tower";
@@ -14,6 +95,8 @@ $(function(){
             resetTower();
             populateEqpList("tower");
             populateMatsList();
+        }else if(screen == 'guild'){
+            populateRefinerMenu();
         }else if(screen == "storage"){
             if(activeRefiner){
                 if(nsfw)
@@ -64,7 +147,7 @@ $(function(){
         let array = $(this).attr('array');
         let src = array == "loadout" ? loadOut : (array == "weapons" ? weapons : armor);
         let eqp = src[idx];
-        let bg = eqp.eqp.img;
+        let bg = eqp.img;
         let tier = eqp.tier;
         $('#forgeEqpPreview').css({'background-image':`url('${bg}')`});
         $('#forgeCurrentEnhance').text(eqp.enhancement);
@@ -125,7 +208,7 @@ $(function(){
         let array = $(this).attr('array');
         let src = array == "loadout" ? loadOut : (array == "weapons" ? weapons : armor);
         let eqp = src[idx];
-        let bg = eqp.eqp.img;
+        let bg = eqp.img;
         let tier = eqp.tier;
         $('#enchantEqpPreview').css({'background-image':`url('${bg}')`});
         $('#enchantCurrentEnhance').text(eqp.enchantment);

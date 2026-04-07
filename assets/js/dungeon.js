@@ -22,6 +22,7 @@ var atkInterval;
 var hitInterval;
 var atkCounter = 0;
 var lastEncounter = null;
+var goblinTimeout = null;
 function populateDungeonFloors(){
     let dungeonText = $('#mapMenuDungeonList button.active').text().toLowerCase();
     let currentDungeon = dungeons[dungeonText];
@@ -36,7 +37,7 @@ function populateDungeonFloors(){
 }
 
 function initFightMenu(type=""){
-    console.log("initFightMenu")
+    console.log("initFightMenu");
     $('#EName').text(enemyMob.name);
     $('#currentFloor').text(currentFloor);
     let roomText = currentFloor % 10 == 0 ? (currentFloor == 50 ? "Apex room" : "Boss room") : `Room ${currentRoom}`;
@@ -48,14 +49,14 @@ function initFightMenu(type=""){
     let maxEHP = enemyMob.hpPoints;
     $('#maxEHP').text(maxEHP);
     $('#fightMenu').removeClass('d-none');
-    
+    $('#mobImg').removeClass('dead')
     setTimeout(function(){
         
         atkInterval = setInterval(function(){attack(maxEHP)},currentASPD*1000);
         hitInterval = setInterval(function(){enemyAttack()},enemyMob.atkspd*1000);
         $('#PActB').css({'animation':`actionLoading ${currentASPD}s infinite`});
         if(enemyMob.name == "Gold Goblin" || enemyMob.name == "Elite Gold Goblin"){
-            setTimeout(
+            goblinTimeout = setTimeout(
                 function(){
                     clearInterval(atkInterval); clearInterval(hitInterval);
                     console.log('reward triggered from initFightMenu')
@@ -71,6 +72,19 @@ function initFightMenu(type=""){
     }, 500)
     
 
+}
+async function getDungeonState(){
+    const tx = db.transaction("Dungeon", "readwrite");
+    const store = tx.objectStore("Dungeon");
+    let req = store.get(1);
+    req.onsuccess = async () => {
+        let dungeonState = req.result;
+        console.log(dungeonState)
+        dungeons = dungeonState.dungeons;
+        currentRun = dungeonState.currentRun;
+        $('#runCount').text(`Run ${currentRun}`)
+    }
+    // resolve("Dungeon State fetched");
 }
 async function updateDungeonState(){
     console.log('updateDungeonState')
@@ -89,9 +103,10 @@ async function updateDungeonState(){
     tx.onerror = () => reject(getRequest.error);
 }
 async function startRun(){
-    console.log('startRun')
+    console.log('startRun');
     clearDungeonMenus();
     resetDungeon();
+    currentRun += 1;
     currentATK = calcAtk;
     currentDmg = calcDmg;
     currentSPD = calcSpd;
@@ -264,7 +279,7 @@ function triggerHitTaken(){
     setTimeout(function(){$('#hitOverlay').removeClass('transitioning');}, 500)
 }
 async function triggerReward(isGoldGob = false, escape = false){
-    console.log('triggerReward')
+    // console.log('triggerReward')
     let matRewardText = "";
     clearInterval(atkInterval);
     clearInterval(hitInterval);
@@ -288,8 +303,10 @@ async function triggerReward(isGoldGob = false, escape = false){
             updateMaidenStatus();
         }
         await updateDungeonState();
+        resetRefiner();
         resetDungeon();
     }else{
+        $('#mobImg').addClass('dead')
         gold = enemyMob.gold;
         if(isGoldGob){
             let maxehp = parseInt($('#maxEHP').text());
@@ -344,6 +361,7 @@ async function triggerDeath(){
     consolidateMats();
     
     await updateDungeonState();
+    resetRefiner();
     //reset dungeon initial values
     resetDungeon();
 }
@@ -352,19 +370,24 @@ function clearDungeonMenus(){
     $('#deathMenu, #fightMenu, #nextFloorMenu,#maidenMenu, #thiefMenu, #chestMenu, #statueMenu, #bossMenu, #apexMenu, .portal-menu').addClass('d-none');
     $('#rewardOverlayCont').css({'left': '100vw'});
     $('#atkDmgTextArea').empty();
+    $('#mobImg').removeAttr('style');
+    $('#mobImg').removeClass('dead')
     clearInterval(atkInterval);
     clearInterval(hitInterval);
 }
 function changeDungeonPanelBG(bg = ''){
     console.log('changeDungeonPanelBG')
-    $('#dungeonPanel').removeClass('next maiden thief statue chest bossPortal apexPortal death').addClass(bg).removeAttr('style')
+    $('#dungeonPanel').removeClass('next maiden thief statue chest bossPortal apexPortal death').addClass(bg).removeAttr('style');
+    $('#mobImg').removeAttr('style');
 }
 function attack(maxEHP){
     console.log('attack')
     if(enemyMob.hpPoints > 0){
         atkCounter++;
-        $('#dungeonPanel').addClass('shake');
-        setTimeout(function(){$('#dungeonPanel').removeClass('shake');},120);
+        // $('#dungeonPanel').addClass('shake');
+        // setTimeout(function(){$('#dungeonPanel').removeClass('shake');},120);
+        $('#mobImg').addClass('shake');
+        setTimeout(function(){$('#mobImg').removeClass('shake');},120);
         let color="light";
         let baseDmg = Math.max(currentDmg - enemyMob.def, Math.floor(currentDmg * soul.minDmg));
         if(currentMaiden && atkCounter % 5 == 0 && atkCounter > 1){
@@ -392,15 +415,19 @@ function attack(maxEHP){
         atkCounter = 0;
         triggerReward()
     }
+    if(goblinTimeout){clearTimeout(goblinTimeout);}
 }
 function enemyAttack(){
     console.log('enemyAttack')
     if(currentHP > 0){
-        $('#PHBCont').addClass('shake');
-        setTimeout(function(){$('#PHBCont').removeClass('shake');},120);
+        
         let baseDmg = Math.max(enemyMob.dmg - currentDEF, Math.floor(enemyMob.dmg * enemyMob.minDmg));
         let randomMultiplier = 0.9 + Math.random() * 0.2;  // 0.9 ~ 1.1
         let finalDmg = Math.floor(baseDmg * randomMultiplier);
+        if(finalDmg > 0){
+            $('#PHBCont').addClass('shake');
+            setTimeout(function(){$('#PHBCont').removeClass('shake');},120);
+        }
         let reducedPlayerHp = Math.max(0, currentHP - finalDmg);
         // bar width = current HP / max HP * 100
         let barHeight = (reducedPlayerHp / currentMaxHP) * 100;
@@ -422,7 +449,6 @@ function resetDungeon(){
     currentMobRate = baseMobSpawnRate;
     let dungeonText = $('#mapMenuDungeonList button.active').text().toLowerCase();
     currentDungeon = dungeons[dungeonText];
-    currentRun += 1;
     let activeFloor = $('#mapMenuFloorList button.active').attr('floor');
     currentFloor = parseInt( activeFloor ? activeFloor : 0);
     currentRoom = 0;

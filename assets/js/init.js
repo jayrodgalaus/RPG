@@ -49,6 +49,7 @@ async function initSoul() {
 
                 putRequest.onsuccess = () => {
                     console.log("New Soul saved to IndexedDB");
+                    $('#classSelection').removeClass('d-none');
                     resolve(newSoul);
                 };
                 putRequest.onerror = () => reject(putRequest.error);
@@ -57,9 +58,9 @@ async function initSoul() {
                 const existingSoul = new Soul(soulData);
                 resolve(existingSoul);
             }
+            $('#male').addClass('active');
+            $('#prevClass').attr('idx',classList.length - 1)
         };
-
-
         getRequest.onerror = () => reject(getRequest.error);
     });
 }
@@ -220,7 +221,18 @@ async function initRefiner() {
                 activeRefiner = refinerState.activeRefiner;
                 refinerHireRun = refinerState.refinerHireRun;
                 refinerPaidRun = refinerState.refinerPaidRun,
-                nextPayableRun = refinerState.nextPayableRun
+                nextPayableRun = refinerState.nextPayableRun;
+                if(!activeRefiner){
+                    $("#refinerBuffIcon").addClass('d-none');
+                    $('#refinerPaymentInfo').text('');
+                    $('#refinerHireRun').text('');
+                    $('#buffEffectDisplay').text('');
+                }else{
+                    $("#refinerBuffIcon").removeClass('d-none');
+                    $('#refinerPaymentInfo').text(`Pay refiner ${activeRefiner.salary} on run ${nextPayableRun}`);
+                    $('#refinerHireRun').text(refinerHireRun);
+                    $('#buffEffectDisplay').text(activeRefiner.buff.description);
+                }
                 resolve(refinerState);
             }
         };

@@ -19,6 +19,7 @@ const maiden_buffs = [
     {idx: 16, description: "Gold x 0% - 200% after each battle"},
     {idx: 17, description: "Gold x 50% - 150% after each battle"},
 ]
+var maidenNames = ["Vaelith", "Seraphine", "Veyra","Enchantress","Aura Master","Calistra","Zephyra", "Orlith", "Maerith", "Dravenna", "Nyxara", "Noctira", "Elira","Morrigan", "Kaelenne", "Isolde", "Thalira","Lilith"];
 var unlockedMaidens = [];
 var maidensAll = [];
 var maidenQ1Complete = false;

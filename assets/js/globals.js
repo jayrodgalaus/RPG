@@ -2,6 +2,7 @@
 
 var db;
 var soul;
+const soul_path = "assets/img/Souls/"; 
 const eqp_path = "assets/img/Equipment/";
 const mob_path = "assets/img/Mobs/";
 const npc_town_path = "assets/img/NPCs/Town/";
@@ -17,14 +18,32 @@ var classList = [
   { name: 'Warden', atk: 8, spd: 8, def: 5, hp: 4, availableStats: 0 },
   { name: 'Ravager', atk: 10, spd: 5, def: 6, hp: 4, availableStats: 0 },
   { name: 'Sentinel', atk: 9, spd: 3, def: 8, hp: 5, availableStats: 0 },
-  { name: 'Reaper', atk: 6, spd: 9, def: 4, hp: 6, availableStats: 0 },
+  { name: 'Severant', atk: 6, spd: 9, def: 4, hp: 6, availableStats: 0 },
   { name: 'Bladewind', atk: 5, spd: 11, def: 4, hp: 5, availableStats: 0 },
   { name: 'Overlord', atk: 13, spd: 3, def: 6, hp: 3, availableStats: 0 },
   { name: 'Shade', atk: 4, spd: 15, def: 3, hp: 3, availableStats: 0 },
-  { name: 'Vanguard', atk: 9, spd: 9, def: 5, hp: 2, availableStats: 0 },
-  { name: 'Nullborn', atk: 5, spd: 0, def: 0, hp: 5, availableStats: 15 }
+  { name: 'Vanguard', atk: 9, spd: 9, def: 4, hp: 3, availableStats: 0 },
+//   { name: 'Nullborn', atk: 5, spd: 0, def: 0, hp: 5, availableStats: 15 }
 ];
+var classAbilities = [
+    {class: 'Warden', name: "Veteran", desc: "ATK and SPD +20% per hit.", gender:"M"}, //male
+    {class: 'Warden', name: "Grace", desc: "20% chance to parry, reducing incoming DMG to 75%. On activation, ATK +50%, parry chance +10%.", gender:"F"}, //female
+    {class: 'Ravager', name: "Bloodthirsty", desc: "Every 5% enemy HP lost is converted to 5% ATK and SPD.", gender:"M"}, //male
+    {class: 'Ravager', name: "Berserk", desc: "Every 5% HP lost is converted to 5% ATK and SPD.", gender:"F"}, //female
+    {class: 'Sentinel', name: "Crumple", desc: "Enemy DEF -15%, own DEF + 5% per hit.", gender:"M"},//male
+    {class: 'Sentinel', name: "Thorns", desc: "DMG + 15% of DEF. DEF + 15% per hit (max 100%). 20% chance to block incoming DMG.", gender:"F"},//female
+    {class: 'Severant', name: "Reaper", desc: "Regen 15% of DMG dealt on hit. Every 20% enemy HP lost, Regen +10%", gender:"M"}, //male
+    {class: 'Severant', name: "Executioner", desc: "Every 5% lost enemy HP adds 1% chance to insta-kill. Regen 20% HP on insta-kill.", gender:"F"}, //female
+    {class: 'Bladewind', name: "Sadist", desc: "Half ATK Interval. DMG - 20%. DMG + 8% of enemy's current HP. Regen 5% DMG.", gender:"M"},//male
+    {class: 'Bladewind', name: "BladeDancer", desc: "Half ATK Interval. DMG - 20%. DMG +10% per hit. Regen 5% DMG.", gender:"F"},//female
+    {class: 'Overlord', name: "Pride", desc: "SPD -25%. 15% chance to triple damage on hit. +5% chance per hit.", gender:"M"},//male
+    {class: 'Overlord', name: "Domination", desc: "SPD -20%. ATK +50%. 25% chance to stun enemy.", gender:"F"},//female
+    {class: 'Shade', name: "Deathblow", desc: "Increase ATK per SPD difference. Steal 5% SPD from enemy per attack.", gender:"M"}, //male
+    {class: 'Shade', name: "Shadowspeed", desc: "ATK -30%. +4 ATK, 1% dodge chance (max 50%) for every 10 SPD. Dodge +5% per hit. (Reset on activation).", gender:"F"}, //female
+    {class: 'Vanguard', name: "Piercing", desc: "Ignore 50% enemy DEF. Increase ATK by ignored DEF.", gender:"M"},//male
+    {class: 'Vanguard', name: "Kiting", desc: "On hit, enemy ATK and DEF -5%, own Dodge +15%; on Dodge, ATK +10%, reset dodge chance.; ", gender:"F"}//female
 
+]
 
 
 //eqp

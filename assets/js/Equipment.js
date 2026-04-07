@@ -32,7 +32,7 @@ class Equipment {
         this.isEquipped = false;
         this.value = 0;
         this.displayName = this.affix+" "+this.eqp.mob+" "+this.eqp.type.type;
-        this.img = `${this.eqp.img}${this.tier}.webp`;
+        this.img = this.getEqpImg(this.eqp,this.tier);
     }
     setAffix() {
         if (this.tier === 'F' || this.tier === 'G') {
@@ -299,6 +299,24 @@ class Equipment {
         let str = '';
         loadOut.forEach(item=>{str += item.displayName + ";"})
         console.log(str)
+    }
+    getEqpImg(eqp,tier){
+        let eqpImg = `${eqp.img}${tier}.webp`;
+        if(eqp.eqp_type == "weapon"){
+            switch(eqp.mob){
+                case "arachne":
+                    let arachnetext = '';
+                    if(Math.random() > 0.5) arachnetext = '-1';
+                    eqpImg = `${eqp.img}${tier}${arachnetext}.webp`
+                    break;
+                default:
+                    eqpImg = `${eqp.img}${tier}.webp`
+            }
+            
+        }else{
+
+        }
+        return eqpImg;
     }
 
 }

@@ -10,6 +10,9 @@
 .pop{
   animation: pop 0.5s ease-out forwards;
 }
+.load{
+  animation: fakeLoad 1s ease-in-out forwards;
+}
 
 @keyframes pulse {
     from { transform: scale(0.9); } to { transform: scale(1); }
@@ -62,6 +65,11 @@
   from{transform: scale(1);}
   to{transform: scale(0);}
 }
+@keyframes fakeLoad{
+  from{width: 0%; background-color: rgb(255, 84, 84);}
+  to{width: 100%; background-color: rgb(212, 0, 0);}
+}
+
 
 
 
