@@ -11,10 +11,13 @@ const armorList = [
     /* 1 */{category:"armor", name: "Breastplate", type: armorTypes[2], img: eqp_path+"Breastplate/Beginner/", mob:"Beginner"},
     /* 2 */{category:"armor", name: "Gloves", type: armorTypes[3], img: eqp_path+"Gloves/Beginner/", mob:"Beginner"},
     /* 3 */{category:"armor", name: "Greaves", type: armorTypes[4], img: eqp_path+"Greaves/Beginner/", mob:"Beginner"},
+    //Goblin
+    {category:"armor", name: "Breastplate", type: armorTypes[2], img: eqp_path+"Breastplate/Goblin/", mob:"goblins"},
     //Fallen
-    /* 4 */{category:"armor", name: "Shield", type: armorTypes[0], img: eqp_path+"Shield/Fallen/", mob:"Fallen"},
-    /* 5 */{category:"armor", name: "Helmet", type: armorTypes[1], img: eqp_path+"Helmet/Fallen/", mob:"Fallen"},
-    /* 6 */{category:"armor", name: "Breastplate", type: armorTypes[2], img: eqp_path+"Breastplate/Fallen/", mob:"Fallen"},
-    /* 7 */{category:"armor", name: "Gloves", type: armorTypes[3], img: eqp_path+"Gloves/Fallen/", mob:"Fallen"},
-    /* 8 */{category:"armor", name: "Greaves", type: armorTypes[4], img: eqp_path+"Greaves/Fallen/", mob:"Fallen"},
+    {category:"armor", name: "Shield", type: armorTypes[0], img: eqp_path+"Shield/Fallen/", mob:"fallen"},
+    {category:"armor", name: "Helmet", type: armorTypes[1], img: eqp_path+"Helmet/Fallen/", mob:"fallen"},
+    {category:"armor", name: "Breastplate", type: armorTypes[2], img: eqp_path+"Breastplate/Fallen/", mob:"fallen"},
+    {category:"armor", name: "Gloves", type: armorTypes[3], img: eqp_path+"Gloves/Fallen/", mob:"fallen"},
+    {category:"armor", name: "Greaves", type: armorTypes[4], img: eqp_path+"Greaves/Fallen/", mob:"fallen"},
+
 ];

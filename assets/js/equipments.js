@@ -266,6 +266,102 @@ function resetTower(){
     initStars()
 
 }
-function dropEqp(){
+async function rollEqpDrop(){
+    // base 40% chance; 50% for boss, 60% for apex
+    let drop_chance = 1//enemyMob.isApex ? 0.3 : (enemyMob.isBoss ? 0.2 : 0.1);
+    let src;
+    let eqp_type;
+    let eqp;
+    let max_tier = "F";
+    let F_chance;
+    let E_chance;
+    let D_chance;
+    let C_chance;
+    let B_chance;
+    let A_chance;
+    let S_chance;
+    function getMaxTier(roll){
+        if(roll <= F_chance) return "F";
+        else if(roll <= E_chance) return "E";
+        else if(roll <= D_chance) return "D";
+        else if(roll <= C_chance) return "C";
+        else if(roll <= B_chance) return "B";
+        else if(roll <= A_chance) return "A";
+        else if(roll <= S_chance) return "S";
+        else return "SR"
+    }
+    if (Math.random() <= (drop_chance)) {
 
+        //weapon or armor
+        if(Math.random() >= 0.5){ // weapon
+            src = weaponList;
+            eqp_type = "weapon";
+        }else{ //armor
+            src = armorList;
+            eqp_type = "armor";
+        }
+        let filtered = src.filter(w => w.mob == enemyMob.species)
+        if(filtered.length > 0){
+            let selectedidx = Math.round(Math.random() * (filtered.length - 1));
+            let selected = filtered[selectedidx];
+            
+            let idx = src.indexOf(selected);//need to find index of selected from src
+            if(easyDungeons.includes(enemyMob.species)){
+                F_chance = 0.5;
+                E_chance = F_chance + 0.3;
+                D_chance = E_chance + 0.09;
+                C_chance = D_chance + 0.05;
+                B_chance = C_chance + 0.03;
+                A_chance = B_chance + 0.02;
+                S_chance = A_chance + 0.01;
+                let roll = Math.random();
+                max_tier = getMaxTier(roll);
+                if(max_tier == "SR") max_tier = "S";
+
+            }else if(midDungeons.includes(enemyMob.species)){
+                F_chance = 0.3;
+                E_chance = F_chance + 0.44;
+                D_chance = E_chance + 0.11;
+                C_chance = D_chance + 0.06;
+                B_chance = C_chance + 0.04;
+                A_chance = B_chance + 0.025;
+                S_chance = A_chance + 0.015;
+                let roll = Math.random();
+                max_tier = getMaxTier(roll);
+            }else if(lateDungeons.includes(enemyMob.species)){
+                F_chance = 0.1;
+                E_chance = F_chance + 0.24;
+                D_chance = E_chance + 0.17;
+                C_chance = D_chance + 0.12;
+                B_chance = C_chance + 0.11;
+                A_chance = B_chance + 0.09;
+                S_chance = A_chance + 0.075;
+                let roll = Math.random();
+                max_tier = getMaxTier(roll);
+            }else if(lastDungeon.includes(enemyMob.species)){
+                F_chance = 0;
+                E_chance = 0;
+                D_chance = E_chance + 0.26;
+                C_chance = D_chance + 0.20;
+                B_chance = C_chance + 0.17;
+                A_chance = B_chance + 0.15;
+                S_chance = A_chance + 0.12;
+                let roll = Math.random();
+                max_tier = getMaxTier(roll);
+            }else{
+                console.log("no droppable item: neutral species");
+                return null;
+            }
+            eqp = await createEquipment(db, { eqp_type: eqp_type, eqp_id: idx, tier: "F", max_tier: max_tier });
+            console.log("Dropped: ",eqp);
+            updateInventory();
+            return eqp;
+        }else{
+            console.log("no droppable item: no equipment for this species:",enemyMob.species);
+            return null;
+        }
+        
+        
+    }
+    return null; // no drop
 }

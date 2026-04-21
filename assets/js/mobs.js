@@ -35,10 +35,10 @@ var dungeonMobs = [
         {name: "Madwoman", species:"fallen", img: mob_path+"Fallen/6.webp", category:"fallen", baseStats: 40, increment: 9, baseGold:45, distr:statDistr.xdef},
         {name: "Madwoman", species:"fallen", img: mob_path+"Fallen/7.webp", category:"fallen", baseStats: 40, increment: 9, baseGold:45, distr:statDistr.xatk},
     //ghosts
-        {name: "Sacrifice", species:"ghosts", img: mob_path+"Ghosts/1.webp", category:"generic", baseStats: 30, increment: 6, baseGold:50, distr:statDistr.atk},
-        {name: "Sacrifice", species:"ghosts", img: mob_path+"Ghosts/2.webp", category:"generic", baseStats: 30, increment: 6, baseGold:50, distr:statDistr.spd},
-        {name: "Noble Sacrifice", species:"ghosts", img: mob_path+"Ghosts/4.webp", category:"generic", baseStats: 30, increment: 6, baseGold:50, distr:statDistr.spd},
-        {name: "Haunted Doll", species:"ghosts", img: mob_path+"Ghosts/3.webp", category:"generic", baseStats: 30, increment: 6, baseGold:35, distr:statDistr.xatk},
+        {name: "Sacrifice", species:"ghosts", img: mob_path+"Ghosts/1.webp", category:"generic", baseStats: 30, increment: 7, baseGold:50, distr:statDistr.atk},
+        {name: "Sacrifice", species:"ghosts", img: mob_path+"Ghosts/2.webp", category:"generic", baseStats: 30, increment: 7, baseGold:50, distr:statDistr.spd},
+        {name: "Noble Sacrifice", species:"ghosts", img: mob_path+"Ghosts/4.webp", category:"generic", baseStats: 30, increment: 7, baseGold:50, distr:statDistr.spd},
+        {name: "Haunted Doll", species:"ghosts", img: mob_path+"Ghosts/3.webp", category:"generic", baseStats: 30, increment: 7, baseGold:35, distr:statDistr.xatk},
     //goblins
         {name: "Goblin", species:"goblins", img: mob_path+"Goblins/1.webp", category:"generic", baseStats: 30, increment: 6, baseGold:50, distr:statDistr.spd},
         {name: "Goblin", species:"goblins", img: mob_path+"Goblins/2.webp", category:"generic", baseStats: 30, increment: 6, baseGold:50, distr:statDistr.atk},
@@ -63,17 +63,17 @@ var dungeonMobs = [
         {name: "Death", species:"neutral", img: mob_path+"Neutrals/death.webp", category:"death", baseStats: 70, increment: 6, baseGold:0, distr:statDistr.xxatk},
         {name: "Gold Goblin", species:"neutral", img: mob_path+"Neutrals/goldgoblin.webp", category:"special", baseStats: 50, increment: 10, baseGold:100, distr:statDistr.goldgoblin},
     //skeletons
-        {name: "Skeleton Fighter", species:"skeletons", img: mob_path+"Skeletons/1.webp", category:"generic", baseStats: 30, increment: 6, baseGold:30, distr:statDistr.atk},
-        {name: "Skeleton Duelist", species:"skeletons", img: mob_path+"Skeletons/2.webp", category:"generic", baseStats: 30, increment: 6, baseGold:30, distr:statDistr.balanced},
-        {name: "Skeleton Marauder", species:"skeletons", img: mob_path+"Skeletons/3.webp", category:"generic", baseStats: 30, increment: 6, baseGold:30, distr:statDistr.spd},
+        {name: "Skeleton Fighter", species:"skeletons", img: mob_path+"Skeletons/1.webp", category:"generic", baseStats: 30, increment: 7, baseGold:30, distr:statDistr.atk},
+        {name: "Skeleton Duelist", species:"skeletons", img: mob_path+"Skeletons/2.webp", category:"generic", baseStats: 30, increment: 7, baseGold:30, distr:statDistr.balanced},
+        {name: "Skeleton Marauder", species:"skeletons", img: mob_path+"Skeletons/3.webp", category:"generic", baseStats: 30, increment: 7, baseGold:30, distr:statDistr.spd},
     //slimes
         {name: "Purple Slime", species:"slimes", img: mob_path+"Slimes/1.webp", category:"generic", baseStats: 30, increment: 5, baseGold:25, distr:statDistr.def},
         {name: "Yellow Slime", species:"slimes", img: mob_path+"Slimes/2.webp", category:"generic", baseStats: 30, increment: 5, baseGold:25, distr:statDistr.atk},
         {name: "Blue Slime", species:"slimes", img: mob_path+"Slimes/3.webp", category:"generic", baseStats: 30, increment: 5, baseGold:25, distr:statDistr.spd},
     //zombies
-        {name: "Zombie (M)", species:"zombies", img: mob_path+"Zombies/1.webp", category:"generic", baseStats: 30, increment: 6, baseGold:30, distr:statDistr.atk},
-        {name: "Zombie (F)", species:"zombies", img: mob_path+"Zombies/2.webp", category:"generic", baseStats: 30, increment: 6, baseGold:30, distr:statDistr.spd},
-        {name: "Fresh Zombie", species:"zombies", img: mob_path+"Zombies/3.webp", category:"generic", baseStats: 30, increment: 6, baseGold:30, distr:statDistr.hp},
+        {name: "Zombie (M)", species:"zombies", img: mob_path+"Zombies/1.webp", category:"generic", baseStats: 30, increment: 7, baseGold:30, distr:statDistr.atk},
+        {name: "Zombie (F)", species:"zombies", img: mob_path+"Zombies/2.webp", category:"generic", baseStats: 30, increment: 7, baseGold:30, distr:statDistr.spd},
+        {name: "Fresh Zombie", species:"zombies", img: mob_path+"Zombies/3.webp", category:"generic", baseStats: 30, increment: 7, baseGold:30, distr:statDistr.hp},
     //abyss
         {name: "Siphonophore", species:"abyss", img: mob_path+"Abyss/1.webp", category:"abyss", baseStats: 70, increment: 15, baseGold:150, distr:statDistr.spd},
         {name: "Redshift Warden", species:"abyss", img: mob_path+"Abyss/2.webp", category:"abyss", baseStats: 70, increment: 15, baseGold:150, distr:statDistr.spd},
@@ -98,19 +98,12 @@ var dungeonMobs = [
         {name: "Null Whisperer", species:"abyss", img: mob_path+"Abyss/22.webp", category:"abyss", baseStats: 70, increment: 15, baseGold:150, distr:statDistr.hp},
         {name: "Marrowfold Behemoth", species:"abyss", img: mob_path+"Abyss/23.webp", category:"abyss", baseStats: 70, increment: 15, baseGold:150, distr:statDistr.hp},
         {name: "Null Whisperer", species:"abyss", img: mob_path+"Abyss/24.webp", category:"abyss", baseStats: 70, increment: 15, baseGold:150, distr:statDistr.balanced},
-        
-        
-        
-        
-        {name: "Fractured Orbit Sleeper", species:"abyss", img: mob_path+"Abyss/9.webp", category:"generic", baseStats: 70, increment: 15, baseGold:150, distr:statDistr.spd},
-        {name: "Starless Gaze Weaver", species:"abyss", img: mob_path+"Abyss/16.webp", category:"generic", baseStats: 70, increment: 15, baseGold:150, distr:statDistr.spd},
-        {name: "Siphonophore", species:"abyss", img: mob_path+"Abyss/1.webp", category:"generic", baseStats: 70, increment: 15, baseGold:150, distr:statDistr.spd},
-        {name: "Fractured Orbit Sleeper", species:"abyss", img: mob_path+"Abyss/9.webp", category:"generic", baseStats: 70, increment: 15, baseGold:150, distr:statDistr.spd},
-        {name: "Starless Gaze Weaver", species:"abyss", img: mob_path+"Abyss/16.webp", category:"generic", baseStats: 70, increment: 15, baseGold:150, distr:statDistr.spd},
-        {name: "Siphonophore", species:"abyss", img: mob_path+"Abyss/1.webp", category:"generic", baseStats: 70, increment: 15, baseGold:150, distr:statDistr.spd},
-        {name: "Fractured Orbit Sleeper", species:"abyss", img: mob_path+"Abyss/9.webp", category:"generic", baseStats: 70, increment: 15, baseGold:150, distr:statDistr.spd},
-        {name: "Starless Gaze Weaver", species:"abyss", img: mob_path+"Abyss/16.webp", category:"generic", baseStats: 70, increment: 15, baseGold:150, distr:statDistr.spd},
-
+];
+var heroMobs = [
+    {name: "Hero of Alkasas", species:"hero", img: mob_path+"Hero/1.webp", category:"hero", baseStats: 30, increment: 6, baseGold:50, distr:statDistr.balanced},
+    {name: "Fallen Hero of Alkasas", species:"hero", img: mob_path+"Hero/2.webp", category:"hero", baseStats: 40, increment: 10, baseGold:85, distr:statDistr.balanced},
+    {name: "Broken Hero of Alkasas", species:"hero", img: mob_path+"Hero/3.webp", category:"hero", baseStats: 60, increment: 12, baseGold:150, distr:statDistr.balanced},
+    {name: "Manifestation of Evil", species:"hero", img: mob_path+"Hero/4.webp", category:"hero", baseStats: 70, increment: 15, baseGold:250, distr:statDistr.balanced},
 ];
 var bossMobs = [
     {name: "Elyndrus", species:"angels", img: mob_path+"Angels/boss.webp", category:"angels", isBoss:true, baseStats: 75, increment: 15, baseGold:200, distr:statDistr.xspd},
@@ -125,19 +118,21 @@ var bossMobs = [
     {name: "Dravok", species:"skeletons", img: mob_path+"Skeletons/boss.webp", category:"skeletons", isBoss:true, baseStats: 50, increment: 9, baseGold:100, distr:statDistr.balanced},
     {name: "Gloxx", species:"slimes", img: mob_path+"Slimes/boss.webp", category:"slimes", isBoss:true, baseStats: 45, increment: 8, baseGold:75, distr:statDistr.spd},
     {name: "Veynar", species:"zombies", img: mob_path+"Zombies/boss.webp", category:"zombies", isBoss:true, isBoss:true, baseStats: 50, increment: 9, baseGold:100, distr:statDistr.hp},
+    {name: "The Unnamed", species:"abyss", img: mob_path+"Abyss/boss.webp", category:"abyss", isApex:true, baseStats: 200, increment: 18, baseGold:400, distr:statDistr.xhp},
 ];
 var apexMobs = [
-    {name: "Seraphis the Dawnbringer", species:"angels", img: mob_path+"Angels/apex.webp", category:"angels", isApex:true, baseStats:100, increment: 18, baseGold:300, distr:statDistr.balanced},
-    {name: "Webmother Nethis", species:"arachne", img: mob_path+"Arachne/apex.webp", category:"arachne", isApex:true, baseStats: 75, increment: 15, baseGold:200, distr:statDistr.xspd},
-    {name: "Voidchanter Orveth", species:"cultists", img: mob_path+"Cultists/apex.webp", category:"cultists", isApex:true, baseStats: 75, increment: 15, baseGold:200, distr:statDistr.xatk},
-    {name: "Hellbrand Malrik", species:"demons", img: mob_path+"Demons/apex.webp", category:"demons", isApex:true, baseStats:100, increment: 18, baseGold:300, distr:statDistr.xspd},
-    {name: "Ashwing Draveth", species:"dragons", img: mob_path+"Dragons/apex.webp", category:"dragons", isApex:true, baseStats:100, increment: 18, baseGold:300, distr:statDistr.def},
-    {name: "Wraithbound Olyth", species:"ghosts", img: mob_path+"Ghosts/apex.webp", category:"ghosts", isApex:true, baseStats: 60, increment: 12, baseGold:150, distr:statDistr.atk},
-    {name: "Bloodfang Kraggit", species:"goblins", img: mob_path+"Goblins/apex.webp", category:"goblins", isApex:true, baseStats: 60, increment: 12, baseGold:150, distr:statDistr.xatk},
-    {name: "Warrenscale Zerrek", species:"kobolds", img: mob_path+"Kobolds/apex.webp", category:"kobolds", isApex:true, baseStats: 60, increment: 12, baseGold:150, distr:statDistr.xxatk},
-    {name: "Bone Sovereign Tharok", species:"skeletons", img: mob_path+"Skeletons/apex.webp", category:"skeletons", isApex:true, baseStats: 60, increment: 12, baseGold:150, distr:statDistr.xdef},
-    {name: "Morbolg the Ebon Ooze", species:"slimes", img: mob_path+"Slimes/apex.webp", category:"slimes", isApex:true, baseStats: 60, increment: 12, baseGold:150, distr:statDistr.xhp},
-    {name: "Rotlord Grawl", species:"zombies", img: mob_path+"Zombies/apex.webp", category:"zombies", isApex:true, baseStats: 60, increment: 12, baseGold:150, distr:statDistr.xhp},
+    {name: "Seraphis the Dawnbringer", species:"angels", img: mob_path+"Angels/apex.webp", category:"angels", isApex:true, baseStats:100, increment: 18, baseGold:400, distr:statDistr.balanced},
+    {name: "Webmother Nethis", species:"arachne", img: mob_path+"Arachne/apex.webp", category:"arachne", isApex:true, baseStats: 75, increment: 15, baseGold:300, distr:statDistr.xspd},
+    {name: "Voidchanter Orveth", species:"cultists", img: mob_path+"Cultists/apex.webp", category:"cultists", isApex:true, baseStats: 75, increment: 15, baseGold:300, distr:statDistr.xatk},
+    {name: "Hellbrand Malrik", species:"demons", img: mob_path+"Demons/apex.webp", category:"demons", isApex:true, baseStats:100, increment: 18, baseGold:400, distr:statDistr.xspd},
+    {name: "Ashwing Draveth", species:"dragons", img: mob_path+"Dragons/apex.webp", category:"dragons", isApex:true, baseStats:100, increment: 18, baseGold:400, distr:statDistr.def},
+    {name: "Wraithbound Olyth", species:"ghosts", img: mob_path+"Ghosts/apex.webp", category:"ghosts", isApex:true, baseStats: 60, increment: 12, baseGold:250, distr:statDistr.atk},
+    {name: "Bloodfang Kraggit", species:"goblins", img: mob_path+"Goblins/apex.webp", category:"goblins", isApex:true, baseStats: 60, increment: 12, baseGold:250, distr:statDistr.xatk},
+    {name: "Warrenscale Zerrek", species:"kobolds", img: mob_path+"Kobolds/apex.webp", category:"kobolds", isApex:true, baseStats: 60, increment: 12, baseGold:250, distr:statDistr.xxatk},
+    {name: "Bone Sovereign Tharok", species:"skeletons", img: mob_path+"Skeletons/apex.webp", category:"skeletons", isApex:true, baseStats: 60, increment: 12, baseGold:250, distr:statDistr.xdef},
+    {name: "Morbolg the Ebon Ooze", species:"slimes", img: mob_path+"Slimes/apex.webp", category:"slimes", isApex:true, baseStats: 60, increment: 12, baseGold:250, distr:statDistr.xhp},
+    {name: "Rotlord Grawl", species:"zombies", img: mob_path+"Zombies/apex.webp", category:"zombies", isApex:true, baseStats: 60, increment: 12, baseGold:250, distr:statDistr.xhp},
+    {name: "The Unknown", species:"abyss", img: mob_path+"Abyss/apex.webp", category:"abyss", isApex:true, baseStats: 200, increment: 21, baseGold:500, distr:statDistr.xxhp},
 ];
 var enemyMob;
 var goldGoblinRun = 0; //save the last time goldGoblin was encountered
@@ -157,17 +152,19 @@ function spawnMob(isBoss = false, isApex = false, species = null){
     let mobSource;
     let dungeonMobChance = isBoss || isApex ? 1 : 0.6;
     
-    if (Math.random() <= dungeonMobChance) { //0.6
+    if ((Math.random() <= dungeonMobChance) || species) { //0.6
         console.log("spawning dungeon mob...")
-        // spawn mob by dungeon species
         let source = isBoss ? bossMobs: (isApex ? apexMobs : dungeonMobs);
-        // console.log("source:",source)
-        // console.log("currentDungeon.species:",currentDungeon.species)
-        mobSource = source.filter(m => m.species === currentDungeon.species)
+        mobSource = source.filter(m => {
+            if(species){
+                return m.species === species
+            }else{
+                return m.species === currentDungeon.species
+            }
+        });
         mob = structuredClone(mobSource[Math.floor(Math.random() * mobSource.length)]);
         mob.isBoss = isBoss;
         mob.isApex = isApex;
-        // console.log("selected mob:",mob)
         
     }else{
         console.log("spawning neutral mob...")

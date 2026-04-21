@@ -44,7 +44,10 @@
         </video>
     </div>
     <div id="non-interactable" class="layer">
-        <div id="backgroundLabel">-Town-</div>
+        <audio src="assets/audio/After_The_Lights.webm" id="backgroundMusic"></audio>
+        <audio src="assets/audio/click.wav" id="clicksfx" preload="auto"></audio>
+        
+        <div id="backgroundLabel"></div>
     </div>
     <div id="overlay" class="layer">
         <!-- <button onclick="document.getElementById('revive').play();"> Play Background </button> -->
@@ -554,20 +557,31 @@
                 <i class="fa-solid fa-xmark"></i>
             </button>
             <div class="d-flex align-items-center justify-content-center mt-auto">
+                <button class="icon-btn changeMap" id="prevMap" idx="4">
+                    <i class="fa-solid fa-caret-left"></i>
+                </button>
+                <h1 id="mapName" class="mx-auto my-0">Hemog Forest</h1>
+                <button class="icon-btn changeMap" id="nextMap" idx="1">
+                    <i class="fa-solid fa-caret-right"></i>
+                </button>
+            </div>
+            <div class="d-flex align-items-center justify-content-center vh-70">
                 <div class="section-container flex-grow-1">
                     <h5>Dungeon</h5>
                     <div class="list-group list-group-flush" id="mapMenuDungeonList">
-                        <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn">Slimes</button>
-                        <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn">Goblins</button>
-                        <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn">Kobolds</button>
-                        <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn">Zombies</button>
-                        <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn">Skeletons</button>
-                        <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn">Ghosts</button>
-                        <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn">Arachne</button>
-                        <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn">Cultist</button>
-                        <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn">Fallen</button>
-                        <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn">Demons</button>
-                        <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn">Angels</button>
+                        <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn" mapidx="0" scope="easy" dungeon="slimes">Slimes</button>
+                        <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn" mapidx="0" scope="easy" dungeon="goblins">Goblins</button>
+                        <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn" mapidx="0" scope="easy" dungeon="kobolds">Kobolds</button>
+                        <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn d-none" mapidx="1" scope="easy" dungeon="zombies">Zombies</button>
+                        <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn d-none" mapidx="1" scope="easy" dungeon="skeletons">Skeletons</button>
+                        <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn d-none" mapidx="1" scope="easy" dungeon="ghosts">Ghosts</button>
+                        <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn d-none" mapidx="2" scope="mid" dungeon="arachne" disabled>Arachne</button>
+                        <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn d-none" mapidx="2" scope="mid" dungeon="cultist" disabled>Cultist</button>
+                        <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn d-none" mapidx="2" scope="mid" dungeon="fallen" disabled>Fallen</button>
+                        <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn d-none" mapidx="3" scope="late" dungeon="demons" disabled>Demons</button>
+                        <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn d-none" mapidx="3" scope="late" dungeon="dragons" disabled>Dragons</button>
+                        <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn d-none" mapidx="3" scope="late" dungeon="angels" disabled>Angels</button>
+                        <button type="button" class="list-group-item list-group-item-action list-group-item-light map-menu-btn d-none" mapidx="4" scope="last" dungeon="abyss" disabled>Abyss</button>
                     </div>
                 </div>
                 <div class="section-container ms-2 invisible" id="floorListContainer">
@@ -675,9 +689,13 @@
             <div class="section-container p-0 flex-grow-1" id="eqpListContainer">
                 <div class="list-group list-group-flush" id="eqpList"></div>
             </div>
-            <button type="button" class="section-container mt-2" id="eqpToggleEquip" action="equip" data-bs-dismiss="offcanvas">
-                Equip
-            </button>
+            <div class="d-flex align-items-center">
+                <button type="button" class="section-container mt-2 me-auto">Destroy</button>
+                <button type="button" class="section-container mt-2" id="eqpToggleEquip" action="equip" data-bs-dismiss="offcanvas">
+                    Equip
+                </button>
+            </div>
+            
         </div>
     </div>
     <div id="refinerBonusContainer" class="d-none pos-a vw-100 vh-100">
@@ -922,7 +940,7 @@
             </div>
         </div>
     </div>
-    <div class="layer d-flex flex-column align-items-center justify-content-center p-3" id="classSelection" classIdx="0">
+    <div class="layer d-flex flex-column align-items-center justify-content-center p-3 d-none" id="classSelection" classIdx="0">
         <h1 id="" class="mb-auto">Select Class</h1>
         <div class="d-flex align-items-center flex-grow-1 w-100">
             <button class="icon-btn me-auto changeClass" id="prevClass" idx="">
@@ -946,7 +964,7 @@
             <p id="classSpecialDesc">ATK and SPD +20% per hit.</p>
         </div>  
         
-            <button class="btn btn-light my-3" id="selectClassBtn">Select</button>
+            <button class="btn btn-light my-3" id="selectClassBtn" idx="0">SELECT</button>
     </div>
     <div class="layer d-flex flex-column align-items-center justify-content-center p-3 d-none" id="fakeLoad">
         <div class="pos-a w-100 h-100">
@@ -958,7 +976,7 @@
         <div id="fakeBarCont" class="mt-3">
             <div id="fakeBarProgress" class="load"></div>
         </div>
-        <button class="btn btn-light my-3 invisible" id="startGameBtn">START GAME</button>
+        <button class="btn btn-light my-3 invisible" id="startGameBtn" idx="0">START GAME</button>
     </div>
     
     <script src="assets/js/Equipment.js"></script>

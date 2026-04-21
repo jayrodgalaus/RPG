@@ -2,6 +2,8 @@ var dungeons = {}
 const easyDungeons = ["goblins","kobolds","zombies","skeletons","ghosts"];
 const midDungeons = ["arachne","cultists","fallen"];
 const lateDungeons = ["demons","angels","abyss"];
+const lastDungeon = ["abyss"];
+const maps = ["Hemog Forest","Ari Cemetery","Ruins of Demog","The Crossroads","Abyss"];
 var baseMobSpawnRate = 0.6;
 var currentMobRate = baseMobSpawnRate;
 var currentDungeon = "town";
@@ -55,6 +57,7 @@ function initFightMenu(type=""){
         atkInterval = setInterval(function(){attack(maxEHP)},currentASPD*1000);
         hitInterval = setInterval(function(){enemyAttack()},enemyMob.atkspd*1000);
         $('#PActB').css({'animation':`actionLoading ${currentASPD}s infinite`});
+        console.log(enemyMob.name)
         if(enemyMob.name == "Gold Goblin" || enemyMob.name == "Elite Gold Goblin"){
             goblinTimeout = setTimeout(
                 function(){
@@ -62,7 +65,7 @@ function initFightMenu(type=""){
                     console.log('reward triggered from initFightMenu')
                     triggerReward(true);
                 }
-                ,10000);
+                ,5000);
             $('#EName').addClass('gold')
         }else if(enemyMob.name == "Death" || enemyMob.name == "Elite Death"){
             $('#EName').addClass('death')
@@ -246,7 +249,7 @@ async function nextRoom() {
                     lastEncounter = 'portal';
                 }
             }else{
-                spawnMob();
+                spawnMob(false,false,'abyss');
                 // let bg = enemyMob.img;
                 // $('#dungeonCanvas').show();
                 // $('#dungeonPanel').css({'background-image':`url('${bg}')`})
@@ -281,8 +284,10 @@ function triggerHitTaken(){
 async function triggerReward(isGoldGob = false, escape = false){
     // console.log('triggerReward')
     let matRewardText = "";
+    let eqpText = "";
     clearInterval(atkInterval);
     clearInterval(hitInterval);
+    if(goblinTimeout){clearTimeout(goblinTimeout);}
     $('#PActB').removeAttr('style');
     let gold = 0;
 
@@ -322,7 +327,9 @@ async function triggerReward(isGoldGob = false, escape = false){
         }
         collectedGold += gold;
         let mat = rollMaterialDrop();
+        let eqp = await rollEqpDrop();
         matRewardText = "";
+
         if(mat){
             let matName = materialList[mat].name;
 
@@ -338,19 +345,26 @@ async function triggerReward(isGoldGob = false, escape = false){
             }
             collectedMats.push(mat);
         }
+        if(eqp){
+            eqpText = (eqp.displayName).trim()
+        }
         // console.log("collectedGold",collectedGold);
     }
     
     changeMaidenLocations();
-    $('#rewadGold').text("+"+gold+"g")
-    $('#rewardMats').text(matRewardText)
-    $('#rewardEqpt').text();
+    $('#rewadGold').text("+"+gold+"g");
+    $('#rewardMats').text(matRewardText);
+    $('#rewardEqpt').text(eqpText);
     setTimeout(function(){$('#rewardOverlayCont').css({'left': 0});},300)
     
 
 }
 async function triggerDeath(){
-    console.log('triggerDeath')
+    setTimeout(function(){
+        let sfx = $('#deathsfx')[0].cloneNode();
+        sfx.play();
+    },300)
+    
     triggerTransition();
     clearDungeonMenus();
     changeDungeonPanelBG('death');
@@ -376,13 +390,14 @@ function clearDungeonMenus(){
     clearInterval(hitInterval);
 }
 function changeDungeonPanelBG(bg = ''){
-    console.log('changeDungeonPanelBG')
     $('#dungeonPanel').removeClass('next maiden thief statue chest bossPortal apexPortal death').addClass(bg).removeAttr('style');
     $('#mobImg').removeAttr('style');
 }
 function attack(maxEHP){
-    console.log('attack')
     if(enemyMob.hpPoints > 0){
+        let sfxindex = Math.round((Math.random() * 2))
+        let atksfx = $('.hitsfx')[sfxindex].cloneNode();
+        atksfx.play();
         atkCounter++;
         // $('#dungeonPanel').addClass('shake');
         // setTimeout(function(){$('#dungeonPanel').removeClass('shake');},120);
@@ -413,12 +428,11 @@ function attack(maxEHP){
         }
     }else{
         atkCounter = 0;
-        triggerReward()
+        triggerReward();
     }
-    if(goblinTimeout){clearTimeout(goblinTimeout);}
+    
 }
 function enemyAttack(){
-    console.log('enemyAttack')
     if(currentHP > 0){
         
         let baseDmg = Math.max(enemyMob.dmg - currentDEF, Math.floor(enemyMob.dmg * enemyMob.minDmg));

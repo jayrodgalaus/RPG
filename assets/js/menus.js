@@ -1,19 +1,12 @@
 $(function(){
-    let vids = ["Reaper","Dravenna","Bladewind"];
-    let bgindex = Math.round(Math.random() * (vids.length-1));
-    let loadbg = `assets/vid/${vids[bgindex]}_idle.webm`;
-    let splashvideo = $('#splashVid')[0];
-    $(splashvideo).find('source').remove(); // clear old sources
-    $(splashvideo).append(`<source src="${loadbg}" type="video/webm">`);
-    splashvideo.load();
-    // $('#fakeLoad').css({"background-image":`url('${loadbg}')`})
-    $('#fakeLoad').removeClass('d-none');
-    let $loadbar = $('#fakeBarProgress');
-    $loadbar.on('animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd', () => {$('#startGameBtn').removeClass('invisible').addClass('pulse')});
+    
     
     $(document)
     .on('click','#startGameBtn',function(){
         $('#fakeLoad').remove();
+        let bgm = $('#backgroundMusic')[0];
+        bgm.loop = true;
+        // bgm.play();
     })
     .on('click','.changeClass',function(){
         let id = $(this).attr('id');
@@ -55,6 +48,7 @@ $(function(){
         $('#className').text(currentClass.name)
         $('#classSpecialName').text(special.name);
         $('#classSpecialDesc').text(special.desc);
+        $('#selectClassBtn').attr('idx',specialIdx);
     })
     .on('click','.gender-btn',function(){
         $('.gender-btn').toggleClass('active');
@@ -75,11 +69,15 @@ $(function(){
         $('#className').text(currentClass.name)
         $('#classSpecialName').text(special.name);
         $('#classSpecialDesc').text(special.desc);
+        $('#selectClassBtn').attr('idx',specialIdx);
     })
     .on('click','#selectClassBtn',async function(){
         $(this).attr('disabled',true);
         $(this).text('Creating soul');
-        await initSoul();
+        soul = await createSoul(parseInt($(this).attr('idx')));
+        await initSoulDependent();
+        $('#classSelection').remove();
+        
     })
     .on('click', '.town-btn', function(){
         let screen = $(this).attr('screen');
@@ -88,7 +86,11 @@ $(function(){
         let screenLabel = "-"+screen.charAt(0).toUpperCase() + screen.slice(1)+"-";
         
         $('#background').attr('class', nsfw ? screen + " " + "nsfw" : screen);
-        if(screen == "forge"){
+        if(screen == "soul"){
+            $('#background').removeClass('soul');
+            $('#background').css({'background-image':`url('${soul.img}')`})
+            populateStatMenu();
+        }else if(screen == "forge"){
             resetForge();
             populateEqpList("forge");
         }else if(screen == "tower"){
@@ -105,11 +107,19 @@ $(function(){
             }
             $('#storageTabs .nav-link').removeClass('active').attr('aria-selected','false');
             $('#mats-tab').click();
+        }else if(screen=="map"){
+            if($('#non-interactable').find('.hitsfx').length == 0){
+                $('#non-interactable').append(`
+                    <audio src="assets/audio/hit1.wav" id="hitsfx1" class="hitsfx" preload="auto"></audio>
+                    <audio src="assets/audio/hit2.wav" id="hitsfx2" class="hitsfx" preload="auto"></audio>
+                    <audio src="assets/audio/hit3.wav" id="hitsfx3" class="hitsfx" preload="auto"></audio>
+                    <audio src="assets/audio/death.wav" id="deathsfx" preload="auto"></audio>`);
+            }
         }else if(screen == "maidens"){
             screenLabel = "";
             populateMaidenMenu();
         }
-        $('#backgroundLabel').text(screenLabel);
+        // $('#backgroundLabel').text(screenLabel);
         $('.menu').addClass('d-none');
         $('#'+screen+"Menu").removeClass('d-none');
         if(screen != "town"){
@@ -136,6 +146,12 @@ $(function(){
         $(this).siblings().toggleClass('d-none')
         $(this).find('i').toggleClass('fa-caret-down fa-caret-up');
         $(this).closest('.offcanvas').find('.icon-btn[aria-label="Close"]').toggleClass('hidden')
+    })
+    .on('click', '.menu button',function(){
+        let sfx = $('#clicksfx')[0];
+        sfx.volume = 0.3;
+        sfx.currentTime = 0; // rewind instantly
+        sfx.play();
     })
     //town menu
     .on('click','.buff-icon-wrapper',function(){
@@ -496,6 +512,44 @@ $(function(){
         populateMatsTab()
     })
     //dungeon menu
+    .on('click','.changeMap',function(){
+        let id = $(this).attr('id');
+        let idx = parseInt($(this).attr('idx'));
+        let currentMap;
+        if(id == 'prevMap'){
+            if(idx == 0){
+                $(this).attr('idx',maps.length-1)
+            }else{
+                $(this).attr('idx',idx-1);
+            }
+            let otherIdx = parseInt($('#nextMap').attr('idx'));
+            if(otherIdx == 0){
+                $('#nextMap').attr('idx',maps.length-1)
+            }else{
+                $('#nextMap').attr('idx',otherIdx-1);
+            }
+        }else{
+            if(idx == maps.length-1){
+                $(this).attr('idx',0)
+            }else{
+                $(this).attr('idx',idx+1);
+            }
+            let otherIdx = parseInt($('#prevMap').attr('idx'));
+            if(otherIdx == maps.length-1){
+                $('#prevMap').attr('idx',0)
+            }else{
+                $('#prevMap').attr('idx',otherIdx+1);
+            }
+        }
+        currentMap = maps[idx];
+        $('#mapName').text(currentMap)
+        let mapImg = `assets/img/Backgrounds/map_${idx}.webp`;
+        $('#background').css({'background-image':`url('${mapImg}')`});
+        $('.map-menu-btn').addClass('d-none');
+        console.log(idx,$('.map-menu-btn[mapidx="'&idx&'"]').length)
+        $('.map-menu-btn[mapidx="'+idx+'"]').removeClass('d-none');
+        
+    })
     .on('click','#mapMenuDungeonList button',function(){
         $('#mapMenuDungeonList button').removeClass('active');
         $("#floorListContainer").removeClass('invisible');

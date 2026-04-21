@@ -2,13 +2,16 @@ body{
     overflow: hidden;
     position: relative;
     font-family: 'Anaheim';
+    max-width: 500px;
+    max-height: 890px;
 }
 #background{
     position: relative;
     overflow: hidden;
     background-size: cover;
-    background-position: center;
+    background-position: center center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     height: 100vh;
 }
 h1,h2,h3,h4,h5,#eqpPreviewName,#eqpName{
@@ -55,7 +58,7 @@ h1,h2,h3,h4,h5,#eqpPreviewName,#eqpName{
 #background.death{background-image: url("../img/Backgrounds/death.webp");}
 #background.storage{background-image: url("../img/Backgrounds/storage.webp");}
 #background.armory{background-image: url("../img/Backgrounds/armory.webp");}
-#background.map{background-image: url("../img/Backgrounds/map.webp");}
+#background.map{background-image: url("../img/Backgrounds/map_0.webp"); background-color: black;}
 #background.alchemist{background-image: url("../img/NPCs/Town/alchemist1.webp");}
 #background.guild{background-image: url("../img/Backgrounds/guild.webp");}
 #background.shop.nsfw{background-image: url("../img/NPCs/Town/merchant-nsfw.webp") !important;}
@@ -287,6 +290,11 @@ h1,h2,h3,h4,h5,#eqpPreviewName,#eqpName{
 /* EQUIPMENT MENU */
 
 /* MAP MENU */
+    .changeMap{
+        border: none !important;
+        width: 30px !important;
+        height: 30px !important;
+    }
     #mapMenuDungeonList, #mapMenuFloorList{
         max-height: 50vh;
         overflow-y: auto;
@@ -375,6 +383,10 @@ h1,h2,h3,h4,h5,#eqpPreviewName,#eqpName{
     }
 /* BAG MENU */
 /* DUNGEON */
+    #mapMenuDungeonList .list-group-item:disabled{
+        background-color: transparent;
+        color: grey;
+    }
     #dungeonCanvas, #transitionOverlay, #hitOverlay { position: absolute; inset: 0; z-index: 1046; display: none;}
     #dungeonPanel.death {background: url('../img/Backgrounds/death.webp') center center / cover no-repeat;}
     #dungeonPanel.thief {background: url('../img/Backgrounds/thief.webp') center center / cover no-repeat;}

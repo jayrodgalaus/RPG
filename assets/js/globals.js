@@ -91,6 +91,7 @@ function calcTotalStats(){
     
 }
 function populateStatMenu(){
+    console.log(soul)
     $('#baseAtk').text(soul.atk);
     $('#baseSpd').text(soul.spd);
     $('#baseDef').text(soul.def);

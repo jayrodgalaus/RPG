@@ -31,7 +31,7 @@ class Equipment {
         this.suffix;
         this.isEquipped = false;
         this.value = 0;
-        this.displayName = this.affix+" "+this.eqp.mob+" "+this.eqp.type.type;
+        this.displayName = (this.affix+" "+this.eqp.mob.replace(/\b\w/g, c => c.toUpperCase())+" "+this.eqp.type.type).trim();
         this.img = this.getEqpImg(this.eqp,this.tier);
     }
     setAffix() {
@@ -53,6 +53,7 @@ class Equipment {
             { name: "Def", value: this.def },
             { name: "HP",  value: this.hp }
         ];
+        console.log(stats)
 
         stats.sort((a, b) => b.value - a.value);
 
@@ -92,14 +93,15 @@ class Equipment {
                 Tie: "Bulwark" 
             }
         };
-
-        const key = [top1, top2].sort().join("+");
+        const key = affixMap[`${top1}+${top2}`] ? `${top1}+${top2}` : `${top2}+${top1}`;
 
         if (stats[0].value === stats[1].value) {
             return affixMap[key].Tie;
         }
-
         return affixMap[key][top1];
+        
+
+        
     }
     enhance(cost) {
         let atk_chance = this.eqp.type.atk_chance;
@@ -137,8 +139,10 @@ class Equipment {
             
             $('.forge-eqp-btn.active .forge-item-enhancements').text(this.enhancement)
         }else{
+            
             let idx = tiers.indexOf(this.tier);
             let maxidx = tiers.indexOf(this.max_tier);
+            console.log(idx,maxidx)
             if(idx < maxidx)
                 this.raiseTier();
         }
@@ -271,6 +275,11 @@ class Equipment {
             else if(this.tier == "D") this.aura_1 = true;
             else if(this.tier == "B") this.aura_2 = true;
         }
+        this.enhancement = 0;
+        this.img = this.getEqpImg(this.eqp,this.tier);
+        calcLoadOutStats();
+        calcTotalStats();
+        updateInventory();
     }
     toggleEquip() {
         let isEquipped =this.isEquipped;

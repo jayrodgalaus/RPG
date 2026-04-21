@@ -42,9 +42,33 @@ async function initSoul() {
         getRequest.onsuccess = () => {
             let soulData = getRequest.result;
 
+            if (soulData) {
+                console.log("Soul found in DB:", soulData);
+                $('#classSelection').remove();
+                const existingSoul = new Soul(soulData, soulData.classAbilityIdx);
+                resolve(existingSoul);
+            }else{
+                $('#classSelection').removeClass('d-none');
+                resolve(null)
+            }
+            
+        };
+        getRequest.onerror = () => reject(getRequest.error);
+    });
+}
+async function createSoul(classIdx){
+    return new Promise((resolve, reject) => {
+        const tx = db.transaction("Soul", "readwrite");
+        const store = tx.objectStore("Soul");
+        const getRequest = store.get(1); // single Soul record with id=1
+
+        getRequest.onsuccess = () => {
+            let soulData = getRequest.result;
+
             if (!soulData) {
                 console.log("No Soul found, creating new one...");
-                const newSoul = new Soul({ atk: 5, spd: 0, def: 0, hp: 5, availableStats: 15 });
+                
+                const newSoul = new Soul({ atk: 5, spd: 0, def: 0, hp: 5, availableStats: 15 },classIdx);
                 const putRequest = store.put({ id: 1, ...newSoul });
 
                 putRequest.onsuccess = () => {
@@ -79,19 +103,29 @@ async function initInventory() {
                 console.log("No equipment found, creating new starter set...");
 
                 // create beginner weapon
-                await createEquipment(db, { eqp_type: "weapon", eqp_id: 6, tier: "G", max_tier: "G" },true);
+                let weaponId = 0;
+                switch(soul.getClassName()){
+                    case "Warden": weaponId = 0; break;
+                    case "Ravager": weaponId = 1; break;
+                    case "Sentinel": weaponId = 2; break;
+                    case "Severant": weaponId = 3; break;
+                    case "Bladewind": weaponId = 4; break;
+                    case "Overlord": weaponId = 5; break;
+                    case "Shade": weaponId = 6; break;
+                    case "Vanguard": weaponId = 7; break;
+                }
+                await createEquipment(db, { eqp_type: "weapon", eqp_id: weaponId, tier: "F", max_tier: "F" },true);
                 // create beginner armor (helmet, breastplate, gloves, greaves)
                 await createEquipment(db, { eqp_type: "armor", eqp_id: 0, tier: "G", max_tier: "G" }, true);
                 await createEquipment(db, { eqp_type: "armor", eqp_id: 1, tier: "G", max_tier: "G" }, true);
                 await createEquipment(db, { eqp_type: "armor", eqp_id: 2, tier: "G", max_tier: "G" }, true);
                 await createEquipment(db, { eqp_type: "armor", eqp_id: 3, tier: "G", max_tier: "G" }, true);
-                //create fallen equipment
-                await createEquipment(db, { eqp_type: "weapon", eqp_id: 9, tier: "F", max_tier: "SR" }, false);
+                /* //create fallen equipment
                 await createEquipment(db, { eqp_type: "armor", eqp_id: 4, tier: "F", max_tier: "SR" }, false);
                 await createEquipment(db, { eqp_type: "armor", eqp_id: 5, tier: "F", max_tier: "SR" }, false);
                 await createEquipment(db, { eqp_type: "armor", eqp_id: 6, tier: "F", max_tier: "SR" }, false);
                 await createEquipment(db, { eqp_type: "armor", eqp_id: 7, tier: "F", max_tier: "SR" }, false);
-                await createEquipment(db, { eqp_type: "armor", eqp_id: 8, tier: "F", max_tier: "SR" }, false);
+                await createEquipment(db, { eqp_type: "armor", eqp_id: 8, tier: "F", max_tier: "SR" }, false); */
                 
                 resolve("Starter equipment created");
             } else {
@@ -164,11 +198,11 @@ async function initDungeon(){
                         skeletons: { species: "skeletons", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.05 },
                         ghosts: { species: "ghosts", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.05 },
                         arachne: { species: "arachne", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.06 },
-                        cultist: { species: "cultists", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.06 },
+                        cultists: { species: "cultists", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.06 },
                         fallen: { species: "fallen", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.06 },
                         demons: { species: "demons", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.07 },
                         angels: { species: "angels", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.07 },
-                        abyss: { species: "abyss", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.07 },
+                        abyss: { species: "abyss", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.08 },
                     },
                     currentRun: 0,
                 };
@@ -185,6 +219,47 @@ async function initDungeon(){
                 $('#runCount').text(`Run ${currentRun}`)
                 resolve("Dungeon State fetched");
             }
+            let midDungeonsUnlocked = null;
+            let lateDungeonsUnlocked = null;
+            let lastDungeonsUnlocked = null;
+            easyDungeons.forEach(item =>{
+                let current = dungeons[item.toLowerCase()];
+                if(current.maxFloor >= 10){
+                    if(midDungeonsUnlocked === null){
+                        midDungeonsUnlocked = true;
+                    }else{
+                        midDungeonsUnlocked &= true;
+                    }
+                }
+            });
+            midDungeons.forEach(item =>{
+                let current = dungeons[item.toLowerCase()];
+                if(current && current.maxFloor >= 10){
+                    if(lateDungeonsUnlocked === null){
+                        lateDungeonsUnlocked = true;
+                    }else{
+                        lateDungeonsUnlocked &= true;
+                    }
+                }
+            });
+            lateDungeons.forEach(item =>{
+                let current = dungeons[item.toLowerCase()];
+                if(current.maxFloor >= 10){
+                    if(lateDungeonsUnlocked === null){
+                        lastDungeonsUnlocked = true;
+                    }else{
+                        lateDungeonsUnlocked &= true;
+                    }
+                }
+            });
+            if(lateDungeonsUnlocked){
+                $('.map-menu-btn[scope="late"]').removeAttr('disabled');
+            }
+            if(lastDungeonsUnlocked){
+                $('.map-menu-btn[scope="last"]').removeAttr('disabled');
+            }
+            
+            
         };
 
         getRequest.onerror = () => reject(getRequest.error);
@@ -294,7 +369,7 @@ async function initMaidens() {
                 };
                 putRequest.onerror = () => reject(putRequest.error);
             } else {
-                console.log("Maidens found in DB:", maidendata);
+                console.log("Maidens found in DB:");
                 unlockedMaidens = maidendata.unlockedMaidens;
                 maidenQ1Complete = maidendata.maidenQ1Complete;
                 maidenQ2Complete = maidendata.maidenQ2Complete;
@@ -304,24 +379,49 @@ async function initMaidens() {
         getRequest.onerror = () => reject(getRequest.error);
     });
 }
-
+async function initScreens(){
+    let vids = ["Reaper","Dravenna","Bladewind"];
+    let bgindex = Math.round(Math.random() * (vids.length-1));
+    let loadbg = `assets/vid/${vids[bgindex]}_idle.webm`;
+    let splashvideo = $('#splashVid')[0];
+    $(splashvideo).find('source').remove(); // clear old sources
+    $(splashvideo).append(`<source src="${loadbg}" type="video/webm">`);
+    splashvideo.load();
+    // $('#fakeLoad').removeClass('d-none');
+    let $loadbar = $('#fakeBarProgress');
+    $loadbar.on('animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd', () => {$('#startGameBtn').removeClass('invisible').addClass('pulse')});
+    $('#male').addClass('active');
+    $('#prevClass').attr('idx',classList.length - 1);
+}
+async function initSoulDependent(){
+    setGold();
+    populateStatMenu();
+    await initRefiner();
+    populateRefinerMenu();
+    await initInventory();
+}
 
 $(document).ready(async function(){
     //db
     db = await openDB();
-    soul = await initSoul();
-    setGold();
-    await initInventory();
-    await initRefiner();
+    
+    initScreens();
     await initBag();
     await initMaidens();
     await initDungeon();
-    //UI
     initTown();
-    populateStatMenu();
-    populateRefinerMenu();
+    
     initStars();
     generateMaidens();
+    soul = await initSoul();
+    if(soul){
+        initSoulDependent();
+    }
+    
+    //UI
+    
+    
+    
 })
 
 
