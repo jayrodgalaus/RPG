@@ -28,7 +28,6 @@ var goblinTimeout = null;
 function populateDungeonFloors(){
     let dungeonText = $('#mapMenuDungeonList button.active').text().toLowerCase();
     let currentDungeon = dungeons[dungeonText];
-    console.log("populateDungeonFloors");
     let floorHTML = '';
     let floor = 1;
     while(floor <= currentDungeon.maxFloor ){
@@ -39,7 +38,6 @@ function populateDungeonFloors(){
 }
 
 function initFightMenu(type=""){
-    console.log("initFightMenu");
     $('#EName').text(enemyMob.name);
     $('#currentFloor').text(currentFloor);
     let roomText = currentFloor % 10 == 0 ? (currentFloor == 50 ? "Apex room" : "Boss room") : `Room ${currentRoom}`;
@@ -305,6 +303,7 @@ async function triggerReward(isGoldGob = false, escape = false){
             }else if(easyDungeons.includes(spc) && !maidenQ2Complete && currentMaiden.idx == 4){
                 maidenQ2Complete = true;
             }
+            checkMaidenQuests();
             updateMaidenStatus();
         }
         await updateDungeonState();
@@ -330,7 +329,7 @@ async function triggerReward(isGoldGob = false, escape = false){
         let eqp = await rollEqpDrop();
         matRewardText = "";
 
-        if(mat){
+        if(mat != null && mat != undefined && mat != -1){
             let matName = materialList[mat].name;
 
             matRewardText = matName;

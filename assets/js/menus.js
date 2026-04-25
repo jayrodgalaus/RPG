@@ -159,6 +159,7 @@ $(function(){
     })
     //forge
     .on('click','.forge-eqp-btn',function(){
+        $('#forgeStatsCont .text-E').removeClass('text-E');
         let idx = parseInt($(this).attr('idx'));
         let array = $(this).attr('array');
         let src = array == "loadout" ? loadOut : (array == "weapons" ? weapons : armor);
@@ -200,10 +201,10 @@ $(function(){
             setTimeout(function(){$('#forgeCurrentEnhance').parent().removeClass('grow');},120);
             initStars(eqp.enhancement, tier == "G" ? 5 : 10);
             $('#forgeCurrentEnhance').text(eqp.enhancement);
-            $('#forgeAtk').text(eqp.final_atk);
-            $('#forgeSpd').text(eqp.final_spd);
-            $('#forgeDef').text(eqp.final_def);
-            $('#forgeHp').text(eqp.final_hp);
+            // $('#forgeAtk').text(eqp.final_atk);
+            // $('#forgeSpd').text(eqp.final_spd);
+            // $('#forgeDef').text(eqp.final_def);
+            // $('#forgeHp').text(eqp.final_hp);
             populateStatMenu()
             
             
@@ -499,6 +500,8 @@ $(function(){
         populateWeaponList();
     })
     .on('click', '.eqp-list-btn',function(){
+        $('.eqp-list-btn').removeClass('active');
+        $(this).addClass('active');
         let idx = parseInt($(this).attr('idx'));
         let src = $(this).attr('array') == 'weapons' ? weapons : armor;
         let eqp = src[idx];
@@ -507,12 +510,28 @@ $(function(){
             previewEqp(currentEqpPreview, true)
         }
     })
+    .on('click', '#eqpDestroy', function(){
+        let eqpId = $('.eqp-list-btn.active').attr('eqpId');
+        let eqp = inventory.find(eqp => eqp.id == eqpId);
+        if(eqp.isEquipped){
+            console.log("Can't destroy eqp that is currently equipped;")
+            return false;
+        }
+        let array = $('.eqp-list-btn.active').attr('array');
+        let eqpIdx = inventory.findIndex(eqp => eqp.id == eqpId);
+        //remove
+        inventory.splice(eqpIdx,1);
+        populateInvEqpList(array)
+        updateInventory();
+
+    })
     //bag menu
     .on('click','#mats-tab',function(){
         populateMatsTab()
     })
     //dungeon menu
     .on('click','.changeMap',function(){
+        $('#floorListContainer').addClass('invisible')
         let id = $(this).attr('id');
         let idx = parseInt($(this).attr('idx'));
         let currentMap;

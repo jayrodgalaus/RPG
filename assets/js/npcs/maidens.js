@@ -261,7 +261,7 @@ function changeMaidenLocations(){
 }
 function checkMaidenQuests(){
     if(maidenQ1Complete) $("#auramasterBtnContainer").removeClass('d-none')
-    if(maidenQ2Complete) $("#enchantressBtnContainer").removeClass('d-none')
+    if(maidenQ2Complete) $("#runemasterBtnContainer").removeClass('d-none')
 }
 function updateMaidenStatus(){
     const tx = db.transaction("Maidens", "readwrite");

@@ -244,6 +244,7 @@ function addRefinerMats(amt,src){
     if(amt > 0){
         for(let i = 0; i < amt; i++){
             let mat = matsrc[Math.floor(Math.random() * matsrc.length)];
+            console.log(mat)
             collectedMats.push(mat.id);
         }
     }

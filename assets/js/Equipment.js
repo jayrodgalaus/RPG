@@ -31,7 +31,7 @@ class Equipment {
         this.suffix;
         this.isEquipped = false;
         this.value = 0;
-        this.displayName = (this.affix+" "+this.eqp.mob.replace(/\b\w/g, c => c.toUpperCase())+" "+this.eqp.type.type).trim();
+        this.displayName = (this.affix+" "+this.eqp.mob.replace(/\b\w/g, c => c.toUpperCase())+" "+this.eqp.name).trim();
         this.img = this.getEqpImg(this.eqp,this.tier);
     }
     setAffix() {
@@ -53,7 +53,6 @@ class Equipment {
             { name: "Def", value: this.def },
             { name: "HP",  value: this.hp }
         ];
-        console.log(stats)
 
         stats.sort((a, b) => b.value - a.value);
 
@@ -110,31 +109,36 @@ class Equipment {
         let hp_chance = def_chance + this.eqp.type.hp_chance;
         
         // Generate random increase from 1–5
-        const random_stat_increase = Math.floor(Math.random() * 5) + 1;
-
+        const random_stat_increase = Math.floor(Math.random() * (5+(tiers.indexOf(this.tier)))) + 1;
+        
         
         if(this.enhancement < 10){
             if((this.tier == "G" && this.enhancement == 5)){
                 return;
             }
             // Apply enhancement
+            $('#forgeStatsCont .text-E').removeClass('text-E');
+            $('#forgeAtk').text(`${this.atk}`);
+            $('#forgeSpd').text(`${this.spd}`);
+            $('#forgeDef').text(`${this.def}`);
+            $('#forgeHp').text(`${this.hp}`);
+            console.log(random_stat_increase)
             let roll = Math.random();
-            if(roll <= atk_chance) this.atk += random_stat_increase;
-            else if(roll <= spd_chance) this.spd += random_stat_increase;
-            else if(roll <= def_chance) this.def += random_stat_increase;
-            else if(roll <= hp_chance) this.hp += random_stat_increase;
-            else this.hp += random_stat_increase;
-            // Recalculate derived stats
-            this.final_atk = this.atk * (1 + this.atk_buff);
-            this.dmg = this.final_atk * 3;
-            this.final_spd = this.spd * (1 + this.spd_buff);
-            this.atkspd = this.spd * (1 + this.spd_buff) >= 430 ? 0.14 : 1 - (this.spd * 0.002);
-            this.final_def = this.def * (1 + this.def_buff);
-            this.final_hp = this.hp * (1 + this.hp_buff);
-            this.hpPoints = this.final_hp * 5;
-            this.enhancement += 1;
-            this.affix = this.setAffix();
-            $(".forge-eqp-btn.active").html(`${this.displayName}(${this.tier}+<span class="forge-item-enhancements">${this.enhancement}</span>)`)
+            if(roll <= atk_chance) {
+                this.atk += random_stat_increase;
+                $('#forgeAtk').text(`${this.atk}(+${random_stat_increase})`).addClass('text-E');}
+            else if(roll <= spd_chance) {
+                this.spd += random_stat_increase;
+                $('#forgeSpd').text(`${this.spd}(+${random_stat_increase})`).addClass('text-E');}
+            else if(roll <= def_chance) {
+                this.def += random_stat_increase;
+                $('#forgeDef').text(`${this.def}(+${random_stat_increase})`).addClass('text-E');}
+            else if(roll <= hp_chance) {
+                this.hp += random_stat_increase;
+                $('#forgeHp').text(`${this.hp}(+${random_stat_increase})`).addClass('text-E');}
+            else {
+                $('#forgeHp').text(`${this.hp}(+${random_stat_increase})`).addClass('text-E');
+                this.hp += random_stat_increase;}
             //compute item value
             
             $('.forge-eqp-btn.active .forge-item-enhancements').text(this.enhancement)
@@ -142,16 +146,26 @@ class Equipment {
             
             let idx = tiers.indexOf(this.tier);
             let maxidx = tiers.indexOf(this.max_tier);
-            console.log(idx,maxidx)
             if(idx < maxidx)
                 this.raiseTier();
         }
         let prevEqpIndex = inventory.findIndex(eqp => eqp.id === this.id);
-        // console.log(inventory[prevEqpIndex])
-        // inventory[prevEqpIndex] = this;
+        // Recalculate derived stats
+        this.final_atk = Math.round(this.atk * (1 + this.atk_buff));
+        this.dmg = this.final_atk * 3;
+        this.final_spd = Math.round(this.spd * (1 + this.spd_buff));
+        this.atkspd = this.spd * (1 + this.spd_buff) >= 430 ? 0.14 : 1 - (this.spd * 0.002);
+        this.final_def = Math.round(this.def * (1 + this.def_buff));
+        this.final_hp = Math.round(this.hp * (1 + this.hp_buff));
+        this.hpPoints = Math.round(this.final_hp * 5);
+        this.enhancement += 1;
+        this.affix = this.setAffix();
+        $(".forge-eqp-btn.active").html(`${this.displayName}(${this.tier}+<span class="forge-item-enhancements">${this.enhancement}</span>)`)
+        
         //deduct gold
         soul.updateGold(soul.gold - cost);
         setGold();
+        this.affix = this.setAffix();
         calcLoadOutStats();
         calcTotalStats();
         updateInventory();
@@ -241,25 +255,25 @@ class Equipment {
         if(this.enhancement == 10 && this.tier != this.max_tier){
             if(this.tier != "D" && this.tier != "A"){
                 const random_stat_index = Math.floor(Math.random() * 4);
-                const random_stat_increase = (Math.floor(Math.random() * 30) + 15)/100;
+                const random_stat_increase = parseFloat(((Math.floor(Math.random() * 30) + 15)/100).toFixed(2));
                 // Apply enhancement
                 stats[random_stat_index] += random_stat_increase;
                 // Push updated values back into the object
                 [this.atk_buff, this.spd_buff, this.def_buff, this.hp_buff] = stats;
                 switch(random_stat_index){
                     case 0:
-                        this.final_atk = this.atk * (1 + this.atk_buff);
+                        this.final_atk = Math.round(this.atk * (1 + this.atk_buff));
                         this.dmg = this.final_atk * 3;
                         break;
                     case 1:
-                        this.final_spd = this.spd * (1 + this.spd_buff);
+                        this.final_spd = Math.round(this.spd * (1 + this.spd_buff));
                         this.atkspd = this.spd * (1 + this.spd_buff) >= 430 ? 0.14 : 1 - (this.spd * 0.002);
                         break;
                     case 2:
-                        this.final_def = this.def * (1 + this.def_buff);
+                        this.final_def = Math.round(this.def * (1 + this.def_buff));
                         break;
                     case 3:
-                        this.final_hp = this.hp * (1 + this.hp_buff);
+                        this.final_hp = Math.round(this.hp * (1 + this.hp_buff));
                         this.hpPoints = this.final_hp * 5;
                         break;
                 }
@@ -277,6 +291,9 @@ class Equipment {
         }
         this.enhancement = 0;
         this.img = this.getEqpImg(this.eqp,this.tier);
+        $("#forgeEqpPreview").css({'background-image':`url('${this.img}')`});
+        $(".forge-eqp-btn.active .equipped-item-tier").text(this.tier);
+        $("#forgeCost").text(forgeCosts[this.tier]);
         calcLoadOutStats();
         calcTotalStats();
         updateInventory();

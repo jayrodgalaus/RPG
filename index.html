@@ -74,7 +74,7 @@
                         </button>
                         <span class="icon-btn-text">Enchant</span>
                     </div>
-                    <div class="mb-2 d-none" id="enchantressBtnContainer">
+                    <div class="mb-2 d-none" id="runemasterBtnContainer">
                         <button id="runemasterBtn" class="icon-btn town-btn"  screen="runes">
                             <img src="assets/icons/noun-item-rune-stone-2360138.svg" class="w-75" alt="">
                         </button>
@@ -180,14 +180,22 @@
                 <div class="d-flex flex-column align-items-center justify-content-center flex-grow-1">
                     <h1 class="shaded">+<span id="forgeCurrentEnhance">0</span></h1>
                     <div id="forgeStars" class="icon-btn-text small-text d-flex justify-content-center w-100 text-light"></div>
-                    <div class="section-container w-100 mt-2">
-                        <div class="d-flex">
-                            <div class="flex-grow-1">ATK: <span id="forgeAtk"></span></div>
-                            <div class="flex-grow-1">DEF: <span id="forgeDef"></span></div>
+                    <div class="section-container w-100 mt-2" id="forgeStatsCont">
+                        <div class="row">
+                            <div class="col">
+                                <div class="d-flex align-items-center"><img src="assets/icons/atk.svg" class="stat-icon"> <span id="forgeAtk"></span></div>
+                            </div>
+                            <div class="col">
+                                <div class="d-flex align-items-center"><img src="assets/icons/def.svg" class="stat-icon"> <span id="forgeDef"></span></div>
+                            </div>
                         </div>
-                        <div class="d-flex">
-                            <div class="flex-grow-1">SPD: <span id="forgeSpd"></span></div>
-                            <div class="flex-grow-1">HP: <span id="forgeHp"></span></div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="d-flex align-items-center"><img src="assets/icons/spd.svg" class="stat-icon"> <span id="forgeSpd"></span></div>
+                            </div>
+                            <div class="col">
+                                <div class="d-flex align-items-center"><img src="assets/icons/hp.svg" class="stat-icon"> <span id="forgeHp"></span></div>
+                            </div>                            
                         </div>
                     </div>
                     <button class="icon-btn mt-2" id="enhanceBtn" index="-1">
@@ -238,13 +246,21 @@
                     <h1 class="shaded">+<span id="enchantCurrentEnhance">0</span></h1>
                     <div id="enchantStars" class="icon-btn-text small-text d-flex justify-content-center w-100 text-light"></div>
                     <div class="section-container w-100 mt-2">
-                        <div class="d-flex">
-                            <div class="flex-grow-1">ATK: <span id="enchantAtk"></span></div>
-                            <div class="flex-grow-1">DEF: <span id="enchantDef"></span></div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="d-flex align-items-center"><img src="assets/icons/atk.svg" class="stat-icon"> <span id="enchantAtk"></span></div>
+                            </div>
+                            <div class="col">
+                                <div class="d-flex align-items-center"><img src="assets/icons/def.svg" class="stat-icon"> <span id="enchantDef"></span></div>
+                            </div>
                         </div>
-                        <div class="d-flex">
-                            <div class="flex-grow-1">SPD: <span id="enchantSpd"></span></div>
-                            <div class="flex-grow-1">HP: <span id="enchantHp"></span></div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="d-flex align-items-center"><img src="assets/icons/spd.svg" class="stat-icon"> <span id="enchantSpd"></span></div>
+                            </div>
+                            <div class="col">
+                                <div class="d-flex align-items-center"><img src="assets/icons/hp.svg" class="stat-icon"> <span id="enchantHp"></span></div>
+                            </div>                            
                         </div>
                     </div>
                     <button class="icon-btn mt-2" id="enchantBtn" index="-1">
@@ -340,12 +356,26 @@
                 </div>
                 <div class="mt-2 section-container">
                     <h5>Total Stats</h5>
-                    <div class="d-flex align-items-center justify-content-center">
+                    <div class="row">
+                        <div class="col">
+                            <div class="d-flex align-items-center"><img src="assets/icons/atk.svg" class="stat-icon"> <span id="totalAtk">0</span></div>
+                        </div>
+                        <div class="col">
+                            <div class="d-flex align-items-center"><img src="assets/icons/spd.svg" class="stat-icon"> <span id="totalSpd">0</span></div>
+                        </div>
+                        <div class="col">
+                            <div class="d-flex align-items-center"><img src="assets/icons/def.svg" class="stat-icon"> <span id="totalDef">0</span></div>
+                        </div>
+                        <div class="col">
+                            <div class="d-flex align-items-center"><img src="assets/icons/hp.svg" class="stat-icon"> <span id="totalHP">0</span></div>
+                        </div>
+                    </div>
+                    <!-- <div class="d-flex align-items-center justify-content-center">
                         <div class="flex-grow-1"><b>ATK: <span id="totalAtk">0</span></b></div>
                         <div class="flex-grow-1"><b>SPD: <span id="totalSpd">0</span></b></div>
                         <div class="flex-grow-1"><b>DEF: <span id="totalDef">0</span></b></div>
                         <div class="flex-grow-1"><b>HP: <span id="totalHP">0</span></b> </div>
-                    </div>
+                    </div> -->
                     <div class="d-flex">
                         <div class="flex-grow-1">ATK/s: <span id="totalAPS">0</span></div>
                         <div class="flex-grow-1">HP Points: <span id="totalHPP">0</span></div>
@@ -533,12 +563,21 @@
             </div>
             <div class="section-container my-1 w-100">
                 <h5>Load Out Stats</h5>
-                <div class="d-flex align-items-center justify-content-center">
-                    <div class="flex-grow-1">ATK: <span id="loadOuttotalAtk">0</span></div>
-                    <div class="flex-grow-1">SPD: <span id="loadOuttotalSpd">0</span></div>
-                    <div class="flex-grow-1">DEF: <span id="loadOuttotalDef">0</span></div>
-                    <div class="flex-grow-1">HP: <span id="loadOuttotalHP">0</span> </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="d-flex align-items-center"><img src="assets/icons/atk.svg" class="stat-icon"> <span id="loadOuttotalAtk"></span></div>
+                    </div>
+                    <div class="col">
+                        <div class="d-flex align-items-center"><img src="assets/icons/def.svg" class="stat-icon"> <span id="loadOuttotalSpd"></span></div>
+                    </div>
+                    <div class="col">
+                        <div class="d-flex align-items-center"><img src="assets/icons/spd.svg" class="stat-icon"> <span id="loadOuttotalDef"></span></div>
+                    </div>
+                    <div class="col">
+                        <div class="d-flex align-items-center"><img src="assets/icons/hp.svg" class="stat-icon"> <span id="loadOuttotalHP"></span></div>
+                    </div>                            
                 </div>
+                
             </div>
             <div class="d-flex align-items-center justify-content-center my-1 w-100">
                 <button class="btn btn-outline-light mx-1 eqp-list-toggle" array="weapons" data-bs-toggle="offcanvas" data-bs-target="#eqpListPanel" aria-controls="eqpListPanel">
@@ -630,10 +669,10 @@
             <div class="section-container small-text">
                 <div class="row">
                     <div class="col">
-                        <div><b>ATK:</b> <span id="eqpPreviewATK" class="eqpPreview-stat"></span></div>
-                        <div><b>SPD:</b> <span id="eqpPreviewSPD" class="eqpPreview-stat"></span></div>
-                        <div><b>DEF:</b> <span id="eqpPreviewDEF" class="eqpPreview-stat"></span></div>
-                        <div><b>HP:</b> <span id="eqpPreviewHP" class="eqpPreview-stat"></span></div>
+                        <div class="d-flex align-items-center"><img src="assets/icons/atk.svg" class="stat-icon"> <span id="eqpPreviewATK" class="eqpPreview-stat"></span></div>
+                        <div class="d-flex align-items-center"><img src="assets/icons/spd.svg" class="stat-icon"> <span id="eqpPreviewSPD" class="eqpPreview-stat"></div>
+                        <div class="d-flex align-items-center"><img src="assets/icons/def.svg" class="stat-icon"> <span id="eqpPreviewDEF" class="eqpPreview-stat"></span></div>
+                        <div class="d-flex align-items-center"><img src="assets/icons/hp.svg" class="stat-icon"> <span id="eqpPreviewHP" class="eqpPreview-stat"></span></div>
                         <div><b>Enhancements:</b> <span id="eqpPreviewEnhancements" class="eqpPreview-stat"></span></div>
                         <div><b>Enchantments:</b> <span id="eqpPreviewEnchantments" class="eqpPreview-stat"></span></div>
                     </div>
@@ -670,10 +709,10 @@
                 <div id="eqpListPreview" class="h-100 vw-50 me-2 d-none"></div>
                 <div id="eqpListInfo" class="h-100 small-text text-light flex-grow-1 d-none">
                     <div id="eqpName" class="w-100"></div> 
-                    <div><b>ATK:</b> <span id="eqpATK"></span></div>
-                    <div><b>SPD:</b> <span id="eqpSPD"></span></div>
-                    <div><b>DEF:</b> <span id="eqpDEF"></span></div>
-                    <div><b>HP:</b> <span id="eqpHP"></span></div>
+                    <div class="d-flex align-items-center"><img src="assets/icons/atk.svg" class="stat-icon"> <span id="eqpATK"></span></div>
+                    <div class="d-flex align-items-center"><img src="assets/icons/spd.svg" class="stat-icon"> <span id="eqpSPD"></span></div>
+                    <div class="d-flex align-items-center"><img src="assets/icons/def.svg" class="stat-icon"> <span id="eqpDEF"></span></div>
+                    <div class="d-flex align-items-center"><img src="assets/icons/hp.svg" class="stat-icon"> <span id="eqpHP"></span></div>
                     <div><b>Enhance:</b> <span id="eqpEnhancements"></span></div>
                     <div><b>Enchant:</b> <span id="eqpEnchantments"></span></div>
                     <div><b>ATK Buff:</b> <span id="eqpATKBuff"></span></div>
@@ -690,7 +729,7 @@
                 <div class="list-group list-group-flush" id="eqpList"></div>
             </div>
             <div class="d-flex align-items-center">
-                <button type="button" class="section-container mt-2 me-auto">Destroy</button>
+                <button type="button" class="section-container mt-2 me-auto" id="eqpDestroy">Destroy</button>
                 <button type="button" class="section-container mt-2" id="eqpToggleEquip" action="equip" data-bs-dismiss="offcanvas">
                     Equip
                 </button>

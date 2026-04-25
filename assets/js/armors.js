@@ -13,6 +13,10 @@ const armorList = [
     /* 3 */{category:"armor", name: "Greaves", type: armorTypes[4], img: eqp_path+"Greaves/Beginner/", mob:"Beginner"},
     //Goblin
     {category:"armor", name: "Breastplate", type: armorTypes[2], img: eqp_path+"Breastplate/Goblin/", mob:"goblins"},
+    //Kobolds
+    {category:"armor", name: "Robe", type: armorTypes[2], img: eqp_path+"Breastplate/Kobold/", mob:"kobolds"},
+    //Cultist
+
     //Fallen
     {category:"armor", name: "Shield", type: armorTypes[0], img: eqp_path+"Shield/Fallen/", mob:"fallen"},
     {category:"armor", name: "Helmet", type: armorTypes[1], img: eqp_path+"Helmet/Fallen/", mob:"fallen"},

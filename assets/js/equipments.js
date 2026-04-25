@@ -44,6 +44,7 @@ async function updateInventory() {
         atkspd: eqp.atkspd,
         def: eqp.def,
         def_buff: eqp.def_buff,
+        displayName: eqp.displayName,
         final_def: eqp.final_def,
         hp: eqp.hp,
         hp_buff: eqp.hp_buff,
@@ -182,14 +183,11 @@ function initStars(stars = 0, maxstars = 0){
     $('#enchantStars').html(html);
 }
 function organizeInventory(){
-    let str = '';
-    loadOut.forEach(item=>{str += item.displayName + ";"})
-    console.log(str)
     weapons = [];
     armor = [];
     inventory.forEach(item => {
         item.affix = item.setAffix();
-        item.displayName = item.affix+" "+item.eqp.mob+" "+item.eqp.type.type;
+        // item.displayName = item.affix+" "+item.eqp.mob+" "+item.eqp.type.type;
         if(item.eqp.category == "weapon"){weapons.push(item)}
         else{armor.push(item)}
     });
@@ -202,10 +200,11 @@ function populateEqpList(screen){
     // weapons = inventory.filter(w => w.eqp.category == "weapon");
     // armor = inventory.filter(a => a.eqp.category == "armor");
     loadOut.forEach((item, idx) => {
-        console.log(item.enchantment)
         if(screen == 'forge') modifierText = `<span class="forge-item-enhancements">${item.enhancement}</span>`;
         else if(screen == 'tower') modifierText = `<span class="tower-item-enchantments">${item.enchantment}<i class="fa-solid fa-star"></i></span>`;
-        loadOutHTML += `<button type="button" class="list-group-item list-group-item-action list-group-item-light ${screen}-eqp-btn" idx=${idx} array="loadout">${item.displayName}(${item.tier}+${modifierText})</button>`
+        loadOutHTML += `<button type="button" class="list-group-item list-group-item-action list-group-item-light ${screen}-eqp-btn" idx=${idx} array="loadout">
+            ${item.displayName}(<span class="equipped-item-tier">${item.tier}</span>+${modifierText})
+            </button>`
     });
     weapons.forEach((item, idx) => {
         if(screen == 'forge') modifierText = `<span class="forge-item-enhancements">${item.enhancement}</span>`;
@@ -240,7 +239,7 @@ function populateInvEqpList(array){
     src.forEach((item, idx) => {
         let color = item.tier;
         modifierText = `<span>${item.enhancement}</span>`;
-        weaponsHTML += `<button type="button" class="list-group-item list-group-item-action list-group-item-light text-${color}  eqp-list-btn" idx=${idx} array="${array}">
+        weaponsHTML += `<button type="button" class="list-group-item list-group-item-action list-group-item-light text-${color} eqp-list-btn" eqpId=${item.id} idx=${idx} array="${array}">
             <div class="w-100 d-flex align-items-center">
                 ${item.displayName}(${item.tier}+${modifierText})
                 <div class="ms-auto e-indicator ${item.isEquipped ? '':'invisible'}"></div>
@@ -268,7 +267,7 @@ function resetTower(){
 }
 async function rollEqpDrop(){
     // base 40% chance; 50% for boss, 60% for apex
-    let drop_chance = 1//enemyMob.isApex ? 0.3 : (enemyMob.isBoss ? 0.2 : 0.1);
+    let drop_chance = enemyMob.isApex ? 0.3 : (enemyMob.isBoss ? 0.2 : 0.1);
     let src;
     let eqp_type;
     let eqp;
