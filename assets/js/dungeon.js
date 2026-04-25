@@ -88,7 +88,6 @@ async function getDungeonState(){
     // resolve("Dungeon State fetched");
 }
 async function updateDungeonState(){
-    console.log('updateDungeonState')
     const tx = db.transaction("Dungeon", "readwrite");
     const store = tx.objectStore("Dungeon");
     let dungeonText = $('#mapMenuDungeonList button.active').text().toLowerCase();
@@ -104,7 +103,6 @@ async function updateDungeonState(){
     tx.onerror = () => reject(getRequest.error);
 }
 async function startRun(){
-    console.log('startRun');
     clearDungeonMenus();
     resetDungeon();
     currentRun += 1;
@@ -180,14 +178,18 @@ async function nextRoom() {
             let enemyEncounter = currentMobRate;
             if(currentFloor == 1 && currentRoom == 1){
                 enemyEncounter = 1; //no special encounters in first floor first room
-            }        
-            let otherEncounters = (1 - enemyEncounter)/5;
+            }
+            let encounters = ['maiden','thief','statue','chest','portal'];
+            if(easyDungeons.includes(currentDungeon.species)){encounters.push('faery');}
+            let otherEncounters = (1 - enemyEncounter)/encounters.length;
             let maidenEncounter = currentMaiden ? enemyEncounter : enemyEncounter + otherEncounters; //no encounters if there is a maiden
             enemyEncounter += currentMaiden ? otherEncounters : 0;
             let thiefEncounter = maidenEncounter + otherEncounters;
             let statueEncounter = thiefEncounter + otherEncounters;
             let chestEncounter = statueEncounter + otherEncounters;
             let portalEncounter = chestEncounter + otherEncounters;
+            let faeryEncounter = easyDungeons.includes(currentDungeon.species) ? portalEncounter + chestEncounter : 0;
+            console.log('faeryEncounter',faeryEncounter)
             let encounterRoll = Math.random();
 
             if(encounterRoll <= enemyEncounter){
@@ -246,6 +248,15 @@ async function nextRoom() {
                     spawnPortal();
                     lastEncounter = 'portal';
                 }
+            }else if(encounterRoll <= faeryEncounter && faeryEncounter != 0){
+                if(lastEncounter && lastEncounter == 'faery'){
+                    spawnMob();
+                }else{
+                    changeDungeonPanelBG('faery')
+                    $('#faeryMenu').removeClass('d-none');
+                    lastEncounter = 'faery';
+                }
+                
             }else{
                 spawnMob(false,false,'abyss');
                 // let bg = enemyMob.img;
@@ -380,7 +391,7 @@ async function triggerDeath(){
 }
 function clearDungeonMenus(){
     console.log('clearDungeonMenus')
-    $('#deathMenu, #fightMenu, #nextFloorMenu,#maidenMenu, #thiefMenu, #chestMenu, #statueMenu, #bossMenu, #apexMenu, .portal-menu').addClass('d-none');
+    $('#deathMenu, #fightMenu, #nextFloorMenu,#maidenMenu, #thiefMenu, #chestMenu, #statueMenu, #bossMenu, #apexMenu, #faeryMenu, .portal-menu').addClass('d-none');
     $('#rewardOverlayCont').css({'left': '100vw'});
     $('#atkDmgTextArea').empty();
     $('#mobImg').removeAttr('style');
@@ -389,7 +400,7 @@ function clearDungeonMenus(){
     clearInterval(hitInterval);
 }
 function changeDungeonPanelBG(bg = ''){
-    $('#dungeonPanel').removeClass('next maiden thief statue chest bossPortal apexPortal death').addClass(bg).removeAttr('style');
+    $('#dungeonPanel').removeClass('next maiden thief statue chest bossPortal apexPortal death faery').addClass(bg).removeAttr('style');
     $('#mobImg').removeAttr('style');
 }
 function attack(maxEHP){

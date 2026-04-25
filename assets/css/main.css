@@ -398,6 +398,7 @@ h1,h2,h3,h4,h5,#eqpPreviewName,#eqpName{
     #dungeonPanel.next {background: url('../img/Backgrounds/next.webp') center center / cover no-repeat;}
     #dungeonPanel.bossPortal {background: url('../img/Portals/boss.webp') center center / cover no-repeat;}
     #dungeonPanel.apexPortal {background: url('../img/Portals/apex.webp') center center / cover no-repeat;}
+    #dungeonPanel.faery{background: url('../img/Backgrounds/faery.webp') center center / cover no-repeat;}
     #dungeonPanel .offcanvas-body{overflow: hidden;}
     #transitionOverlay, #initOverlay{background-color: black;z-index: 1047; display:block; opacity:  0;}
     #transitionOverlay.transitioning {animation: overlayTransition 1s forwards;}
