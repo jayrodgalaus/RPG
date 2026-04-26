@@ -34,6 +34,11 @@ class Equipment {
         this.displayName = (this.affix+" "+this.eqp.mob.replace(/\b\w/g, c => c.toUpperCase())+" "+this.eqp.name).trim();
         this.img = this.getEqpImg(this.eqp,this.tier);
     }
+    setDisplayName(name){
+        if(name) this.displayName = name;
+        else this.displayName = (this.affix+" "+this.eqp.mob.replace(/\b\w/g, c => c.toUpperCase())+" "+this.eqp.name).trim();
+        return this.displayName;
+    }
     setAffix() {
         if (this.tier === 'F' || this.tier === 'G') {
             return '';
@@ -97,9 +102,8 @@ class Equipment {
         if (stats[0].value === stats[1].value) {
             return affixMap[key].Tie;
         }
-        return affixMap[key][top1];
         
-
+        return affixMap[key][top1];
         
     }
     enhance(cost) {
@@ -143,11 +147,14 @@ class Equipment {
             
             $('.forge-eqp-btn.active .forge-item-enhancements').text(this.enhancement)
         }else{
-            
             let idx = tiers.indexOf(this.tier);
             let maxidx = tiers.indexOf(this.max_tier);
             if(idx < maxidx)
                 this.raiseTier();
+            else{
+                this.enhancement = 10;
+                updateInventory();
+                return false;}
         }
         let prevEqpIndex = inventory.findIndex(eqp => eqp.id === this.id);
         // Recalculate derived stats
@@ -160,12 +167,12 @@ class Equipment {
         this.hpPoints = Math.round(this.final_hp * 5);
         this.enhancement += 1;
         this.affix = this.setAffix();
+        this.setDisplayName();
         $(".forge-eqp-btn.active").html(`${this.displayName}(${this.tier}+<span class="forge-item-enhancements">${this.enhancement}</span>)`)
         
         //deduct gold
         soul.updateGold(soul.gold - cost);
         setGold();
-        this.affix = this.setAffix();
         calcLoadOutStats();
         calcTotalStats();
         updateInventory();
@@ -204,6 +211,7 @@ class Equipment {
                 this.hpPoints = this.final_hp * 5;
                 this.enchantment += 1;
                 this.affix = this.setAffix();
+                this.setDisplayName();
                 bag.splice(bagidx,1);
                 populateMatsTab();
                 populateMatsList();

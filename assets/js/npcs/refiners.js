@@ -239,12 +239,14 @@ function addRefinerMats(amt,src){
     let matsrc = materialList;
     let dungeonSpecies = currentDungeon.species;
     if(src == "dungeon"){
+        if(easyDungeons.includes(currentDungeon.species))
+            dungeonSpecies = "generic";
         matsrc = materialList.filter(m => m.mob === dungeonSpecies);
     }
     if(amt > 0){
         for(let i = 0; i < amt; i++){
-            let mat = matsrc[Math.floor(Math.random() * matsrc.length)];
-            console.log(mat)
+            let idx = Math.floor(Math.random() * matsrc.length)
+            let mat = matsrc[idx];
             collectedMats.push(mat.id);
         }
     }

@@ -15,6 +15,12 @@ const armorList = [
     {category:"armor", name: "Breastplate", type: armorTypes[2], img: eqp_path+"Breastplate/Goblin/", mob:"goblins"},
     //Kobolds
     {category:"armor", name: "Robe", type: armorTypes[2], img: eqp_path+"Breastplate/Kobold/", mob:"kobolds"},
+    //Zombies
+    {category:"armor", name: "Coffin Lid", type: armorTypes[1], img: eqp_path+"Shield/Zombie/", mob:"zombies"},
+    //Skeletons
+
+    //Ghosts
+
     //Cultist
 
     //Fallen

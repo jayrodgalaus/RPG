@@ -163,7 +163,9 @@ async function initInventory() {
                     newEqp.special_effect = eqp.special_effect;
                     newEqp.enhancement = eqp.enhancement;
                     newEqp.enchantment = eqp.enchantment;
-                    newEqp.affix = eqp.affix,
+                    newEqp.affix = eqp.affix;
+                    newEqp.displayName = newEqp.setDisplayName();
+                    
                     newEqp.suffix = eqp.suffix;
                     newEqp.isEquipped = eqp.isEquipped;
                     newEqp.value = eqp.value;

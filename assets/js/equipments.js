@@ -26,7 +26,7 @@ async function createEquipment(db, stats, isBeginner = false) {
 async function updateInventory() {
     const tx = db.transaction("Inventory", "readwrite");
     const store = tx.objectStore("Inventory");
-
+    store.clear();
     const plainInventory = inventory.map(eqp => ({
         id: eqp.id,
         eqp_type: eqp.eqp_type,
@@ -267,7 +267,7 @@ function resetTower(){
 }
 async function rollEqpDrop(){
     // base 40% chance; 50% for boss, 60% for apex
-    let drop_chance = enemyMob.isApex ? 0.3 : (enemyMob.isBoss ? 0.2 : 0.1);
+    let drop_chance = enemyMob.isApex ? 0.3 : (enemyMob.isBoss ? 0.2 : 0.15);
     let src;
     let eqp_type;
     let eqp;

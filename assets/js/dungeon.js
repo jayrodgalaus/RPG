@@ -188,8 +188,7 @@ async function nextRoom() {
             let statueEncounter = thiefEncounter + otherEncounters;
             let chestEncounter = statueEncounter + otherEncounters;
             let portalEncounter = chestEncounter + otherEncounters;
-            let faeryEncounter = easyDungeons.includes(currentDungeon.species) ? portalEncounter + chestEncounter : 0;
-            console.log('faeryEncounter',faeryEncounter)
+            let faeryEncounter = easyDungeons.includes(currentDungeon.species) ? portalEncounter + otherEncounters : 0;
             let encounterRoll = Math.random();
 
             if(encounterRoll <= enemyEncounter){
@@ -248,7 +247,7 @@ async function nextRoom() {
                     spawnPortal();
                     lastEncounter = 'portal';
                 }
-            }else if(encounterRoll <= faeryEncounter && faeryEncounter != 0){
+            }else if(encounterRoll <= faeryEncounter && faeryEncounter != 0 && easyDungeons.includes(currentDungeon.species)){
                 if(lastEncounter && lastEncounter == 'faery'){
                     spawnMob();
                 }else{
