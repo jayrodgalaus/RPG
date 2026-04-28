@@ -165,7 +165,7 @@ async function initInventory() {
                     newEqp.enchantment = eqp.enchantment;
                     newEqp.affix = eqp.affix;
                     newEqp.displayName = newEqp.setDisplayName();
-                    
+
                     newEqp.suffix = eqp.suffix;
                     newEqp.isEquipped = eqp.isEquipped;
                     newEqp.value = eqp.value;
@@ -203,6 +203,7 @@ async function initDungeon(){
                         cultists: { species: "cultists", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.06 },
                         fallen: { species: "fallen", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.06 },
                         demons: { species: "demons", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.07 },
+                        dragons: { species: "dragons", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.07 },
                         angels: { species: "angels", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.07 },
                         abyss: { species: "abyss", apexClear: false, apexClearCount: 0, maxFloor: 1, difficulty: 0.08 },
                     },

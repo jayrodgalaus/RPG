@@ -202,13 +202,13 @@ class Equipment {
                     case "HP": this.hp += random_stat_increase; break;
                     default: break;
                 }
-                this.final_atk = this.atk * (1 + this.atk_buff);
+                this.final_atk = Math.round(this.atk * (1 + this.atk_buff));
                 this.dmg = this.final_atk * 3;
-                this.final_spd = this.spd * (1 + this.spd_buff);
+                this.final_spd = Math.round(this.spd * (1 + this.spd_buff));
                 this.atkspd = this.spd * (1 + this.spd_buff) >= 430 ? 0.14 : 1 - (this.spd * 0.002);
-                this.final_def = this.def * (1 + this.def_buff);
-                this.final_hp = this.hp * (1 + this.hp_buff);
-                this.hpPoints = this.final_hp * 5;
+                this.final_def = Math.round(this.def * (1 + this.def_buff));
+                this.final_hp = Math.round(this.hp * (1 + this.hp_buff));
+                this.hpPoints = Math.round(this.final_hp * 5);
                 this.enchantment += 1;
                 this.affix = this.setAffix();
                 this.setDisplayName();

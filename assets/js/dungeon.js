@@ -1,7 +1,7 @@
 var dungeons = {}
 const easyDungeons = ["goblins","kobolds","zombies","skeletons","ghosts"];
 const midDungeons = ["arachne","cultists","fallen"];
-const lateDungeons = ["demons","angels","abyss"];
+const lateDungeons = ["demons","angels","dragons"];
 const lastDungeon = ["abyss"];
 const maps = ["Hemog Forest","Ari Cemetery","Ruins of Demog","The Crossroads","Abyss"];
 var baseMobSpawnRate = 0.6;
@@ -233,7 +233,7 @@ async function nextRoom() {
                 if(lastEncounter && lastEncounter == 'chest'){
                     spawnMob();
                 }else{
-                    let foundGold = Math.floor(Math.min(collectedGold * 0.05, currentFloor*5));
+                    let foundGold = Math.floor(Math.min(collectedGold * 0.05, Math.round(Math.random() * 1000)));
                     collectedGold +=  foundGold;
                     $('#chestMenu').removeClass('d-none');
                     $("#foundGold").text(foundGold);

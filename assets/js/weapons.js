@@ -19,11 +19,14 @@ const weaponList = [
     {category:"weapon", name: "Spear",	type: weaponTypes[7], mob: "Beginner", img: eqp_path + "Spear/Beginner/" },
     //Zombies
     {category:"weapon", name: "Claws", type: weaponTypes[3], mob: "zombies", img: eqp_path + "Scythe/Zombies/" },
+    //Skeleton
+    {category:"weapon", name: "Sword", type: weaponTypes[0], mob: "skeletons", img: eqp_path + "Sword/Skeletons/" },
     //Kobold
     {category:"weapon", name: "Hammer", type: weaponTypes[2], mob: "kobolds", img: eqp_path + "Hammer/Kobold/" },
     {category:"weapon", name: "Dagger", type: weaponTypes[6], mob: "kobolds", img: eqp_path + "Dagger/Kobold/" },
     //Goblin
     {category:"weapon", name: "Dagger", type: weaponTypes[6], mob: "goblins", img: eqp_path + "Dagger/Goblin/" },
+    {category:"weapon", name: "Bongo",	type: weaponTypes[7], mob: "goblins", img: eqp_path + "Spear/Goblins/" },
     //Arachne
     {category:"weapon", name: "Fang", type: weaponTypes[3], mob: "arachne", img: eqp_path + "Scythe/Arachne/" },
     //Ghost
@@ -31,6 +34,11 @@ const weaponList = [
     //Cultist
     {category:"weapon", name: "Dagger", type: weaponTypes[6], mob: "cultists", img: eqp_path + "Dagger/Cultist/" },
     //Fallen
+    {category:"weapon", name: "Sword", type: weaponTypes[0], mob: "fallen", img: eqp_path + "Sword/Fallen/" },
     {category:"weapon", name: "Axe", type: weaponTypes[1], mob: "fallen", img: eqp_path + "Axe/Fallen/" },
     {category:"weapon", name: "Twin Swords", type: weaponTypes[4], mob: "fallen", img: eqp_path + "Twinswords/Fallen/" },
+    //Angel
+    {category:"weapon", name: "Shilluk",	type: weaponTypes[7], mob: "angels", img: eqp_path + "Spear/Angel/" },
+    //Dragon
+    {category:"weapon", name: "Anuak",	type: weaponTypes[7], mob: "dragons", img: eqp_path + "Spear/Dragons/" },
 ];

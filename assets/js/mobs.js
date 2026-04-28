@@ -111,7 +111,7 @@ var bossMobs = [
     {name: "Zerath", species:"cultists", img: mob_path+"Cultists/boss.webp", category:"cultists", isBoss:true, baseStats: 60, increment: 12, baseGold:150, distr:statDistr.xatk},
     {name: "Morvak", species:"demons", img: mob_path+"Demons/boss.webp", category:"demons", isBoss:true, baseStats: 75, increment: 15, baseGold:200, distr:statDistr.xatk},
     {name: "Kaelthys", species:"dragons", img: mob_path+"Dragons/boss.webp", category:"dragons", isBoss:true, baseStats: 75, increment: 15, baseGold:200, distr:statDistr.xhp},
-    {name: "Karma", species:"fallen", img: mob_path+"Dragons/boss.webp", category:"fallen", isBoss:true, baseStats: 60, increment: 12, baseGold:150, distr:statDistr.xdef},
+    {name: "Karma", species:"fallen", img: mob_path+"Fallen/boss.webp", category:"fallen", isBoss:true, baseStats: 60, increment: 12, baseGold:150, distr:statDistr.xdef},
     {name: "Ilyra", species:"ghosts", img: mob_path+"Ghosts/boss.webp", category:"ghosts", isBoss:true, baseStats: 50, increment: 9, baseGold:100, distr:statDistr.def},
     {name: "Graknir", species:"goblins", img: mob_path+"Goblins/boss.webp", category:"goblins", isBoss:true, baseStats: 50, increment: 9, baseGold:100, distr:statDistr.hp},
     {name: "Skirrek", species:"kobolds", img: mob_path+"Kobolds/boss.webp", category:"kobolds", isBoss:true, isBoss:true, baseStats: 50, increment: 9, baseGold:100, distr:statDistr.atk},

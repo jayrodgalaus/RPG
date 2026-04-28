@@ -6,7 +6,7 @@ var loadOuttotalSpd = 0;
 var loadOuttotalDef = 0;
 var loadOuttotalHP = 0;
 var forgeCosts = {"G":100,"F":150,"E":250,"D":550,"C":1200,"B":2500,"A":5750,"S":11500,"SR":20000};
-var enchantCosts = {"G":100,"F":150,"E":250,"D":500,"C":1000,"B":2000,"A":5200,"S":10000,"SR":18000};
+var enchantCosts = {"G":100,"F":500,"E":1500,"D":3000,"C":6000,"B":9000,"A":12000,"S":18000,"SR":25000};
 
 async function createEquipment(db, stats, isBeginner = false) {
     const tx = db.transaction("Inventory", "readwrite");

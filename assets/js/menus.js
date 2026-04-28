@@ -565,8 +565,26 @@ $(function(){
         let mapImg = `assets/img/Backgrounds/map_${idx}.webp`;
         $('#background').css({'background-image':`url('${mapImg}')`});
         $('.map-menu-btn').addClass('d-none');
-        console.log(idx,$('.map-menu-btn[mapidx="'&idx&'"]').length)
         $('.map-menu-btn[mapidx="'+idx+'"]').removeClass('d-none');
+        let prereq;
+        let prereqfloor = 10;
+        switch(idx){
+            case 2: prereq = ['zombies','skeletons','ghosts']; break;
+            case 3: prereq = ['arachne','cultists','fallen']; prereqfloor = 20; break;
+            case 4: prereq = ['angels','demons','dragons']; prereqfloor = 30; break;
+        }
+        if(prereq){
+            let unlocked = true;
+            prereq.forEach(dungeon => {
+                if(dungeons[dungeon].maxFloor <= prereqfloor){
+                    unlocked = false;
+                }
+            });
+            if(unlocked){
+                $('.map-menu-btn[mapidx="'+idx+'"]').removeAttr('disabled');
+            }
+        }
+        
         
     })
     .on('click','#mapMenuDungeonList button',function(){

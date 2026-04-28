@@ -41,7 +41,7 @@ var materialList = [
 function rollMaterialDrop(bonus=0) {
     // base 40% chance; 50% for boss, 60% for apex
     let base = enemyMob.isApex ? 0.6 : (enemyMob.isBoss ? 0.5 : 0.4);
-    console.log(enemyMob.category)
+    
     if(enemyMob.category == "death") return 0; //death drop
 
     let drop_chance = bonus >= 0.6 ? 1 : base+bonus;  
