@@ -7,6 +7,7 @@ const eqp_path = "assets/img/Equipment/";
 const mob_path = "assets/img/Mobs/";
 const npc_town_path = "assets/img/NPCs/Town/";
 const portals_path = "assets/img/Portals/";
+const story_path = "assets/img/Story/";
 var nsfw = false;
 var bag = []; //mats and consumables
 

@@ -21,6 +21,7 @@ var dungeonMobs = [
         {name: "Red demon", species:"demons", img: mob_path+"Demons/1.webp", category:"demons", baseStats: 50, increment: 12, baseGold:100, distr:statDistr.atk},
         {name: "Succubus", species:"demons", img: mob_path+"Demons/2.webp", category:"demons", baseStats: 50, increment: 12, baseGold:100, distr:statDistr.hp},
         {name: "Gargoyle", species:"demons", img: mob_path+"Demons/3.webp", category:"demons", baseStats: 50, increment: 12, baseGold:85, distr:statDistr.xdef},
+        {name: "Ashen", species:"demons", img: mob_path+"Demons/4.webp", category:"demons", baseStats: 50, increment: 12, baseGold:100, distr:statDistr.spd},
     //dragons
         {name: "Wyrm", species:"dragons", img: mob_path+"Dragons/1.webp", category:"dragons", baseStats: 50, increment: 12, baseGold:85, distr:statDistr.def},
         {name: "Dragonkin", species:"dragons", img: mob_path+"Dragons/2.webp", category:"dragons", baseStats: 50, increment: 12, baseGold:50, distr:statDistr.atk},
@@ -151,7 +152,7 @@ function spawnMob(isBoss = false, isApex = false, species = null){
     let mob;
     let mobSource;
     let dungeonMobChance = isBoss || isApex ? 1 : 0.6;
-    
+    if(currentDungeon.species == "abyss") dungeonMobChance = 1;
     if ((Math.random() <= dungeonMobChance) || species) { //0.6
         console.log("spawning dungeon mob...")
         let source = isBoss ? bossMobs: (isApex ? apexMobs : dungeonMobs);
@@ -186,13 +187,14 @@ function spawnMob(isBoss = false, isApex = false, species = null){
     }
     if (mobSource.length > 0 && !isBoss && !isApex) {
         let baseElite = 0.1;//chance to spawn elite
-        let bonusElite = (currentFloor * 0.6) / 100;
-        let eliteChance = Math.min(0.4, baseElite + bonusElite); //cap at 40%
+        let bonusElite = (currentFloor) / 100;
+        let eliteChance = Math.min(baseElite, baseElite + bonusElite); //cap at 60%
         
         if (Math.random() <= (eliteChance)) {
             //spawn elite
             mob.isElite = true;
-            mob.img = mob.img.replace(/(\.webp)$/, "-elite$1");
+            if(mob.species != 'abyss')
+                mob.img = mob.img.replace(/(\.webp)$/, "-elite$1");
         }
     }
     enemyMob = new Mob(mob, currentFloor, currentDungeon);

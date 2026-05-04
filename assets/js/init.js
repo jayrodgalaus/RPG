@@ -421,6 +421,7 @@ $(document).ready(async function(){
         initSoulDependent();
     }
     
+    populateCraftList();
     //UI
     
     

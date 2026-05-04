@@ -203,6 +203,9 @@ h1,h2,h3,h4,h5,#eqpPreviewName,#eqpName{
 /* TOWN MENU */
 
 /* FORGE MENu */
+    .toggle-craft-btn.active{
+        background-color: #636464;
+    }
     #enhanceBtn{
         width: 70px;
         height: 70px;
@@ -212,11 +215,11 @@ h1,h2,h3,h4,h5,#eqpPreviewName,#eqpName{
         overflow-y: auto;
     }
     #forgeContent > .section-container, #enchantContent > .section-container{
-        max-height: 30vh;
+        /* max-height: 30vh; */
         overflow-y: auto;
-        min-height: 30vh;
+        /* min-height: 20vh; */
     }
-    #forgeEqpPreview, #enchantEqpPreview{
+    #forgeEqpPreview, #craftEqpPreview, #enchantEqpPreview{
         width: 40vw;
         height: calc(40vw * 16 / 9);
     }
@@ -225,12 +228,24 @@ h1,h2,h3,h4,h5,#eqpPreviewName,#eqpName{
         border-color: #EEEEEE;
         color: #EEEEEE;
     }
+    .craft-item{
+        width: 18.5vw;
+        height: 18.5vw;
+        border-radius: 10px !important;
+        background-color: black !important;
+        box-shadow: none !important;
+    }
 /* FORGE MENU */
 /* ENCHANT MENU */
-    #enchantTabsCont #enchantTabs button{
+    #enchantTabsCont #enchantTabs button, #forgeTabsCont #forgeTabs button{
         width: 40px;
         height: 40px;
         padding: 10%;
+    }
+    #enchantTabsCont #enchantTabs button.active, #forgeTabsCont #forgeTabs button.active{
+        color: #EEEEEE;
+        background-color: #636464;
+        border: #636464;
     }
     .tower-item-enchantments i{
         font-size: 10pt;
@@ -257,7 +272,7 @@ h1,h2,h3,h4,h5,#eqpPreviewName,#eqpName{
     .equipment-slot:hover, .equipment-slot:active{
         box-shadow: 0px 0px 40px 20px inset rgba(255, 0, 0, 0.5);
     }
-    .equipment-slot, #eqpPreviewPanel, #refinerPreviewPane, #dungeonPanel, #forgeEqpPreview, #enchantEqpPreview, #eqpListPreview, #eqpListPanel, #mobImg, #fakeLoad, #classSelection{ 
+    .equipment-slot, #eqpPreviewPanel, #refinerPreviewPane, #dungeonPanel, #forgeEqpPreview, #craftEqpPreview, #enchantEqpPreview, #eqpListPreview, #eqpListPanel, #mobImg, #fakeLoad, #classSelection{ 
         box-shadow: none;
         background-size: cover;
         background-position: center;
@@ -298,10 +313,13 @@ h1,h2,h3,h4,h5,#eqpPreviewName,#eqpName{
         width: 30px !important;
         height: 30px !important;
     }
-    #mapMenuDungeonList, #mapMenuFloorList{
+    #floorListContainer{
         max-height: 50vh;
         overflow-y: auto;
     }
+    /* #mapMenuDungeonList, #mapMenuFloorList{
+        
+    } */
     .map-menu-btn {
         background-color: transparent;
         border-color: #EEEEEE;

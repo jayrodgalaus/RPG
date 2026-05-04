@@ -720,6 +720,7 @@ html{/*scroll-behavior: smooth; scroll-padding-top: 60px;*/}
 .text-green-4{color: #4ade80;}
 .text-gray-3{color: #cbd5e1;}
 .text-complement{color: #D6299A;}
+.text-shadow {text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);}
 /* BACKGROUNDS */
 .invisible{opacity: 0;}
 .bg-white{background-color: white;}

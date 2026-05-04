@@ -93,6 +93,7 @@ $(function(){
         }else if(screen == "forge"){
             resetForge();
             populateEqpList("forge");
+            populateCraftList();
         }else if(screen == "tower"){
             resetTower();
             populateEqpList("tower");
@@ -107,6 +108,8 @@ $(function(){
             }
             $('#storageTabs .nav-link').removeClass('active').attr('aria-selected','false');
             $('#mats-tab').click();
+        }else if(screen=="armory"){
+            initLoadOut();
         }else if(screen=="map"){
             if($('#non-interactable').find('.hitsfx').length == 0){
                 $('#non-interactable').append(`
@@ -185,6 +188,50 @@ $(function(){
             $('#forgeCost').removeClass('text-danger')
         }
         $('#forgeCost').text(cost);
+    })
+    .on('click', ".toggle-craft-btn",function(){
+        let target = $(this).attr('target');
+        if(target == 'forge'){
+            $('#craftSubmenu').addClass('d-none');
+            $('#forgeSubmenu').removeClass('d-none');
+        }else{
+            $('#forgeSubmenu').addClass('d-none');
+            $('#craftSubmenu').removeClass('d-none');
+        }
+        $(".toggle-craft-btn").removeClass('active')
+        $(this).addClass('active')
+    })
+    .on('click','.craft-item',function(){
+        let recipe = recipesPerMob[parseInt($(this).attr('mob'))][parseInt($(this).attr('idx'))];
+        let matlist = '';
+        let craftable = true;
+        recipe.items.forEach(item => {
+            // get the key (material id) and value (quantity)
+            const [key, value] = Object.entries(item)[0]; // e.g. ["20", 25]
+            // find the material by id
+            let mat = materialList.find(mat => mat.id == key);
+            let matowned = bag.filter(id => id == key).length;
+            if(matowned < value ){
+                craftable = false;
+            }
+            let color = "text-" +  ( matowned >= value ? "f":"danger"); 
+            matlist += `<div>${mat.name} <span class="${color}">(${matowned}/${value})</span></div>`;
+
+        });
+
+        $("#craftEqpPreview").css({'background':$(this).css('background')})
+        $("#craftItemName").text(recipe.eqp.name);
+        $("#craftMaterialList").html(matlist);
+        $("#craftCost").text(recipe.cost);
+        if(soul.gold < recipe.cost || !craftable){
+            $("#craftBtn>img").removeClass('pulse').attr('disabled','disabled');
+            $("#craftCost").addClass('text-danger');
+        }else{
+            $("#craftBtn>img").addClass('pulse').removeAttr('disabled');
+            $("#craftCost").removeClass('text-danger');
+        }
+        
+        
     })
     .on('click',"#enhanceBtn", function(){
         if($(this).attr('index') == '-1'){return false;}
@@ -470,7 +517,7 @@ $(function(){
     //inventory menu interactions
     .on('click','.equipment-slot',function(){
         if(!($(this).attr('isEmpty') == false)){
-            let eqp = inventory[$(this).attr('inventoryIndex')]
+            let eqp = inventory.find(eqp => eqp.id == $(this).attr('eqpid'))
             if(eqp) {
                 currentEqpPreview = eqp;
                 previewEqp(currentEqpPreview)

@@ -1,6 +1,7 @@
 var inventory = []; // equipment
 var weapons = [];
 var armor = [];
+let recipesPerMob = [];
 var loadOuttotalAtk = 0;
 var loadOuttotalSpd = 0;
 var loadOuttotalDef = 0;
@@ -200,21 +201,34 @@ function populateEqpList(screen){
     // weapons = inventory.filter(w => w.eqp.category == "weapon");
     // armor = inventory.filter(a => a.eqp.category == "armor");
     loadOut.forEach((item, idx) => {
+        let color = item.max_tier;
         if(screen == 'forge') modifierText = `<span class="forge-item-enhancements">${item.enhancement}</span>`;
         else if(screen == 'tower') modifierText = `<span class="tower-item-enchantments">${item.enchantment}<i class="fa-solid fa-star"></i></span>`;
-        loadOutHTML += `<button type="button" class="list-group-item list-group-item-action list-group-item-light ${screen}-eqp-btn" idx=${idx} array="loadout">
+        loadOutHTML += `<button type="button" class="list-group-item list-group-item-action list-group-item-light text-${color} ${screen}-eqp-btn  text-shadow" idx=${idx} array="loadout">
             ${item.displayName}(<span class="equipped-item-tier">${item.tier}</span>+${modifierText})
             </button>`
     });
     weapons.forEach((item, idx) => {
+        let color = item.max_tier;
         if(screen == 'forge') modifierText = `<span class="forge-item-enhancements">${item.enhancement}</span>`;
         else if(screen == 'tower') modifierText = `<span class="tower-item-enchantments">${item.enchantment}<i class="fa-solid fa-star"></i></span>`;
-        weaponsHTML += `<button type="button" class="list-group-item list-group-item-action list-group-item-light ${screen}-eqp-btn" idx=${idx} array="weapons">${item.displayName}(${item.tier}+${modifierText})</button>`
+        weaponsHTML += `<button type="button" class="list-group-item list-group-item-action list-group-item-light text-${color} ${screen}-eqp-btn" idx=${idx} array="weapons">
+            <div class="w-100 d-flex align-items-center text-shadow">
+                ${item.displayName}(${item.tier}+${modifierText})
+                <div class="ms-auto e-indicator ${item.isEquipped ? '':'invisible'}"></div>
+            </div>
+        </button>`
     });
     armor.forEach((item, idx) => {
+        let color = item.max_tier;
         if(screen == 'forge') modifierText = `<span class="forge-item-enhancements">${item.enhancement}</span>`;
         else if(screen == 'tower') modifierText = `<span class="tower-item-enchantments">${item.enchantment}<i class="fa-solid fa-star"></i></span>`;
-        armorHTML += `<button type="button" class="list-group-item list-group-item-action list-group-item-light ${screen}-eqp-btn" idx=${idx} array="armor">${item.displayName}(${item.tier}+${modifierText})</button>`
+        armorHTML += `<button type="button" class="list-group-item list-group-item-action list-group-item-light text-${color} ${screen}-eqp-btn" idx=${idx} array="armor">
+            <div class="w-100 d-flex align-items-center text-shadow">
+                ${item.displayName}(${item.tier}+${modifierText})
+                <div class="ms-auto e-indicator ${item.isEquipped ? '':'invisible'}"></div>
+            </div>
+        </button>`
     });
     if(screen == "forge"){
         $('#f-equipped-tab-pane>.list-group').html(loadOutHTML);
@@ -230,6 +244,48 @@ function populateEqpList(screen){
         resetTower();
     }
 }
+function populateCraftList(){
+    let mobs = ["fallen",'angels','demons','dragons'];
+    function getRecipe(mob){
+        let recipes = [];
+        weaponRecipes.forEach(item => {
+            if(item.eqp.mob == mob){
+                recipes.push(item);
+            }
+        });
+        armorRecipes.forEach(item => {
+            if(item.eqp.mob == mob){
+                recipes.push(item);
+            }
+        });
+        return recipes;
+    }
+    mobs.forEach(item =>{
+        let mobRecipes = getRecipe(item);
+        recipesPerMob.push(mobRecipes);
+    });
+    recipesPerMob.forEach(recipes => {
+        if(recipes.length > 0){
+            let html = '';
+            let mob = recipes[0].eqp.mob;
+            let mobidx = mob == "fallen" ? 0 : (mob == 'angels' ? 1 : (mob == 'demons'? 2 : 3));
+            for (let i = 0; i < recipes.length; i += 4) {
+                html += `<div class="d-flex py-2 align-items-center justify-content-center">`;
+                for (let j = i; j < i + 4 && j < recipes.length; j++) {
+                    let bg = recipes[j].eqp.img+"F.webp";
+                    html += `<div class="mx-1 section-container craft-item" 
+                        style="background: url('${bg}') center / contain no-repeat"
+                        mob="${mobidx}" idx="${j}"
+                        >
+                    </div>`;
+                }
+                html += '</div>';
+            }
+            $('#f-'+mob+'-tab-pane').html(html);
+        }
+        
+    });
+}
 function populateInvEqpList(array){
     
     organizeInventory();
@@ -237,7 +293,7 @@ function populateInvEqpList(array){
     let weaponsHTML = '';
     let modifierText = '';
     src.forEach((item, idx) => {
-        let color = item.tier;
+        let color = item.max_tier;
         modifierText = `<span>${item.enhancement}</span>`;
         weaponsHTML += `<button type="button" class="list-group-item list-group-item-action list-group-item-light text-${color} eqp-list-btn" eqpId=${item.id} idx=${idx} array="${array}">
             <div class="w-100 d-flex align-items-center">
@@ -328,12 +384,12 @@ async function rollEqpDrop(){
                 let roll = Math.random();
                 max_tier = getMaxTier(roll);
             }else if(lateDungeons.includes(enemyMob.species)){
-                F_chance = 0.1;
-                E_chance = F_chance + 0.24;
-                D_chance = E_chance + 0.17;
-                C_chance = D_chance + 0.12;
-                B_chance = C_chance + 0.11;
-                A_chance = B_chance + 0.09;
+                F_chance = 0;
+                E_chance = F_chance + 0.22;
+                D_chance = E_chance + 0.19;
+                C_chance = D_chance + 0.14;
+                B_chance = C_chance + 0.13;
+                A_chance = B_chance + 0.11;
                 S_chance = A_chance + 0.075;
                 let roll = Math.random();
                 max_tier = getMaxTier(roll);
