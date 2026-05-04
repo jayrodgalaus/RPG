@@ -420,6 +420,14 @@ function attack(maxEHP){
             else if(currentMaiden.idx == 11) {baseDmg *= 1.5; color = "danger";}
         }
         let randomMultiplier = 0.99 + Math.random() * 0.02;  // 0.99 ~ 1.01
+        let critChance = 0;
+        if(currentSPD > 430){
+            critChance = (currentSPD - 430)/10;
+            
+        }
+        $('#critChance').text((critChance/100).toFixed(3)+"%")
+        let triggerCrit = Math.random() <= critChance;
+        if(triggerCrit) {randomMultiplier = 1.5; color = "danger"}
         let finalDmg = Math.floor(baseDmg * randomMultiplier);
         let reducedMobHp = Math.max(0, enemyMob.hpPoints - finalDmg);
         
