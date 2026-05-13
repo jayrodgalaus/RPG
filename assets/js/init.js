@@ -305,10 +305,12 @@ async function initRefiner() {
                     $('#refinerPaymentInfo').text('');
                     $('#refinerHireRun').text('');
                     $('#buffEffectDisplay').text('');
+                    $('#refinerBuffInfo').html('');
                 }else{
                     $("#refinerBuffIcon").removeClass('d-none');
                     $('#refinerPaymentInfo').text(`Pay refiner ${activeRefiner.salary} on run ${nextPayableRun}`);
                     $('#refinerHireRun').text(refinerHireRun);
+                    $('#refinerBuffInfo').html(`<b>${activeRefiner.name}: </b>${activeRefiner.buff.description}`);
                     $('#buffEffectDisplay').text(activeRefiner.buff.description);
                 }
                 resolve(refinerState);

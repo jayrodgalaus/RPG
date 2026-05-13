@@ -9,7 +9,7 @@ var refinerBuffs = [
     {idx:5 ,description: "+20% dungeon mats, 25% random"},
     {idx:6 ,description: "+20% chance for mob to drop 2 mats"},
     {idx:7 ,description: "15% chance to double mats after run"},
-    {idx:8 ,description: "+20% enemy spawn rate", bonus: 0.2},
+    {idx:8 ,description: "+20% mob spawn rate", bonus: 0.2},
 ];
 var refinerBonus = [
     {idx:0, path:refiners_bonus+"1.webm"},
@@ -49,7 +49,7 @@ function resetRefiner(){
         if(currentRun == refinerHireRun){nextPayableRun+= 5;}
         if ((currentRun - refinerHireRun) % 5 == 0){//pay every 5 runs, this should be equiv to refinerPaidRun
             if(!isRefinerPayable()){
-                alert('Unable to pay refiner. Contract ended.');
+                triggerModal("Your refiner resigned","Unable to pay refiner. Contract ended.");
                 //end contract
                 activeRefinerIndex = null;
                 activeRefiner = null;
@@ -60,15 +60,19 @@ function resetRefiner(){
                 $('#refinerPaymentInfo').text('');
                 $('#refinerHireRun').text('');
                 $('#buffEffectDisplay').text('');
+                $('#refinerBuffInfo').html('')
                 // $('#background.storage').css({"background-image": 'url("../img/Backgrounds/storage.webp")'});
                 // $('#background.storage').removeAttr("refinerImage");
 
             }else{
-                alert('Refiner paid '+activeRefiner.salary+'g');
+                triggerModal("Refiner paid","You paid "+activeRefiner.salary+'g to ' + activeRefiner.name);
                 refinerPaidRun = currentRun;
                 nextPayableRun = currentRun + 5;
+                console.log("refinerPaidRun",refinerPaidRun)
+                console.log("nextPayableRun",nextPayableRun)
                 soul.gold -= activeRefiner.salary;
                 soul.updateGold(soul.gold);
+                $('#refinerBuffInfo').html(`<b>${activeRefiner.name}: </b>${activeRefiner.buff.description}`);
                 $('#refinerPaymentInfo').text(`Pay refiner ${activeRefiner.salary} on run ${nextPayableRun}`);
             }
         }

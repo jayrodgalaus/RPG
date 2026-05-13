@@ -22,7 +22,10 @@ h1,h2,h3,h4,h5,#eqpPreviewName,#eqpName{
     position: relative;
     z-index: 1050;
 }
-.section-container, .npc-portrait{
+.modal-content{
+    background-color: transparent;
+}
+.section-container, .npc-portrait, .modal-content{
     color: white;
     border: 2px solid white;
     border-radius: 10px;
@@ -215,7 +218,7 @@ h1,h2,h3,h4,h5,#eqpPreviewName,#eqpName{
         overflow-y: auto;
     }
     #forgeContent > .section-container, #enchantContent > .section-container{
-        /* max-height: 30vh; */
+        max-height: 30vh;
         overflow-y: auto;
         /* min-height: 20vh; */
     }

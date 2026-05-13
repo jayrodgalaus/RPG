@@ -43,14 +43,14 @@ const armorList = [
 ];
 const armorRecipes = [
     //fallen
-    {eqp:armorList.find(eqp => eqp.id == 7),items: [{21:25},{14:1},{15:1},{16:10},{17:8}], cost: 12000},
-    {eqp:armorList.find(eqp => eqp.id == 8),items: [{21:25},{14:2},{15:4},{16:7},{17:7}], cost: 12000},
-    {eqp:armorList.find(eqp => eqp.id == 9),items: [{21:25},{15:1},{16:10},{17:9}], cost: 12000},
-    {eqp:armorList.find(eqp => eqp.id == 10),items: [{21:25},{14:2},{15:4},{16:7},{17:7}], cost: 12000},
-    {eqp:armorList.find(eqp => eqp.id == 11),items: [{21:25},{16:10},{17:10}], cost: 12000},
+    {id:1,eqp:armorList.find(eqp => eqp.id == 7),items: [{21:25},{14:1},{15:1},{16:10},{17:8}], cost: 12000},
+    {id:2,eqp:armorList.find(eqp => eqp.id == 8),items: [{21:25},{14:2},{15:4},{16:7},{17:7}], cost: 12000},
+    {id:3,eqp:armorList.find(eqp => eqp.id == 9),items: [{21:25},{15:1},{16:10},{17:9}], cost: 12000},
+    {id:4,eqp:armorList.find(eqp => eqp.id == 10),items: [{21:25},{14:2},{15:4},{16:7},{17:7}], cost: 12000},
+    {id:5,eqp:armorList.find(eqp => eqp.id == 11),items: [{21:25},{16:10},{17:10}], cost: 12000},
     //angel
-    {eqp:armorList.find(eqp => eqp.id == 12),items: [{3:35},{1:3},{15:1},{16:17},{2:9}], cost: 15000},
-    {eqp:armorList.find(eqp => eqp.id == 13),items: [{3:35},{1:4},{15:6},{16:11},{2:9}], cost: 15000},
+    {id:6,eqp:armorList.find(eqp => eqp.id == 12),items: [{3:35},{1:3},{15:1},{16:17},{2:9}], cost: 15000},
+    {id:7,eqp:armorList.find(eqp => eqp.id == 13),items: [{3:35},{1:4},{15:6},{16:11},{2:9}], cost: 15000},
     //demon
 
     //dragon

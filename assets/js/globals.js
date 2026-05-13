@@ -82,10 +82,10 @@ var statDistr = {
 
 //functions
 function calcTotalStats(){
-    calcAtk = parseInt(loadOuttotalAtk) + soul.atk;
-    calcSpd = parseInt(loadOuttotalSpd)  + soul.spd;
-    calcDef = parseInt(loadOuttotalDef)  + soul.def;
-    calcHP = parseInt(loadOuttotalHP)  + soul.hp;
+    calcAtk = parseInt(loadOuttotalAtk) + soul.getFinalAtk();
+    calcSpd = parseInt(loadOuttotalSpd)  + soul.getFinalSpd();
+    calcDef = parseInt(loadOuttotalDef)  + soul.getFinalDef();
+    calcHP = parseInt(loadOuttotalHP)  + soul.getFinalHp();
     calcDmg = calcAtk*3;
     calcAtkspd = calcSpd >= 430 ? 0.14 : 1 - (calcSpd * 0.002);
     calcHppoints = calcHP*5;
@@ -105,9 +105,30 @@ function populateStatMenu(){
     $('#totalAPS').text((1/calcAtkspd).toFixed(2));
     $('#totalHPP').text(calcHppoints);
 }
+function triggerModal(title = "",content = "",bgColor = null, bgImg = null, width = null, height = null){
+    $('#modalTitle').html(title);
+    $('#modalBody').html(content);
+    $('#modalContent').removeAttr('style');
+    if(bgColor){$('#modalContent').css({"background-color":bgColor});}
+    
+    if(bgImg){
+        $('#modalContent').css({
+            "background-image":`url('${bgImg}')`,
+            "background-size":"contain",
+            "background-position": "center center",
+            "Background-repeat": "no-repeat"
+        });
+    }
+    if(width){ $('#modalBody').css({'width':width})}
+    if(height){ $('#modalBody').css({'height':height})}
+    $('#modal').modal('show');
+}
 function initTown(){
     checkMaidenQuests()
     
+}
+function capitalize(string){
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 

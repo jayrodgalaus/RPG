@@ -22,6 +22,18 @@ class Soul {
         this.defChance = weaponTypes[classIndex].def_chance;
         this.spdChance = weaponTypes[classIndex].spd_chance;
         this.hpChance = weaponTypes[classIndex].hp_chance;
+        this.aura1Atk = 0;
+        this.aura2Atk = 0;
+        this.aura3Atk = 0;
+        this.aura1Spd = 0;
+        this.aura2Spd = 0;
+        this.aura3Spd = 0;
+        this.aura1Def = 0;
+        this.aura2Def = 0;
+        this.aura3Def = 0;
+        this.aura1Hp = 0;
+        this.aura2Hp = 0;
+        this.aura3Hp = 0;
         this.img = `${soul_path}${clss.name}_${this.classAbilities.gender}.webp`;
     }
     update(){
@@ -62,6 +74,18 @@ class Soul {
     }
     getClassName(){
         return this.classAbilities.class;
+    }
+    getFinalAtk(){
+        return this.atk + this.aura1Atk + this.aura2Atk + this.aura3Atk;
+    }
+    getFinalSpd(){
+        return this.spd + this.aura1Spd + this.aura2Spd + this.aura3Spd;
+    }
+    getFinalDef(){
+        return this.def + this.aura1Def + this.aura2Def + this.aura3Def;
+    }
+    getFinalHp(){
+        return this.hp + this.aura1Hp + this.aura2Hp + this.aura3Hp;
     }
 }
 

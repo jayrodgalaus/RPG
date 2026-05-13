@@ -315,6 +315,10 @@ class Equipment {
                 let equippedIdx = inventory.findIndex(item=> item.id == equippedItem.id)
                 inventory[equippedIdx].isEquipped = false;
             }
+        }else{
+            let container = $("#inventorySlot"+this.slot);
+            container.removeAttr('style');
+            $("#inventorySlot"+this.slot+" span").html('')
         }
         inventory[idx].isEquipped = !isEquipped;
         initLoadOut();

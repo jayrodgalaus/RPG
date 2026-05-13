@@ -5,7 +5,7 @@ const lateDungeons = ["demons","angels","dragons"];
 const lastDungeon = ["abyss"];
 const maps = ["Hemog Forest","Ari Cemetery","Ruins of Demog","The Crossroads","Abyss"];
 var baseMobSpawnRate = 0.6;
-var currentMobRate = baseMobSpawnRate;
+var currentMobRate = baseMobSpawnRate +  refinerMobSpawnBuff();
 var currentDungeon = "town";
 var currentFloor = 0;
 var currentRun = 0;
@@ -114,7 +114,7 @@ async function startRun(){
     currentHP = calcHppoints;
     currentMaxHP = calcHppoints;
     currentRoom = 0; 
-    currentMobRate +=  refinerMobSpawnBuff();
+    
 
     nextRoom();
 }
@@ -233,7 +233,7 @@ async function nextRoom() {
                 if(lastEncounter && lastEncounter == 'chest'){
                     spawnMob();
                 }else{
-                    let foundGold = Math.floor(Math.min(collectedGold * 0.05, Math.round(Math.random() * 1000)));
+                    let foundGold = Math.floor(Math.min(collectedGold * 0.05, Math.round(Math.random() * 100 * currentFloor )));
                     collectedGold +=  foundGold;
                     $('#chestMenu').removeClass('d-none');
                     $("#foundGold").text(foundGold);
@@ -293,6 +293,7 @@ async function triggerReward(isGoldGob = false, escape = false){
     // console.log('triggerReward')
     let matRewardText = "";
     let eqpText = "";
+    $('#rewardEqpt').removeClass('text-F text-E text-D text-C text-B text-A text-S text-SR')
     clearInterval(atkInterval);
     clearInterval(hitInterval);
     if(goblinTimeout){clearTimeout(goblinTimeout);}
@@ -303,7 +304,7 @@ async function triggerReward(isGoldGob = false, escape = false){
         
         consolidateGold(escape);
         consolidateMats(escape);
-        gold = collectedGold;
+        gold = Math.floor(collectedGold);
         if(currentMaiden){
             if(!currentMaiden.isUnlocked) unlockMaiden();
             currentMaiden.location = "town";
@@ -334,7 +335,7 @@ async function triggerReward(isGoldGob = false, escape = false){
                 gold = gold * (Math.round(0.5 + Math.random() * 1.5));
             }
         }
-        collectedGold += gold;
+        collectedGold += Math.round(gold);
         let mat = rollMaterialDrop();
         let eqp = await rollEqpDrop();
         matRewardText = "";
@@ -344,8 +345,10 @@ async function triggerReward(isGoldGob = false, escape = false){
 
             matRewardText = matName;
             if(activeRefiner && activeRefiner.buff.idx == 6){
-                let double = Math.random <= 0.2; //10% chance to double drop
+                
+                let double = Math.random <= 0.2; //20% chance to double drop
                 if(double){
+                    console.log("here")
                     collectedMats.push(mat);
                     matRewardText+=" x2";
                 }
@@ -355,11 +358,11 @@ async function triggerReward(isGoldGob = false, escape = false){
             collectedMats.push(mat);
         }
         if(eqp){
-            eqpText = (eqp.displayName).trim()
+            eqpText = (eqp.displayName).trim();
+            $('#rewardEqpt').addClass('text-'+eqp.max_tier)
         }
         // console.log("collectedGold",collectedGold);
     }
-    
     changeMaidenLocations();
     $('#rewadGold').text("+"+gold+"g");
     $('#rewardMats').text(matRewardText);
@@ -425,7 +428,7 @@ function attack(maxEHP){
             critChance = (currentSPD - 430)/10;
             
         }
-        $('#critChance').text((critChance/100).toFixed(3)+"%")
+        $('#critChance').text((critChance).toFixed(2)+"%")
         let triggerCrit = Math.random() <= critChance;
         if(triggerCrit) {randomMultiplier = 1.5; color = "danger"}
         let finalDmg = Math.floor(baseDmg * randomMultiplier);
@@ -477,7 +480,7 @@ function resetDungeon(){
     console.log('resetDungeon')
     changeMaidenLocations();
     baseMobSpawnRate = 0.6;
-    currentMobRate = baseMobSpawnRate;
+    currentMobRate = baseMobSpawnRate + refinerMobSpawnBuff();
     let dungeonText = $('#mapMenuDungeonList button.active').text().toLowerCase();
     currentDungeon = dungeons[dungeonText];
     let activeFloor = $('#mapMenuFloorList button.active').attr('floor');
@@ -547,7 +550,10 @@ function consolidateMats(escape=false){
                 collectedMatsText += `<span class="icon-btn-text">${matData.name} x${drop.cnt}</span><br>`
             });
             $('#collectedMats').html(collectedMatsText);
+            $('#rewardMats').html(collectedMatsText);
+            
         }
+        
         updateBag();
     }else{
         $('#collectedMats').html('');

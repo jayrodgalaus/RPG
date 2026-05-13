@@ -198,40 +198,29 @@ $(function(){
             $('#forgeSubmenu').addClass('d-none');
             $('#craftSubmenu').removeClass('d-none');
         }
-        $(".toggle-craft-btn").removeClass('active')
+        $(".toggle-craft-btn").removeClass('active');
+        $('.craft-item').removeClass('active');
         $(this).addClass('active')
     })
     .on('click','.craft-item',function(){
+        $('.craft-item').removeClass('active');
+        $(this).addClass('active');
         let recipe = recipesPerMob[parseInt($(this).attr('mob'))][parseInt($(this).attr('idx'))];
-        let matlist = '';
-        let craftable = true;
-        recipe.items.forEach(item => {
-            // get the key (material id) and value (quantity)
-            const [key, value] = Object.entries(item)[0]; // e.g. ["20", 25]
-            // find the material by id
-            let mat = materialList.find(mat => mat.id == key);
-            let matowned = bag.filter(id => id == key).length;
-            if(matowned < value ){
-                craftable = false;
-            }
-            let color = "text-" +  ( matowned >= value ? "f":"danger"); 
-            matlist += `<div>${mat.name} <span class="${color}">(${matowned}/${value})</span></div>`;
-
-        });
+        populateRecipematList(recipe);
 
         $("#craftEqpPreview").css({'background':$(this).css('background')})
         $("#craftItemName").text(recipe.eqp.name);
-        $("#craftMaterialList").html(matlist);
         $("#craftCost").text(recipe.cost);
-        if(soul.gold < recipe.cost || !craftable){
-            $("#craftBtn>img").removeClass('pulse').attr('disabled','disabled');
-            $("#craftCost").addClass('text-danger');
-        }else{
-            $("#craftBtn>img").addClass('pulse').removeAttr('disabled');
-            $("#craftCost").removeClass('text-danger');
-        }
         
         
+        
+    })
+    .on('click', '#craftBtn',function(){
+        let active = $('.craft-item.active');
+        let mobidx = parseInt(active.attr('mob'));
+        let idx = parseInt(active.attr('idx')); 
+        let recipe = recipesPerMob[mobidx][idx];
+        craftEqp(recipe);
     })
     .on('click',"#enhanceBtn", function(){
         if($(this).attr('index') == '-1'){return false;}
@@ -536,7 +525,8 @@ $(function(){
         currentEqpPreview.toggleEquip();
     })
     .on('click', '.eqp-list-toggle', function(){
-        let array = $(this).attr('array')
+        let array = $(this).attr('array');
+        $("#eqpTypeLabel").text(capitalize(array))
         $("#eqpListInfo, #eqpListPreview").addClass('d-none');
         populateInvEqpList(array);
     })
@@ -561,11 +551,14 @@ $(function(){
         let eqpId = $('.eqp-list-btn.active').attr('eqpId');
         let eqp = inventory.find(eqp => eqp.id == eqpId);
         if(eqp.isEquipped){
-            console.log("Can't destroy eqp that is currently equipped;")
+            triggerModal("","Can't destroy eqp that is currently equipped");
             return false;
         }
         let array = $('.eqp-list-btn.active').attr('array');
         let eqpIdx = inventory.findIndex(eqp => eqp.id == eqpId);
+        if(eqp.eqp.category == "weapon"){
+            // if(eqp.eqp.)
+        }
         //remove
         inventory.splice(eqpIdx,1);
         populateInvEqpList(array)
@@ -577,6 +570,42 @@ $(function(){
         populateMatsTab()
     })
     //dungeon menu
+    .on('click','#dungeonStatsBtn',function(){
+        let crit = "0%";
+        if(calcSpd > 430){crit = ((calcSpd - 430)/10).toFixed(2)+"%";}
+        
+        let stats = [
+            {"Current Run": currentRun},
+            {"Mob Rate": ((baseMobSpawnRate + refinerMobSpawnBuff())*100)+"%"},
+            {"Mob Spawn Buff": (refinerMobSpawnBuff()*100)+"%"},
+            {"ATK":calcAtk},
+            {"DMG":calcDmg},
+            {"SPD":calcSpd},
+            {"APS":((1/calcAtkspd).toFixed(2))+"/s"},
+            {"DEF":calcDef},
+            {"HP":calcHP},
+            {"HP Points":calcHppoints},
+            {"Crit": crit},
+        ];
+        if(activeRefiner){
+            stats.push({"Refiner":activeRefiner.name});
+            stats.push({"Refiner Buff":activeRefiner.buff.description});
+            stats.push({"refinerHireRun":refinerHireRun});
+            stats.push({"refinerPaidRun":refinerPaidRun});
+            stats.push({"nextPayableRun":nextPayableRun});
+        }
+        let content = `<ul class="list-group list-group-flush">`;
+        stats.forEach(item => {
+            const [key, value] = Object.entries(item)[0];
+            content += `<li class="list-group-item list-group-item-light map-menu-btn p-0 small-text">
+                <b>${key}:</b>&nbsp${value}
+            </li>`;
+        })
+        //
+        //                   
+        content +=`</ul>`;
+        triggerModal("Dungeon Stats",content,null,null,null,"50vh");
+    })
     .on('click','.changeMap',function(){
         $('#floorListContainer').addClass('invisible')
         let id = $(this).attr('id');

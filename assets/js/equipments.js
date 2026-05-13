@@ -128,10 +128,10 @@ function previewEqp(equipment, eqplist = false){
         $("#eqpEnhancements").text(equipment.enhancement)
         $("#eqpEnchantments").text(equipment.enchantment)
         $("#eqpTier").text(equipment.tier)
-        $("#eqpATKBuff").text(equipment.atk_buff)
-        $("#eqpSPDBuff").text(equipment.spd_buff)
-        $("#eqpDEFBuff").text(equipment.def_buff)
-        $("#eqpHPBuff").text(equipment.hp_buff)
+        $("#eqpATKBuff").text((equipment.atk_buff > 0 ? (parseFloat(equipment.atk_buff * 100)).toFixed(2) : 0) + "%")
+        $("#eqpSPDBuff").text((equipment.spd_buff > 0 ? (parseFloat(equipment.spd_buff * 100)).toFixed(2) : 0) + "%")
+        $("#eqpDEFBuff").text((equipment.def_buff > 0 ? (parseFloat(equipment.def_buff * 100)).toFixed(2) : 0) + "%")
+        $("#eqpHPBuff").text((equipment.hp_buff > 0 ? (parseFloat(equipment.hp_buff * 100)).toFixed(2) : 0) + "%")
         $("#eqpMaxTier").text(equipment.max_tier)
         $("#eqpValue").text(equipment.value)
         $("#eqpEffects").text(equipment.special_effect ? equipment.special_effect : "None")
@@ -324,6 +324,8 @@ function resetTower(){
 async function rollEqpDrop(){
     // base 40% chance; 50% for boss, 60% for apex
     let drop_chance = enemyMob.isApex ? 0.3 : (enemyMob.isBoss ? 0.2 : 0.15);
+    drop_chance += currentFloor/100;
+    drop_chance = Math.min(drop_chance,0.8); //cap at 80%
     let src;
     let eqp_type;
     let eqp;
@@ -419,4 +421,81 @@ async function rollEqpDrop(){
         
     }
     return null; // no drop
+}
+function rollCraft(){
+    let d = .5;
+    let c = d + .2;
+    let b = c+.12;
+    let a = b+.09;
+    let s = a+.06;
+    let sr = s+.03;
+    let roll = Math.random();
+    let tier = "SR";
+    if(roll <= d){tier = "D";}
+    else if(roll <= c){tier = "C";}
+    else if(roll <= b){tier = "B";}
+    else if(roll <= a){tier = "A";}
+    else if(roll <= s){tier = "S";}
+    return tier;
+
+    
+    
+}
+async function craftEqp(recipe){
+    
+    if($('#craftMaterialList .text-danger').length > 0){
+        alert("Insufficient materials");
+        return false;
+    }else{
+        let eqp_type = recipe.eqp.category;
+        let idx = recipe.eqp.id;
+        recipe.items.forEach(item => {
+            
+            const [key, value] = Object.entries(item)[0]; // key = material id, value = qty
+
+            for (let i = 0; i < value; i++) {
+                const idx = bag.indexOf(Number(key)); // find first occurrence
+                if (idx !== -1) {
+                    bag.splice(idx, 1); // remove it
+                } else {
+                    break; // stop if not enough items in bag
+                }
+            }
+        });
+        populateRecipematList(recipe);
+        soul.updateGold(soul.gold - recipe.cost);
+        let tier = rollCraft();
+        let eqp = await createEquipment(db, { eqp_type: eqp_type, eqp_id: idx, tier: "F", max_tier: tier });
+        updateInventory();
+        updateBag();
+        triggerModal(
+            "Item Crafted",
+            `<div class="text-${tier} w-100 text-center"><b>${eqp.displayName}</b></div>`,
+            "black",eqp.img,null,"105vw");
+    }
+}
+function populateRecipematList(recipe){
+    let matlist = '';
+    let craftable = true;
+    recipe.items.forEach(item => {
+        // get the key (material id) and value (quantity)
+        const [key, value] = Object.entries(item)[0]; // e.g. ["20", 25]
+        // find the material by id
+        let mat = materialList.find(mat => mat.id == key);
+        let matowned = bag.filter(id => id == key).length;
+        if(matowned < value ){
+            craftable = false;
+        }
+        let color = "text-" +  ( matowned >= value ? "f":"danger"); 
+        matlist += `<div>${mat.name} <span class="${color}">(${matowned}/${value})</span></div>`;
+
+    });
+    $("#craftMaterialList").html(matlist);
+    if(soul.gold < recipe.cost || !craftable){
+        $("#craftBtn>img").removeClass('pulse').attr('disabled','disabled');
+        $("#craftCost").addClass('text-danger');
+    }else{
+        $("#craftBtn>img").addClass('pulse').removeAttr('disabled');
+        $("#craftCost").removeClass('text-danger');
+    }
 }

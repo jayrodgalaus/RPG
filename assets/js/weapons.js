@@ -49,16 +49,16 @@ const weaponList = [
 
 const weaponRecipes = [
     //fallen
-    {eqp: weaponList.find(eqp => eqp.id == 17), items: [{20:25},{14:6},{15:6},{16:4},{17:4}], cost: 8000},
-    {eqp: weaponList.find(eqp => eqp.id == 18), items: [{20:25},{14:8},{15:4},{16:5},{17:3}], cost: 8000},
-    {eqp: weaponList.find(eqp => eqp.id == 19), items: [{20:25},{14:4},{15:9},{16:3},{17:4}], cost: 8000},
+    {id:1,eqp: weaponList.find(eqp => eqp.id == 17), items: [{20:25},{14:6},{15:6},{16:4},{17:4}], cost: 8000},
+    {id:2,eqp: weaponList.find(eqp => eqp.id == 18), items: [{20:25},{14:8},{15:4},{16:5},{17:3}], cost: 8000},
+    {id:3,eqp: weaponList.find(eqp => eqp.id == 19), items: [{20:25},{14:4},{15:9},{16:3},{17:4}], cost: 8000},
     
     //angel
-    {eqp: weaponList.find(eqp => eqp.id == 20), items: [{0:2},{20:30},{3:10},{1:10},{16:6},{2:4}], cost: 10000},
+    {id:4,eqp: weaponList.find(eqp => eqp.id == 20), items: [{0:2},{20:30},{3:10},{1:10},{16:6},{2:4}], cost: 10000},
     //dragon
-    {eqp: weaponList.find(eqp => eqp.id == 21), items: [{0:2},{20:30},{12:10},{11:10},{13:6},{17:4}], cost: 10000},
+    {id:5,eqp: weaponList.find(eqp => eqp.id == 21), items: [{0:2},{20:30},{12:10},{11:10},{13:6},{17:4}], cost: 10000},
     //demon
-    {eqp: weaponList.find(eqp => eqp.id == 22), items: [{0:2},{20:30},{9:10},{15:10},{8:6},{10:4}], cost: 10000},
+    {id:6,eqp: weaponList.find(eqp => eqp.id == 22), items: [{0:2},{20:30},{9:10},{15:10},{8:6},{10:4}], cost: 10000},
     // {name: "Twin Swords",items: [{21:25},{16:10},{17:10}], mob:"demons", type: weaponTypes[4].type},
     
     
