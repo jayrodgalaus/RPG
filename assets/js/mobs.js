@@ -7,6 +7,8 @@ var dungeonMobs = [
         {name: "Corrupt Angel", species:"angels", img: mob_path+"Angels/1.webp", category:"angels", baseStats: 50, increment: 12, baseGold:100, distr:statDistr.atk},
         {name: "Corrupt Cherub", species:"angels", img: mob_path+"Angels/2.webp", category:"angels", baseStats: 50, increment: 12, baseGold:100, distr:statDistr.spd},
         {name: "Corrupt Priestess", species:"angels", img: mob_path+"Angels/3.webp", category:"angels", baseStats: 50, increment: 12, baseGold:85, distr:statDistr.hp},
+        {name: "Heavenly Soldier", species:"angels", img: mob_path+"Angels/4.webp", category:"angels", baseStats: 50, increment: 12, baseGold:85, distr:statDistr.balanced},
+        {name: "Gatekeeper", species:"angels", img: mob_path+"Angels/5.webp", category:"angels", baseStats: 50, increment: 12, baseGold:85, distr:statDistr.def},
     //arachne: [
         {name: "Arachne (F)", species:"arachne", img: mob_path+"Arachne/1.webp", category:"arachne", baseStats: 40, increment: 8, baseGold:85, distr:statDistr.spd},
         {name: "Arachne (M)", species:"arachne", img: mob_path+"Arachne/2.webp", category:"arachne", baseStats: 40, increment: 8, baseGold:85, distr:statDistr.atk},
@@ -22,11 +24,13 @@ var dungeonMobs = [
         {name: "Succubus", species:"demons", img: mob_path+"Demons/2.webp", category:"demons", baseStats: 50, increment: 12, baseGold:100, distr:statDistr.hp},
         {name: "Gargoyle", species:"demons", img: mob_path+"Demons/3.webp", category:"demons", baseStats: 50, increment: 12, baseGold:85, distr:statDistr.xdef},
         {name: "Ashen", species:"demons", img: mob_path+"Demons/4.webp", category:"demons", baseStats: 50, increment: 12, baseGold:100, distr:statDistr.spd},
+        {name: "Temptress", species:"demons", img: mob_path+"Demons/5.webp", category:"demons", baseStats: 50, increment: 12, baseGold:100, distr:statDistr.spd},
     //dragons
         {name: "Wyrm", species:"dragons", img: mob_path+"Dragons/1.webp", category:"dragons", baseStats: 50, increment: 12, baseGold:85, distr:statDistr.def},
         {name: "Dragonkin", species:"dragons", img: mob_path+"Dragons/2.webp", category:"dragons", baseStats: 50, increment: 12, baseGold:50, distr:statDistr.atk},
         {name: "Dragonkin", species:"dragons", img: mob_path+"Dragons/3.webp", category:"dragons", baseStats: 50, increment: 12, baseGold:50, distr:statDistr.spd},
-        {name: "Dragon Warrior", species:"dragons", img: mob_path+"Dragons/4.webp", category:"dragons", baseStats: 60, increment: 13, baseGold:85, distr:statDistr.xspd},
+        {name: "Dragon Warrior", species:"dragons", img: mob_path+"Dragons/4.webp", category:"dragons", baseStats: 60, increment: 13, baseGold:85, distr:statDistr.xatk},
+        {name: "Dragon Warrior", species:"dragons", img: mob_path+"Dragons/5.webp", category:"dragons", baseStats: 60, increment: 13, baseGold:85, distr:statDistr.balanced},
     //fallen
         {name: "Corrupt Knight", species:"fallen", img: mob_path+"Fallen/1.webp", category:"fallen", baseStats: 40, increment: 10, baseGold:50, distr:statDistr.balanced},
         {name: "Corrupt Knight", species:"fallen", img: mob_path+"Fallen/2.webp", category:"fallen", baseStats: 40, increment: 10, baseGold:50, distr:statDistr.atk},

@@ -1,0 +1,7119 @@
+{
+  "version": 1,
+  "generatedAt": "2026-07-03T04:18:34.450Z",
+  "all": [
+    {
+      "name": "After_the_Hearth_Cools",
+      "path": "assets/audio/After_the_Hearth_Cools.webm",
+      "ext": ".webm",
+      "kind": "video"
+    },
+    {
+      "name": "After_The_Lights",
+      "path": "assets/audio/After_The_Lights.webm",
+      "ext": ".webm",
+      "kind": "video"
+    },
+    {
+      "name": "click",
+      "path": "assets/audio/click.wav",
+      "ext": ".wav",
+      "kind": "audio"
+    },
+    {
+      "name": "death",
+      "path": "assets/audio/death.wav",
+      "ext": ".wav",
+      "kind": "audio"
+    },
+    {
+      "name": "hit1",
+      "path": "assets/audio/hit1.wav",
+      "ext": ".wav",
+      "kind": "audio"
+    },
+    {
+      "name": "hit2",
+      "path": "assets/audio/hit2.wav",
+      "ext": ".wav",
+      "kind": "audio"
+    },
+    {
+      "name": "hit3",
+      "path": "assets/audio/hit3.wav",
+      "ext": ".wav",
+      "kind": "audio"
+    },
+    {
+      "name": "atk",
+      "path": "assets/icons/atk.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "cross",
+      "path": "assets/icons/cross.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "crossed-swords-white-cropped",
+      "path": "assets/icons/crossed-swords-white-cropped.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "crossed-swords-white",
+      "path": "assets/icons/crossed-swords-white.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "crossed-swords",
+      "path": "assets/icons/crossed-swords.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "def",
+      "path": "assets/icons/def.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "gate",
+      "path": "assets/icons/gate.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "hp",
+      "path": "assets/icons/hp.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "noun-anvil-6823457",
+      "path": "assets/icons/noun-anvil-6823457.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "noun-coin-5747640",
+      "path": "assets/icons/noun-coin-5747640.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "noun-fire-7792492",
+      "path": "assets/icons/noun-fire-7792492.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "noun-flower-294304",
+      "path": "assets/icons/noun-flower-294304.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "noun-grimoire-7656384",
+      "path": "assets/icons/noun-grimoire-7656384.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "noun-guild",
+      "path": "assets/icons/noun-guild.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "noun-item-rune-stone-2360138",
+      "path": "assets/icons/noun-item-rune-stone-2360138.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "noun-knife-8088598",
+      "path": "assets/icons/noun-knife-8088598.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "noun-knight-helmet-1338620",
+      "path": "assets/icons/noun-knight-helmet-1338620.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "noun-potion-flask-3340871",
+      "path": "assets/icons/noun-potion-flask-3340871.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "noun-pouch-3244756",
+      "path": "assets/icons/noun-pouch-3244756.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "noun-shield-6691280",
+      "path": "assets/icons/noun-shield-6691280.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "noun-sparkle-7902439",
+      "path": "assets/icons/noun-sparkle-7902439.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "noun-star-tarot-4435321",
+      "path": "assets/icons/noun-star-tarot-4435321.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "noun-sun-8284237",
+      "path": "assets/icons/noun-sun-8284237.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "noun-sword-3273851",
+      "path": "assets/icons/noun-sword-3273851.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "skull",
+      "path": "assets/icons/skull.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "spd",
+      "path": "assets/icons/spd.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "armory",
+      "path": "assets/img/Backgrounds/armory.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "bag",
+      "path": "assets/img/Backgrounds/bag.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "chest",
+      "path": "assets/img/Backgrounds/chest.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "death",
+      "path": "assets/img/Backgrounds/death.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "faery",
+      "path": "assets/img/Backgrounds/faery.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "guild",
+      "path": "assets/img/Backgrounds/guild.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "map_0",
+      "path": "assets/img/Backgrounds/map_0.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "map_1",
+      "path": "assets/img/Backgrounds/map_1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "map_2",
+      "path": "assets/img/Backgrounds/map_2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "map_3",
+      "path": "assets/img/Backgrounds/map_3.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "map_4",
+      "path": "assets/img/Backgrounds/map_4.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "next",
+      "path": "assets/img/Backgrounds/next.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "revive",
+      "path": "assets/img/Backgrounds/revive.webm",
+      "ext": ".webm",
+      "kind": "video"
+    },
+    {
+      "name": "soul",
+      "path": "assets/img/Backgrounds/soul.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "statue",
+      "path": "assets/img/Backgrounds/statue.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "storage",
+      "path": "assets/img/Backgrounds/storage.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "thief",
+      "path": "assets/img/Backgrounds/thief.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "town",
+      "path": "assets/img/Backgrounds/town.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Axe/Beginner/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Axe/Demons/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Axe/Demons/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Axe/Demons/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Axe/Demons/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Axe/Demons/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Axe/Demons/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Axe/Demons/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "SR",
+      "path": "assets/img/Equipment/Axe/Demons/SR.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Axe/Dragons/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Axe/Dragons/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Axe/Dragons/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Axe/Dragons/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Axe/Dragons/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Axe/Dragons/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Axe/Dragons/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "SR",
+      "path": "assets/img/Equipment/Axe/Dragons/SR.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Axe/Fallen/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Axe/Fallen/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Axe/Fallen/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Axe/Fallen/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Axe/Fallen/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Axe/Fallen/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Axe/Fallen/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-A",
+      "path": "assets/img/Equipment/Axe/Regular/1-A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-B",
+      "path": "assets/img/Equipment/Axe/Regular/1-B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-C",
+      "path": "assets/img/Equipment/Axe/Regular/1-C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-D",
+      "path": "assets/img/Equipment/Axe/Regular/1-D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-E",
+      "path": "assets/img/Equipment/Axe/Regular/1-E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-F",
+      "path": "assets/img/Equipment/Axe/Regular/1-F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-S",
+      "path": "assets/img/Equipment/Axe/Regular/1-S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "G",
+      "path": "assets/img/Equipment/Breastplate/Beginner/G.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Breastplate/Fallen/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Breastplate/Fallen/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Breastplate/Fallen/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Breastplate/Fallen/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Breastplate/Fallen/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Breastplate/Fallen/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Breastplate/Fallen/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "SR",
+      "path": "assets/img/Equipment/Breastplate/Fallen/SR.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Breastplate/Goblin/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Breastplate/Goblin/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Breastplate/Goblin/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Breastplate/Goblin/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Breastplate/Goblin/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Breastplate/Goblin/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Breastplate/Goblin/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Breastplate/Kobold/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Breastplate/Kobold/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Breastplate/Kobold/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Breastplate/Kobold/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Breastplate/Kobold/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Breastplate/Kobold/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Breastplate/Kobold/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Dagger/Beginner/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Dagger/Cultist/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Dagger/Cultist/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Dagger/Cultist/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Dagger/Cultist/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Dagger/Cultist/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Dagger/Cultist/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Dagger/Cultist/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Dagger/Goblin/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Dagger/Goblin/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Dagger/Goblin/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Dagger/Goblin/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Dagger/Goblin/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Dagger/Goblin/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Dagger/Goblin/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Dagger/Kobold/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Dagger/Kobold/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Dagger/Kobold/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Dagger/Kobold/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Dagger/Kobold/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Dagger/Kobold/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Dagger/Kobold/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "G",
+      "path": "assets/img/Equipment/Gloves/Beginner/G.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Gloves/Fallen/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Gloves/Fallen/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Gloves/Fallen/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Gloves/Fallen/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Gloves/Fallen/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Gloves/Fallen/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Gloves/Fallen/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "SR",
+      "path": "assets/img/Equipment/Gloves/Fallen/SR.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Greatsword/Angels/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Greatsword/Angels/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Greatsword/Angels/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Greatsword/Angels/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Greatsword/Angels/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Greatsword/Angels/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Greatsword/Angels/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "SR",
+      "path": "assets/img/Equipment/Greatsword/Angels/SR.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Greatsword/Beginner/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "G",
+      "path": "assets/img/Equipment/Greaves/Beginner/G.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Greaves/Fallen/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Greaves/Fallen/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Greaves/Fallen/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Greaves/Fallen/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Greaves/Fallen/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Greaves/Fallen/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Greaves/Fallen/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "SR",
+      "path": "assets/img/Equipment/Greaves/Fallen/SR.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Hammer/Angels/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Hammer/Angels/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Hammer/Angels/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Hammer/Angels/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Hammer/Angels/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Hammer/Angels/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Hammer/Angels/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "SR",
+      "path": "assets/img/Equipment/Hammer/Angels/SR.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "G",
+      "path": "assets/img/Equipment/Hammer/Beginner/G.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Hammer/Ghost/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Hammer/Ghost/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Hammer/Ghost/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Hammer/Ghost/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Hammer/Ghost/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Hammer/Ghost/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Hammer/Ghost/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Hammer/Kobold/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Hammer/Kobold/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Hammer/Kobold/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Hammer/Kobold/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Hammer/Kobold/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Hammer/Kobold/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Hammer/Kobold/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-A",
+      "path": "assets/img/Equipment/Hammer/Regular/1-A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-B",
+      "path": "assets/img/Equipment/Hammer/Regular/1-B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-C",
+      "path": "assets/img/Equipment/Hammer/Regular/1-C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-D",
+      "path": "assets/img/Equipment/Hammer/Regular/1-D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-E",
+      "path": "assets/img/Equipment/Hammer/Regular/1-E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-F",
+      "path": "assets/img/Equipment/Hammer/Regular/1-F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-S",
+      "path": "assets/img/Equipment/Hammer/Regular/1-S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Helmet/Angels/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Helmet/Angels/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Helmet/Angels/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Helmet/Angels/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Helmet/Angels/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Helmet/Angels/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Helmet/Angels/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "SR",
+      "path": "assets/img/Equipment/Helmet/Angels/SR.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "G",
+      "path": "assets/img/Equipment/Helmet/Beginner/G.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Helmet/Fallen/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Helmet/Fallen/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Helmet/Fallen/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Helmet/Fallen/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Helmet/Fallen/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Helmet/Fallen/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Helmet/Fallen/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "SR",
+      "path": "assets/img/Equipment/Helmet/Fallen/SR.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Scythe/Arachne/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Scythe/Arachne/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Scythe/Arachne/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Scythe/Arachne/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Scythe/Arachne/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Scythe/Arachne/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Scythe/Arachne/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "SR",
+      "path": "assets/img/Equipment/Scythe/Arachne/SR.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Scythe/Beginner/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-A",
+      "path": "assets/img/Equipment/Scythe/Regular/1-A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-B",
+      "path": "assets/img/Equipment/Scythe/Regular/1-B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-C",
+      "path": "assets/img/Equipment/Scythe/Regular/1-C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-D",
+      "path": "assets/img/Equipment/Scythe/Regular/1-D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-E",
+      "path": "assets/img/Equipment/Scythe/Regular/1-E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-F",
+      "path": "assets/img/Equipment/Scythe/Regular/1-F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-S",
+      "path": "assets/img/Equipment/Scythe/Regular/1-S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Scythe/Zombies/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Scythe/Zombies/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Scythe/Zombies/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Scythe/Zombies/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Scythe/Zombies/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Scythe/Zombies/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Scythe/Zombies/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Shield/Angels/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Shield/Angels/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Shield/Angels/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Shield/Angels/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Shield/Angels/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Shield/Angels/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Shield/Angels/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "SR",
+      "path": "assets/img/Equipment/Shield/Angels/SR.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Shield/Fallen/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Shield/Fallen/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Shield/Fallen/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Shield/Fallen/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Shield/Fallen/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Shield/Fallen/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Shield/Fallen/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "SR",
+      "path": "assets/img/Equipment/Shield/Fallen/SR.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Shield/Zombie/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Shield/Zombie/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Shield/Zombie/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Shield/Zombie/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Shield/Zombie/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Shield/Zombie/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Shield/Zombie/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Spear/Angel/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Spear/Angel/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Spear/Angel/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Spear/Angel/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Spear/Angel/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Spear/Angel/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Spear/Angel/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "SR",
+      "path": "assets/img/Equipment/Spear/Angel/SR.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Spear/Beginner/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Spear/Dragons/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Spear/Dragons/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Spear/Dragons/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Spear/Dragons/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Spear/Dragons/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Spear/Dragons/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Spear/Dragons/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Spear/Goblins/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Spear/Goblins/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Spear/Goblins/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Spear/Goblins/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Spear/Goblins/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Spear/Goblins/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Spear/Goblins/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Sword/Beginner/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Sword/Fallen/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Sword/Fallen/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Sword/Fallen/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Sword/Fallen/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Sword/Fallen/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Sword/Fallen/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Sword/Fallen/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-A",
+      "path": "assets/img/Equipment/Sword/Regular/1-A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-B",
+      "path": "assets/img/Equipment/Sword/Regular/1-B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-C",
+      "path": "assets/img/Equipment/Sword/Regular/1-C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-D",
+      "path": "assets/img/Equipment/Sword/Regular/1-D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-E",
+      "path": "assets/img/Equipment/Sword/Regular/1-E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-F",
+      "path": "assets/img/Equipment/Sword/Regular/1-F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-S",
+      "path": "assets/img/Equipment/Sword/Regular/1-S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Sword/Skeletons/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Sword/Skeletons/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Sword/Skeletons/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Sword/Skeletons/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Sword/Skeletons/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Sword/Skeletons/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Sword/Skeletons/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Twinswords/Beginner/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Twinswords/Fallen/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Twinswords/Fallen/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Twinswords/Fallen/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Twinswords/Fallen/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Twinswords/Fallen/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Twinswords/Fallen/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Twinswords/Fallen/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "SR",
+      "path": "assets/img/Equipment/Twinswords/Fallen/SR.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-A",
+      "path": "assets/img/Equipment/Twinswords/Regular/1-A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-B",
+      "path": "assets/img/Equipment/Twinswords/Regular/1-B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-C",
+      "path": "assets/img/Equipment/Twinswords/Regular/1-C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-D",
+      "path": "assets/img/Equipment/Twinswords/Regular/1-D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-E",
+      "path": "assets/img/Equipment/Twinswords/Regular/1-E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-F",
+      "path": "assets/img/Equipment/Twinswords/Regular/1-F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-S",
+      "path": "assets/img/Equipment/Twinswords/Regular/1-S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-SR",
+      "path": "assets/img/Equipment/Twinswords/Regular/1-SR.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1",
+      "path": "assets/img/Mobs/Abyss/1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "10",
+      "path": "assets/img/Mobs/Abyss/10.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "11",
+      "path": "assets/img/Mobs/Abyss/11.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "12",
+      "path": "assets/img/Mobs/Abyss/12.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "13",
+      "path": "assets/img/Mobs/Abyss/13.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "14",
+      "path": "assets/img/Mobs/Abyss/14.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "15",
+      "path": "assets/img/Mobs/Abyss/15.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "16",
+      "path": "assets/img/Mobs/Abyss/16.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "17",
+      "path": "assets/img/Mobs/Abyss/17.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "18",
+      "path": "assets/img/Mobs/Abyss/18.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "19",
+      "path": "assets/img/Mobs/Abyss/19.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2",
+      "path": "assets/img/Mobs/Abyss/2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "20",
+      "path": "assets/img/Mobs/Abyss/20.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "21",
+      "path": "assets/img/Mobs/Abyss/21.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "22",
+      "path": "assets/img/Mobs/Abyss/22.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "23",
+      "path": "assets/img/Mobs/Abyss/23.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "24",
+      "path": "assets/img/Mobs/Abyss/24.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3",
+      "path": "assets/img/Mobs/Abyss/3.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "4",
+      "path": "assets/img/Mobs/Abyss/4.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "5",
+      "path": "assets/img/Mobs/Abyss/5.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "6",
+      "path": "assets/img/Mobs/Abyss/6.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "7",
+      "path": "assets/img/Mobs/Abyss/7.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "8",
+      "path": "assets/img/Mobs/Abyss/8.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "9",
+      "path": "assets/img/Mobs/Abyss/9.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "apex",
+      "path": "assets/img/Mobs/Abyss/apex.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "boss",
+      "path": "assets/img/Mobs/Abyss/boss.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-elite",
+      "path": "assets/img/Mobs/Angels/1-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1",
+      "path": "assets/img/Mobs/Angels/1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2-elite",
+      "path": "assets/img/Mobs/Angels/2-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2",
+      "path": "assets/img/Mobs/Angels/2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3-elite",
+      "path": "assets/img/Mobs/Angels/3-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3",
+      "path": "assets/img/Mobs/Angels/3.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "4-elite",
+      "path": "assets/img/Mobs/Angels/4-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "4",
+      "path": "assets/img/Mobs/Angels/4.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "5-elite",
+      "path": "assets/img/Mobs/Angels/5-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "5",
+      "path": "assets/img/Mobs/Angels/5.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "apex",
+      "path": "assets/img/Mobs/Angels/apex.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "apex2",
+      "path": "assets/img/Mobs/Angels/apex2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "apex3",
+      "path": "assets/img/Mobs/Angels/apex3.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "boss",
+      "path": "assets/img/Mobs/Angels/boss.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-elite",
+      "path": "assets/img/Mobs/Arachne/1-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1",
+      "path": "assets/img/Mobs/Arachne/1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2-elite",
+      "path": "assets/img/Mobs/Arachne/2-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2",
+      "path": "assets/img/Mobs/Arachne/2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3-elite",
+      "path": "assets/img/Mobs/Arachne/3-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3",
+      "path": "assets/img/Mobs/Arachne/3.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "apex",
+      "path": "assets/img/Mobs/Arachne/apex.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "boss",
+      "path": "assets/img/Mobs/Arachne/boss.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-elite",
+      "path": "assets/img/Mobs/Cultists/1-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1",
+      "path": "assets/img/Mobs/Cultists/1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2-elite",
+      "path": "assets/img/Mobs/Cultists/2-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2",
+      "path": "assets/img/Mobs/Cultists/2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3-elite",
+      "path": "assets/img/Mobs/Cultists/3-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3",
+      "path": "assets/img/Mobs/Cultists/3.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "apex",
+      "path": "assets/img/Mobs/Cultists/apex.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "boss",
+      "path": "assets/img/Mobs/Cultists/boss.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-elite",
+      "path": "assets/img/Mobs/Demons/1-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1",
+      "path": "assets/img/Mobs/Demons/1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2-elite",
+      "path": "assets/img/Mobs/Demons/2-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2",
+      "path": "assets/img/Mobs/Demons/2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3",
+      "path": "assets/img/Mobs/Demons/3.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "4-elite",
+      "path": "assets/img/Mobs/Demons/4-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "4",
+      "path": "assets/img/Mobs/Demons/4.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "5-elite",
+      "path": "assets/img/Mobs/Demons/5-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "5",
+      "path": "assets/img/Mobs/Demons/5.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "apex",
+      "path": "assets/img/Mobs/Demons/apex.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "boss",
+      "path": "assets/img/Mobs/Demons/boss.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-elite",
+      "path": "assets/img/Mobs/Dragons/1-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1",
+      "path": "assets/img/Mobs/Dragons/1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2-elite",
+      "path": "assets/img/Mobs/Dragons/2-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2",
+      "path": "assets/img/Mobs/Dragons/2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3-elite",
+      "path": "assets/img/Mobs/Dragons/3-elite.jpeg",
+      "ext": ".jpeg",
+      "kind": "image"
+    },
+    {
+      "name": "3-elite",
+      "path": "assets/img/Mobs/Dragons/3-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3",
+      "path": "assets/img/Mobs/Dragons/3.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "4-elite",
+      "path": "assets/img/Mobs/Dragons/4-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "4",
+      "path": "assets/img/Mobs/Dragons/4.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "5-elite",
+      "path": "assets/img/Mobs/Dragons/5-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "5",
+      "path": "assets/img/Mobs/Dragons/5.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "apex",
+      "path": "assets/img/Mobs/Dragons/apex.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "boss",
+      "path": "assets/img/Mobs/Dragons/boss.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-elite",
+      "path": "assets/img/Mobs/Fallen/1-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1",
+      "path": "assets/img/Mobs/Fallen/1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2-elite",
+      "path": "assets/img/Mobs/Fallen/2-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2",
+      "path": "assets/img/Mobs/Fallen/2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3-elite",
+      "path": "assets/img/Mobs/Fallen/3-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3",
+      "path": "assets/img/Mobs/Fallen/3.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "4-elite",
+      "path": "assets/img/Mobs/Fallen/4-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "4",
+      "path": "assets/img/Mobs/Fallen/4.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "5-elite",
+      "path": "assets/img/Mobs/Fallen/5-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "5",
+      "path": "assets/img/Mobs/Fallen/5.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "6-elite",
+      "path": "assets/img/Mobs/Fallen/6-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "6",
+      "path": "assets/img/Mobs/Fallen/6.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "7-elite",
+      "path": "assets/img/Mobs/Fallen/7-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "7",
+      "path": "assets/img/Mobs/Fallen/7.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "apex",
+      "path": "assets/img/Mobs/Fallen/apex.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "boss",
+      "path": "assets/img/Mobs/Fallen/boss.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "boss2",
+      "path": "assets/img/Mobs/Fallen/boss2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-elite",
+      "path": "assets/img/Mobs/Ghosts/1-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1",
+      "path": "assets/img/Mobs/Ghosts/1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2-elite",
+      "path": "assets/img/Mobs/Ghosts/2-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2",
+      "path": "assets/img/Mobs/Ghosts/2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3-elite",
+      "path": "assets/img/Mobs/Ghosts/3-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3",
+      "path": "assets/img/Mobs/Ghosts/3.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "4-elite",
+      "path": "assets/img/Mobs/Ghosts/4-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "4",
+      "path": "assets/img/Mobs/Ghosts/4.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "apex",
+      "path": "assets/img/Mobs/Ghosts/apex.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "boss",
+      "path": "assets/img/Mobs/Ghosts/boss.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-elite",
+      "path": "assets/img/Mobs/Goblins/1-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1",
+      "path": "assets/img/Mobs/Goblins/1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2-elite",
+      "path": "assets/img/Mobs/Goblins/2-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2",
+      "path": "assets/img/Mobs/Goblins/2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3-elite",
+      "path": "assets/img/Mobs/Goblins/3-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3",
+      "path": "assets/img/Mobs/Goblins/3.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "4-elite",
+      "path": "assets/img/Mobs/Goblins/4-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "4",
+      "path": "assets/img/Mobs/Goblins/4.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "apex",
+      "path": "assets/img/Mobs/Goblins/apex.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "boss",
+      "path": "assets/img/Mobs/Goblins/boss.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1",
+      "path": "assets/img/Mobs/Hero/1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2",
+      "path": "assets/img/Mobs/Hero/2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3",
+      "path": "assets/img/Mobs/Hero/3.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "4",
+      "path": "assets/img/Mobs/Hero/4.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "5",
+      "path": "assets/img/Mobs/Hero/5.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-elite",
+      "path": "assets/img/Mobs/Kobolds/1-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1",
+      "path": "assets/img/Mobs/Kobolds/1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2-elite",
+      "path": "assets/img/Mobs/Kobolds/2-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2",
+      "path": "assets/img/Mobs/Kobolds/2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3-elite",
+      "path": "assets/img/Mobs/Kobolds/3-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3",
+      "path": "assets/img/Mobs/Kobolds/3.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "4-elite",
+      "path": "assets/img/Mobs/Kobolds/4-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "4",
+      "path": "assets/img/Mobs/Kobolds/4.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "apex",
+      "path": "assets/img/Mobs/Kobolds/apex.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "boss",
+      "path": "assets/img/Mobs/Kobolds/boss.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "chest-elite",
+      "path": "assets/img/Mobs/Neutrals/chest-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "chest",
+      "path": "assets/img/Mobs/Neutrals/chest.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "death-elite",
+      "path": "assets/img/Mobs/Neutrals/death-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "death",
+      "path": "assets/img/Mobs/Neutrals/death.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "door-elite",
+      "path": "assets/img/Mobs/Neutrals/door-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "door",
+      "path": "assets/img/Mobs/Neutrals/door.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "eye1-elite",
+      "path": "assets/img/Mobs/Neutrals/eye1-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "eye1",
+      "path": "assets/img/Mobs/Neutrals/eye1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "eye2-elite",
+      "path": "assets/img/Mobs/Neutrals/eye2-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "eye2",
+      "path": "assets/img/Mobs/Neutrals/eye2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "goldgoblin_1",
+      "path": "assets/img/Mobs/Neutrals/goldgoblin_1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "goldgoblin-elite",
+      "path": "assets/img/Mobs/Neutrals/goldgoblin-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "goldgoblin",
+      "path": "assets/img/Mobs/Neutrals/goldgoblin.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "magmaGolem-elite",
+      "path": "assets/img/Mobs/Neutrals/magmaGolem-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "magmaGolem",
+      "path": "assets/img/Mobs/Neutrals/magmaGolem.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "nurse1-elite",
+      "path": "assets/img/Mobs/Neutrals/nurse1-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "nurse1",
+      "path": "assets/img/Mobs/Neutrals/nurse1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "nurse2-elite",
+      "path": "assets/img/Mobs/Neutrals/nurse2-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "nurse2",
+      "path": "assets/img/Mobs/Neutrals/nurse2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "nurse3-elite",
+      "path": "assets/img/Mobs/Neutrals/nurse3-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "nurse3",
+      "path": "assets/img/Mobs/Neutrals/nurse3.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "stoneGolem-elite",
+      "path": "assets/img/Mobs/Neutrals/stoneGolem-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "stoneGolem",
+      "path": "assets/img/Mobs/Neutrals/stoneGolem.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "windGolem-elite",
+      "path": "assets/img/Mobs/Neutrals/windGolem-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "windGolem",
+      "path": "assets/img/Mobs/Neutrals/windGolem.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-elite",
+      "path": "assets/img/Mobs/Skeletons/1-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1",
+      "path": "assets/img/Mobs/Skeletons/1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2-elite",
+      "path": "assets/img/Mobs/Skeletons/2-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2",
+      "path": "assets/img/Mobs/Skeletons/2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3-elite",
+      "path": "assets/img/Mobs/Skeletons/3-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3",
+      "path": "assets/img/Mobs/Skeletons/3.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "apex",
+      "path": "assets/img/Mobs/Skeletons/apex.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "boss",
+      "path": "assets/img/Mobs/Skeletons/boss.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-elite",
+      "path": "assets/img/Mobs/Slimes/1-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1",
+      "path": "assets/img/Mobs/Slimes/1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2-elite",
+      "path": "assets/img/Mobs/Slimes/2-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2",
+      "path": "assets/img/Mobs/Slimes/2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3-elite",
+      "path": "assets/img/Mobs/Slimes/3-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3",
+      "path": "assets/img/Mobs/Slimes/3.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "apex",
+      "path": "assets/img/Mobs/Slimes/apex.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "boss",
+      "path": "assets/img/Mobs/Slimes/boss.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-elite",
+      "path": "assets/img/Mobs/Zombies/1-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1",
+      "path": "assets/img/Mobs/Zombies/1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2-elite",
+      "path": "assets/img/Mobs/Zombies/2-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2",
+      "path": "assets/img/Mobs/Zombies/2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3-elite",
+      "path": "assets/img/Mobs/Zombies/3-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3",
+      "path": "assets/img/Mobs/Zombies/3.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "apex",
+      "path": "assets/img/Mobs/Zombies/apex.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "boss",
+      "path": "assets/img/Mobs/Zombies/boss.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Akara",
+      "path": "assets/img/NPCs/Maidens/Akara.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Aura Master",
+      "path": "assets/img/NPCs/Maidens/Aura Master.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Calistra",
+      "path": "assets/img/NPCs/Maidens/Calistra.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Dravenna",
+      "path": "assets/img/NPCs/Maidens/Dravenna.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Elira",
+      "path": "assets/img/NPCs/Maidens/Elira.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Enchantress",
+      "path": "assets/img/NPCs/Maidens/Enchantress.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Isolde",
+      "path": "assets/img/NPCs/Maidens/Isolde.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Kaelenne",
+      "path": "assets/img/NPCs/Maidens/Kaelenne.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Lilith",
+      "path": "assets/img/NPCs/Maidens/Lilith.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Maerith",
+      "path": "assets/img/NPCs/Maidens/Maerith.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Morrigan",
+      "path": "assets/img/NPCs/Maidens/Morrigan.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Noctira",
+      "path": "assets/img/NPCs/Maidens/Noctira.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Nyxara",
+      "path": "assets/img/NPCs/Maidens/Nyxara.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Orlith",
+      "path": "assets/img/NPCs/Maidens/Orlith.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Seraphine",
+      "path": "assets/img/NPCs/Maidens/Seraphine.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Sylvara",
+      "path": "assets/img/NPCs/Maidens/Sylvara.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Thalira",
+      "path": "assets/img/NPCs/Maidens/Thalira.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Vaelith",
+      "path": "assets/img/NPCs/Maidens/Vaelith.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Veyra",
+      "path": "assets/img/NPCs/Maidens/Veyra.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Zephyra",
+      "path": "assets/img/NPCs/Maidens/Zephyra.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "alchemist1-nsfw",
+      "path": "assets/img/NPCs/Town/alchemist1-nsfw.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "alchemist1",
+      "path": "assets/img/NPCs/Town/alchemist1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "auramaster-nsfw",
+      "path": "assets/img/NPCs/Town/auramaster-nsfw.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "auramaster",
+      "path": "assets/img/NPCs/Town/auramaster.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "blacksmith-nsfw",
+      "path": "assets/img/NPCs/Town/blacksmith-nsfw.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "blacksmith",
+      "path": "assets/img/NPCs/Town/blacksmith.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "enchantress-nsfw",
+      "path": "assets/img/NPCs/Town/enchantress-nsfw.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "enchantress",
+      "path": "assets/img/NPCs/Town/enchantress.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "merchant-nsfw",
+      "path": "assets/img/NPCs/Town/merchant-nsfw.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "merchant",
+      "path": "assets/img/NPCs/Town/merchant.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1",
+      "path": "assets/img/NPCs/Town/Refiners/1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "10",
+      "path": "assets/img/NPCs/Town/Refiners/10.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2",
+      "path": "assets/img/NPCs/Town/Refiners/2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3",
+      "path": "assets/img/NPCs/Town/Refiners/3.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "4",
+      "path": "assets/img/NPCs/Town/Refiners/4.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "5",
+      "path": "assets/img/NPCs/Town/Refiners/5.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "6",
+      "path": "assets/img/NPCs/Town/Refiners/6.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "7",
+      "path": "assets/img/NPCs/Town/Refiners/7.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "8",
+      "path": "assets/img/NPCs/Town/Refiners/8.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "9",
+      "path": "assets/img/NPCs/Town/Refiners/9.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1",
+      "path": "assets/img/NPCs/Town/Refiners/Bonus/1.webm",
+      "ext": ".webm",
+      "kind": "video"
+    },
+    {
+      "name": "10",
+      "path": "assets/img/NPCs/Town/Refiners/Bonus/10.webm",
+      "ext": ".webm",
+      "kind": "video"
+    },
+    {
+      "name": "2",
+      "path": "assets/img/NPCs/Town/Refiners/Bonus/2.webm",
+      "ext": ".webm",
+      "kind": "video"
+    },
+    {
+      "name": "3",
+      "path": "assets/img/NPCs/Town/Refiners/Bonus/3.webm",
+      "ext": ".webm",
+      "kind": "video"
+    },
+    {
+      "name": "4",
+      "path": "assets/img/NPCs/Town/Refiners/Bonus/4.webm",
+      "ext": ".webm",
+      "kind": "video"
+    },
+    {
+      "name": "5",
+      "path": "assets/img/NPCs/Town/Refiners/Bonus/5.webm",
+      "ext": ".webm",
+      "kind": "video"
+    },
+    {
+      "name": "6-1",
+      "path": "assets/img/NPCs/Town/Refiners/Bonus/6-1.webm",
+      "ext": ".webm",
+      "kind": "video"
+    },
+    {
+      "name": "7",
+      "path": "assets/img/NPCs/Town/Refiners/Bonus/7.webm",
+      "ext": ".webm",
+      "kind": "video"
+    },
+    {
+      "name": "8",
+      "path": "assets/img/NPCs/Town/Refiners/Bonus/8.webm",
+      "ext": ".webm",
+      "kind": "video"
+    },
+    {
+      "name": "9",
+      "path": "assets/img/NPCs/Town/Refiners/Bonus/9.webm",
+      "ext": ".webm",
+      "kind": "video"
+    },
+    {
+      "name": "p1-nsfw",
+      "path": "assets/img/NPCs/Town/Refiners/p1-nsfw.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "p1",
+      "path": "assets/img/NPCs/Town/Refiners/p1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "p10",
+      "path": "assets/img/NPCs/Town/Refiners/p10.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "p2-nsfw",
+      "path": "assets/img/NPCs/Town/Refiners/p2-nsfw.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "p2",
+      "path": "assets/img/NPCs/Town/Refiners/p2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "p3-nsfw",
+      "path": "assets/img/NPCs/Town/Refiners/p3-nsfw.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "p3",
+      "path": "assets/img/NPCs/Town/Refiners/p3.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "p4-nsfw",
+      "path": "assets/img/NPCs/Town/Refiners/p4-nsfw.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "p4",
+      "path": "assets/img/NPCs/Town/Refiners/p4.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "p5-nsfw",
+      "path": "assets/img/NPCs/Town/Refiners/p5-nsfw.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "p5",
+      "path": "assets/img/NPCs/Town/Refiners/p5.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "p6-1",
+      "path": "assets/img/NPCs/Town/Refiners/p6-1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "p6-2",
+      "path": "assets/img/NPCs/Town/Refiners/p6-2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "p6-nsfw",
+      "path": "assets/img/NPCs/Town/Refiners/p6-nsfw.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "p6",
+      "path": "assets/img/NPCs/Town/Refiners/p6.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "p7-nsfw",
+      "path": "assets/img/NPCs/Town/Refiners/p7-nsfw.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "p7",
+      "path": "assets/img/NPCs/Town/Refiners/p7.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "p8-nsfw",
+      "path": "assets/img/NPCs/Town/Refiners/p8-nsfw.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "p8",
+      "path": "assets/img/NPCs/Town/Refiners/p8.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "p9-nsfw",
+      "path": "assets/img/NPCs/Town/Refiners/p9-nsfw.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "p9",
+      "path": "assets/img/NPCs/Town/Refiners/p9.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "runemaster-nsfw",
+      "path": "assets/img/NPCs/Town/runemaster-nsfw.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "runemaster",
+      "path": "assets/img/NPCs/Town/runemaster.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "apex",
+      "path": "assets/img/Portals/apex.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "boss",
+      "path": "assets/img/Portals/boss.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "gold",
+      "path": "assets/img/Portals/gold.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "tp1",
+      "path": "assets/img/Portals/tp1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "tp2",
+      "path": "assets/img/Portals/tp2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "tp3",
+      "path": "assets/img/Portals/tp3.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "tp4",
+      "path": "assets/img/Portals/tp4.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Bladewind_F",
+      "path": "assets/img/Souls/Bladewind_F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Bladewind_M",
+      "path": "assets/img/Souls/Bladewind_M.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Nullborn",
+      "path": "assets/img/Souls/Nullborn.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Overlord_F",
+      "path": "assets/img/Souls/Overlord_F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Overlord_M",
+      "path": "assets/img/Souls/Overlord_M.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Ravager_F",
+      "path": "assets/img/Souls/Ravager_F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Ravager_M",
+      "path": "assets/img/Souls/Ravager_M.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Sentinel_F",
+      "path": "assets/img/Souls/Sentinel_F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Sentinel_M",
+      "path": "assets/img/Souls/Sentinel_M.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Severant_F",
+      "path": "assets/img/Souls/Severant_F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Severant_M",
+      "path": "assets/img/Souls/Severant_M.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Shade_F",
+      "path": "assets/img/Souls/Shade_F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Shade_M",
+      "path": "assets/img/Souls/Shade_M.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Vanguard_F",
+      "path": "assets/img/Souls/Vanguard_F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Vanguard_M",
+      "path": "assets/img/Souls/Vanguard_M.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Warden_F",
+      "path": "assets/img/Souls/Warden_F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Warden_M",
+      "path": "assets/img/Souls/Warden_M.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "encrid-1",
+      "path": "assets/img/Story/encrid-1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "encrid-2",
+      "path": "assets/img/Story/encrid-2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "encrid-3",
+      "path": "assets/img/Story/encrid-3.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "encrid-4",
+      "path": "assets/img/Story/encrid-4.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "encrid-5",
+      "path": "assets/img/Story/encrid-5.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "encrid-icon",
+      "path": "assets/img/Story/encrid-icon.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "eryndis-1",
+      "path": "assets/img/Story/eryndis-1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "eryndis-2",
+      "path": "assets/img/Story/eryndis-2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "faelith-1",
+      "path": "assets/img/Story/faelith-1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "faelith-2",
+      "path": "assets/img/Story/faelith-2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "faery",
+      "path": "assets/img/Story/faery.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "guinevere-1",
+      "path": "assets/img/Story/guinevere-1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "guinevere-2",
+      "path": "assets/img/Story/guinevere-2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "guinevere-3",
+      "path": "assets/img/Story/guinevere-3.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "guinevere-4",
+      "path": "assets/img/Story/guinevere-4.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "guinevere-5",
+      "path": "assets/img/Story/guinevere-5.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "guinivere-icon",
+      "path": "assets/img/Story/guinivere-icon.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "lyrielle-1",
+      "path": "assets/img/Story/lyrielle-1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "lyrielle-2",
+      "path": "assets/img/Story/lyrielle-2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "seraphine",
+      "path": "assets/img/Story/seraphine.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "bower",
+      "path": "assets/qr/bower.json",
+      "ext": ".json",
+      "kind": "data"
+    },
+    {
+      "name": "index",
+      "path": "assets/qr/index.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "Bladewind_idle",
+      "path": "assets/vid/Bladewind_idle.webm",
+      "ext": ".webm",
+      "kind": "video"
+    },
+    {
+      "name": "Dravenna_idle",
+      "path": "assets/vid/Dravenna_idle.webm",
+      "ext": ".webm",
+      "kind": "video"
+    },
+    {
+      "name": "Reaper_idle",
+      "path": "assets/vid/Reaper_idle.webm",
+      "ext": ".webm",
+      "kind": "video"
+    }
+  ],
+  "portraits": [
+    {
+      "name": "Bladewind_F",
+      "path": "assets/img/Souls/Bladewind_F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Bladewind_M",
+      "path": "assets/img/Souls/Bladewind_M.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Nullborn",
+      "path": "assets/img/Souls/Nullborn.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Overlord_F",
+      "path": "assets/img/Souls/Overlord_F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Overlord_M",
+      "path": "assets/img/Souls/Overlord_M.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Ravager_F",
+      "path": "assets/img/Souls/Ravager_F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Ravager_M",
+      "path": "assets/img/Souls/Ravager_M.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Sentinel_F",
+      "path": "assets/img/Souls/Sentinel_F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Sentinel_M",
+      "path": "assets/img/Souls/Sentinel_M.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Severant_F",
+      "path": "assets/img/Souls/Severant_F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Severant_M",
+      "path": "assets/img/Souls/Severant_M.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Shade_F",
+      "path": "assets/img/Souls/Shade_F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Shade_M",
+      "path": "assets/img/Souls/Shade_M.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Vanguard_F",
+      "path": "assets/img/Souls/Vanguard_F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Vanguard_M",
+      "path": "assets/img/Souls/Vanguard_M.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Warden_F",
+      "path": "assets/img/Souls/Warden_F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Warden_M",
+      "path": "assets/img/Souls/Warden_M.webp",
+      "ext": ".webp",
+      "kind": "image"
+    }
+  ],
+  "backgrounds": [
+    {
+      "name": "armory",
+      "path": "assets/img/Backgrounds/armory.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "bag",
+      "path": "assets/img/Backgrounds/bag.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "chest",
+      "path": "assets/img/Backgrounds/chest.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "death",
+      "path": "assets/img/Backgrounds/death.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "faery",
+      "path": "assets/img/Backgrounds/faery.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "guild",
+      "path": "assets/img/Backgrounds/guild.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "map_0",
+      "path": "assets/img/Backgrounds/map_0.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "map_1",
+      "path": "assets/img/Backgrounds/map_1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "map_2",
+      "path": "assets/img/Backgrounds/map_2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "map_3",
+      "path": "assets/img/Backgrounds/map_3.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "map_4",
+      "path": "assets/img/Backgrounds/map_4.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "next",
+      "path": "assets/img/Backgrounds/next.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "soul",
+      "path": "assets/img/Backgrounds/soul.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "statue",
+      "path": "assets/img/Backgrounds/statue.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "storage",
+      "path": "assets/img/Backgrounds/storage.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "thief",
+      "path": "assets/img/Backgrounds/thief.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "town",
+      "path": "assets/img/Backgrounds/town.webp",
+      "ext": ".webp",
+      "kind": "image"
+    }
+  ],
+  "townNpcs": [
+    {
+      "name": "alchemist1-nsfw",
+      "path": "assets/img/NPCs/Town/alchemist1-nsfw.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "alchemist1",
+      "path": "assets/img/NPCs/Town/alchemist1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "auramaster-nsfw",
+      "path": "assets/img/NPCs/Town/auramaster-nsfw.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "auramaster",
+      "path": "assets/img/NPCs/Town/auramaster.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "blacksmith-nsfw",
+      "path": "assets/img/NPCs/Town/blacksmith-nsfw.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "blacksmith",
+      "path": "assets/img/NPCs/Town/blacksmith.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "enchantress-nsfw",
+      "path": "assets/img/NPCs/Town/enchantress-nsfw.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "enchantress",
+      "path": "assets/img/NPCs/Town/enchantress.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "merchant-nsfw",
+      "path": "assets/img/NPCs/Town/merchant-nsfw.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "merchant",
+      "path": "assets/img/NPCs/Town/merchant.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "runemaster-nsfw",
+      "path": "assets/img/NPCs/Town/runemaster-nsfw.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "runemaster",
+      "path": "assets/img/NPCs/Town/runemaster.webp",
+      "ext": ".webp",
+      "kind": "image"
+    }
+  ],
+  "refiners": [
+    {
+      "name": "1",
+      "path": "assets/img/NPCs/Town/Refiners/1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "10",
+      "path": "assets/img/NPCs/Town/Refiners/10.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2",
+      "path": "assets/img/NPCs/Town/Refiners/2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3",
+      "path": "assets/img/NPCs/Town/Refiners/3.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "4",
+      "path": "assets/img/NPCs/Town/Refiners/4.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "5",
+      "path": "assets/img/NPCs/Town/Refiners/5.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "6",
+      "path": "assets/img/NPCs/Town/Refiners/6.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "7",
+      "path": "assets/img/NPCs/Town/Refiners/7.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "8",
+      "path": "assets/img/NPCs/Town/Refiners/8.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "9",
+      "path": "assets/img/NPCs/Town/Refiners/9.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "p1-nsfw",
+      "path": "assets/img/NPCs/Town/Refiners/p1-nsfw.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "p1",
+      "path": "assets/img/NPCs/Town/Refiners/p1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "p10",
+      "path": "assets/img/NPCs/Town/Refiners/p10.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "p2-nsfw",
+      "path": "assets/img/NPCs/Town/Refiners/p2-nsfw.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "p2",
+      "path": "assets/img/NPCs/Town/Refiners/p2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "p3-nsfw",
+      "path": "assets/img/NPCs/Town/Refiners/p3-nsfw.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "p3",
+      "path": "assets/img/NPCs/Town/Refiners/p3.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "p4-nsfw",
+      "path": "assets/img/NPCs/Town/Refiners/p4-nsfw.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "p4",
+      "path": "assets/img/NPCs/Town/Refiners/p4.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "p5-nsfw",
+      "path": "assets/img/NPCs/Town/Refiners/p5-nsfw.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "p5",
+      "path": "assets/img/NPCs/Town/Refiners/p5.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "p6-1",
+      "path": "assets/img/NPCs/Town/Refiners/p6-1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "p6-2",
+      "path": "assets/img/NPCs/Town/Refiners/p6-2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "p6-nsfw",
+      "path": "assets/img/NPCs/Town/Refiners/p6-nsfw.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "p6",
+      "path": "assets/img/NPCs/Town/Refiners/p6.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "p7-nsfw",
+      "path": "assets/img/NPCs/Town/Refiners/p7-nsfw.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "p7",
+      "path": "assets/img/NPCs/Town/Refiners/p7.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "p8-nsfw",
+      "path": "assets/img/NPCs/Town/Refiners/p8-nsfw.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "p8",
+      "path": "assets/img/NPCs/Town/Refiners/p8.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "p9-nsfw",
+      "path": "assets/img/NPCs/Town/Refiners/p9-nsfw.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "p9",
+      "path": "assets/img/NPCs/Town/Refiners/p9.webp",
+      "ext": ".webp",
+      "kind": "image"
+    }
+  ],
+  "maidens": [
+    {
+      "name": "Akara",
+      "path": "assets/img/NPCs/Maidens/Akara.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Aura Master",
+      "path": "assets/img/NPCs/Maidens/Aura Master.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Calistra",
+      "path": "assets/img/NPCs/Maidens/Calistra.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Dravenna",
+      "path": "assets/img/NPCs/Maidens/Dravenna.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Elira",
+      "path": "assets/img/NPCs/Maidens/Elira.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Enchantress",
+      "path": "assets/img/NPCs/Maidens/Enchantress.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Isolde",
+      "path": "assets/img/NPCs/Maidens/Isolde.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Kaelenne",
+      "path": "assets/img/NPCs/Maidens/Kaelenne.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Lilith",
+      "path": "assets/img/NPCs/Maidens/Lilith.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Maerith",
+      "path": "assets/img/NPCs/Maidens/Maerith.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Morrigan",
+      "path": "assets/img/NPCs/Maidens/Morrigan.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Noctira",
+      "path": "assets/img/NPCs/Maidens/Noctira.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Nyxara",
+      "path": "assets/img/NPCs/Maidens/Nyxara.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Orlith",
+      "path": "assets/img/NPCs/Maidens/Orlith.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Seraphine",
+      "path": "assets/img/NPCs/Maidens/Seraphine.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Sylvara",
+      "path": "assets/img/NPCs/Maidens/Sylvara.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Thalira",
+      "path": "assets/img/NPCs/Maidens/Thalira.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Vaelith",
+      "path": "assets/img/NPCs/Maidens/Vaelith.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Veyra",
+      "path": "assets/img/NPCs/Maidens/Veyra.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "Zephyra",
+      "path": "assets/img/NPCs/Maidens/Zephyra.webp",
+      "ext": ".webp",
+      "kind": "image"
+    }
+  ],
+  "equipment": [
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Axe/Beginner/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Axe/Demons/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Axe/Demons/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Axe/Demons/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Axe/Demons/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Axe/Demons/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Axe/Demons/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Axe/Demons/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "SR",
+      "path": "assets/img/Equipment/Axe/Demons/SR.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Axe/Dragons/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Axe/Dragons/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Axe/Dragons/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Axe/Dragons/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Axe/Dragons/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Axe/Dragons/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Axe/Dragons/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "SR",
+      "path": "assets/img/Equipment/Axe/Dragons/SR.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Axe/Fallen/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Axe/Fallen/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Axe/Fallen/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Axe/Fallen/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Axe/Fallen/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Axe/Fallen/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Axe/Fallen/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-A",
+      "path": "assets/img/Equipment/Axe/Regular/1-A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-B",
+      "path": "assets/img/Equipment/Axe/Regular/1-B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-C",
+      "path": "assets/img/Equipment/Axe/Regular/1-C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-D",
+      "path": "assets/img/Equipment/Axe/Regular/1-D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-E",
+      "path": "assets/img/Equipment/Axe/Regular/1-E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-F",
+      "path": "assets/img/Equipment/Axe/Regular/1-F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-S",
+      "path": "assets/img/Equipment/Axe/Regular/1-S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "G",
+      "path": "assets/img/Equipment/Breastplate/Beginner/G.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Breastplate/Fallen/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Breastplate/Fallen/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Breastplate/Fallen/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Breastplate/Fallen/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Breastplate/Fallen/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Breastplate/Fallen/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Breastplate/Fallen/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "SR",
+      "path": "assets/img/Equipment/Breastplate/Fallen/SR.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Breastplate/Goblin/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Breastplate/Goblin/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Breastplate/Goblin/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Breastplate/Goblin/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Breastplate/Goblin/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Breastplate/Goblin/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Breastplate/Goblin/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Breastplate/Kobold/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Breastplate/Kobold/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Breastplate/Kobold/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Breastplate/Kobold/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Breastplate/Kobold/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Breastplate/Kobold/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Breastplate/Kobold/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Dagger/Beginner/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Dagger/Cultist/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Dagger/Cultist/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Dagger/Cultist/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Dagger/Cultist/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Dagger/Cultist/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Dagger/Cultist/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Dagger/Cultist/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Dagger/Goblin/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Dagger/Goblin/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Dagger/Goblin/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Dagger/Goblin/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Dagger/Goblin/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Dagger/Goblin/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Dagger/Goblin/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Dagger/Kobold/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Dagger/Kobold/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Dagger/Kobold/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Dagger/Kobold/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Dagger/Kobold/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Dagger/Kobold/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Dagger/Kobold/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "G",
+      "path": "assets/img/Equipment/Gloves/Beginner/G.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Gloves/Fallen/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Gloves/Fallen/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Gloves/Fallen/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Gloves/Fallen/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Gloves/Fallen/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Gloves/Fallen/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Gloves/Fallen/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "SR",
+      "path": "assets/img/Equipment/Gloves/Fallen/SR.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Greatsword/Angels/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Greatsword/Angels/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Greatsword/Angels/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Greatsword/Angels/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Greatsword/Angels/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Greatsword/Angels/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Greatsword/Angels/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "SR",
+      "path": "assets/img/Equipment/Greatsword/Angels/SR.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Greatsword/Beginner/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "G",
+      "path": "assets/img/Equipment/Greaves/Beginner/G.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Greaves/Fallen/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Greaves/Fallen/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Greaves/Fallen/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Greaves/Fallen/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Greaves/Fallen/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Greaves/Fallen/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Greaves/Fallen/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "SR",
+      "path": "assets/img/Equipment/Greaves/Fallen/SR.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Hammer/Angels/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Hammer/Angels/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Hammer/Angels/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Hammer/Angels/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Hammer/Angels/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Hammer/Angels/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Hammer/Angels/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "SR",
+      "path": "assets/img/Equipment/Hammer/Angels/SR.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "G",
+      "path": "assets/img/Equipment/Hammer/Beginner/G.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Hammer/Ghost/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Hammer/Ghost/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Hammer/Ghost/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Hammer/Ghost/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Hammer/Ghost/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Hammer/Ghost/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Hammer/Ghost/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Hammer/Kobold/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Hammer/Kobold/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Hammer/Kobold/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Hammer/Kobold/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Hammer/Kobold/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Hammer/Kobold/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Hammer/Kobold/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-A",
+      "path": "assets/img/Equipment/Hammer/Regular/1-A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-B",
+      "path": "assets/img/Equipment/Hammer/Regular/1-B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-C",
+      "path": "assets/img/Equipment/Hammer/Regular/1-C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-D",
+      "path": "assets/img/Equipment/Hammer/Regular/1-D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-E",
+      "path": "assets/img/Equipment/Hammer/Regular/1-E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-F",
+      "path": "assets/img/Equipment/Hammer/Regular/1-F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-S",
+      "path": "assets/img/Equipment/Hammer/Regular/1-S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Helmet/Angels/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Helmet/Angels/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Helmet/Angels/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Helmet/Angels/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Helmet/Angels/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Helmet/Angels/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Helmet/Angels/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "SR",
+      "path": "assets/img/Equipment/Helmet/Angels/SR.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "G",
+      "path": "assets/img/Equipment/Helmet/Beginner/G.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Helmet/Fallen/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Helmet/Fallen/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Helmet/Fallen/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Helmet/Fallen/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Helmet/Fallen/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Helmet/Fallen/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Helmet/Fallen/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "SR",
+      "path": "assets/img/Equipment/Helmet/Fallen/SR.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Scythe/Arachne/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Scythe/Arachne/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Scythe/Arachne/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Scythe/Arachne/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Scythe/Arachne/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Scythe/Arachne/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Scythe/Arachne/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "SR",
+      "path": "assets/img/Equipment/Scythe/Arachne/SR.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Scythe/Beginner/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-A",
+      "path": "assets/img/Equipment/Scythe/Regular/1-A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-B",
+      "path": "assets/img/Equipment/Scythe/Regular/1-B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-C",
+      "path": "assets/img/Equipment/Scythe/Regular/1-C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-D",
+      "path": "assets/img/Equipment/Scythe/Regular/1-D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-E",
+      "path": "assets/img/Equipment/Scythe/Regular/1-E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-F",
+      "path": "assets/img/Equipment/Scythe/Regular/1-F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-S",
+      "path": "assets/img/Equipment/Scythe/Regular/1-S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Scythe/Zombies/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Scythe/Zombies/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Scythe/Zombies/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Scythe/Zombies/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Scythe/Zombies/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Scythe/Zombies/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Scythe/Zombies/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Shield/Angels/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Shield/Angels/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Shield/Angels/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Shield/Angels/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Shield/Angels/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Shield/Angels/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Shield/Angels/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "SR",
+      "path": "assets/img/Equipment/Shield/Angels/SR.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Shield/Fallen/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Shield/Fallen/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Shield/Fallen/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Shield/Fallen/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Shield/Fallen/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Shield/Fallen/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Shield/Fallen/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "SR",
+      "path": "assets/img/Equipment/Shield/Fallen/SR.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Shield/Zombie/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Shield/Zombie/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Shield/Zombie/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Shield/Zombie/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Shield/Zombie/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Shield/Zombie/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Shield/Zombie/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Spear/Angel/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Spear/Angel/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Spear/Angel/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Spear/Angel/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Spear/Angel/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Spear/Angel/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Spear/Angel/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "SR",
+      "path": "assets/img/Equipment/Spear/Angel/SR.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Spear/Beginner/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Spear/Dragons/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Spear/Dragons/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Spear/Dragons/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Spear/Dragons/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Spear/Dragons/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Spear/Dragons/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Spear/Dragons/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Spear/Goblins/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Spear/Goblins/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Spear/Goblins/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Spear/Goblins/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Spear/Goblins/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Spear/Goblins/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Spear/Goblins/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Sword/Beginner/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Sword/Fallen/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Sword/Fallen/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Sword/Fallen/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Sword/Fallen/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Sword/Fallen/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Sword/Fallen/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Sword/Fallen/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-A",
+      "path": "assets/img/Equipment/Sword/Regular/1-A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-B",
+      "path": "assets/img/Equipment/Sword/Regular/1-B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-C",
+      "path": "assets/img/Equipment/Sword/Regular/1-C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-D",
+      "path": "assets/img/Equipment/Sword/Regular/1-D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-E",
+      "path": "assets/img/Equipment/Sword/Regular/1-E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-F",
+      "path": "assets/img/Equipment/Sword/Regular/1-F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-S",
+      "path": "assets/img/Equipment/Sword/Regular/1-S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Sword/Skeletons/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Sword/Skeletons/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Sword/Skeletons/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Sword/Skeletons/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Sword/Skeletons/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Sword/Skeletons/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Sword/Skeletons/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Twinswords/Beginner/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "A",
+      "path": "assets/img/Equipment/Twinswords/Fallen/A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "B",
+      "path": "assets/img/Equipment/Twinswords/Fallen/B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "C",
+      "path": "assets/img/Equipment/Twinswords/Fallen/C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "D",
+      "path": "assets/img/Equipment/Twinswords/Fallen/D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "E",
+      "path": "assets/img/Equipment/Twinswords/Fallen/E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "F",
+      "path": "assets/img/Equipment/Twinswords/Fallen/F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "S",
+      "path": "assets/img/Equipment/Twinswords/Fallen/S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "SR",
+      "path": "assets/img/Equipment/Twinswords/Fallen/SR.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-A",
+      "path": "assets/img/Equipment/Twinswords/Regular/1-A.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-B",
+      "path": "assets/img/Equipment/Twinswords/Regular/1-B.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-C",
+      "path": "assets/img/Equipment/Twinswords/Regular/1-C.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-D",
+      "path": "assets/img/Equipment/Twinswords/Regular/1-D.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-E",
+      "path": "assets/img/Equipment/Twinswords/Regular/1-E.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-F",
+      "path": "assets/img/Equipment/Twinswords/Regular/1-F.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-S",
+      "path": "assets/img/Equipment/Twinswords/Regular/1-S.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-SR",
+      "path": "assets/img/Equipment/Twinswords/Regular/1-SR.webp",
+      "ext": ".webp",
+      "kind": "image"
+    }
+  ],
+  "mobs": [
+    {
+      "name": "1",
+      "path": "assets/img/Mobs/Abyss/1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "10",
+      "path": "assets/img/Mobs/Abyss/10.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "11",
+      "path": "assets/img/Mobs/Abyss/11.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "12",
+      "path": "assets/img/Mobs/Abyss/12.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "13",
+      "path": "assets/img/Mobs/Abyss/13.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "14",
+      "path": "assets/img/Mobs/Abyss/14.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "15",
+      "path": "assets/img/Mobs/Abyss/15.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "16",
+      "path": "assets/img/Mobs/Abyss/16.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "17",
+      "path": "assets/img/Mobs/Abyss/17.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "18",
+      "path": "assets/img/Mobs/Abyss/18.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "19",
+      "path": "assets/img/Mobs/Abyss/19.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2",
+      "path": "assets/img/Mobs/Abyss/2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "20",
+      "path": "assets/img/Mobs/Abyss/20.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "21",
+      "path": "assets/img/Mobs/Abyss/21.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "22",
+      "path": "assets/img/Mobs/Abyss/22.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "23",
+      "path": "assets/img/Mobs/Abyss/23.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "24",
+      "path": "assets/img/Mobs/Abyss/24.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3",
+      "path": "assets/img/Mobs/Abyss/3.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "4",
+      "path": "assets/img/Mobs/Abyss/4.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "5",
+      "path": "assets/img/Mobs/Abyss/5.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "6",
+      "path": "assets/img/Mobs/Abyss/6.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "7",
+      "path": "assets/img/Mobs/Abyss/7.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "8",
+      "path": "assets/img/Mobs/Abyss/8.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "9",
+      "path": "assets/img/Mobs/Abyss/9.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "apex",
+      "path": "assets/img/Mobs/Abyss/apex.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "boss",
+      "path": "assets/img/Mobs/Abyss/boss.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-elite",
+      "path": "assets/img/Mobs/Angels/1-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1",
+      "path": "assets/img/Mobs/Angels/1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2-elite",
+      "path": "assets/img/Mobs/Angels/2-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2",
+      "path": "assets/img/Mobs/Angels/2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3-elite",
+      "path": "assets/img/Mobs/Angels/3-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3",
+      "path": "assets/img/Mobs/Angels/3.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "4-elite",
+      "path": "assets/img/Mobs/Angels/4-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "4",
+      "path": "assets/img/Mobs/Angels/4.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "5-elite",
+      "path": "assets/img/Mobs/Angels/5-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "5",
+      "path": "assets/img/Mobs/Angels/5.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "apex",
+      "path": "assets/img/Mobs/Angels/apex.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "apex2",
+      "path": "assets/img/Mobs/Angels/apex2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "apex3",
+      "path": "assets/img/Mobs/Angels/apex3.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "boss",
+      "path": "assets/img/Mobs/Angels/boss.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-elite",
+      "path": "assets/img/Mobs/Arachne/1-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1",
+      "path": "assets/img/Mobs/Arachne/1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2-elite",
+      "path": "assets/img/Mobs/Arachne/2-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2",
+      "path": "assets/img/Mobs/Arachne/2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3-elite",
+      "path": "assets/img/Mobs/Arachne/3-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3",
+      "path": "assets/img/Mobs/Arachne/3.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "apex",
+      "path": "assets/img/Mobs/Arachne/apex.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "boss",
+      "path": "assets/img/Mobs/Arachne/boss.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-elite",
+      "path": "assets/img/Mobs/Cultists/1-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1",
+      "path": "assets/img/Mobs/Cultists/1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2-elite",
+      "path": "assets/img/Mobs/Cultists/2-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2",
+      "path": "assets/img/Mobs/Cultists/2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3-elite",
+      "path": "assets/img/Mobs/Cultists/3-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3",
+      "path": "assets/img/Mobs/Cultists/3.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "apex",
+      "path": "assets/img/Mobs/Cultists/apex.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "boss",
+      "path": "assets/img/Mobs/Cultists/boss.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-elite",
+      "path": "assets/img/Mobs/Demons/1-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1",
+      "path": "assets/img/Mobs/Demons/1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2-elite",
+      "path": "assets/img/Mobs/Demons/2-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2",
+      "path": "assets/img/Mobs/Demons/2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3",
+      "path": "assets/img/Mobs/Demons/3.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "4-elite",
+      "path": "assets/img/Mobs/Demons/4-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "4",
+      "path": "assets/img/Mobs/Demons/4.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "5-elite",
+      "path": "assets/img/Mobs/Demons/5-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "5",
+      "path": "assets/img/Mobs/Demons/5.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "apex",
+      "path": "assets/img/Mobs/Demons/apex.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "boss",
+      "path": "assets/img/Mobs/Demons/boss.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-elite",
+      "path": "assets/img/Mobs/Dragons/1-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1",
+      "path": "assets/img/Mobs/Dragons/1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2-elite",
+      "path": "assets/img/Mobs/Dragons/2-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2",
+      "path": "assets/img/Mobs/Dragons/2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3-elite",
+      "path": "assets/img/Mobs/Dragons/3-elite.jpeg",
+      "ext": ".jpeg",
+      "kind": "image"
+    },
+    {
+      "name": "3-elite",
+      "path": "assets/img/Mobs/Dragons/3-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3",
+      "path": "assets/img/Mobs/Dragons/3.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "4-elite",
+      "path": "assets/img/Mobs/Dragons/4-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "4",
+      "path": "assets/img/Mobs/Dragons/4.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "5-elite",
+      "path": "assets/img/Mobs/Dragons/5-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "5",
+      "path": "assets/img/Mobs/Dragons/5.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "apex",
+      "path": "assets/img/Mobs/Dragons/apex.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "boss",
+      "path": "assets/img/Mobs/Dragons/boss.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-elite",
+      "path": "assets/img/Mobs/Fallen/1-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1",
+      "path": "assets/img/Mobs/Fallen/1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2-elite",
+      "path": "assets/img/Mobs/Fallen/2-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2",
+      "path": "assets/img/Mobs/Fallen/2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3-elite",
+      "path": "assets/img/Mobs/Fallen/3-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3",
+      "path": "assets/img/Mobs/Fallen/3.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "4-elite",
+      "path": "assets/img/Mobs/Fallen/4-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "4",
+      "path": "assets/img/Mobs/Fallen/4.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "5-elite",
+      "path": "assets/img/Mobs/Fallen/5-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "5",
+      "path": "assets/img/Mobs/Fallen/5.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "6-elite",
+      "path": "assets/img/Mobs/Fallen/6-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "6",
+      "path": "assets/img/Mobs/Fallen/6.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "7-elite",
+      "path": "assets/img/Mobs/Fallen/7-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "7",
+      "path": "assets/img/Mobs/Fallen/7.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "apex",
+      "path": "assets/img/Mobs/Fallen/apex.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "boss",
+      "path": "assets/img/Mobs/Fallen/boss.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "boss2",
+      "path": "assets/img/Mobs/Fallen/boss2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-elite",
+      "path": "assets/img/Mobs/Ghosts/1-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1",
+      "path": "assets/img/Mobs/Ghosts/1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2-elite",
+      "path": "assets/img/Mobs/Ghosts/2-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2",
+      "path": "assets/img/Mobs/Ghosts/2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3-elite",
+      "path": "assets/img/Mobs/Ghosts/3-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3",
+      "path": "assets/img/Mobs/Ghosts/3.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "4-elite",
+      "path": "assets/img/Mobs/Ghosts/4-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "4",
+      "path": "assets/img/Mobs/Ghosts/4.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "apex",
+      "path": "assets/img/Mobs/Ghosts/apex.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "boss",
+      "path": "assets/img/Mobs/Ghosts/boss.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-elite",
+      "path": "assets/img/Mobs/Goblins/1-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1",
+      "path": "assets/img/Mobs/Goblins/1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2-elite",
+      "path": "assets/img/Mobs/Goblins/2-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2",
+      "path": "assets/img/Mobs/Goblins/2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3-elite",
+      "path": "assets/img/Mobs/Goblins/3-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3",
+      "path": "assets/img/Mobs/Goblins/3.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "4-elite",
+      "path": "assets/img/Mobs/Goblins/4-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "4",
+      "path": "assets/img/Mobs/Goblins/4.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "apex",
+      "path": "assets/img/Mobs/Goblins/apex.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "boss",
+      "path": "assets/img/Mobs/Goblins/boss.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1",
+      "path": "assets/img/Mobs/Hero/1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2",
+      "path": "assets/img/Mobs/Hero/2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3",
+      "path": "assets/img/Mobs/Hero/3.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "4",
+      "path": "assets/img/Mobs/Hero/4.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "5",
+      "path": "assets/img/Mobs/Hero/5.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-elite",
+      "path": "assets/img/Mobs/Kobolds/1-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1",
+      "path": "assets/img/Mobs/Kobolds/1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2-elite",
+      "path": "assets/img/Mobs/Kobolds/2-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2",
+      "path": "assets/img/Mobs/Kobolds/2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3-elite",
+      "path": "assets/img/Mobs/Kobolds/3-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3",
+      "path": "assets/img/Mobs/Kobolds/3.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "4-elite",
+      "path": "assets/img/Mobs/Kobolds/4-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "4",
+      "path": "assets/img/Mobs/Kobolds/4.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "apex",
+      "path": "assets/img/Mobs/Kobolds/apex.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "boss",
+      "path": "assets/img/Mobs/Kobolds/boss.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "chest-elite",
+      "path": "assets/img/Mobs/Neutrals/chest-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "chest",
+      "path": "assets/img/Mobs/Neutrals/chest.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "death-elite",
+      "path": "assets/img/Mobs/Neutrals/death-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "death",
+      "path": "assets/img/Mobs/Neutrals/death.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "door-elite",
+      "path": "assets/img/Mobs/Neutrals/door-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "door",
+      "path": "assets/img/Mobs/Neutrals/door.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "eye1-elite",
+      "path": "assets/img/Mobs/Neutrals/eye1-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "eye1",
+      "path": "assets/img/Mobs/Neutrals/eye1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "eye2-elite",
+      "path": "assets/img/Mobs/Neutrals/eye2-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "eye2",
+      "path": "assets/img/Mobs/Neutrals/eye2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "goldgoblin_1",
+      "path": "assets/img/Mobs/Neutrals/goldgoblin_1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "goldgoblin-elite",
+      "path": "assets/img/Mobs/Neutrals/goldgoblin-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "goldgoblin",
+      "path": "assets/img/Mobs/Neutrals/goldgoblin.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "magmaGolem-elite",
+      "path": "assets/img/Mobs/Neutrals/magmaGolem-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "magmaGolem",
+      "path": "assets/img/Mobs/Neutrals/magmaGolem.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "nurse1-elite",
+      "path": "assets/img/Mobs/Neutrals/nurse1-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "nurse1",
+      "path": "assets/img/Mobs/Neutrals/nurse1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "nurse2-elite",
+      "path": "assets/img/Mobs/Neutrals/nurse2-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "nurse2",
+      "path": "assets/img/Mobs/Neutrals/nurse2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "nurse3-elite",
+      "path": "assets/img/Mobs/Neutrals/nurse3-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "nurse3",
+      "path": "assets/img/Mobs/Neutrals/nurse3.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "stoneGolem-elite",
+      "path": "assets/img/Mobs/Neutrals/stoneGolem-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "stoneGolem",
+      "path": "assets/img/Mobs/Neutrals/stoneGolem.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "windGolem-elite",
+      "path": "assets/img/Mobs/Neutrals/windGolem-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "windGolem",
+      "path": "assets/img/Mobs/Neutrals/windGolem.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-elite",
+      "path": "assets/img/Mobs/Skeletons/1-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1",
+      "path": "assets/img/Mobs/Skeletons/1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2-elite",
+      "path": "assets/img/Mobs/Skeletons/2-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2",
+      "path": "assets/img/Mobs/Skeletons/2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3-elite",
+      "path": "assets/img/Mobs/Skeletons/3-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3",
+      "path": "assets/img/Mobs/Skeletons/3.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "apex",
+      "path": "assets/img/Mobs/Skeletons/apex.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "boss",
+      "path": "assets/img/Mobs/Skeletons/boss.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-elite",
+      "path": "assets/img/Mobs/Slimes/1-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1",
+      "path": "assets/img/Mobs/Slimes/1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2-elite",
+      "path": "assets/img/Mobs/Slimes/2-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2",
+      "path": "assets/img/Mobs/Slimes/2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3-elite",
+      "path": "assets/img/Mobs/Slimes/3-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3",
+      "path": "assets/img/Mobs/Slimes/3.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "apex",
+      "path": "assets/img/Mobs/Slimes/apex.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "boss",
+      "path": "assets/img/Mobs/Slimes/boss.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1-elite",
+      "path": "assets/img/Mobs/Zombies/1-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "1",
+      "path": "assets/img/Mobs/Zombies/1.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2-elite",
+      "path": "assets/img/Mobs/Zombies/2-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "2",
+      "path": "assets/img/Mobs/Zombies/2.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3-elite",
+      "path": "assets/img/Mobs/Zombies/3-elite.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "3",
+      "path": "assets/img/Mobs/Zombies/3.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "apex",
+      "path": "assets/img/Mobs/Zombies/apex.webp",
+      "ext": ".webp",
+      "kind": "image"
+    },
+    {
+      "name": "boss",
+      "path": "assets/img/Mobs/Zombies/boss.webp",
+      "ext": ".webp",
+      "kind": "image"
+    }
+  ],
+  "materials": [],
+  "icons": [
+    {
+      "name": "atk",
+      "path": "assets/icons/atk.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "cross",
+      "path": "assets/icons/cross.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "crossed-swords-white-cropped",
+      "path": "assets/icons/crossed-swords-white-cropped.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "crossed-swords-white",
+      "path": "assets/icons/crossed-swords-white.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "crossed-swords",
+      "path": "assets/icons/crossed-swords.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "def",
+      "path": "assets/icons/def.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "gate",
+      "path": "assets/icons/gate.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "hp",
+      "path": "assets/icons/hp.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "noun-anvil-6823457",
+      "path": "assets/icons/noun-anvil-6823457.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "noun-coin-5747640",
+      "path": "assets/icons/noun-coin-5747640.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "noun-fire-7792492",
+      "path": "assets/icons/noun-fire-7792492.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "noun-flower-294304",
+      "path": "assets/icons/noun-flower-294304.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "noun-grimoire-7656384",
+      "path": "assets/icons/noun-grimoire-7656384.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "noun-guild",
+      "path": "assets/icons/noun-guild.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "noun-item-rune-stone-2360138",
+      "path": "assets/icons/noun-item-rune-stone-2360138.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "noun-knife-8088598",
+      "path": "assets/icons/noun-knife-8088598.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "noun-knight-helmet-1338620",
+      "path": "assets/icons/noun-knight-helmet-1338620.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "noun-potion-flask-3340871",
+      "path": "assets/icons/noun-potion-flask-3340871.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "noun-pouch-3244756",
+      "path": "assets/icons/noun-pouch-3244756.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "noun-shield-6691280",
+      "path": "assets/icons/noun-shield-6691280.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "noun-sparkle-7902439",
+      "path": "assets/icons/noun-sparkle-7902439.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "noun-star-tarot-4435321",
+      "path": "assets/icons/noun-star-tarot-4435321.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "noun-sun-8284237",
+      "path": "assets/icons/noun-sun-8284237.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "noun-sword-3273851",
+      "path": "assets/icons/noun-sword-3273851.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "skull",
+      "path": "assets/icons/skull.svg",
+      "ext": ".svg",
+      "kind": "image"
+    },
+    {
+      "name": "spd",
+      "path": "assets/icons/spd.svg",
+      "ext": ".svg",
+      "kind": "image"
+    }
+  ],
+  "videos": [
+    {
+      "name": "Bladewind_idle",
+      "path": "assets/vid/Bladewind_idle.webm",
+      "ext": ".webm",
+      "kind": "video"
+    },
+    {
+      "name": "Dravenna_idle",
+      "path": "assets/vid/Dravenna_idle.webm",
+      "ext": ".webm",
+      "kind": "video"
+    },
+    {
+      "name": "Reaper_idle",
+      "path": "assets/vid/Reaper_idle.webm",
+      "ext": ".webm",
+      "kind": "video"
+    }
+  ],
+  "audio": [
+    {
+      "name": "click",
+      "path": "assets/audio/click.wav",
+      "ext": ".wav",
+      "kind": "audio"
+    },
+    {
+      "name": "death",
+      "path": "assets/audio/death.wav",
+      "ext": ".wav",
+      "kind": "audio"
+    },
+    {
+      "name": "hit1",
+      "path": "assets/audio/hit1.wav",
+      "ext": ".wav",
+      "kind": "audio"
+    },
+    {
+      "name": "hit2",
+      "path": "assets/audio/hit2.wav",
+      "ext": ".wav",
+      "kind": "audio"
+    },
+    {
+      "name": "hit3",
+      "path": "assets/audio/hit3.wav",
+      "ext": ".wav",
+      "kind": "audio"
+    }
+  ]
+}

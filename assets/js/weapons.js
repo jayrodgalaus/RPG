@@ -39,11 +39,13 @@ const weaponList = [
     {id: 19, category:"weapon", name: "Twin Swords", type: weaponTypes[4], mob: "fallen", img: eqp_path + "Twinswords/Fallen/" },
     // Angel
     {id: 20, category:"weapon", name: "Shilluk", type: weaponTypes[7], mob: "angels", img: eqp_path + "Spear/Angel/" },
+    {id: 21, category:"weapon", name: "Greatsword", type: weaponTypes[5], mob: "angels", img: eqp_path + "Greatsword/Angels/" },
+    {id: 22, category:"weapon", name: "Crucifixer", type: weaponTypes[2], mob: "angels", img: eqp_path + "Hammer/Angels/" },
     // Dragon
-    {id: 21, category:"weapon", name: "Anuak", type: weaponTypes[7], mob: "dragons", img: eqp_path + "Spear/Dragons/" },
+    {id: 23, category:"weapon", name: "Anuak", type: weaponTypes[7], mob: "dragons", img: eqp_path + "Spear/Dragons/" },
+    {id: 24, category:"weapon", name: "War Axe", type: weaponTypes[1], mob: "dragons", img: eqp_path + "Axe/Dragons/" },
     // Demon
-    {id: 22, category:"weapon", name: "Halberd", type: weaponTypes[1], mob: "demons", img: eqp_path + "Axe/Demons/" } // placeholder since demon entry wasn’t defined
-    // {id: 23, category:"weapon", name: "???", type: weaponTypes[?], mob: "demons", img: eqp_path + "???" } // placeholder since demon entry wasn’t defined
+    {id: 25, category:"weapon", name: "Halberd", type: weaponTypes[1], mob: "demons", img: eqp_path + "Axe/Demons/" },
 ];
 
 
