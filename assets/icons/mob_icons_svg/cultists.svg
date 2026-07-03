@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+<style>
+  .w{fill:#fff;stroke:none;}
+  .s{fill:none;stroke:#fff;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;}
+</style>
+
+<circle class="s" cx="64" cy="64" r="42"/>
+<path class="s" d="M64 28 L74 56 L104 56 L80 74 L88 100 L64 84 L40 100 L48 74 L24 56 L54 56 Z"/>
+
+</svg>
